@@ -146,3 +146,7 @@ See the [translation policy](docs/TRANSLATION-POLICY.md) before submitting a lan
 the [roadmap](docs/ROADMAP.md) for where this is going. See also the
 [security policy](SECURITY.md), the [code of conduct](CODE_OF_CONDUCT.md), and
 [ways to support the project](SUPPORT.md).
+
+## Contact
+
+Open to conversation and collaboration — a question, a correction, an integration you're building, a publisher or platform wanting to adopt the scale, or a standards group looking to fold in the ideas. Reach me at **[karauda.com/contact](https://karauda.com/contact)**.
