@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import TranslationNotice from '../../components/TranslationNotice.astro';
-import { badgeSvg, levelAlt } from '../../lib/levels';
+import { badgeSvg, levelAlt, adaptiveMark } from '../../lib/levels';
 import { localeParams, getLocale, levelsIn, localePath } from '../../lib/i18n';
 
 export const getStaticPaths = localeParams;
@@ -34,8 +34,8 @@ const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
     {
       LEVELS.map((l) => (
         <div class="cell">
-          <a href={L(`/${l.id}`)} class="cell-mark" set:html={badgeSvg(l.id, 'stamp', false, alt(l))} />
-          <div class="cell-chip" set:html={badgeSvg(l.id, 'chip', false, alt(l))} />
+          <a href={L(`/${l.id}`)} class="cell-mark" set:html={adaptiveMark(l.id, 'stamp', alt(l))} />
+          <div class="cell-chip" set:html={adaptiveMark(l.id, 'chip', alt(l))} />
           <p class="cell-links">
             <a href={`/badge/${l.id}.svg`}>chip.svg</a>
             <a href={`/badge/${l.id}-stamp.svg`}>stamp.svg</a>

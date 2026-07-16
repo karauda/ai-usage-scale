@@ -1,5 +1,5 @@
 ---
-import { badgeSvg, levelAlt } from '../lib/levels';
+import { levelAlt, adaptiveMark } from '../lib/levels';
 import { DEFAULT_LANG } from '../lib/i18n';
 
 interface Props {
@@ -26,7 +26,7 @@ const useStamp = lang === DEFAULT_LANG;
 
 {
   useStamp ? (
-    <div class="mark stamp" set:html={badgeSvg(id, 'stamp', false, levelAlt({ id, name, oneLine }))} />
+    <div class="mark stamp" set:html={adaptiveMark(id, 'stamp', levelAlt({ id, name, oneLine }))} />
   ) : (
     <div class="mark local">
       <span class="big">{id}</span>
