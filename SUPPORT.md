@@ -14,3 +14,9 @@ If financial sponsorship is enabled later, its use and sponsors should be disclo
 publicly. Funding must never buy a level definition, certification, preferred status
 or control over the standard.
 
+## Get in touch
+
+Open to conversation and collaboration — adoption, integration, standards work, or a
+question. Reach the maintainer at [karauda.com/contact](https://karauda.com/contact).
+Bugs and proposals are best as public issues; anything else, the contact form is fine.
+
