@@ -1,0 +1,388 @@
+{
+  "lang": "de",
+  "name": "German",
+  "endonym": "Deutsch",
+  "dir": "ltr",
+  "translation": { "by": "machine" },
+  "principle": "Kein Level steht über einem anderen. Eine Skala, die ihre eigenen Level in eine Rangfolge bringt, ist eine Schamleiter, und alle lügen sich auf ihr nach unten. Das einzige unehrliche Level ist ein nicht deklariertes.",
+  "axis": {
+    "measures": "Die Rolle, die künstliche Intelligenz bei der Entstehung des Werks gespielt hat: wessen Substanz darin steckt und wer dafür geradesteht.",
+    "doesNotMeasure": "Den Anteil der Zeichen, Pixel oder Samples, die ein Modell ausgegeben hat. Diese Zahl verurteilt den Experten, der dreißig Jahre Praxis diktiert, und spricht niemanden frei."
+  },
+  "surfaces": {
+    "note": "Optional. Eine einzelne Zahl beschreibt das Werk als Ganzes. Wenn einzelne Teile stark davon abweichen, deklariere sie. Das Badge zeigt immer eine Zahl; die Aufschlüsselung liegt hinter dem Link.",
+    "headlineRule": "Das Hauptlevel beschreibt den Teil des Werks, der seine Bedeutung trägt. Dekoratives Material, das ein vernünftiges Publikum nicht als wesentlich für das Werk ansehen würde, bestimmt nicht das Hauptlevel — deklariere es stattdessen hier."
+  },
+  "levels": [
+    {
+      "id": 0,
+      "name": "Mensch",
+      "oneLine": "Es wurde keine generative KI eingesetzt.",
+      "definition": "An keiner Stelle der Entstehung dieses Werks war generative KI beteiligt. Nicht-generative Werkzeuge — Rechtschreibprüfung, Autokorrektur, Autofokus, Rauschunterdrückung, Suchmaschinen, Taschenrechner, Farbkorrektur, Compiler — sind keine generative KI und ändern nichts an diesem Level.",
+      "includes": [
+        "Selbst schreiben, zeichnen, fotografieren, aufnehmen, einspielen oder programmieren",
+        "Klassische Software: Textverarbeitung, Lightroom, Pro Tools, ein Compiler, eine Kamera",
+        "Eine Suchmaschine nutzen, um Quellen zu finden, die du anschließend selbst liest",
+        "Nicht-generatives maschinelles Lernen: Autofokus, Entrauschen, Hochskalieren, das nichts erfindet"
+      ],
+      "excludes": [
+        "Jede Nutzung eines Sprach-, Bild- oder Audiomodells, dessen Ausgabe ins Werk gelangt ist",
+        "KI-generierte Stockbilder, auch als bloße Dekoration — deklariere das unter Bereiche"
+      ],
+      "examples": [
+        "Ein Essay, von Hand geschrieben und überarbeitet.",
+        "Ein Foto, mit einer Kamera aufgenommen und in Lightroom bearbeitet.",
+        "Ein Song, auf echten Instrumenten eingespielt und von einem Tontechniker gemischt.",
+        "Eine Website, von einem Entwickler ohne KI-Assistenten programmiert."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Level 0 — Mensch.",
+        "medium": "Bei der Entstehung dieses Werks wurde keine generative KI eingesetzt. Level 0 der AI Usage Scale.",
+        "long": "Dieses Werk ist ohne generative KI entstanden. Kein Text, kein Bild, kein Audio, kein Video und kein Code darin wurde von einem Modell erzeugt. Das ist Level 0 der AI Usage Scale, eines offenen Standards für die Deklaration, wie ein Werk entstanden ist."
+      }
+    },
+    {
+      "id": 1,
+      "name": "Unterstützt",
+      "oneLine": "KI hat nur an Material gearbeitet, das du bereits geschaffen hattest. Sie hat nichts erfunden.",
+      "definition": "Du hast das Werk geschaffen. KI hat dein Material lediglich verarbeitet oder im Hintergrund geholfen: korrigiert, originalgetreu transkribiert oder übersetzt, bereinigt, verschlagwortet, formatiert, durchsucht oder Feedback gegeben. Abgesehen von einer originalgetreuen Transkription oder Übersetzung deines Materials erscheint im veröffentlichten Werk kein von einem Modell erzeugtes Material.",
+      "includes": [
+        "Grammatik-, Rechtschreib- und Stilkorrektur an Sätzen, die du geschrieben hast",
+        "Transkription von Audio, das du aufgenommen hast",
+        "Entrauschen, Freistellen oder Hochskalieren eines Bildes, das du aufgenommen hast",
+        "Verschlagworten, Formatieren, Zusammenfassen für den eigenen Gebrauch oder das Durchsuchen des eigenen Archivs",
+        "KI nutzen, um Quellen zu finden, die du anschließend selbst liest und prüfst"
+      ],
+      "excludes": [
+        "KI entwirft einen Satz, einen Absatz, ein Bild oder eine Melodie, die es ins Werk schafft — das ist Level 2 oder höher",
+        "KI strukturiert deine Argumentation um, nicht nur deine Prosa"
+      ],
+      "examples": [
+        "Ein Artikel, den du geschrieben und von einem Modell auf Grammatik hast prüfen lassen.",
+        "Ein Podcast, den du aufgenommen hast, von einem Modell für die Shownotes transkribiert.",
+        "Eine Arbeit, die du geschrieben hast, vor der Abgabe von einem Modell auf Tippfehler geprüft.",
+        "Code, den du geschrieben hast und bei dem ein KI-Assistent nur Variablen umbenannt und formatiert hat."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Level 1 — Unterstützt.",
+        "medium": "Vom Autor geschrieben; KI kam nur für mechanische Arbeiten wie Korrektur und Transkription zum Einsatz. Level 1 der AI Usage Scale.",
+        "long": "Der Autor hat dieses Werk geschaffen. KI wurde nur eingesetzt, um bereits vorhandenes Material zu verarbeiten — es zu korrigieren, zu transkribieren oder zu bereinigen. Kein Satz, kein Bild und kein Ton im veröffentlichten Werk wurde von einem Modell erfunden. Das ist Level 1 der AI Usage Scale."
+      }
+    },
+    {
+      "id": 2,
+      "name": "Mitgestaltet",
+      "oneLine": "Den größten Teil der endgültigen Form hast du geschaffen. KI hat Teile beigesteuert, die geblieben sind.",
+      "definition": "Das Werk ist in seiner Struktur und in weiten Teilen seiner Ausführung deins, aber Material, das ein Modell erzeugt hat, überlebt im veröffentlichten Ergebnis: Passagen, Elemente, Varianten, zwischen denen du gewählt hast. Den größten Teil dessen, was beim Publikum ankommt, hast du geschrieben, gezeichnet oder eingespielt.",
+      "includes": [
+        "KI entwirft einen Abschnitt, den du anschließend umschreibst, während deine Worte das Ganze prägen",
+        "KI erzeugt Varianten, aus denen du auswählst und die du bearbeitest",
+        "KI schreibt eine Funktion in einer Codebasis, die du entworfen und größtenteils selbst geschrieben hast",
+        "KI erweitert oder füllt einen Teil eines Bildes, das du komponiert hast"
+      ],
+      "excludes": [
+        "KI erzeugt den größten Teil der endgültigen Worte oder Pixel — das ist Level 3 oder höher",
+        "Rein mechanische Korrektur, bei der nichts erfunden wird — das ist Level 1"
+      ],
+      "examples": [
+        "Ein Essay, den du skizziert und weitgehend selbst geschrieben hast, mit zwei von KI entworfenen Absätzen, die du überarbeitet hast.",
+        "Ein Track, den du komponiert und eingespielt hast, mit einer KI-generierten Textur in der Bridge.",
+        "Ein Feature, das du entworfen und geschrieben hast, mit KI-geschriebenen Hilfsfunktionen, die du geprüft hast.",
+        "Ein Foto, das du aufgenommen hast, bei dem ein störendes Objekt durch generatives Füllen entfernt wurde."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Level 2 — Mitgestaltet.",
+        "medium": "Größtenteils vom Autor geschaffen; einzelnes Material wurde von KI erzeugt und beibehalten. Level 2 der AI Usage Scale.",
+        "long": "Den größten Teil dieses Werks hat der Autor geschaffen — die meisten Worte, Pixel oder Töne. Einzelnes von KI erzeugtes Material ist darin erhalten geblieben, vom Autor ausgewählt und bearbeitet. Das ist Level 2 der AI Usage Scale."
+      }
+    },
+    {
+      "id": 3,
+      "name": "Gesteuert",
+      "oneLine": "Die Substanz ist deine. Die Form hat die KI erzeugt.",
+      "definition": "Das werkbezogene Wissen, die Belege, die Argumentation, die Komposition oder die Vorgaben stammen von dir und bestimmen das Ergebnis maßgeblich. Ein Modell hat aus diesen originären Beiträgen den größten Teil der endgültigen Worte, Pixel oder Töne erzeugt. Du hast gesteuert, ausgewählt, korrigiert, substanziell geprüft und übernimmst die Verantwortung für das Ergebnis. Einen Prompt zu schreiben oder zu verfeinern reicht allein nicht aus.",
+      "note": "Das ist das Level, das das heutige binäre Etikett nicht sehen kann, und der Grund, warum es diese Skala gibt. Ein Experte, der diktiert, was er weiß, und ein Modell die Form geben lässt, hat keinen Betrug begangen. Er hat ein Werkzeug benutzt — und kann das jetzt endlich auch sagen.",
+      "includes": [
+        "Ein Experte liefert Wissen, Notizen, Daten oder ein detailliertes Briefing, das ein Modell in Prosa verwandelt",
+        "Ein Artdirector treibt ein Bild durch viele Runden präziser Anweisungen",
+        "Recherche, die du geführt hast, von einem Modell in ein Skript oder ein vertontes Video verwandelt",
+        "Eine Codebasis, die du im Detail spezifiziert und geprüft hast, größtenteils von einem KI-Agenten geschrieben"
+      ],
+      "excludes": [
+        "Ein Prompt oder iteratives Prompting, das keine eigene, werkbezogene Substanz beiträgt — das ist Level 4",
+        "Arbeit, bei der du den größten Teil der endgültigen Worte selbst geschrieben hast — das ist Level 2"
+      ],
+      "examples": [
+        "Ein Chirurg diktiert dreißig Jahre Praxis; ein Modell schreibt den Artikel; der Chirurg korrigiert und unterschreibt.",
+        "Aus den Rohnotizen und der Preisliste eines Gründers wird eine Landingpage, die ein Modell schreibt.",
+        "Ein Illustrator steuert vierzig Iterationen eines generierten Bildes auf eine bestimmte Komposition hin.",
+        "Aus dem Datensatz und den Ergebnissen eines Forschers wird ein Erklärvideo, gesprochen von einer synthetischen Stimme."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Level 3 — Gesteuert.",
+        "medium": "Wissen, Daten und Argumentation stammen vom Autor; die KI hat daraus den Text erzeugt. Level 3 der AI Usage Scale.",
+        "long": "Die Substanz dieses Werks — das Wissen, die Daten, die Argumentation, die Regie — stammt vom Autor. Ein Modell hat daraus den größten Teil der endgültigen Form erzeugt. Der Autor hat gesteuert, geprüft und übernimmt die Verantwortung für das, was darin steht. Das ist Level 3 der AI Usage Scale."
+      }
+    },
+    {
+      "id": 4,
+      "name": "Beauftragt",
+      "oneLine": "Substanz und Form stammen von der KI. Du hast gefragt, du hast geprüft, du stehst dafür gerade.",
+      "definition": "Ein Modell hat sowohl erzeugt, was das Werk sagt, als auch, wie es das sagt — aus einem Prompt, einer Vorlage oder einem Briefing, das wenig eigene, originäre und werkbezogene Substanz enthielt. Ein Mensch hat das fertige Werk substanziell geprüft, wesentliche Behauptungen bei Bedarf verifiziert und übernimmt die Verantwortung für die Veröffentlichung.",
+      "includes": [
+        "Ein Modell um Inhalte zu einem Thema bitten und sie nach einer Prüfung veröffentlichen",
+        "Generierte Werbetexte, Produktbeschreibungen oder Social-Media-Posts, vor dem Ausspielen geprüft",
+        "Stockbilder, aus einem kurzen Prompt generiert und vor der Nutzung geprüft",
+        "Von KI geschriebener Code, den du vor dem Merge gelesen und getestet hast"
+      ],
+      "excludes": [
+        "Arbeit, die auf Wissen, Daten oder einer Regie beruht, die wirklich von dir stammen — das ist Level 3",
+        "Veröffentlichen, ohne dass ein Mensch es gelesen hat — das ist Level 5"
+      ],
+      "examples": [
+        "„Schreib zehn Beiträge über Diabetes“ — gelesen, korrigiert, veröffentlicht.",
+        "Produktbeschreibungen, für einen Katalog generiert und von einem Menschen geprüft.",
+        "Ein generiertes Headerbild, vor der Auslieferung auf Fehler geprüft.",
+        "Die Zusammenfassung eines Dokuments, von einem Modell erstellt und gegen die Quelle geprüft."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Level 4 — Beauftragt.",
+        "medium": "Von KI aus einem Prompt erzeugt; von einem Menschen geprüft, der dafür geradesteht. Level 4 der AI Usage Scale.",
+        "long": "Substanz und Form dieses Werks stammen von einem Modell. Ein Mensch hat es angefordert, gelesen, geprüft und übernimmt die Verantwortung für die Veröffentlichung. Das ist Level 4 der AI Usage Scale."
+      }
+    },
+    {
+      "id": 5,
+      "name": "Automatisiert",
+      "oneLine": "Substanz und Form stammen von der KI. Kein Mensch hat es vor der Veröffentlichung gelesen.",
+      "definition": "Ein Modell hat das Werk erzeugt, und es wurde ohne menschliche Prüfung veröffentlicht. Das ist das ehrliche Level für automatisierte Pipelines, Massenerzeugung und Agenten, die selbstständig veröffentlichen. Für sehr viel legitime Arbeit ist es die richtige Antwort — und es auszusprechen ist genau das, was diese Arbeit legitim macht.",
+      "note": "Level 5 ist keine Anklage. Ein automatisierter Marktbericht, eine generierte Spielzusammenfassung, eine maschinell übersetzte Hilfeseite in großem Maßstab: All das ist auf Level 5 ehrlich und auf jedem anderen unehrlich. Die Deklaration einer 5 ist das, was ein automatisiertes System von einer Täuschung unterscheidet.",
+      "includes": [
+        "Geplantes oder agentisches Veröffentlichen, ohne dass ein Mensch dazwischensteht",
+        "Massenerzeugung von Seiten, Einträgen oder Zusammenfassungen",
+        "Live-Generierung auf Abruf, die einem Nutzer beim Entstehen angezeigt wird",
+        "Maschinelle Übersetzung, in großem Maßstab und ungeprüft veröffentlicht"
+      ],
+      "excludes": [
+        "Alles, was ein Mensch vor der Veröffentlichung tatsächlich gelesen hat — das ist Level 4"
+      ],
+      "examples": [
+        "Eine stündliche Marktzusammenfassung, von einem Skript erzeugt und gepostet.",
+        "Zehntausend Produktseiten, über Nacht generiert.",
+        "Die Antworten eines Chatbots, dem Nutzer beim Entstehen angezeigt.",
+        "Ein Agent, der nach Zeitplan einen Blog schreibt und veröffentlicht."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Level 5 — Automatisiert.",
+        "medium": "Von KI erzeugt und ohne menschliche Prüfung veröffentlicht. Level 5 der AI Usage Scale.",
+        "long": "Ein Modell hat dieses Werk erzeugt, und es wurde veröffentlicht, ohne dass ein Mensch es vorher gelesen hat. Das ist Level 5 der AI Usage Scale, die ehrliche Deklaration für automatisierte Systeme."
+      }
+    }
+  ],
+  "tree": [
+    {
+      "question": "Wurde bei der Entstehung dieses Werks generative KI eingesetzt?",
+      "help": "Generative KI meint ein Modell, das neuen Text, neue Bilder, neues Audio, neues Video oder neuen Code erzeugt. Berücksichtige KI, die für Recherche, Ideenfindung oder Feedback eingesetzt wurde, auch wenn ihre Ausgabe nicht im Werk erscheint. Rechtschreibprüfung, Autofokus, Noise-Gates, Suchmaschinen und Taschenrechner sind keine generative KI."
+    },
+    {
+      "question": "Hat die KI neues Material erzeugt, das im veröffentlichten Werk auftaucht — über das mechanische Verarbeiten dessen hinaus, was du bereits geschaffen hattest?",
+      "help": "Deine Grammatik korrigieren, deine Worte originalgetreu transkribieren oder übersetzen, dein Foto entrauschen oder deine Dateien verschlagworten ist mechanische Verarbeitung. Das gilt auch für Recherche, Ideenfindung oder Feedback, wenn dadurch kein vom Modell erzeugtes Material im Werk verbleibt. Einen neuen Absatz schreiben, ein neues Bild zeichnen oder eine neue Melodie komponieren ist neues Material."
+    },
+    {
+      "question": "Hast du den größten Teil der endgültigen Form selbst geschaffen — die meisten Worte, Pixel oder Töne?",
+      "help": "Beurteile das veröffentlichte Ergebnis, nicht den Aufwand. Wenn das meiste von dem, was ein Leser sieht oder hört, von dir getippt, gezeichnet oder eingespielt wurde, antworte mit Ja."
+    },
+    {
+      "question": "Ist die Substanz deine — das Wissen, die Daten, die Argumentation, die Regie?",
+      "help": "Substanz sind das werkbezogene Wissen, die Belege, die Argumentation, die Komposition oder die Vorgaben, die bestimmen, was das Werk aussagt. Sie stammt von dir, wenn deine originären Beiträge das Ergebnis maßgeblich bestimmen — nicht bloß, weil du den Prompt geschrieben oder verfeinert hast."
+    },
+    {
+      "question": "Hat ein Mensch das vor der Veröffentlichung geprüft und die Verantwortung für den Inhalt übernommen?",
+      "help": "Die Prüfung muss substanziell und dem Risiko angemessen sein: das fertige Werk kontrollieren, wesentliche Behauptungen nötigenfalls verifizieren und Probleme vor der Veröffentlichung beheben. Verantwortung übernehmen heißt, dass du es verteidigen oder korrigieren wirst, wenn es falsch ist."
+    }
+  ],
+  "edgeCases": [
+    {
+      "case": "Übersetzung",
+      "rule": "Eine getreue Übersetzung erbt das Level des Ausgangswerks und ergänzt einen Übersetzungshinweis. Wer einen Level-1-Artikel mit einem Modell übersetzt, veröffentlicht ihn als Level 1, übersetzt von KI.",
+      "why": "Substanz und Struktur bleiben unverändert. Übersetzung zu bestrafen würde die Texte der Welt weniger zugänglich machen — das Gegenteil des Ziels."
+    },
+    {
+      "case": "Transkription",
+      "rule": "Sprache zu transkribieren, die du aufgenommen hast, ist mechanische Verarbeitung. Sie hebt das Level nicht an.",
+      "why": "Die Worte sind deine. Das Modell hat sie nur aufgeschrieben."
+    },
+    {
+      "case": "Dekorative Elemente",
+      "rule": "Ein generiertes Headerbild über einem von Menschen geschriebenen Artikel macht den Artikel nicht zu Level 4. Deklariere das Bild unter Bereiche.",
+      "why": "Das Hauptlevel beschreibt das, was die Bedeutung trägt. Sonst würde ein einziges Stockbild die ganze Deklaration verschlucken, und die Leute würden schlicht aufhören zu deklarieren."
+    },
+    {
+      "case": "Abgeleitete Werke",
+      "rule": "Deklariere das Level deines eigenen Beitrags und nenne das Level der Quelle, sofern sie eines deklariert hat."
+    },
+    {
+      "case": "Live-Generierung",
+      "rule": "Inhalte, die auf Abruf erzeugt und einem Nutzer ungeprüft angezeigt werden, sind Level 5 — auch wenn ein Mensch den System-Prompt sorgfältig geschrieben hat."
+    },
+    {
+      "case": "Nicht-generatives maschinelles Lernen",
+      "rule": "Autofokus, Entrauschen, Hochskalieren, Farbabgleich und Klassifikation, die nichts erfinden, sind keine generative KI. Sie bringen dich nicht von Level 0 weg."
+    }
+  ],
+  "ui": {
+    "nav": {
+      "manifesto": "Manifest",
+      "scale": "Skala",
+      "level": "Dein Level",
+      "badges": "Badges",
+      "spec": "Spezifikation",
+      "sign": "Unterzeichnen"
+    },
+    "wordmark": "AI Usage Scale",
+    "foot": {
+      "tagline": "Ein offener Standard, um zu deklarieren, wie ein Werk entstanden ist.",
+      "licence": "Zeichen und levels.json: CC0. Text: CC BY 4.0. Code: MIT.",
+      "spec": "Spezifikation",
+      "source": "Quellcode & Issues",
+      "thisPage": "Diese Seite",
+      "ownDeclaration": "Die Substanz stammt vom Autor; die Prosa ist mit KI entstanden und wurde vor der Veröffentlichung Zeile für Zeile gelesen."
+    },
+    "hero": {
+      "eyebrowBefore": "Das Etikett, das Kreative heute haben",
+      "eyebrowAfter": "Das Etikett, das Kreative brauchen",
+      "binaryYes": "KI",
+      "binaryNo": "KEINE KI",
+      "beforeHead": "Schuldig oder nicht schuldig.",
+      "beforeBody": "Mehr darfst du derzeit nicht sagen.",
+      "afterHead": "Sechs Level.",
+      "afterBody": "Zeig auf eines.",
+      "h1a": "Es gibt kein beschämendes Level.",
+      "h1b": "Es gibt nur ein nicht deklariertes.",
+      "sub": "Eine freie, offene Skala, um zu sagen, wie ein Werk entstanden ist — wessen Wissen darin steckt und wer dahintersteht. Sechs Level. Dreißig Sekunden. Kein Gremium, das du fragen musst.",
+      "cta": "Finde dein Level",
+      "ctaAlt": "oder lies die sechs",
+      "inOneLine": "Die Skala, in je einer Zeile",
+      "levelHead": "Level {n}"
+    },
+    "level": {
+      "eyebrow": "AI Usage Scale · Level {n} von 0–5",
+      "allLevels": "Alle Level",
+      "includes": "Das ist das Level, wenn",
+      "excludes": "Das ist nicht das Level, wenn",
+      "examples": "Beispiele",
+      "sentenceH": "Sag es in einem Satz",
+      "sentenceLede": "Setz einen dieser Sätze in die Autorenzeile, unter einen Artikel, in eine Videobeschreibung, in die Beschreibung eines Suchergebnisses oder in eine E-Mail-Signatur. Kein Bild nötig — eine Deklaration, die nur als Bild funktioniert, ist eine Deklaration, die das halbe Web nicht lesen kann.",
+      "short": "Kurz — für eine Autorenzeile oder eine Bio",
+      "medium": "Mittel — für den Fuß eines Artikels oder eine Meta-Description",
+      "long": "Lang — für eine Anmerkung der Redaktion",
+      "markH": "Setz das Zeichen darauf",
+      "markLede": "Kopiere das Badge als Inline-SVG: Es rendert sofort, funktioniert offline und schickt uns keine einzige Anfrage. Der letzte Punkt zählt: Ein per Hotlink eingebundenes Badge ist ein Tracking-Pixel auf deiner Seite, und ein Standard, in dem es um Ehrlichkeit geht, hat so etwas nicht auszuliefern. Die gehostete Datei unten gibt es der Bequemlichkeit halber — nicht, weil wir den Traffic wollen.",
+      "markCap": "Level-{n}-Chip · keine externe Schrift, keine Anfrage",
+      "inline": "Inline-SVG — empfohlen",
+      "inlineNote": "In sich geschlossen. Nichts zu laden, nichts zu tracken.",
+      "hosted": "Gehostetes Bild — falls du lieber verlinkst",
+      "plain": "Klartext — dort, wo keine Bilder hinkommen",
+      "machineH": "Lass es auch Maschinen lesen",
+      "machineLede": "Dieselbe Deklaration, in den Vokabularen, die die Compliance-Ebene ohnehin schon spricht. Wir konkurrieren nicht mit ihnen — wir sind ihr menschenlesbares Gesicht.",
+      "headOf": "Für den <head> deiner Seite",
+      "surfacesH": "Wenn die Teile sich unterscheiden",
+      "copy": "Kopieren",
+      "copied": "Kopiert"
+    },
+    "scalePage": {
+      "eyebrow": "Die Skala",
+      "h1": "Sechs Level, und keines davon ist ein Urteil.",
+      "measures": "Sie misst",
+      "refuses": "Sie weigert sich zu messen",
+      "forInstance": "Zum Beispiel",
+      "more": "Definition, Beispiele, Badge und Code →",
+      "closingH": "Warum die Zahlen keine Farben haben",
+      "closingA": "Jedes Zeichen auf dieser Seite ist in derselben Tinte gedruckt. Es gibt kein grünes und kein rotes Ende, denn eine Skala, die ihre eigenen Extreme einfärbt, hat dir längst gesagt, für welches du dich schämen sollst — und Scham ist der Grund, warum Menschen lügen.",
+      "closingB": "Eine automatisierte Marktzusammenfassung ist auf Level 5 ehrlich und auf jedem anderen unehrlich. Eine Autobiografie ist auf Level 0 ehrlich. Keine der beiden Zahlen ist die bessere. Die einzige schlechte Antwort ist die, die niemand gibt."
+    },
+    "wizard": {
+      "eyebrow": "Fünf Fragen",
+      "h1": "Was hast du tatsächlich getan?",
+      "standfirst": "Antworte ehrlich. Niemand kontrolliert das, und genau das ist der Punkt — eine Deklaration, zu der man dich zwingen könnte, wäre nichts wert.",
+      "count": "Frage {n} von {total}",
+      "yes": "Ja",
+      "no": "Nein",
+      "back": "← Zurück",
+      "yourLevel": "Dein Level",
+      "getBadge": "Badge und Code holen",
+      "startOver": "Von vorn",
+      "treeLabel": "Der Entscheidungsbaum",
+      "yesNext": "Ja → nächste Frage",
+      "noNext": "Nein → nächste Frage",
+      "yesLevel": "Ja → Level {n} · {name}",
+      "noLevel": "Nein → Level {n} · {name}",
+      "fineH": "Was, wenn zwei von uns unterschiedlich antworten würden?",
+      "fineA": "Dann legt die Mehrdeutigkeit offen und erklärt, welche Teile sich unterscheiden. Akzeptiert ein System nur eine Zahl, wählt das Level, das die Rolle der KI nicht untertreibt. Die Skala ist auf hilfreiche Ehrlichkeit ausgelegt, nicht auf falsche Präzision.",
+      "fineB": "Grenzfälle — Übersetzung, Transkription, dekorative Bilder, abgeleitete Werke, Live-Generierung — sind in der Spezifikation geklärt."
+    },
+    "badgesPage": {
+      "eyebrow": "Zeichen",
+      "h1": "Sechs Zeichen. Eine Tinte.",
+      "standfirst": "Es gibt kein grünes und kein rotes Ende. Eine Skala, die ihre eigenen Extreme einfärbt, hat dir längst gesagt, für welches du dich schämen sollst.",
+      "intro": "Alles hier ist CC0 — keine Namensnennung nötig, keine Lizenz zu akzeptieren, kein Konto anzulegen. Nimm sie.",
+      "hotlinkH": "Warum uns lieber wäre, du würdest nicht hotlinken",
+      "hotlinkA": "Jedes Badge hier funktioniert als Inline-SVG: Du fügst das Markup ein, und es rendert ohne externe Schrift, ohne externe Datei und ohne eine einzige Anfrage an uns. Das ist die Variante, die wir empfehlen, und die Level-Seiten liefern dir den exakten Schnipsel.",
+      "hotlinkB": "Ein per Hotlink eingebundenes Badge ist ein Tracking-Pixel auf deiner Seite. Es würde uns die URL jedes Artikels verraten, der eine Deklaration trägt, und wie oft er gelesen wird. Wir wollen diese Daten nicht, und ein Standard, dessen ganzes Thema Ehrlichkeit ist, hat sie nicht klammheimlich zu sammeln. Die gehosteten Dateien gibt es, weil man manchmal wirklich eine URL braucht — nicht, weil wir den Traffic wollen.",
+      "rulesH": "Regeln für die Zeichen",
+      "rules": [
+        "Färbe kein Level um, um anzudeuten, es sei besser oder schlechter als ein anderes.",
+        "Setz kein Zeichen auf Arbeit, für die du die Deklaration nicht abgegeben hast.",
+        "Behalte den Link. Ein Zeichen ohne Definition dahinter ist Dekoration.",
+        "Übersetze sie. Zeichne sie neu. Forke das Ganze."
+      ],
+      "whereH": "Wohin es gehört",
+      "whereA": "Eine Autorenzeile. Der Fuß eines Artikels. Eine Videobeschreibung. Eine Über-uns-Seite. Ein README. Eine Model Card. Die Shownotes eines Podcasts. Eine E-Mail-Signatur. Das Beschreibungsfeld eines Suchergebnisses. Überall dort, wo ein Leser vernünftigerweise wissen will, was er da liest."
+    },
+    "specPage": {
+      "eyebrow": "Spezifikation",
+      "h1": "Wie sie definiert ist und wie sie mit allem anderen spricht.",
+      "standfirst": "Das ist ein Deklarationsstandard, kein Beweisstandard. Er lässt sich nicht kryptografisch verifizieren, und er versucht es gar nicht erst. Eine Autorenzeile lässt sich auch nicht verifizieren.",
+      "procedure": "Entscheidungsverfahren",
+      "procedureLede": "Fünf Fragen, in dieser Reihenfolge gestellt. Die erste, die endet, gibt das Level.",
+      "question": "Frage",
+      "yesCol": "Ja",
+      "noCol": "Nein",
+      "next": "weiter",
+      "surfaces": "Bereiche",
+      "headlineRule": "Regel für das Hauptlevel.",
+      "recognised": "Anerkannte Bereiche:",
+      "edgeCases": "Grenzfälle",
+      "edgeLede": "Jeder einzelne davon stammt aus dem Versuch, den Entscheidungsbaum zu brechen. Sie sind hier geklärt, damit zwei ehrliche Menschen bei derselben Zahl ankommen.",
+      "interop": "Interoperabilität",
+      "interopLede": "Diese Skala ergänzt Provenienzstandards. Sie bildet das etablierte IPTC-Vokabular ab und erprobt die Kandidatensyntax, die in der W3C AI Content Disclosure Community Group diskutiert wird; diese Syntax ist kein W3C-Standard.",
+      "mapping": "Level-Mapping",
+      "lossy": "Das Mapping ist in genau einer Richtung verlustbehaftet, und der Verlust ist der Punkt: IPTC kann Level 3, 4 und 5 nicht auseinanderhalten. Es hat keinen Begriff dafür, wessen Substanz darin steckt, und keinen dafür, ob ein Mensch es gelesen hat. Genau diese beiden Fragen interessieren Leser wirklich — und genau für diese beiden gibt es diese Skala.",
+      "machine": "Maschinenlesbare Form",
+      "machineLede": "Die kanonischen englischen Definitionen liegen in einer einzigen Datei und steuern die Badges sowie die maschinenlesbare Ausgabe. Lokalisierte Erläuterungstexte werden getrennt gepflegt und auf strukturelle Übereinstimmung geprüft.",
+      "priorArt": "Stand der Technik",
+      "priorLede": "Nichts hier ist beispiellos, und etwas anderes zu behaupten wäre eine eigene kleine Unehrlichkeit.",
+      "why": "Warum"
+    },
+    "signPage": {
+      "eyebrow": "Unterzeichnende",
+      "h1": "Die Unterschrift verpflichtet dich zu einer einzigen Sache.",
+      "standfirst": "Deklariere das Level auf dem, was du veröffentlichst. Mehr ist es nicht.",
+      "intro": "Nicht, weniger KI zu benutzen. Nicht, mehr zu benutzen. Nicht, jedem Wort des Manifests zuzustimmen — mehrere der Menschen unten tun das nicht. Nur damit aufzuhören, den Leser raten zu lassen.",
+      "howH": "Wie man unterzeichnet",
+      "howA": "Öffne einen Pull Request und trage dich in signatories.json ein. Diese kleine Hürde ist Absicht: Sie bedeutet, dass jeder Name hier von einem Menschen eingetragen wurde, der es ernst meinte — und dass es kein Formular gibt, das wir abschöpfen könnten, und keinen Verteiler, auf dem du landest.",
+      "howB": "Wenn ein Pull Request nicht deine Welt ist, öffne ein Issue, und jemand trägt dich ein.",
+      "addName": "Trag dich ein",
+      "count": "Unterzeichnende",
+      "note": "Die Zahl neben einem Namen, wo es eine gibt, ist das Level, auf dem dieser Mensch am häufigsten veröffentlicht. Sie ist keine Wertung. Mehrere Menschen hier sind meistens eine 4 und sagen das auch — genau darum geht es."
+    },
+    "lang": {
+      "label": "Sprache",
+      "readEnglish": "Das englische Original lesen",
+      "improve": "Diese Übersetzung verbessern",
+      "machineNotice": "Diese Seite wurde maschinell aus dem englischen Original übersetzt und nicht von einem menschlichen Sprecher geprüft.",
+      "ownRule": "Nach der Übersetzungsregel dieser Skala trägt sie das Level der Quelle — 3, Gesteuert — plus diesen Hinweis.",
+      "humanNotice": "Diese Seite wurde aus dem englischen Original übersetzt und von einem menschlichen Sprecher geprüft."
+    }
+  }
+}

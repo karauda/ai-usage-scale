@@ -1,0 +1,21 @@
+{
+  "name": "usagescale-mcp",
+  "version": "1.0.0",
+  "description": "The AI Usage Scale as an MCP server — classify a work, look up a level, read the spec. Runs locally over stdio, no network.",
+  "type": "module",
+  "bin": { "usagescale-mcp": "server.js" },
+  "files": ["server.js", "levels.json", "README.md"],
+  "keywords": ["mcp", "model-context-protocol", "ai-disclosure", "ai-usage-scale", "ai-transparency", "content-provenance"],
+  "homepage": "https://usagescale.org/integrations",
+  "repository": { "type": "git", "url": "https://github.com/karauda/ai-usage-scale", "directory": "mcp" },
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0"
+  },
+  "scripts": {
+    "test": "node test.mjs",
+    "sync": "cp ../spec/levels.json ./levels.json",
+    "prepublishOnly": "npm test && cp ../spec/levels.json ./levels.json"
+  }
+}

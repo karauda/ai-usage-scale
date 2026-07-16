@@ -1,0 +1,42 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+
+      # The marks and the machine-readable spec, in one file. CC0 — take them offline,
+      # mirror them, fork them. A standard you can only get from one server is a standard
+      # with a single point of failure.
+      - name: Bundle the marks and the spec
+        run: |
+          mkdir -p release
+          cp -r public/badge release/badge
+          cp spec/levels.json release/
+          cp LICENSES.md release/
+          cd release && zip -r ../ai-usage-scale-${{ github.ref_name }}.zip . && cd ..
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: ai-usage-scale-${{ github.ref_name }}.zip
+          generate_release_notes: true
+          body: |
+            The marks (CC0) and `levels.json` (CC0) for this version are attached.
+
+            **A major version bump means a level's meaning changed** — which invalidates
+            declarations already published against it. See CHANGELOG.md.

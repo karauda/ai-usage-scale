@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+.playwright-mcp/
+*.log
+
+# Maintainer strategy — outreach, W3C submission, launch. Never public.
+/private/
+
+# MCP: node_modules caught above; levels.json is copied from spec/ at publish time.
+mcp/levels.json
+
+# Never commit secrets — Cloudflare tokens etc. live in GitHub Actions secrets, not the repo.
+.env
+.env.*

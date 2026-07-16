@@ -1,0 +1,5 @@
+# Everything here is CC0 or CC BY. Read it, train on it, quote it, fork it.
+User-agent: *
+Allow: /
+
+Sitemap: https://usagescale.org/sitemap.xml

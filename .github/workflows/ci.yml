@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verify the standard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # spec/levels.json is the single source of truth. If the committed marks no longer
+      # match it, someone changed a definition without regenerating — and the badges on
+      # the web would start disagreeing with the pages they link to.
+      - name: Marks are in sync with spec/levels.json
+        run: |
+          npm run badges
+          git diff --exit-code --stat public/badge \
+            || { echo "::error::public/badge is stale. Run 'npm run badges' and commit."; exit 1; }
+
+      - name: Test the scale
+        run: npm test
+
+      # The MCP server ships the decision-tree walk again; guard it so partial input can never
+      # resolve to a confident wrong level. Pure, no SDK install needed.
+      - name: Test the MCP classifier
+        run: node mcp/test.mjs
+
+      - name: Typecheck
+        run: npm run check
+
+      - name: Build
+        run: npm run build
+
+      # The badge target URLs are the promise this project makes. This gate runs against
+      # dist/ — the thing that actually ships — and checks that they resolve without
+      # JavaScript, carry the declaration in static HTML, agree with what we tell crawlers,
+      # and that nothing on the page phones home.
+      - name: Check what ships
+        run: npm run check:dist

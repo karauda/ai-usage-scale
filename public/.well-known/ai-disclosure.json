@@ -1,0 +1,14 @@
+{
+  "aiUsageScale": "1.0",
+  "level": 3,
+  "name": "Directed",
+  "statement": "The diagnosis, the argument, and every design decision in this scale are the author's. The research and the prose were produced with a large language model, then read, corrected, and signed line by line.",
+  "surfaces": { "text": 3, "code": 3, "image": 0 },
+  "translations": "Machine-translated from English and marked as such, under the translation rule.",
+  "proposedMetadata": {
+    "status": "proposal; not a registered standard",
+    "ai-usage": "3",
+    "ai-usage-standard": "https://usagescale.org"
+  },
+  "definition": "https://usagescale.org/3"
+}

@@ -1,0 +1,388 @@
+{
+  "lang": "sv",
+  "name": "Swedish",
+  "endonym": "Svenska",
+  "dir": "ltr",
+  "translation": { "by": "machine" },
+  "principle": "Ingen nivå rangordnas över någon annan. En skala som rangordnar sina egna nivåer är en skamstege, och alla ljuger sig nedför den. Den enda oärliga nivån är en odeklarerad nivå.",
+  "axis": {
+    "measures": "Den roll artificiell intelligens spelade när verket blev till: vems substans det är, och vem som ansvarar för det.",
+    "doesNotMeasure": "Andelen tecken, pixlar eller ljudsampel som en modell har genererat. Den siffran fäller experten som dikterar trettio års praktik och friar ingen."
+  },
+  "surfaces": {
+    "note": "Valfritt. En enda siffra beskriver verket som helhet. När delarna skiljer sig kraftigt åt, deklarera dem. Märket visar alltid en siffra; uppdelningen ligger bakom länken.",
+    "headlineRule": "Huvudnivån beskriver den del av verket som bär dess mening. Dekorativt material som en rimlig publik inte skulle anse väsentligt för verket styr inte huvudnivån — deklarera det här i stället."
+  },
+  "levels": [
+    {
+      "id": 0,
+      "name": "Mänskligt",
+      "oneLine": "Ingen generativ AI har använts.",
+      "definition": "Ingen generativ AI har varit inblandad i något skede av arbetet med det här verket. Icke-generativa verktyg — stavningskontroll, autokorrigering, autofokus, brusreducering, sökmotorer, miniräknare, färgkorrigering, kompilatorer — är inte generativ AI och påverkar inte den här nivån.",
+      "includes": [
+        "Att skriva, teckna, fotografera, spela in, framföra eller koda det själv",
+        "Traditionell programvara: ordbehandlare, Lightroom, Pro Tools, en kompilator, en kamera",
+        "Att använda en sökmotor för att hitta källor som du sedan läser själv",
+        "Icke-generativ maskininlärning: autofokus, brusreducering, uppskalning som inte hittar på något"
+      ],
+      "excludes": [
+        "All användning av en språkmodell, bildmodell eller ljudmodell vars utdata nådde fram till verket",
+        "AI-genererade bildbanksbilder, även som dekoration — deklarera det under Ytor"
+      ],
+      "examples": [
+        "En essä skriven och bearbetad för hand.",
+        "Ett fotografi taget med kamera och redigerat i Lightroom.",
+        "En låt framförd på riktiga instrument och mixad av en tekniker.",
+        "En webbplats kodad av en utvecklare utan AI-assistent."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Nivå 0 — Mänskligt.",
+        "medium": "Ingen generativ AI har använts i arbetet med det här verket. Nivå 0 på AI Usage Scale.",
+        "long": "Det här verket är gjort utan generativ AI. Ingen text, ingen bild, inget ljud, ingen video och ingen kod i det har producerats av en modell. Detta är Nivå 0 på AI Usage Scale, en öppen standard för att deklarera hur ett verk blev till."
+      }
+    },
+    {
+      "id": 1,
+      "name": "Assisterat",
+      "oneLine": "AI arbetade bara med material du redan hade gjort. Den hittade inte på något.",
+      "definition": "Du gjorde verket. AI bearbetade bara ditt material eller hjälpte till bakom kulisserna: rättade, transkriberade eller översatte troget, rensade, taggade, formaterade, sökte eller gav återkoppling. Med undantag för en trogen transkribering eller översättning av ditt material förekommer inget modellproducerat material i det publicerade verket.",
+      "includes": [
+        "Grammatik-, stavnings- och stilrättning av meningar du skrivit",
+        "Transkribering av ljud du spelat in",
+        "Brusreducering, maskning eller uppskalning av en bild du tagit",
+        "Taggning, formatering, sammanfattning för eget bruk eller sökning i ditt eget arkiv",
+        "Att använda AI för att hitta källor, som du sedan läser och kontrollerar själv"
+      ],
+      "excludes": [
+        "AI som skriver utkastet till en mening, ett stycke, en bild eller en melodi som överlever in i verket — det är Nivå 2 eller högre",
+        "AI som strukturerar om ditt argument snarare än din prosa"
+      ],
+      "examples": [
+        "En artikel du skrivit, körd genom en modell för grammatikkontroll.",
+        "En podd du spelat in, transkriberad av en modell till avsnittsbeskrivningen.",
+        "En uppsats du skrivit, kontrollerad av en modell mot skrivfel före inlämning.",
+        "Kod du skrivit, där en AI-assistent bara döpt om variabler och formaterat."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Nivå 1 — Assisterat.",
+        "medium": "Skrivet av upphovspersonen; AI användes bara till mekaniskt arbete som rättning och transkribering. Nivå 1 på AI Usage Scale.",
+        "long": "Upphovspersonen gjorde det här verket. AI användes bara för att bearbeta material som upphovspersonen redan hade producerat — rätta det, transkribera det eller rensa det. Ingen mening, ingen bild och inget ljud i det publicerade verket är påhittat av en modell. Detta är Nivå 1 på AI Usage Scale."
+      }
+    },
+    {
+      "id": 2,
+      "name": "Samskapat",
+      "oneLine": "Du gjorde det mesta av den slutliga formen. AI gjorde delar av den som blev kvar.",
+      "definition": "Verket är ditt till sin struktur och i större delen av utförandet, men material som en modell producerat överlever i det publicerade resultatet: passager, element, varianter du valde mellan. Du skrev, tecknade eller spelade merparten av det publiken tar emot.",
+      "includes": [
+        "AI skriver utkastet till ett avsnitt som du sedan skriver om, där dina ord dominerar helheten",
+        "AI genererar varianter som du väljer bland och redigerar",
+        "AI skriver en funktion inuti en kodbas du designat och till största delen skrivit",
+        "AI utökar eller fyller i en del av en bild du komponerat"
+      ],
+      "excludes": [
+        "AI producerar merparten av de slutliga orden eller pixlarna — det är Nivå 3 eller högre",
+        "Rent mekanisk rättning där ingenting hittats på — det är Nivå 1"
+      ],
+      "examples": [
+        "En essä du disponerat och till största delen skrivit, med två AI-skrivna stycken som du arbetat om.",
+        "Ett spår du komponerat och framfört, med en AI-genererad textur i bryggan.",
+        "En funktion du arkitekterat och skrivit, med AI-skrivna hjälpfunktioner du granskat.",
+        "Ett foto du tagit, där ett störande föremål tagits bort med generativ ifyllnad."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Nivå 2 — Samskapat.",
+        "medium": "Till största delen gjort av upphovspersonen; en del material genererades av AI och behölls. Nivå 2 på AI Usage Scale.",
+        "long": "Upphovspersonen gjorde det mesta av det här verket — de flesta orden, pixlarna eller ljudet. En del material som genererats av AI lever kvar i det, utvalt och redigerat av upphovspersonen. Detta är Nivå 2 på AI Usage Scale."
+      }
+    },
+    {
+      "id": 3,
+      "name": "Styrt",
+      "oneLine": "Substansen är din. AI producerade formen.",
+      "definition": "Den kunskap, evidens, argumentation, komposition eller de ramar som är specifika för verket är dina och har avgörande betydelse för resultatet. En modell producerade merparten av de slutliga orden, pixlarna eller ljudet utifrån dessa ursprungliga underlag. Du styrde, valde, rättade, gjorde en meningsfull granskning och ansvarar för resultatet. Att skriva eller finslipa en prompt räcker inte i sig.",
+      "note": "Det här är nivån som dagens binära etikett inte kan se, och skälet till att skalan finns. En expert som dikterar det hen kan och låter en modell ge det form har inte begått något bedrägeri. Hen har använt ett verktyg, och nu går det att säga det högt.",
+      "includes": [
+        "En specialist som förser en modell med kunskap, anteckningar, data eller en detaljerad brief som modellen gör prosa av",
+        "En art director som itererar en bild genom många rundor av specifik styrning",
+        "Research du gjort, som en modell gör till ett manus eller en berättad video",
+        "En kodbas du specificerat och granskat i detalj, till största delen skriven av en AI-agent"
+      ],
+      "excludes": [
+        "En prompt eller upprepad promptning som inte tillför någon egen, verkspecifik substans — det är Nivå 4",
+        "Verk där du själv skrivit merparten av de slutliga orden — det är Nivå 2"
+      ],
+      "examples": [
+        "En kirurg dikterar trettio års praktik; en modell skriver artikeln; kirurgen rättar den och signerar den.",
+        "En grundares råa anteckningar och prissättning blir en landningssida skriven av en modell.",
+        "En illustratör styr fyrtio iterationer av en genererad bild mot en bestämd komposition.",
+        "En forskares dataset och resultat blir en förklarande video berättad av en syntetisk röst."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Nivå 3 — Styrt.",
+        "medium": "Kunskapen, datan och argumentet är upphovspersonens; AI producerade texten utifrån dem. Nivå 3 på AI Usage Scale.",
+        "long": "Substansen i det här verket — kunskapen, datan, argumentet, riktningen — är upphovspersonens. En modell producerade merparten av den slutliga formen utifrån den. Upphovspersonen styrde, kontrollerade och tar ansvar för vad verket säger. Detta är Nivå 3 på AI Usage Scale."
+      }
+    },
+    {
+      "id": 4,
+      "name": "Promptat",
+      "oneLine": "AI producerade både substansen och formen. Du bad om det, du kontrollerade det, du ansvarar för det.",
+      "definition": "En modell producerade både vad verket säger och hur det säger det, utifrån en prompt, mall eller brief som innehöll lite egen, verkspecifik substans från dig. En människa granskade det färdiga verket på ett meningsfullt sätt, kontrollerade väsentliga påståenden där det behövdes och tar ansvar för publiceringen.",
+      "includes": [
+        "Att be en modell om innehåll i ett ämne och publicera det efter granskning",
+        "Genererad marknadstext, produktbeskrivningar eller inlägg i sociala medier, granskade innan de går ut",
+        "Bildbanksbilder genererade från en kort prompt och kontrollerade före användning",
+        "AI-skriven kod som du läst och testat innan du slog ihop den"
+      ],
+      "excludes": [
+        "Verk som bygger på kunskap, data eller riktning som verkligen är din — det är Nivå 3",
+        "Att publicera utan att en människa läst det — det är Nivå 5"
+      ],
+      "examples": [
+        "\"Skriv tio inlägg om diabetes\" — läst, rättat, publicerat.",
+        "Produktbeskrivningar genererade till en katalog och granskade av en människa.",
+        "En genererad toppbild, kontrollerad mot fel innan den går ut.",
+        "En sammanfattning av ett dokument, producerad av en modell och kontrollerad mot källan."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Nivå 4 — Promptat.",
+        "medium": "Producerat av AI utifrån en prompt; granskat av en människa som tar ansvar för det. Nivå 4 på AI Usage Scale.",
+        "long": "En modell producerade både substansen och formen i det här verket. En människa bad om det, läste det, kontrollerade det och tar ansvar för att publicera det. Detta är Nivå 4 på AI Usage Scale."
+      }
+    },
+    {
+      "id": 5,
+      "name": "Automatiserat",
+      "oneLine": "AI producerade både substansen och formen. Ingen människa läste det innan det publicerades.",
+      "definition": "En modell producerade verket och det publicerades utan mänsklig granskning. Detta är den ärliga nivån för automatiserade flöden, massgenerering och agenter som publicerar på egen hand. Det är rätt svar för en stor mängd legitimt arbete — och det är just genom att säga det som arbetet blir legitimt.",
+      "note": "Nivå 5 är ingen anklagelse. En automatiserad marknadsrapport, en genererad matchsammanfattning, en maskinöversatt hjälpsida i stor skala: alla är ärliga på Nivå 5 och oärliga på varje annan nivå. Att deklarera 5 är det som skiljer ett automatiserat system från ett bedrägeri.",
+      "includes": [
+        "Schemalagd eller agentdriven publicering utan människa i loopen",
+        "Massgenerering av sidor, listningar eller sammanfattningar",
+        "Direktgenerering på begäran som visas för en användare medan den produceras",
+        "Maskinöversättning som publiceras i stor skala utan granskning"
+      ],
+      "excludes": [
+        "Allt som en människa faktiskt läste innan det gick ut — det är Nivå 4"
+      ],
+      "examples": [
+        "En marknadssammanfattning varje timme, genererad och publicerad av ett skript.",
+        "Tiotusen produktsidor genererade över en natt.",
+        "En chattbots svar, visade för användaren medan de genereras.",
+        "En agent som skriver och publicerar till en blogg enligt ett schema."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Nivå 5 — Automatiserat.",
+        "medium": "Genererat av AI och publicerat utan mänsklig granskning. Nivå 5 på AI Usage Scale.",
+        "long": "En modell producerade det här verket och det publicerades utan att en människa läste det först. Detta är Nivå 5 på AI Usage Scale, den ärliga deklarationen för automatiserade system."
+      }
+    }
+  ],
+  "tree": [
+    {
+      "question": "Har någon generativ AI använts i arbetet med det här verket?",
+      "help": "Generativ AI betyder en modell som producerar ny text, nya bilder, nytt ljud, ny video eller ny kod. Räkna även AI som används för research, idéarbete eller återkoppling, även när dess resultat inte syns i verket. Stavningskontroll, autofokus, brusgrindar, sökmotorer och miniräknare är inte generativ AI."
+    },
+    {
+      "question": "Producerade AI nytt material som finns i det publicerade verket — utöver att mekaniskt bearbeta det du redan hade gjort?",
+      "help": "Att rätta din grammatik, troget transkribera eller översätta dina ord, brusreducera ditt foto eller tagga dina filer är mekanisk bearbetning. Detsamma gäller research, idéarbete eller återkoppling som inte lämnar något modellproducerat material i verket. Att skriva ett nytt stycke, teckna en ny bild eller komponera en ny melodi är nytt material."
+    },
+    {
+      "question": "Gjorde du merparten av den slutliga formen själv — de flesta orden, pixlarna eller ljudet?",
+      "help": "Bedöm det publicerade verket, inte ansträngningen. Om det mesta av det en läsare ser eller hör är skrivet, tecknat eller spelat av dig, svara ja."
+    },
+    {
+      "question": "Är substansen din — kunskapen, datan, argumentet, riktningen?",
+      "help": "Substans är den verkspecifika kunskap, evidens, argumentation, komposition eller de ramar som avgör vad verket säger. Den är din när dina ursprungliga underlag har avgörande betydelse för resultatet — inte bara för att du skrev eller finslipade prompten."
+    },
+    {
+      "question": "Granskade en människa det här före publicering och tog ansvar för vad det säger?",
+      "help": "Granskningen måste vara meningsfull och anpassad till vad som står på spel: kontrollera det färdiga verket, verifiera väsentliga påståenden där det behövs och rätta problem före publicering. Att ta ansvar betyder att du kommer att försvara eller rätta verket om det är fel."
+    }
+  ],
+  "edgeCases": [
+    {
+      "case": "Översättning",
+      "rule": "En trogen översättning ärver källverkets nivå och lägger till en översättningsnot. Att översätta en artikel på Nivå 1 med en modell publicerar den som Nivå 1, översatt av AI.",
+      "why": "Substansen och strukturen är oförändrade. Att bestraffa översättning skulle göra världens texter mindre tillgängliga, vilket är raka motsatsen till poängen."
+    },
+    {
+      "case": "Transkribering",
+      "rule": "Att transkribera tal du spelat in är mekanisk bearbetning. Det höjer inte nivån.",
+      "why": "Orden är dina. Modellen skrev bara ned dem."
+    },
+    {
+      "case": "Dekorativa element",
+      "rule": "En genererad toppbild på en människoskriven artikel gör inte artikeln till Nivå 4. Deklarera bilden under Ytor.",
+      "why": "Huvudnivån beskriver det som bär meningen. Annars skulle en enda bildbanksbild svälja hela deklarationen, och folk skulle helt enkelt sluta deklarera."
+    },
+    {
+      "case": "Bearbetningar",
+      "rule": "Deklarera nivån på ditt eget bidrag, och ange källans nivå om källan deklarerade någon."
+    },
+    {
+      "case": "Direktgenerering",
+      "rule": "Innehåll som genereras på begäran och visas för en användare utan granskning är Nivå 5, även om systemprompten skrevs omsorgsfullt av en människa."
+    },
+    {
+      "case": "Icke-generativ maskininlärning",
+      "rule": "Autofokus, brusreducering, uppskalning, färgmatchning och klassificering som inte hittar på något är inte generativ AI. De flyttar dig inte från Nivå 0."
+    }
+  ],
+  "ui": {
+    "nav": {
+      "manifesto": "Manifest",
+      "scale": "Skala",
+      "level": "Din nivå",
+      "badges": "Märken",
+      "spec": "Spec",
+      "sign": "Skriv under"
+    },
+    "wordmark": "AI Usage Scale",
+    "foot": {
+      "tagline": "En öppen standard för att deklarera hur ett verk blev till.",
+      "licence": "Märken och levels.json: CC0. Text: CC BY 4.0. Kod: MIT.",
+      "spec": "Specifikation",
+      "source": "Källkod & issues",
+      "thisPage": "Den här sidan",
+      "ownDeclaration": "Substansen är upphovspersonens; prosan producerades med AI och lästes rad för rad innan den gick ut."
+    },
+    "hero": {
+      "eyebrowBefore": "Etiketten en skapare har i dag",
+      "eyebrowAfter": "Etiketten en skapare behöver",
+      "binaryYes": "AI",
+      "binaryNo": "INTE AI",
+      "beforeHead": "Skyldig, eller oskyldig.",
+      "beforeBody": "Det är de enda två saker du får säga i dag.",
+      "afterHead": "Sex nivåer.",
+      "afterBody": "Peka på en.",
+      "h1a": "Det finns ingen skamlig nivå.",
+      "h1b": "Det finns bara en odeklarerad.",
+      "sub": "En fri, öppen skala för att säga hur ett verk blev till — vems kunskap det bär och vem som står bakom det. Sex nivåer. Trettio sekunder. Ingen kommitté att fråga.",
+      "cta": "Hitta din nivå",
+      "ctaAlt": "eller läs de sex",
+      "inOneLine": "Skalan, en rad var",
+      "levelHead": "Nivå {n}"
+    },
+    "level": {
+      "eyebrow": "AI Usage Scale · Nivå {n} av 0–5",
+      "allLevels": "Alla nivåer",
+      "includes": "Det här är nivån när",
+      "excludes": "Det här är inte nivån när",
+      "examples": "Exempel",
+      "sentenceH": "Säg det i en mening",
+      "sentenceLede": "Klistra in en av dem i en byline, en artikelfot, en videobeskrivning, en beskrivning i ett sökresultat eller en mejlsignatur. Ingen bild behövs — en deklaration som bara fungerar som bild är en deklaration som halva webben inte kan läsa.",
+      "short": "Kort — för en byline eller en presentation",
+      "medium": "Mellan — för en artikelfot eller en metabeskrivning",
+      "long": "Lång — för en redaktionell not",
+      "markH": "Sätt märket på det",
+      "markLede": "Kopiera märket som inline-SVG, så renderas det direkt, fungerar offline och skickar ingen förfrågan till oss. Det sista är viktigt: ett hotlänkat märke är en spårningspixel på din sida, och en standard som handlar om ärlighet har ingenting att göra med att skicka ut en sådan. Den hostade filen nedan finns för bekvämlighetens skull, inte för att vi vill ha trafiken.",
+      "markCap": "Nivå {n}-chip · inget externt typsnitt, ingen förfrågan",
+      "inline": "Inline-SVG — rekommenderas",
+      "inlineNote": "Fristående. Inget att ladda, inget att spåra.",
+      "hosted": "Hostad bild — om du hellre länkar till den",
+      "plain": "Ren text — där bilder inte kan ta sig in",
+      "machineH": "Låt maskinerna läsa det också",
+      "machineLede": "Samma deklaration, i de vokabulär som efterlevnadsskiktet redan talar. Vi konkurrerar inte med dem — vi är deras människoläsbara ansikte.",
+      "headOf": "För <head> på din sida",
+      "surfacesH": "Om delarna skiljer sig åt",
+      "copy": "Kopiera",
+      "copied": "Kopierat"
+    },
+    "scalePage": {
+      "eyebrow": "Skalan",
+      "h1": "Sex nivåer, och ingen av dem är en dom.",
+      "measures": "Den mäter",
+      "refuses": "Den vägrar mäta",
+      "forInstance": "Till exempel",
+      "more": "Definition, exempel, märke och kod →",
+      "closingH": "Varför siffrorna inte har färger",
+      "closingA": "Varje märke på den här sajten är tryckt i samma bläck. Det finns ingen grön ände och ingen röd ände, för en skala som färglägger sina egna ytterlägen har redan talat om för dig vilket du ska skämmas för — och skam är det som får folk att ljuga.",
+      "closingB": "En automatiserad marknadssammanfattning är ärlig på Nivå 5 och oärlig på varje annan nivå. En memoar är ärlig på Nivå 0. Ingen av dem är den bättre siffran. Det enda dåliga svaret är det som ingen ger."
+    },
+    "wizard": {
+      "eyebrow": "Fem frågor",
+      "h1": "Vad gjorde du egentligen?",
+      "standfirst": "Svara ärligt. Ingen kontrollerar, och det är hela poängen — en deklaration du kunde tvingas till vore ingenting värd.",
+      "count": "Fråga {n} av {total}",
+      "yes": "Ja",
+      "no": "Nej",
+      "back": "← Tillbaka",
+      "yourLevel": "Din nivå",
+      "getBadge": "Hämta märket och koden",
+      "startOver": "Börja om",
+      "treeLabel": "Beslutsträdet",
+      "yesNext": "Ja → nästa fråga",
+      "noNext": "Nej → nästa fråga",
+      "yesLevel": "Ja → Nivå {n} · {name}",
+      "noLevel": "Nej → Nivå {n} · {name}",
+      "fineH": "Tänk om två av oss skulle svara olika?",
+      "fineA": "Redovisa då osäkerheten och förklara vilka delar som skiljer sig. Om ett system bara godtar ett tal, välj den nivå som inte tonar ned AI:s roll. Skalan är utformad för användbar ärlighet, inte falsk precision.",
+      "fineB": "Gränsfall — översättning, transkribering, dekorativa bilder, bearbetningar, direktgenerering — är avgjorda i specifikationen."
+    },
+    "badgesPage": {
+      "eyebrow": "Märken",
+      "h1": "Sex märken. Ett bläck.",
+      "standfirst": "Det finns ingen grön ände och ingen röd ände. En skala som färglägger sina egna ytterlägen har redan talat om för dig vilket du ska skämmas för.",
+      "intro": "Allt här är CC0 — ingen attribution krävs, ingen licens att godkänna, inget konto att skapa. Ta dem.",
+      "hotlinkH": "Varför vi helst ser att du inte hotlänkar",
+      "hotlinkA": "Varje märke här fungerar som inline-SVG: du klistrar in markupen, och det renderas utan externt typsnitt, utan extern fil och utan någon förfrågan till oss. Det är den version vi rekommenderar, och nivåsidorna ger dig exakt den kodsnutt du behöver.",
+      "hotlinkB": "Ett hotlänkat märke är en spårningspixel på din sida. Det skulle tala om för oss URL:en till varje artikel som bär en deklaration, och hur ofta var och en läses. Vi vill inte ha den datan, och en standard vars hela ämne är ärlighet har ingenting att göra med att samla in den i tysthet. De hostade filerna finns här för att man ibland verkligen behöver en URL — inte för att vi vill ha trafiken.",
+      "rulesH": "Regler för märkena",
+      "rules": [
+        "Färglägg inte om en nivå för att antyda att den är bättre eller sämre än en annan.",
+        "Sätt inte ett märke på verk du inte gjort deklarationen för.",
+        "Behåll länken. Ett märke utan definition bakom sig är dekoration.",
+        "Översätt dem. Rita om dem. Forka alltihop."
+      ],
+      "whereH": "Var det hör hemma",
+      "whereA": "En byline. En artikelfot. En videobeskrivning. En om-sida. En README. Ett modellkort. En podds avsnittsbeskrivning. En mejlsignatur. Beskrivningsfältet i ett sökresultat. Överallt där en läsare rimligen vill veta vad hen läser."
+    },
+    "specPage": {
+      "eyebrow": "Specifikation",
+      "h1": "Hur den definieras, och hur den talar med allt annat.",
+      "standfirst": "Det här är en deklarationsstandard, inte en bevisstandard. Den kan inte verifieras med kryptografi och försöker inte heller vara sådan. Det kan inte en byline heller.",
+      "procedure": "Beslutsprocedur",
+      "procedureLede": "Fem frågor, ställda i ordning. Den första som tar slut ger nivån.",
+      "question": "Fråga",
+      "yesCol": "Ja",
+      "noCol": "Nej",
+      "next": "nästa",
+      "surfaces": "Ytor",
+      "headlineRule": "Regeln för huvudnivån.",
+      "recognised": "Erkända ytor:",
+      "edgeCases": "Gränsfall",
+      "edgeLede": "Vart och ett av dem kom ur försök att knäcka beslutsträdet. De är avgjorda här så att två ärliga människor når samma siffra.",
+      "interop": "Interoperabilitet",
+      "interopLede": "Skalan kompletterar standarder för proveniens. Den kan mappas till IPTC:s etablerade vokabulär och prövar den kandidatsyntax som diskuteras av W3C AI Content Disclosure Community Group; syntaxen är inte en W3C-standard.",
+      "mapping": "Nivåmappning",
+      "lossy": "Mappningen förlorar information i exakt en riktning, och förlusten är själva poängen: IPTC kan inte skilja Nivå 3, 4 och 5 åt. Den har inget begrepp för vems substans det här är, och inget för om en människa läst det. Det är de två frågor läsare faktiskt bryr sig om, och det är de två den här skalan finns till för att besvara.",
+      "machine": "Maskinläsbar form",
+      "machineLede": "De kanoniska engelska definitionerna finns i en enda fil och styr märkena och den maskinläsbara utdataformen. Lokaliserade förklarande texter underhålls separat och kontrolleras så att strukturen överensstämmer.",
+      "priorArt": "Föregångare",
+      "priorLede": "Ingenting här saknar motstycke, och att låtsas något annat vore en egen liten oärlighet.",
+      "why": "Varför"
+    },
+    "signPage": {
+      "eyebrow": "Undertecknare",
+      "h1": "Att skriva under förbinder dig till en enda sak.",
+      "standfirst": "Deklarera nivån på det du publicerar. Det är hela åtagandet.",
+      "intro": "Inte att använda mindre AI. Inte att använda mer. Inte att hålla med om varje ord i manifestet — flera av personerna nedan gör inte det. Bara att sluta lämna läsaren att gissa.",
+      "howH": "Så skriver du under",
+      "howA": "Öppna en pull request som lägger till dig i signatories.json. Det är avsiktligt en liten smula friktion: det betyder att varje namn här lades till av en person som menade det, och det betyder att det inte finns något formulär för oss att skörda och ingen mejllista för dig att hamna på.",
+      "howB": "Om pull requests inte är din värld, öppna ett issue så lägger någon till dig.",
+      "addName": "Lägg till ditt namn",
+      "count": "undertecknare",
+      "note": "Siffran bredvid ett namn, där det finns en, är den nivå personen oftast publicerar på. Det är inte ett betyg. Flera av personerna här är oftast en 4:a, och säger det, vilket är precis poängen."
+    },
+    "lang": {
+      "label": "Språk",
+      "readEnglish": "Läs det engelska originalet",
+      "improve": "Förbättra den här översättningen",
+      "machineNotice": "Den här sidan är översatt från det engelska originalet av en maskin och har inte granskats av en mänsklig talare.",
+      "ownRule": "Enligt skalans egen översättningsregel bär den källans nivå — 3, Styrt — plus den här noten.",
+      "humanNotice": "Den här sidan är översatt från det engelska originalet och granskad av en mänsklig talare."
+    }
+  }
+}

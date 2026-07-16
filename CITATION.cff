@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you reference the AI Usage Scale, please cite it as below."
+title: "The AI Usage Scale"
+abstract: >-
+  An open, six-level standard for declaring how a work was made with generative AI —
+  whose substance it carries, and whether a person reviewed it before publication.
+  Human-readable and machine-readable, CC0, interoperable with IPTC, C2PA and the W3C
+  AI Content Disclosure work. No level ranks above another.
+type: software
+authors:
+  - given-names: Konrad
+    family-names: Karauda
+  - name: "The AI Usage Scale contributors"
+version: 1.0.0-draft
+date-released: 2026-07-13
+license: CC-BY-4.0
+url: "https://usagescale.org"
+repository-code: "https://github.com/karauda/ai-usage-scale"
+keywords:
+  - AI disclosure
+  - AI transparency
+  - generative AI
+  - content provenance
+  - AI attribution
+  - open standard

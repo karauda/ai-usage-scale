@@ -1,0 +1,388 @@
+{
+  "lang": "fr",
+  "name": "French",
+  "endonym": "Français",
+  "dir": "ltr",
+  "translation": { "by": "machine" },
+  "principle": "Aucun niveau ne se situe au-dessus d'un autre. Une échelle qui classe ses propres niveaux est une échelle de la honte, et chacun ment pour en descendre. Le seul niveau malhonnête est celui qu'on ne déclare pas.",
+  "axis": {
+    "measures": "Le rôle que l'intelligence artificielle a joué dans la fabrication de l'œuvre : de qui est la substance, et qui en répond.",
+    "doesNotMeasure": "La proportion de caractères, de pixels ou d'échantillons produits par un modèle. Ce chiffre condamne l'expert qui dicte trente ans de pratique et n'innocente personne."
+  },
+  "surfaces": {
+    "note": "Facultatif. Un seul chiffre décrit l'œuvre dans son ensemble. Quand certaines parties s'en écartent nettement, déclarez-les. Le badge n'affiche jamais qu'un chiffre ; le détail vit derrière le lien.",
+    "headlineRule": "Le niveau principal décrit la partie de l'œuvre qui en porte le sens. Un matériau décoratif qu'un public raisonnable ne jugerait pas essentiel à l'œuvre ne détermine pas le niveau principal — déclarez-le ici à la place."
+  },
+  "levels": [
+    {
+      "id": 0,
+      "name": "Humain",
+      "oneLine": "Aucune IA générative n'a été utilisée.",
+      "definition": "Aucune IA générative n'est intervenue à aucun stade de la fabrication de cette œuvre. Les outils non génératifs — correcteur orthographique, correction automatique, autofocus, réduction de bruit, moteurs de recherche, calculatrices, étalonnage des couleurs, compilateurs — ne sont pas de l'IA générative et ne changent rien à ce niveau.",
+      "includes": [
+        "Écrire, dessiner, photographier, enregistrer, jouer ou coder vous-même",
+        "Les logiciels classiques : traitement de texte, Lightroom, Pro Tools, un compilateur, un appareil photo",
+        "Utiliser un moteur de recherche pour trouver des sources que vous lisez ensuite vous-même",
+        "L'apprentissage automatique non génératif : autofocus, débruitage, agrandissement qui n'invente rien"
+      ],
+      "excludes": [
+        "Tout recours à un modèle de langage, d'image ou d'audio dont la sortie a atteint l'œuvre",
+        "Des images de banque générées par IA, même en simple décoration — déclarez-les sous Surfaces"
+      ],
+      "examples": [
+        "Un essai écrit et révisé à la main.",
+        "Une photographie prise avec un appareil et retouchée dans Lightroom.",
+        "Une chanson jouée sur de vrais instruments et mixée par un ingénieur du son.",
+        "Un site codé par un développeur sans assistant IA."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale : Level 0 — Humain.",
+        "medium": "Aucune IA générative n'a été utilisée pour réaliser cette œuvre. Level 0 de l'AI Usage Scale.",
+        "long": "Cette œuvre a été réalisée sans IA générative. Aucun texte, aucune image, aucun son, aucune vidéo, aucun code qu'elle contient n'a été produit par un modèle. C'est le Level 0 de l'AI Usage Scale, un standard ouvert pour déclarer comment une œuvre a été faite."
+      }
+    },
+    {
+      "id": 1,
+      "name": "Assisté",
+      "oneLine": "L'IA n'a travaillé que sur du matériau que vous aviez déjà produit. Elle n'a rien inventé.",
+      "definition": "Vous avez fait l'œuvre. L'IA s'est contentée de traiter votre matériau ou de vous aider en coulisses : correction, transcription ou traduction fidèle, nettoyage, indexation, mise en forme, recherche ou retours. Hormis une transcription ou une traduction fidèle de votre matériau, aucun matériau produit par un modèle n'apparaît dans l'œuvre publiée.",
+      "includes": [
+        "Correction de la grammaire, de l'orthographe et du style de phrases que vous avez écrites",
+        "Transcription d'un audio que vous avez enregistré",
+        "Débruitage, détourage ou agrandissement d'une image que vous avez prise",
+        "Indexer, mettre en forme, résumer pour votre usage personnel ou fouiller vos propres archives",
+        "Utiliser l'IA pour trouver des sources, que vous lisez et vérifiez ensuite vous-même"
+      ],
+      "excludes": [
+        "L'IA rédige une phrase, un paragraphe, une image ou une mélodie qui survit dans l'œuvre — c'est le Level 2 ou au-dessus",
+        "L'IA restructure votre argumentation, et pas seulement votre prose"
+      ],
+      "examples": [
+        "Un article que vous avez écrit, passé dans un modèle pour la grammaire.",
+        "Un podcast que vous avez enregistré, transcrit par un modèle pour les notes d'épisode.",
+        "Un article scientifique que vous avez écrit, relu par un modèle pour les coquilles avant soumission.",
+        "Du code que vous avez écrit, où un assistant IA n'a fait que renommer des variables et mettre en forme."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale : Level 1 — Assisté.",
+        "medium": "Écrit par l'auteur ; l'IA n'a servi qu'à des tâches mécaniques comme la correction et la transcription. Level 1 de l'AI Usage Scale.",
+        "long": "L'auteur a fait cette œuvre. L'IA n'a servi qu'à traiter un matériau que l'auteur avait déjà produit — le corriger, le transcrire, le nettoyer. Aucune phrase, aucune image, aucun son de l'œuvre publiée n'a été inventé par un modèle. C'est le Level 1 de l'AI Usage Scale."
+      }
+    },
+    {
+      "id": 2,
+      "name": "Cocréé",
+      "oneLine": "Vous avez fait l'essentiel de la forme finale. L'IA en a produit des parties qui sont restées.",
+      "definition": "L'œuvre est la vôtre dans sa structure et dans la plus grande part de son exécution, mais du matériau produit par un modèle survit dans le résultat publié : des passages, des éléments, des variantes entre lesquelles vous avez choisi. Vous avez écrit, dessiné ou joué la majorité de ce que le public reçoit.",
+      "includes": [
+        "L'IA rédige une section que vous réécrivez ensuite, vos mots dominant l'ensemble",
+        "L'IA génère des variantes que vous sélectionnez et retravaillez",
+        "L'IA écrit une fonction dans une base de code que vous avez conçue et écrite en grande partie",
+        "L'IA étend ou complète une partie d'une image que vous avez composée"
+      ],
+      "excludes": [
+        "L'IA produit la majorité des mots ou des pixels finaux — c'est le Level 3 ou au-dessus",
+        "Une correction purement mécanique, sans rien d'inventé — c'est le Level 1"
+      ],
+      "examples": [
+        "Un essai que vous avez structuré et largement écrit, avec deux paragraphes rédigés par l'IA que vous avez retravaillés.",
+        "Un morceau que vous avez composé et interprété, avec une texture générée par IA dans le pont.",
+        "Une fonctionnalité que vous avez architecturée et écrite, avec des fonctions utilitaires écrites par l'IA et relues par vous.",
+        "Une photo que vous avez prise, dont un objet gênant a été effacé par remplissage génératif."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale : Level 2 — Cocréé.",
+        "medium": "Réalisée pour l'essentiel par l'auteur ; une partie du matériau a été générée par IA et conservée. Level 2 de l'AI Usage Scale.",
+        "long": "L'auteur a réalisé l'essentiel de cette œuvre — la plupart des mots, des pixels ou des sons. Du matériau généré par IA y survit, sélectionné et retravaillé par l'auteur. C'est le Level 2 de l'AI Usage Scale."
+      }
+    },
+    {
+      "id": 3,
+      "name": "Dirigé",
+      "oneLine": "La substance est la vôtre. L'IA a produit la forme.",
+      "definition": "Le savoir, les éléments probants, l'argumentation, la composition ou les contraintes propres à l'œuvre viennent de vous et déterminent substantiellement le résultat. Un modèle a produit la majorité des mots, des pixels ou des sons finaux à partir de ces apports originaux. Vous avez dirigé, choisi, corrigé, effectué une véritable relecture et vous répondez du résultat. Écrire ou affiner un prompt ne suffit pas à lui seul.",
+      "note": "C'est le niveau que l'étiquette binaire actuelle est incapable de voir, et la raison d'être de cette échelle. Un expert qui dicte ce qu'il sait et laisse un modèle lui donner forme n'a commis aucune fraude. Il a utilisé un outil — et il peut enfin le dire.",
+      "includes": [
+        "Un spécialiste fournit un savoir, des notes, des données ou un brief détaillé qu'un modèle transforme en prose",
+        "Un directeur artistique fait passer une image par de nombreux tours de direction précise",
+        "Une recherche que vous avez menée, transformée par un modèle en script ou en vidéo commentée",
+        "Une base de code que vous avez spécifiée et relue en détail, écrite en grande partie par un agent IA"
+      ],
+      "excludes": [
+        "Un prompt ou une succession de prompts qui n'apporte aucune substance originale propre à l'œuvre — c'est le Level 4",
+        "Un travail dont vous avez écrit vous-même la majorité des mots finaux — c'est le Level 2"
+      ],
+      "examples": [
+        "Un chirurgien dicte trente ans de pratique ; un modèle écrit l'article ; le chirurgien corrige et signe.",
+        "Les notes brutes et la grille tarifaire d'un fondateur deviennent une page d'accueil écrite par un modèle.",
+        "Un illustrateur dirige quarante itérations d'une image générée vers une composition précise.",
+        "Le jeu de données et les résultats d'un chercheur deviennent une vidéo explicative racontée par une voix de synthèse."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale : Level 3 — Dirigé.",
+        "medium": "Le savoir, les données et l'argumentation sont ceux de l'auteur ; l'IA en a produit le texte. Level 3 de l'AI Usage Scale.",
+        "long": "La substance de cette œuvre — le savoir, les données, l'argumentation, la direction — est celle de l'auteur. Un modèle en a produit la majeure partie de la forme finale. L'auteur a dirigé, vérifié, et il assume ce qui est dit. C'est le Level 3 de l'AI Usage Scale."
+      }
+    },
+    {
+      "id": 4,
+      "name": "Sollicité",
+      "oneLine": "L'IA a produit la substance et la forme. Vous avez demandé, vous avez vérifié, vous en répondez.",
+      "definition": "Un modèle a produit à la fois ce que dit l'œuvre et la manière dont elle le dit, à partir d'un prompt, d'un gabarit ou d'un brief qui apportait peu de substance originale propre à l'œuvre de votre part. Un humain a véritablement relu l'œuvre achevée, vérifié les affirmations importantes lorsque c'était nécessaire et assume la responsabilité de sa publication.",
+      "includes": [
+        "Demander à un modèle du contenu sur un sujet et le publier après relecture",
+        "Des textes marketing, des descriptions de produits ou des posts générés, relus avant diffusion",
+        "Des images de banque générées à partir d'un prompt court et vérifiées avant usage",
+        "Du code écrit par l'IA que vous avez lu et testé avant de le fusionner"
+      ],
+      "excludes": [
+        "Un travail bâti sur un savoir, des données ou une direction qui sont vraiment les vôtres — c'est le Level 3",
+        "Publier sans qu'un humain l'ait lu — c'est le Level 5"
+      ],
+      "examples": [
+        "« Écris dix articles sur le diabète » — lus, corrigés, publiés.",
+        "Des descriptions de produits générées pour un catalogue et relues par une personne.",
+        "Une image d'en-tête générée, vérifiée avant mise en ligne.",
+        "Le résumé d'un document produit par un modèle et vérifié contre la source."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale : Level 4 — Sollicité.",
+        "medium": "Produit par l'IA à partir d'un prompt ; relu par une personne qui en assume la responsabilité. Level 4 de l'AI Usage Scale.",
+        "long": "Un modèle a produit la substance et la forme de cette œuvre. Une personne l'a demandée, l'a lue, l'a vérifiée, et elle assume la responsabilité de la publier. C'est le Level 4 de l'AI Usage Scale."
+      }
+    },
+    {
+      "id": 5,
+      "name": "Automatisé",
+      "oneLine": "L'IA a produit la substance et la forme. Aucun humain ne l'a lue avant sa publication.",
+      "definition": "Un modèle a produit l'œuvre et elle a été publiée sans relecture humaine. C'est le niveau honnête pour les chaînes automatisées, la génération en masse et les agents qui publient seuls. C'est la bonne réponse pour une immense quantité de travail parfaitement légitime — et c'est le fait de le dire qui rend ce travail légitime.",
+      "note": "Le Level 5 n'est pas une accusation. Un rapport de marché automatisé, un résumé de match généré, une page d'aide traduite à la machine à grande échelle : tout cela est honnête au Level 5 et malhonnête à tout autre. Déclarer 5, c'est ce qui sépare un système automatisé d'une tromperie.",
+      "includes": [
+        "Une publication programmée ou agentique, sans humain dans la boucle",
+        "La génération en masse de pages, de fiches ou de résumés",
+        "Une génération en direct, à la demande, montrée à l'utilisateur à mesure qu'elle se produit",
+        "Une traduction automatique publiée à grande échelle sans relecture"
+      ],
+      "excludes": [
+        "Tout ce qu'une personne a réellement lu avant la diffusion — c'est le Level 4"
+      ],
+      "examples": [
+        "Un résumé de marché horaire généré et publié par un script.",
+        "Dix mille fiches produits générées dans la nuit.",
+        "Les réponses d'un chatbot, montrées à l'utilisateur à mesure qu'elles se génèrent.",
+        "Un agent qui rédige et publie sur un blog selon un calendrier."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale : Level 5 — Automatisé.",
+        "medium": "Généré par IA et publié sans relecture humaine. Level 5 de l'AI Usage Scale.",
+        "long": "Un modèle a produit cette œuvre et elle a été publiée sans qu'un humain la lise d'abord. C'est le Level 5 de l'AI Usage Scale, la déclaration honnête pour les systèmes automatisés."
+      }
+    }
+  ],
+  "tree": [
+    {
+      "question": "De l'IA générative a-t-elle été utilisée pour faire cette œuvre ?",
+      "help": "L'IA générative désigne un modèle qui produit du texte, des images, du son, de la vidéo ou du code nouveaux. Comptez aussi l'IA utilisée pour la recherche, l'idéation ou les retours, même si sa production n'apparaît pas dans l'œuvre. Le correcteur orthographique, l'autofocus, les portes de bruit, les moteurs de recherche et les calculatrices ne sont pas de l'IA générative."
+    },
+    {
+      "question": "L'IA a-t-elle produit du matériau nouveau qui apparaît dans l'œuvre publiée — au-delà du traitement mécanique de ce que vous aviez déjà fait ?",
+      "help": "Corriger votre grammaire, transcrire ou traduire fidèlement vos mots, débruiter votre photo ou indexer vos fichiers, c'est du traitement mécanique. Il en va de même pour la recherche, l'idéation ou les retours qui ne laissent aucun matériau produit par le modèle dans l'œuvre. Écrire un paragraphe nouveau, dessiner une image nouvelle ou composer une mélodie nouvelle, c'est du matériau nouveau."
+    },
+    {
+      "question": "Avez-vous fait vous-même l'essentiel de la forme finale — la plupart des mots, des pixels ou des sons ?",
+      "help": "Jugez l'objet publié, pas l'effort fourni. Si l'essentiel de ce qu'un lecteur voit ou entend a été tapé, dessiné ou joué par vous, répondez oui."
+    },
+    {
+      "question": "La substance est-elle la vôtre — le savoir, les données, l'argumentation, la direction ?",
+      "help": "La substance, ce sont le savoir, les éléments probants, l'argumentation, la composition ou les contraintes propres à l'œuvre qui déterminent ce qu'elle dit. Elle est la vôtre lorsque vos apports originaux déterminent substantiellement le résultat — et non simplement parce que vous avez écrit ou affiné le prompt."
+    },
+    {
+      "question": "Un humain a-t-il relu ceci avant publication et assumé la responsabilité de ce qui y est dit ?",
+      "help": "La relecture doit être véritable et adaptée aux enjeux : contrôler l'œuvre achevée, vérifier les affirmations importantes si nécessaire et corriger les problèmes avant publication. Assumer la responsabilité signifie que vous la défendrez ou la corrigerez si elle est erronée."
+    }
+  ],
+  "edgeCases": [
+    {
+      "case": "Traduction",
+      "rule": "Une traduction fidèle hérite du niveau de l'œuvre source et y ajoute une note de traduction. Traduire un article de Level 1 avec un modèle le publie en Level 1, traduit par IA.",
+      "why": "La substance et la structure sont inchangées. Pénaliser la traduction rendrait les écrits du monde moins accessibles, ce qui est l'exact contraire du but."
+    },
+    {
+      "case": "Transcription",
+      "rule": "Transcrire une parole que vous avez enregistrée est un traitement mécanique. Cela ne fait pas monter le niveau.",
+      "why": "Les mots sont les vôtres. Le modèle n'a fait que les écrire."
+    },
+    {
+      "case": "Éléments décoratifs",
+      "rule": "Une image d'en-tête générée sur un article écrit par un humain ne fait pas passer l'article au Level 4. Déclarez l'image sous Surfaces.",
+      "why": "Le niveau principal décrit ce qui porte le sens. Sinon, une seule image de banque avalerait toute la déclaration, et les gens cesseraient purement et simplement de déclarer."
+    },
+    {
+      "case": "Œuvres dérivées",
+      "rule": "Déclarez le niveau de votre propre contribution, et citez celui de la source si elle en a déclaré un."
+    },
+    {
+      "case": "Génération en direct",
+      "rule": "Un contenu généré à la demande et montré à un utilisateur sans relecture est de Level 5, même si le prompt système a été écrit avec soin par une personne."
+    },
+    {
+      "case": "Apprentissage automatique non génératif",
+      "rule": "L'autofocus, le débruitage, l'agrandissement, l'harmonisation des couleurs et la classification qui n'inventent rien ne sont pas de l'IA générative. Ils ne vous font pas quitter le Level 0."
+    }
+  ],
+  "ui": {
+    "nav": {
+      "manifesto": "Manifeste",
+      "scale": "Échelle",
+      "level": "Votre niveau",
+      "badges": "Badges",
+      "spec": "Spécification",
+      "sign": "Signer"
+    },
+    "wordmark": "AI Usage Scale",
+    "foot": {
+      "tagline": "Un standard ouvert pour déclarer comment une œuvre a été faite.",
+      "licence": "Marques et levels.json : CC0. Textes : CC BY 4.0. Code : MIT.",
+      "spec": "Spécification",
+      "source": "Code source & tickets",
+      "thisPage": "Cette page",
+      "ownDeclaration": "La substance est celle de l'auteur ; la prose a été produite avec de l'IA, puis lue ligne à ligne avant publication."
+    },
+    "hero": {
+      "eyebrowBefore": "L'étiquette dont un créateur dispose aujourd'hui",
+      "eyebrowAfter": "L'étiquette dont un créateur a besoin",
+      "binaryYes": "IA",
+      "binaryNo": "PAS D'IA",
+      "beforeHead": "Coupable, ou non coupable.",
+      "beforeBody": "Ce sont les deux seules choses que vous avez aujourd'hui le droit de dire.",
+      "afterHead": "Six niveaux.",
+      "afterBody": "Montrez-en un.",
+      "h1a": "Il n'existe pas de niveau honteux.",
+      "h1b": "Il n'existe qu'un niveau non déclaré.",
+      "sub": "Une échelle libre et ouverte pour dire comment une œuvre a été faite — de qui est le savoir qu'elle porte, et qui se tient derrière. Six niveaux. Trente secondes. Aucun comité à consulter.",
+      "cta": "Trouvez votre niveau",
+      "ctaAlt": "ou lisez les six",
+      "inOneLine": "L'échelle, une ligne par niveau",
+      "levelHead": "Level {n}"
+    },
+    "level": {
+      "eyebrow": "AI Usage Scale · Level {n} sur 0–5",
+      "allLevels": "Tous les niveaux",
+      "includes": "C'est ce niveau lorsque",
+      "excludes": "Ce n'est pas ce niveau lorsque",
+      "examples": "Exemples",
+      "sentenceH": "Dites-le en une phrase",
+      "sentenceLede": "Collez l'une de ces phrases dans une signature d'auteur, un pied d'article, une description de vidéo, la description d'un résultat de recherche ou une signature d'e-mail. Aucune image requise — une déclaration qui ne fonctionne qu'en image est une déclaration que la moitié du web ne peut pas lire.",
+      "short": "Courte — pour une signature d'auteur ou une bio",
+      "medium": "Moyenne — pour un pied d'article ou une méta-description",
+      "long": "Longue — pour une note de la rédaction",
+      "markH": "Apposez la marque",
+      "markLede": "Copiez le badge en SVG inline : il s'affiche instantanément, fonctionne hors ligne et ne nous envoie aucune requête. Ce dernier point compte : un badge appelé à distance est un pixel espion sur votre page, et un standard qui parle d'honnêteté n'a rien à faire à en distribuer un. Le fichier hébergé ci-dessous existe par commodité, pas parce que nous voulons le trafic.",
+      "markCap": "Puce Level {n} · aucune police externe, aucune requête",
+      "inline": "SVG inline — recommandé",
+      "inlineNote": "Autonome. Rien à charger, rien à pister.",
+      "hosted": "Image hébergée — si vous préférez y faire un lien",
+      "plain": "Texte brut — là où les images ne passent pas",
+      "machineH": "Faites-le lire aussi par les machines",
+      "machineLede": "La même déclaration, dans les vocabulaires que la couche de conformité parle déjà. Nous ne leur faisons pas concurrence — nous en sommes le visage lisible par un humain.",
+      "headOf": "Pour le <head> de votre page",
+      "surfacesH": "Si les parties diffèrent",
+      "copy": "Copier",
+      "copied": "Copié"
+    },
+    "scalePage": {
+      "eyebrow": "L'échelle",
+      "h1": "Six niveaux, et aucun n'est un verdict.",
+      "measures": "Elle mesure",
+      "refuses": "Elle refuse de mesurer",
+      "forInstance": "Par exemple",
+      "more": "Définition, exemples, badge et code →",
+      "closingH": "Pourquoi les chiffres n'ont pas de couleurs",
+      "closingA": "Chaque marque de ce site est imprimée dans la même encre. Il n'y a pas de bout vert ni de bout rouge, car une échelle qui colore ses propres extrêmes vous a déjà dit duquel avoir honte — et c'est la honte qui pousse les gens à mentir.",
+      "closingB": "Un résumé de marché automatisé est honnête au Level 5 et malhonnête à tout autre. Une autobiographie est honnête au Level 0. Aucun des deux chiffres n'est le meilleur. La seule mauvaise réponse est celle que personne ne donne."
+    },
+    "wizard": {
+      "eyebrow": "Cinq questions",
+      "h1": "Qu'avez-vous fait, au juste ?",
+      "standfirst": "Répondez honnêtement. Personne ne vérifie, et c'est précisément le but — une déclaration qu'on pourrait vous imposer ne vaudrait rien.",
+      "count": "Question {n} sur {total}",
+      "yes": "Oui",
+      "no": "Non",
+      "back": "← Retour",
+      "yourLevel": "Votre niveau",
+      "getBadge": "Obtenir le badge et le code",
+      "startOver": "Recommencer",
+      "treeLabel": "L'arbre de décision",
+      "yesNext": "Oui → question suivante",
+      "noNext": "Non → question suivante",
+      "yesLevel": "Oui → Level {n} · {name}",
+      "noLevel": "Non → Level {n} · {name}",
+      "fineH": "Et si deux d'entre nous répondaient différemment ?",
+      "fineA": "Alors signalez l'ambiguïté et expliquez quelles parties diffèrent. Si un système n'accepte qu'un seul chiffre, choisissez le niveau qui ne minimise pas le rôle de l'IA. L'échelle vise une honnêteté utile, pas une fausse précision.",
+      "fineB": "Les cas limites — traduction, transcription, images décoratives, œuvres dérivées, génération en direct — sont tranchés dans la spécification."
+    },
+    "badgesPage": {
+      "eyebrow": "Marques",
+      "h1": "Six marques. Une seule encre.",
+      "standfirst": "Il n'y a pas de bout vert ni de bout rouge. Une échelle qui colore ses propres extrêmes vous a déjà dit duquel avoir honte.",
+      "intro": "Tout ici est en CC0 — aucune attribution requise, aucune licence à accepter, aucun compte à créer. Servez-vous.",
+      "hotlinkH": "Pourquoi nous préférerions que vous ne fassiez pas de lien direct",
+      "hotlinkA": "Chaque badge ici fonctionne en SVG inline : vous collez le balisage, et il s'affiche sans police externe, sans fichier externe et sans la moindre requête vers nous. C'est la version que nous recommandons, et les pages de niveau vous en donnent l'extrait exact.",
+      "hotlinkB": "Un badge appelé à distance est un pixel espion sur votre page. Il nous révélerait l'URL de chaque article portant une déclaration, et la fréquence à laquelle chacun est lu. Nous ne voulons pas de ces données, et un standard dont le sujet même est l'honnêteté n'a rien à faire à les collecter en douce. Les fichiers hébergés sont là parce qu'il arrive qu'on ait réellement besoin d'une URL — pas parce que nous voulons le trafic.",
+      "rulesH": "Règles pour les marques",
+      "rules": [
+        "Ne recolorez pas un niveau pour laisser entendre qu'il vaut mieux ou moins qu'un autre.",
+        "N'apposez pas une marque sur un travail pour lequel vous n'avez pas fait la déclaration.",
+        "Gardez le lien. Une marque sans définition derrière elle n'est qu'un ornement.",
+        "Traduisez-les. Redessinez-les. Forkez le tout."
+      ],
+      "whereH": "Où elle se met",
+      "whereA": "Une signature d'auteur. Un pied d'article. Une description de vidéo. Une page « à propos ». Un README. Une fiche de modèle. Les notes d'épisode d'un podcast. Une signature d'e-mail. Le champ description d'un résultat de recherche. Partout où un lecteur voudrait raisonnablement savoir ce qu'il est en train de lire."
+    },
+    "specPage": {
+      "eyebrow": "Spécification",
+      "h1": "Comment elle est définie, et comment elle parle à tout le reste.",
+      "standfirst": "Ceci est un standard de déclaration, pas un standard de preuve. Il ne peut pas être vérifié par la cryptographie et il ne cherche pas à l'être. Une signature d'auteur non plus.",
+      "procedure": "Procédure de décision",
+      "procedureLede": "Cinq questions, posées dans l'ordre. La première qui s'arrête donne le niveau.",
+      "question": "Question",
+      "yesCol": "Oui",
+      "noCol": "Non",
+      "next": "suivante",
+      "surfaces": "Surfaces",
+      "headlineRule": "Règle du niveau principal.",
+      "recognised": "Surfaces reconnues :",
+      "edgeCases": "Cas limites",
+      "edgeLede": "Chacun d'eux est né d'une tentative de casser l'arbre de décision. Ils sont tranchés ici pour que deux personnes honnêtes arrivent au même chiffre.",
+      "interop": "Interopérabilité",
+      "interopLede": "Cette échelle complète les standards de provenance. Elle établit une correspondance avec le vocabulaire reconnu de l'IPTC et expérimente la syntaxe candidate discutée par le W3C AI Content Disclosure Community Group ; cette syntaxe n'est pas un standard du W3C.",
+      "mapping": "Correspondance des niveaux",
+      "lossy": "La correspondance perd de l'information dans un seul sens, et cette perte est justement le sujet : IPTC ne sait pas distinguer les Level 3, 4 et 5. Il n'a aucun terme pour dire de qui est la substance, ni aucun pour dire si un humain l'a lue. Ce sont les deux questions qui intéressent réellement les lecteurs, et ce sont les deux auxquelles cette échelle existe pour répondre.",
+      "machine": "Forme lisible par une machine",
+      "machineLede": "Les définitions canoniques en anglais résident dans un seul fichier et alimentent les badges ainsi que la sortie lisible par machine. Les textes explicatifs localisés sont gérés séparément et leur parité structurelle est contrôlée.",
+      "priorArt": "Antériorités",
+      "priorLede": "Rien ici n'est sans précédent, et prétendre le contraire serait une petite malhonnêteté de plus.",
+      "why": "Pourquoi"
+    },
+    "signPage": {
+      "eyebrow": "Signataires",
+      "h1": "Signer vous engage à une seule chose.",
+      "standfirst": "Déclarez le niveau sur ce que vous publiez. C'est tout l'engagement.",
+      "intro": "Pas à utiliser moins d'IA. Pas à en utiliser plus. Pas à souscrire à chaque mot du manifeste — plusieurs des personnes ci-dessous ne le font pas. Seulement à cesser de laisser le lecteur deviner.",
+      "howH": "Comment signer",
+      "howA": "Ouvrez une pull request qui vous ajoute à signatories.json. Cette petite friction est délibérée : elle signifie que chaque nom ici a été ajouté par une personne qui le pensait vraiment, et qu'il n'y a aucun formulaire à moissonner pour nous, ni aucune liste de diffusion sur laquelle vous retrouver.",
+      "howB": "Si la pull request n'est pas votre monde, ouvrez un ticket et quelqu'un vous ajoutera.",
+      "addName": "Ajoutez votre nom",
+      "count": "signataires",
+      "note": "Le chiffre à côté d'un nom, quand il y en a un, est le niveau auquel cette personne publie le plus souvent. Ce n'est pas une note. Plusieurs des personnes ici sont le plus souvent un 4, et le disent — c'est exactement le propos."
+    },
+    "lang": {
+      "label": "Langue",
+      "readEnglish": "Lire l'original anglais",
+      "improve": "Améliorer cette traduction",
+      "machineNotice": "Cette page a été traduite de l'original anglais par une machine, et n'a pas été relue par un locuteur humain.",
+      "ownRule": "Selon la règle de traduction de cette échelle, elle porte le niveau de la source — 3, Dirigé — plus cette note.",
+      "humanNotice": "Cette page a été traduite de l'original anglais et relue par un locuteur humain."
+    }
+  }
+}

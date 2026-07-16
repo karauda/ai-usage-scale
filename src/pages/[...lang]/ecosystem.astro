@@ -1,0 +1,102 @@
+---
+/*
+  The ecosystem map. Reference content is English on every route (a directory of external
+  standards and tools, like the mark itself), so this page carries NO translation notice — it
+  is not a translation of anything, and claiming otherwise would break the site's own rule.
+*/
+import Base from '../../layouts/Base.astro';
+import { localeParams } from '../../lib/i18n';
+import { ECOSYSTEM } from '../../data/ecosystem';
+
+export const getStaticPaths = localeParams;
+const { lang } = Astro.props;
+
+const relLabel: Record<string, string> = {
+  interoperates: 'Interoperates',
+  complements: 'Complements',
+  adjacent: 'Adjacent',
+  cautioned: 'Cautioned',
+};
+---
+
+<Base
+  lang={lang}
+  path="/ecosystem"
+  translated={false}
+  title="The AI-provenance ecosystem — AI Usage Scale"
+  description="Where the AI Usage Scale sits: what it interoperates with (IPTC, W3C, schema.org), what it complements (C2PA provenance, watermarking), and why it does not rely on detection."
+  breadcrumb={[['Ecosystem', '/ecosystem']]}
+  schema={[
+    {
+      '@type': 'WebPage',
+      '@id': 'https://usagescale.org/ecosystem#page',
+      name: 'The AI-provenance ecosystem',
+      inLanguage: 'en',
+      isPartOf: { '@id': 'https://usagescale.org/#site' },
+    },
+  ]}
+>
+  <header class="top prose">
+    <p class="label">Reference</p>
+    <h1>The AI-provenance ecosystem</h1>
+    <p class="standfirst">
+      A declaration is one signal among several. Here is the honest map — what pairs with the
+      scale, and what it deliberately does not lean on.
+    </p>
+    <p class="meta"><a href="/ecosystem.json">ecosystem.json</a> — the same map, machine-readable.</p>
+  </header>
+
+  {
+    ECOSYSTEM.map((cat) => (
+      <section class="cat prose">
+        <h2>{cat.title}</h2>
+        <p class="blurb">{cat.blurb}</p>
+        <dl>
+          {cat.entries.map((e) => (
+            <div class="entry">
+              <dt>
+                <a href={e.url}>{e.name}</a>
+                <span class={`rel rel-${e.relation}`}>{relLabel[e.relation]}</span>
+              </dt>
+              <dd>
+                {e.role}
+                {e.note && (
+                  <>
+                    {' '}
+                    <span class="note">{e.note}</span>
+                  </>
+                )}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    ))
+  }
+</Base>
+
+<style>
+  .top { margin: 2rem 0 1rem; }
+  .meta { font-family: var(--mono); font-size: 0.8125rem; color: var(--ink-mid); }
+  .cat { margin: 3rem 0; }
+  .blurb { color: var(--ink-mid); max-width: var(--measure); }
+  dl { margin: 1.5rem 0 0; }
+  .entry { padding: 1.1rem 0; border-top: 1px solid var(--rule-soft); }
+  dt { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem; font-weight: 600; }
+  dt a { text-decoration-thickness: 1px; }
+  dd { margin: 0.4rem 0 0; color: var(--ink-mid); }
+  .note { color: var(--ink-soft); }
+  .rel {
+    font-family: var(--mono);
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.45rem;
+    border: 1px solid var(--rule);
+    color: var(--ink-soft);
+  }
+  /* Detection is the one we flag: a muted, cautioning tone, never an endorsement pill. */
+  .rel-cautioned { border-color: var(--accent); color: var(--accent); }
+  .rel-interoperates { color: var(--ink-mid); border-color: var(--rule); }
+</style>

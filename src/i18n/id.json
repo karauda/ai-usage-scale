@@ -1,0 +1,388 @@
+{
+  "lang": "id",
+  "name": "Indonesian",
+  "endonym": "Bahasa Indonesia",
+  "dir": "ltr",
+  "translation": { "by": "machine" },
+  "principle": "Tidak ada tingkat yang berperingkat lebih tinggi daripada tingkat lain. Skala yang memeringkat tingkatnya sendiri adalah tangga rasa malu, dan semua orang akan berbohong untuk menuruninya. Satu-satunya tingkat yang tidak jujur adalah tingkat yang tidak dinyatakan.",
+  "axis": {
+    "measures": "Peran kecerdasan buatan dalam pembuatan karya: substansi siapa yang dibawanya, dan siapa yang bertanggung jawab atasnya.",
+    "doesNotMeasure": "Proporsi karakter, piksel, atau sampel yang dikeluarkan oleh sebuah model. Angka itu menghukum pakar yang mendiktekan tiga puluh tahun praktiknya, dan tidak membebaskan siapa pun."
+  },
+  "surfaces": {
+    "note": "Opsional. Satu angka menggambarkan karya secara keseluruhan. Bila bagian-bagiannya berbeda tajam, nyatakan bagian itu. Lencana selalu menampilkan satu angka; rinciannya ada di balik tautan.",
+    "headlineRule": "Tingkat utama menggambarkan bagian karya yang membawa maknanya. Materi dekoratif yang tidak akan dianggap penting oleh audiens yang wajar tidak menentukan tingkat utama — nyatakan saja di sini."
+  },
+  "levels": [
+    {
+      "id": 0,
+      "name": "Manusia",
+      "oneLine": "Tidak ada AI generatif yang digunakan.",
+      "definition": "Tidak ada AI generatif yang terlibat pada tahap mana pun dalam pembuatan karya ini. Alat non-generatif — pemeriksa ejaan, koreksi otomatis, fokus otomatis, peredam derau, mesin pencari, kalkulator, gradasi warna, kompilator — bukan AI generatif dan tidak memengaruhi tingkat ini.",
+      "includes": [
+        "Menulis, menggambar, memotret, merekam, memainkan, atau menulis kodenya sendiri",
+        "Perangkat lunak biasa: pengolah kata, Lightroom, Pro Tools, kompilator, kamera",
+        "Memakai mesin pencari untuk menemukan sumber yang lalu Anda baca sendiri",
+        "Pembelajaran mesin non-generatif: fokus otomatis, peredam derau, peningkatan resolusi yang tidak mengarang apa pun"
+      ],
+      "excludes": [
+        "Segala penggunaan model bahasa, model gambar, atau model audio yang keluarannya sampai ke dalam karya",
+        "Gambar stok hasil AI, sekalipun hanya sebagai hiasan — nyatakan itu di bagian Permukaan"
+      ],
+      "examples": [
+        "Esai yang ditulis dan disunting dengan tangan sendiri.",
+        "Foto yang diambil dengan kamera dan diolah di Lightroom.",
+        "Lagu yang dimainkan dengan alat musik sungguhan dan dimiks oleh seorang teknisi audio.",
+        "Situs yang dikodekan seorang pengembang tanpa asisten AI."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Tingkat 0 — Manusia.",
+        "medium": "Tidak ada AI generatif yang digunakan dalam pembuatan karya ini. Tingkat 0 pada AI Usage Scale.",
+        "long": "Karya ini dibuat tanpa AI generatif. Tidak ada teks, gambar, audio, video, atau kode di dalamnya yang dihasilkan oleh sebuah model. Ini Tingkat 0 pada AI Usage Scale, standar terbuka untuk menyatakan bagaimana sebuah karya dibuat."
+      }
+    },
+    {
+      "id": 1,
+      "name": "Dibantu",
+      "oneLine": "AI hanya mengerjakan materi yang sudah Anda buat. Ia tidak mengarang apa pun.",
+      "definition": "Anda yang membuat karya ini. AI hanya mengolah materi Anda atau membantu di balik layar: membetulkan, mentranskripsikan atau menerjemahkan dengan setia, membersihkan, menandai, memformat, mencari, atau memberi umpan balik. Selain transkripsi atau terjemahan setia atas materi Anda, tidak ada materi buatan model yang muncul dalam karya terbitan.",
+      "includes": [
+        "Koreksi tata bahasa, ejaan, dan gaya pada kalimat yang Anda tulis",
+        "Mentranskripsikan audio yang Anda rekam",
+        "Meredam derau, membuat masker, atau meningkatkan resolusi gambar yang Anda potret",
+        "Menandai, memformat, meringkas untuk keperluan sendiri, atau menelusuri arsip Anda sendiri",
+        "Memakai AI untuk menemukan sumber, yang lalu Anda baca dan verifikasi sendiri"
+      ],
+      "excludes": [
+        "AI menyusun draf kalimat, paragraf, gambar, atau melodi yang bertahan sampai ke dalam karya — itu Tingkat 2 atau lebih",
+        "AI menata ulang argumen Anda, bukan sekadar prosanya"
+      ],
+      "examples": [
+        "Artikel yang Anda tulis, lalu dilewatkan ke sebuah model untuk pemeriksaan tata bahasa.",
+        "Podcast yang Anda rekam, ditranskripsikan oleh model untuk catatan acaranya.",
+        "Makalah yang Anda tulis, diperiksa model untuk salah ketik sebelum dikirimkan.",
+        "Kode yang Anda tulis, dengan asisten AI yang hanya mengganti nama variabel dan merapikan format."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Tingkat 1 — Dibantu.",
+        "medium": "Ditulis oleh penulisnya; AI hanya dipakai untuk pekerjaan mekanis seperti koreksi dan transkripsi. Tingkat 1 pada AI Usage Scale.",
+        "long": "Karya ini dibuat oleh penulisnya. AI hanya dipakai untuk mengolah materi yang sudah dihasilkan penulisnya — membetulkan, mentranskripsikan, atau membersihkannya. Tidak ada kalimat, gambar, atau suara dalam karya yang diterbitkan ini yang dikarang oleh sebuah model. Ini Tingkat 1 pada AI Usage Scale."
+      }
+    },
+    {
+      "id": 2,
+      "name": "Dibuat Bersama",
+      "oneLine": "Sebagian besar bentuk akhirnya Anda yang membuat. AI membuat bagian-bagian yang tetap bertahan.",
+      "definition": "Karya ini milik Anda dalam strukturnya dan dalam sebagian besar pengerjaannya, tetapi materi yang dihasilkan sebuah model bertahan dalam hasil yang diterbitkan: bagian teks, elemen, variasi yang Anda pilih. Anda yang menulis, menggambar, atau memainkan sebagian besar dari apa yang diterima audiens.",
+      "includes": [
+        "AI menyusun draf satu bagian yang lalu Anda tulis ulang, sementara kata-kata Anda mendominasi keseluruhannya",
+        "AI menghasilkan variasi yang lalu Anda pilih dan sunting",
+        "AI menulis satu fungsi di dalam basis kode yang Anda rancang dan sebagian besar Anda tulis sendiri",
+        "AI memperluas atau mengisi sebagian gambar yang Anda komposisikan"
+      ],
+      "excludes": [
+        "AI menghasilkan sebagian besar kata atau piksel akhirnya — itu Tingkat 3 atau lebih",
+        "Koreksi yang murni mekanis tanpa ada yang dikarang — itu Tingkat 1"
+      ],
+      "examples": [
+        "Esai yang kerangkanya Anda susun dan sebagian besar Anda tulis, dengan dua paragraf draf AI yang Anda olah ulang.",
+        "Lagu yang Anda gubah dan mainkan, dengan satu tekstur hasil AI di bagian bridge.",
+        "Fitur yang Anda rancang dan tulis, dengan fungsi-fungsi pembantu tulisan AI yang Anda tinjau.",
+        "Foto yang Anda potret, dengan objek pengganggu yang dihapus memakai isian generatif."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Tingkat 2 — Dibuat Bersama.",
+        "medium": "Sebagian besar dibuat oleh penulisnya; sebagian materi dihasilkan AI dan dipertahankan. Tingkat 2 pada AI Usage Scale.",
+        "long": "Sebagian besar karya ini dibuat oleh penulisnya — sebagian besar kata, piksel, atau suaranya. Sebagian materi hasil AI bertahan di dalamnya, dipilih dan disunting oleh penulisnya. Ini Tingkat 2 pada AI Usage Scale."
+      }
+    },
+    {
+      "id": 3,
+      "name": "Diarahkan",
+      "oneLine": "Substansinya milik Anda. AI menghasilkan bentuknya.",
+      "definition": "Pengetahuan, bukti, argumen, komposisi, atau batasan yang khusus bagi karya ini berasal dari Anda dan secara nyata menentukan hasilnya. Dari masukan asli itu, sebuah model menghasilkan sebagian besar kata, piksel, atau suara akhir. Anda mengarahkan, memilih, membetulkan, meninjau secara sungguh-sungguh, dan bertanggung jawab atas hasilnya. Menulis atau menyempurnakan prompt saja tidak cukup.",
+      "note": "Inilah tingkat yang tak terlihat oleh label biner yang ada sekarang, dan inilah alasan skala ini ada. Pakar yang mendiktekan apa yang ia ketahui lalu membiarkan sebuah model membentuknya tidak melakukan penipuan. Ia memakai sebuah alat, dan sekarang ia bisa mengatakannya.",
+      "includes": [
+        "Seorang spesialis memasok pengetahuan, catatan, data, atau ringkasan tugas terperinci yang lalu diubah sebuah model menjadi prosa",
+        "Seorang direktur artistik mengiterasi sebuah gambar melalui banyak putaran arahan yang spesifik",
+        "Riset yang Anda lakukan, diubah menjadi naskah atau video bernarasi oleh sebuah model",
+        "Basis kode yang Anda spesifikasikan dan tinjau secara rinci, sebagian besar ditulis oleh agen AI"
+      ],
+      "excludes": [
+        "Prompt atau rangkaian prompt yang tidak menyumbangkan substansi asli dan khusus bagi karya tersebut — itu Tingkat 4",
+        "Karya yang sebagian besar kata akhirnya Anda tulis sendiri — itu Tingkat 2"
+      ],
+      "examples": [
+        "Seorang dokter bedah mendiktekan tiga puluh tahun praktiknya; sebuah model menulis artikelnya; dokter itu membetulkan dan menandatanganinya.",
+        "Catatan mentah dan daftar harga seorang pendiri menjadi landing page yang ditulis oleh sebuah model.",
+        "Seorang ilustrator mengarahkan empat puluh iterasi gambar hasil AI menuju komposisi yang spesifik.",
+        "Kumpulan data dan temuan seorang peneliti menjadi video penjelasan yang dinarasikan oleh suara sintetis."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Tingkat 3 — Diarahkan.",
+        "medium": "Pengetahuan, data, dan argumennya milik penulis; AI menghasilkan teksnya dari semua itu. Tingkat 3 pada AI Usage Scale.",
+        "long": "Substansi karya ini — pengetahuannya, datanya, argumennya, arahannya — milik penulisnya. Sebuah model menghasilkan sebagian besar bentuk akhirnya dari substansi itu. Penulisnya mengarahkan, memverifikasi, dan bertanggung jawab atas isinya. Ini Tingkat 3 pada AI Usage Scale."
+      }
+    },
+    {
+      "id": 4,
+      "name": "Diminta",
+      "oneLine": "AI menghasilkan substansi sekaligus bentuknya. Anda yang meminta, Anda yang memeriksa, Anda yang bertanggung jawab.",
+      "definition": "Sebuah model menghasilkan baik isi karya maupun cara penyampaiannya, dari prompt, templat, atau ringkasan tugas yang hanya memuat sedikit substansi asli Anda yang khusus bagi karya tersebut. Seorang manusia meninjau hasil akhirnya secara sungguh-sungguh, memeriksa klaim penting bila perlu, dan bertanggung jawab atas penerbitannya.",
+      "includes": [
+        "Meminta konten tentang suatu topik kepada sebuah model dan menerbitkannya setelah ditinjau",
+        "Naskah pemasaran, deskripsi produk, atau unggahan media sosial hasil AI, yang ditinjau sebelum terbit",
+        "Gambar stok yang dibangkitkan dari prompt singkat dan diperiksa sebelum dipakai",
+        "Kode tulisan AI yang Anda baca dan uji sebelum digabungkan"
+      ],
+      "excludes": [
+        "Karya yang dibangun di atas pengetahuan, data, atau arahan yang benar-benar milik Anda — itu Tingkat 3",
+        "Menerbitkan tanpa ada manusia yang membacanya — itu Tingkat 5"
+      ],
+      "examples": [
+        "\"Tulis sepuluh unggahan tentang diabetes\" — dibaca, dibetulkan, diterbitkan.",
+        "Deskripsi produk yang dibangkitkan untuk sebuah katalog dan ditinjau oleh seseorang.",
+        "Gambar tajuk hasil AI, diperiksa kesalahannya sebelum dirilis.",
+        "Ringkasan sebuah dokumen yang dihasilkan model dan diverifikasi terhadap sumbernya."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Tingkat 4 — Diminta.",
+        "medium": "Dihasilkan oleh AI dari sebuah prompt; ditinjau oleh orang yang bertanggung jawab atasnya. Tingkat 4 pada AI Usage Scale.",
+        "long": "Sebuah model menghasilkan baik substansi maupun bentuk karya ini. Seseorang memintanya, membacanya, memeriksanya, dan bertanggung jawab atas penerbitannya. Ini Tingkat 4 pada AI Usage Scale."
+      }
+    },
+    {
+      "id": 5,
+      "name": "Otomatis",
+      "oneLine": "AI menghasilkan substansi sekaligus bentuknya. Tidak ada manusia yang membacanya sebelum diterbitkan.",
+      "definition": "Sebuah model menghasilkan karyanya dan karya itu diterbitkan tanpa peninjauan manusia. Inilah tingkat yang jujur untuk alur kerja otomatis, pembangkitan massal, dan agen yang menerbitkan sendiri. Ini jawaban yang tepat untuk banyak sekali pekerjaan yang sah — dan justru menyatakannyalah yang membuat pekerjaan itu sah.",
+      "note": "Tingkat 5 bukan tuduhan. Laporan pasar otomatis, ringkasan pertandingan hasil AI, halaman bantuan terjemahan mesin dalam skala besar: semuanya jujur di Tingkat 5 dan tidak jujur di tingkat mana pun yang lain. Menyatakan 5 itulah yang memisahkan sebuah sistem otomatis dari sebuah penipuan.",
+      "includes": [
+        "Penerbitan terjadwal atau agentik tanpa manusia di dalam alurnya",
+        "Pembangkitan massal halaman, daftar produk, atau ringkasan",
+        "Pembangkitan langsung sesuai permintaan yang ditampilkan kepada pengguna saat sedang dihasilkan",
+        "Terjemahan mesin yang diterbitkan dalam skala besar tanpa peninjauan"
+      ],
+      "excludes": [
+        "Apa pun yang benar-benar dibaca seseorang sebelum terbit — itu Tingkat 4"
+      ],
+      "examples": [
+        "Ringkasan pasar tiap jam yang dibangkitkan dan diunggah oleh sebuah skrip.",
+        "Sepuluh ribu halaman produk yang dibangkitkan dalam semalam.",
+        "Jawaban sebuah chatbot, ditampilkan kepada pengguna saat sedang dihasilkan.",
+        "Agen yang menulis dan menerbitkan ke sebuah blog sesuai jadwal."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Tingkat 5 — Otomatis.",
+        "medium": "Dibangkitkan oleh AI dan diterbitkan tanpa peninjauan manusia. Tingkat 5 pada AI Usage Scale.",
+        "long": "Sebuah model menghasilkan karya ini dan karya ini diterbitkan tanpa dibaca manusia terlebih dahulu. Ini Tingkat 5 pada AI Usage Scale, pernyataan yang jujur untuk sistem otomatis."
+      }
+    }
+  ],
+  "tree": [
+    {
+      "question": "Apakah ada AI generatif yang digunakan dalam pembuatan karya ini?",
+      "help": "AI generatif berarti model yang menghasilkan teks, gambar, audio, video, atau kode baru. Hitung juga AI yang digunakan untuk riset, mencari gagasan, atau memberi umpan balik, meskipun keluarannya tidak muncul dalam karya. Pemeriksa ejaan, fokus otomatis, gerbang derau, mesin pencari, dan kalkulator bukan AI generatif."
+    },
+    {
+      "question": "Apakah AI menghasilkan materi baru yang muncul dalam karya yang diterbitkan — di luar sekadar mengolah secara mekanis apa yang sudah Anda buat?",
+      "help": "Membetulkan tata bahasa, mentranskripsikan atau menerjemahkan kata-kata Anda dengan setia, meredam derau pada foto, atau menandai berkas Anda adalah pengolahan mekanis. Begitu pula riset, pencarian gagasan, atau umpan balik yang tidak meninggalkan materi buatan model dalam karya. Menulis paragraf baru, menggambar gambar baru, atau menggubah melodi baru adalah materi baru."
+    },
+    {
+      "question": "Apakah Anda sendiri yang membuat sebagian besar bentuk akhirnya — sebagian besar kata, piksel, atau suaranya?",
+      "help": "Nilailah karya yang diterbitkan, bukan usahanya. Bila sebagian besar dari apa yang dilihat atau didengar pembaca diketik, digambar, atau dimainkan oleh Anda, jawablah ya."
+    },
+    {
+      "question": "Apakah substansinya milik Anda — pengetahuannya, datanya, argumennya, arahannya?",
+      "help": "Substansi adalah pengetahuan, bukti, argumen, komposisi, atau batasan khusus karya yang menentukan apa yang disampaikan karya itu. Substansi tersebut milik Anda jika masukan asli Anda secara nyata menentukan hasilnya — bukan semata-mata karena Anda menulis atau menyempurnakan prompt."
+    },
+    {
+      "question": "Apakah ada manusia yang meninjau karya ini sebelum terbit dan bertanggung jawab atas isinya?",
+      "help": "Peninjauan harus sungguh-sungguh dan sepadan dengan risikonya: memeriksa karya akhir, memverifikasi klaim penting bila perlu, dan membetulkan masalah sebelum terbit. Bertanggung jawab berarti Anda akan membela atau memperbaikinya jika ternyata keliru."
+    }
+  ],
+  "edgeCases": [
+    {
+      "case": "Terjemahan",
+      "rule": "Terjemahan yang setia mewarisi tingkat karya sumbernya dan menambahkan catatan terjemahan. Menerjemahkan artikel Tingkat 1 dengan sebuah model menerbitkannya sebagai Tingkat 1, diterjemahkan oleh AI.",
+      "why": "Substansi dan strukturnya tidak berubah. Menghukum terjemahan justru akan membuat tulisan dunia makin sulit dijangkau, dan itu kebalikan dari tujuannya."
+    },
+    {
+      "case": "Transkripsi",
+      "rule": "Mentranskripsikan ucapan yang Anda rekam adalah pengolahan mekanis. Itu tidak menaikkan tingkatnya.",
+      "why": "Kata-katanya milik Anda. Model hanya menuliskannya."
+    },
+    {
+      "case": "Aset dekoratif",
+      "rule": "Gambar tajuk hasil AI pada artikel yang ditulis manusia tidak menjadikan artikel itu Tingkat 4. Nyatakan gambarnya di bagian Permukaan.",
+      "why": "Tingkat utama menggambarkan apa yang membawa maknanya. Kalau tidak, satu gambar stok akan menelan seluruh pernyataan, dan orang akan berhenti menyatakan sama sekali."
+    },
+    {
+      "case": "Karya turunan",
+      "rule": "Nyatakan tingkat kontribusi Anda sendiri, dan cantumkan tingkat sumbernya bila sumbernya menyatakan satu."
+    },
+    {
+      "case": "Pembangkitan langsung",
+      "rule": "Konten yang dibangkitkan sesuai permintaan dan ditampilkan kepada pengguna tanpa peninjauan adalah Tingkat 5, sekalipun prompt sistemnya ditulis dengan cermat oleh seorang manusia."
+    },
+    {
+      "case": "Pembelajaran mesin non-generatif",
+      "rule": "Fokus otomatis, peredam derau, peningkatan resolusi, pencocokan warna, dan klasifikasi yang tidak mengarang apa pun bukanlah AI generatif. Semua itu tidak menggeser Anda dari Tingkat 0."
+    }
+  ],
+  "ui": {
+    "nav": {
+      "manifesto": "Manifesto",
+      "scale": "Skala",
+      "level": "Tingkat Anda",
+      "badges": "Lencana",
+      "spec": "Spesifikasi",
+      "sign": "Tanda Tangan"
+    },
+    "wordmark": "AI Usage Scale",
+    "foot": {
+      "tagline": "Standar terbuka untuk menyatakan bagaimana sebuah karya dibuat.",
+      "licence": "Tanda dan levels.json: CC0. Teks: CC BY 4.0. Kode: MIT.",
+      "spec": "Spesifikasi",
+      "source": "Sumber & issue",
+      "thisPage": "Halaman ini",
+      "ownDeclaration": "Substansinya milik penulis; prosanya dihasilkan dengan AI, dan dibaca baris demi baris sebelum diterbitkan."
+    },
+    "hero": {
+      "eyebrowBefore": "Label yang dimiliki pencipta hari ini",
+      "eyebrowAfter": "Label yang dibutuhkan pencipta",
+      "binaryYes": "AI",
+      "binaryNo": "BUKAN AI",
+      "beforeHead": "Bersalah, atau tidak bersalah.",
+      "beforeBody": "Hanya dua itu yang boleh Anda katakan saat ini.",
+      "afterHead": "Enam tingkat.",
+      "afterBody": "Tunjuk salah satunya.",
+      "h1a": "Tidak ada tingkat yang memalukan.",
+      "h1b": "Yang ada hanya tingkat yang tidak dinyatakan.",
+      "sub": "Skala bebas dan terbuka untuk menyatakan bagaimana sebuah karya dibuat — pengetahuan siapa yang dibawanya dan siapa yang berdiri di belakangnya. Enam tingkat. Tiga puluh detik. Tanpa perlu bertanya kepada komite mana pun.",
+      "cta": "Temukan tingkat Anda",
+      "ctaAlt": "atau baca keenamnya",
+      "inOneLine": "Skalanya, masing-masing satu baris",
+      "levelHead": "Tingkat {n}"
+    },
+    "level": {
+      "eyebrow": "AI Usage Scale · Tingkat {n} dari 0–5",
+      "allLevels": "Semua tingkat",
+      "includes": "Ini tingkatnya bila",
+      "excludes": "Ini bukan tingkatnya bila",
+      "examples": "Contoh",
+      "sentenceH": "Katakan dalam satu kalimat",
+      "sentenceLede": "Tempelkan salah satunya di baris nama penulis, di kaki artikel, di deskripsi video, di deskripsi hasil pencarian, atau di tanda tangan surel. Tidak perlu gambar — pernyataan yang hanya bekerja sebagai gambar adalah pernyataan yang tak terbaca oleh separuh web.",
+      "short": "Pendek — untuk baris nama penulis atau bio",
+      "medium": "Sedang — untuk kaki artikel atau deskripsi meta",
+      "long": "Panjang — untuk catatan redaksi",
+      "markH": "Bubuhkan tandanya",
+      "markLede": "Salin lencananya sebagai SVG sebaris: ia tampil seketika, bekerja luring, dan tidak mengirim satu permintaan pun kepada kami. Bagian terakhir itu penting: lencana yang ditautkan langsung ke server kami adalah piksel pelacak di halaman Anda, dan standar yang berbicara tentang kejujuran tidak pantas mengirimkannya. Berkas terhosting di bawah ini ada demi kemudahan, bukan karena kami menginginkan lalu lintasnya.",
+      "markCap": "Chip Tingkat {n} · tanpa fon eksternal, tanpa permintaan",
+      "inline": "SVG sebaris — disarankan",
+      "inlineNote": "Mandiri sepenuhnya. Tak ada yang dimuat, tak ada yang dilacak.",
+      "hosted": "Gambar terhosting — bila Anda lebih suka menautkannya",
+      "plain": "Teks polos — untuk tempat yang tak bisa memuat gambar",
+      "machineH": "Biarkan mesin ikut membacanya",
+      "machineLede": "Pernyataan yang sama, dalam kosakata yang sudah dipakai lapisan kepatuhan. Kami tidak bersaing dengan mereka — kami adalah wajah mereka yang bisa dibaca manusia.",
+      "headOf": "Untuk <head> halaman Anda",
+      "surfacesH": "Bila bagian-bagiannya berbeda",
+      "copy": "Salin",
+      "copied": "Tersalin"
+    },
+    "scalePage": {
+      "eyebrow": "Skalanya",
+      "h1": "Enam tingkat, dan tak satu pun berupa vonis.",
+      "measures": "Yang diukurnya",
+      "refuses": "Yang sengaja tidak diukurnya",
+      "forInstance": "Misalnya",
+      "more": "Definisi, contoh, lencana, dan kode →",
+      "closingH": "Mengapa angka-angkanya tidak berwarna",
+      "closingA": "Setiap tanda di situs ini dicetak dengan tinta yang sama. Tidak ada ujung hijau dan tidak ada ujung merah, sebab skala yang mewarnai ujung-ujungnya sendiri sudah terlebih dahulu memberi tahu Anda mana yang harus dimalukan — dan rasa malu itulah yang membuat orang berbohong.",
+      "closingB": "Ringkasan pasar otomatis itu jujur di Tingkat 5 dan tidak jujur di tingkat mana pun yang lain. Sebuah memoar jujur di Tingkat 0. Tidak ada angka yang lebih baik. Satu-satunya jawaban yang buruk adalah jawaban yang tidak pernah diberikan."
+    },
+    "wizard": {
+      "eyebrow": "Lima pertanyaan",
+      "h1": "Apa yang sebenarnya Anda lakukan?",
+      "standfirst": "Jawablah dengan jujur. Tidak ada yang memeriksa, dan justru itulah intinya — pernyataan yang bisa dipaksakan kepada Anda tidak akan bernilai apa-apa.",
+      "count": "Pertanyaan {n} dari {total}",
+      "yes": "Ya",
+      "no": "Tidak",
+      "back": "← Kembali",
+      "yourLevel": "Tingkat Anda",
+      "getBadge": "Ambil lencana dan kodenya",
+      "startOver": "Ulangi dari awal",
+      "treeLabel": "Pohon keputusan",
+      "yesNext": "Ya → pertanyaan berikutnya",
+      "noNext": "Tidak → pertanyaan berikutnya",
+      "yesLevel": "Ya → Tingkat {n} · {name}",
+      "noLevel": "Tidak → Tingkat {n} · {name}",
+      "fineH": "Bagaimana bila dua orang di antara kita menjawab berbeda?",
+      "fineA": "Ungkapkan keraguannya dan jelaskan bagian mana yang berbeda. Jika sebuah sistem hanya menerima satu angka, pilih tingkat yang tidak mengecilkan peran AI. Skala ini dirancang untuk kejujuran yang berguna, bukan ketepatan semu.",
+      "fineB": "Kasus-kasus batas — terjemahan, transkripsi, gambar hiasan, karya turunan, pembangkitan langsung — sudah diputuskan di dalam spesifikasi."
+    },
+    "badgesPage": {
+      "eyebrow": "Tanda",
+      "h1": "Enam tanda. Satu tinta.",
+      "standfirst": "Tidak ada ujung hijau dan tidak ada ujung merah. Skala yang mewarnai ujung-ujungnya sendiri sudah terlebih dahulu memberi tahu Anda mana yang harus dimalukan.",
+      "intro": "Semua di sini berlisensi CC0 — tanpa keharusan atribusi, tanpa lisensi yang harus disetujui, tanpa akun yang harus dibuat. Ambil saja.",
+      "hotlinkH": "Mengapa kami lebih suka Anda tidak menautkannya langsung",
+      "hotlinkA": "Setiap lencana di sini bekerja sebagai SVG sebaris: Anda tempelkan markupnya, dan ia tampil tanpa fon eksternal, tanpa berkas eksternal, dan tanpa satu pun permintaan kepada kami. Itulah versi yang kami sarankan, dan halaman tiap tingkat memberi Anda potongan kodenya secara persis.",
+      "hotlinkB": "Lencana yang ditautkan langsung ke server kami adalah piksel pelacak di halaman Anda. Ia akan memberi tahu kami URL setiap artikel yang membawa pernyataan, dan seberapa sering masing-masing dibaca. Kami tidak menginginkan data itu, dan standar yang seluruh pokoknya adalah kejujuran tidak pantas mengumpulkannya diam-diam. Berkas terhosting ada di sini karena kadang Anda memang butuh sebuah URL — bukan karena kami menginginkan lalu lintasnya.",
+      "rulesH": "Aturan untuk tanda-tanda ini",
+      "rules": [
+        "Jangan mewarnai ulang sebuah tingkat untuk menyiratkan bahwa ia lebih baik atau lebih buruk daripada tingkat lain.",
+        "Jangan membubuhkan tanda pada karya yang pernyataannya bukan Anda buat.",
+        "Pertahankan tautannya. Tanda tanpa definisi di belakangnya hanyalah hiasan.",
+        "Terjemahkanlah. Gambarlah ulang. Fork-lah seluruhnya."
+      ],
+      "whereH": "Di mana tempatnya",
+      "whereA": "Di baris nama penulis. Di kaki artikel. Di deskripsi video. Di halaman tentang kami. Di README. Di kartu model. Di catatan acara podcast. Di tanda tangan surel. Di kolom deskripsi hasil pencarian. Di mana pun pembaca sewajarnya ingin tahu apa yang sedang mereka baca."
+    },
+    "specPage": {
+      "eyebrow": "Spesifikasi",
+      "h1": "Bagaimana ia didefinisikan, dan bagaimana ia berbicara dengan yang lain.",
+      "standfirst": "Ini standar pernyataan, bukan standar pembuktian. Ia tidak bisa diverifikasi dengan kriptografi dan memang tidak berusaha begitu. Baris nama penulis pun tidak bisa.",
+      "procedure": "Prosedur keputusan",
+      "procedureLede": "Lima pertanyaan, diajukan berurutan. Yang pertama kali berhenti itulah yang menentukan tingkatnya.",
+      "question": "Pertanyaan",
+      "yesCol": "Ya",
+      "noCol": "Tidak",
+      "next": "lanjut",
+      "surfaces": "Permukaan",
+      "headlineRule": "Aturan tingkat utama.",
+      "recognised": "Permukaan yang dikenali:",
+      "edgeCases": "Kasus batas",
+      "edgeLede": "Semuanya lahir dari upaya mematahkan pohon keputusan ini. Semuanya diputuskan di sini agar dua orang jujur sampai pada angka yang sama.",
+      "interop": "Interoperabilitas",
+      "interopLede": "Skala ini melengkapi standar provenans. Pemetaan ini mengikuti kosakata IPTC yang telah mapan dan bereksperimen dengan sintaks kandidat yang dibahas oleh W3C AI Content Disclosure Community Group; sintaks tersebut bukan standar W3C.",
+      "mapping": "Pemetaan tingkat",
+      "lossy": "Pemetaan ini kehilangan informasi tepat di satu arah, dan justru kehilangan itulah intinya: IPTC tidak bisa membedakan Tingkat 3, 4, dan 5. Ia tidak punya istilah untuk substansi siapa ini, dan tidak punya istilah untuk apakah ada manusia yang membacanya. Itulah dua pertanyaan yang sebenarnya dipedulikan pembaca, dan itulah dua pertanyaan yang membuat skala ini ada.",
+      "machine": "Bentuk yang terbaca mesin",
+      "machineLede": "Definisi bahasa Inggris kanonik berada dalam satu berkas dan menjadi sumber bagi lencana serta keluaran yang dapat dibaca mesin. Teks penjelas terlokalisasi dikelola terpisah dan diperiksa agar strukturnya tetap sepadan.",
+      "priorArt": "Karya terdahulu",
+      "priorLede": "Tak ada yang belum pernah ada sebelumnya di sini, dan berpura-pura sebaliknya adalah ketidakjujuran kecil tersendiri.",
+      "why": "Alasan"
+    },
+    "signPage": {
+      "eyebrow": "Penanda tangan",
+      "h1": "Menandatangani mengikat Anda pada satu hal.",
+      "standfirst": "Nyatakan tingkatnya pada apa pun yang Anda terbitkan. Hanya itu seluruh janjinya.",
+      "intro": "Bukan untuk memakai lebih sedikit AI. Bukan untuk memakai lebih banyak. Bukan untuk menyetujui setiap kata dalam manifesto ini — beberapa orang di bawah ini tidak menyetujuinya. Hanya untuk berhenti membiarkan pembaca menebak-nebak.",
+      "howH": "Cara menandatangani",
+      "howA": "Buka sebuah pull request yang menambahkan nama Anda ke signatories.json. Gesekan kecil itu memang disengaja: artinya setiap nama di sini ditambahkan oleh orang yang benar-benar bersungguh-sungguh, dan artinya tidak ada formulir untuk kami panen dan tidak ada milis yang akan menjerat Anda.",
+      "howB": "Bila pull request bukan dunia Anda, buka sebuah issue dan seseorang akan menambahkan Anda.",
+      "addName": "Tambahkan nama Anda",
+      "count": "penanda tangan",
+      "note": "Angka di samping sebuah nama, bila ada, adalah tingkat yang paling sering dipakai orang itu saat menerbitkan karya. Itu bukan nilai. Beberapa orang di sini biasanya berada di angka 4, dan mereka mengatakannya — dan justru itulah intinya."
+    },
+    "lang": {
+      "label": "Bahasa",
+      "readEnglish": "Baca versi asli bahasa Inggris",
+      "improve": "Perbaiki terjemahan ini",
+      "machineNotice": "Halaman ini diterjemahkan dari versi asli bahasa Inggris oleh mesin, dan belum ditinjau oleh penutur manusia.",
+      "ownRule": "Menurut aturan terjemahan skala ini sendiri, halaman ini membawa tingkat sumbernya — 3, Diarahkan — ditambah catatan ini.",
+      "humanNotice": "Halaman ini diterjemahkan dari versi asli bahasa Inggris dan sudah ditinjau oleh penutur manusia."
+    }
+  }
+}

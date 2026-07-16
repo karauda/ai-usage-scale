@@ -1,0 +1,388 @@
+{
+  "lang": "nl",
+  "name": "Dutch",
+  "endonym": "Nederlands",
+  "dir": "ltr",
+  "translation": { "by": "machine" },
+  "principle": "Geen enkel niveau staat boven een ander. Een schaal die haar eigen niveaus rangschikt, is een schaamteladder, en iedereen liegt zich er naar beneden. Het enige oneerlijke niveau is het niveau dat niet vermeld wordt.",
+  "axis": {
+    "measures": "De rol die kunstmatige intelligentie speelde bij het maken van het werk: van wie de substantie is, en wie ervoor instaat.",
+    "doesNotMeasure": "Het aandeel tekens, pixels of samples dat een model heeft uitgespuwd. Dat getal veroordeelt de expert die dertig jaar praktijk dicteert, en spreekt niemand vrij."
+  },
+  "surfaces": {
+    "note": "Optioneel. Eén getal beschrijft het werk als geheel. Wijken onderdelen daar sterk van af, vermeld ze dan. De badge toont altijd één getal; de uitsplitsing zit achter de link.",
+    "headlineRule": "Het hoofdniveau beschrijft het deel van het werk dat de betekenis draagt. Decoratief materiaal dat een redelijk publiek niet wezenlijk voor het werk zou vinden, bepaalt het hoofdniveau niet — vermeld het in plaats daarvan hier."
+  },
+  "levels": [
+    {
+      "id": 0,
+      "name": "Mens",
+      "oneLine": "Er is geen generatieve AI gebruikt.",
+      "definition": "In geen enkel stadium van het maken van dit werk was generatieve AI betrokken. Niet-generatieve gereedschappen — spellingcontrole, autocorrectie, autofocus, ruisonderdrukking, zoekmachines, rekenmachines, kleurcorrectie, compilers — zijn geen generatieve AI en veranderen niets aan dit niveau.",
+      "includes": [
+        "Het zelf schrijven, tekenen, fotograferen, opnemen, spelen of programmeren",
+        "Klassieke software: tekstverwerkers, Lightroom, Pro Tools, een compiler, een camera",
+        "Een zoekmachine gebruiken om bronnen te vinden die je daarna zelf leest",
+        "Niet-generatieve machine learning: autofocus, ruisreductie, opschalen dat niets verzint"
+      ],
+      "excludes": [
+        "Elk gebruik van een taal-, beeld- of audiomodel waarvan de uitvoer het werk heeft bereikt",
+        "Door AI gegenereerde stockbeelden, ook als pure decoratie — vermeld dat onder Onderdelen"
+      ],
+      "examples": [
+        "Een essay dat met de hand is geschreven en herzien.",
+        "Een foto die met een camera is gemaakt en in Lightroom is bewerkt.",
+        "Een nummer gespeeld op echte instrumenten en gemixt door een technicus.",
+        "Een site die door een ontwikkelaar zonder AI-assistent is gebouwd."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Level 0 — Mens.",
+        "medium": "Bij het maken van dit werk is geen generatieve AI gebruikt. Level 0 van de AI Usage Scale.",
+        "long": "Dit werk is gemaakt zonder generatieve AI. Geen tekst, beeld, audio, video of code erin is door een model geproduceerd. Dit is Level 0 van de AI Usage Scale, een open standaard om te vermelden hoe een werk is gemaakt."
+      }
+    },
+    {
+      "id": 1,
+      "name": "Ondersteund",
+      "oneLine": "AI werkte alleen aan materiaal dat je al had gemaakt. Ze heeft niets verzonnen.",
+      "definition": "Jij hebt het werk gemaakt. AI heeft alleen jouw materiaal verwerkt of achter de schermen geholpen: gecorrigeerd, getrouw getranscribeerd of vertaald, opgeschoond, gelabeld, opgemaakt, doorzocht of feedback gegeven. Afgezien van een getrouwe transcriptie of vertaling van jouw materiaal komt er in het gepubliceerde werk geen door een model geproduceerd materiaal voor.",
+      "includes": [
+        "Grammatica-, spelling- en stijlcorrectie van zinnen die jij hebt geschreven",
+        "Het transcriberen van audio die jij hebt opgenomen",
+        "Het ontruisen, uitknippen of opschalen van een beeld dat jij hebt gemaakt",
+        "Labelen, opmaken, samenvatten voor eigen gebruik of het doorzoeken van je eigen archief",
+        "AI gebruiken om bronnen te vinden, die je daarna zelf leest en controleert"
+      ],
+      "excludes": [
+        "AI schrijft een zin, een alinea, een beeld of een melodie die het werk haalt — dat is Level 2 of hoger",
+        "AI herstructureert je redenering, niet alleen je proza"
+      ],
+      "examples": [
+        "Een artikel dat jij schreef en door een model op grammatica liet nakijken.",
+        "Een podcast die jij opnam, door een model getranscribeerd voor de shownotes.",
+        "Een paper dat jij schreef, voor inlevering door een model op typefouten gecontroleerd.",
+        "Code die jij schreef, waarbij een AI-assistent alleen variabelen hernoemde en de opmaak verzorgde."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Level 1 — Ondersteund.",
+        "medium": "Geschreven door de auteur; AI is alleen gebruikt voor mechanisch werk zoals correctie en transcriptie. Level 1 van de AI Usage Scale.",
+        "long": "De auteur heeft dit werk gemaakt. AI is alleen gebruikt om materiaal te verwerken dat de auteur al had geproduceerd — het corrigeren, transcriberen of opschonen ervan. Geen zin, geen beeld en geen geluid in het gepubliceerde werk is door een model verzonnen. Dit is Level 1 van de AI Usage Scale."
+      }
+    },
+    {
+      "id": 2,
+      "name": "Samen gemaakt",
+      "oneLine": "Het grootste deel van de uiteindelijke vorm heb jij gemaakt. AI maakte delen die zijn blijven staan.",
+      "definition": "Het werk is van jou in structuur en in het grootste deel van de uitvoering, maar materiaal dat een model heeft geproduceerd overleeft in het gepubliceerde resultaat: passages, elementen, varianten waaruit je hebt gekozen. Het merendeel van wat het publiek te zien of te horen krijgt, heb jij geschreven, getekend of gespeeld.",
+      "includes": [
+        "AI schrijft een sectie die jij daarna herschrijft, terwijl jouw woorden het geheel bepalen",
+        "AI genereert varianten waaruit jij kiest en die je bewerkt",
+        "AI schrijft een functie in een codebase die jij hebt ontworpen en grotendeels zelf hebt geschreven",
+        "AI breidt een deel van een beeld uit dat jij hebt gecomponeerd, of vult het aan"
+      ],
+      "excludes": [
+        "AI produceert het merendeel van de uiteindelijke woorden of pixels — dat is Level 3 of hoger",
+        "Puur mechanische correctie waarbij niets wordt verzonnen — dat is Level 1"
+      ],
+      "examples": [
+        "Een essay dat jij hebt opgezet en grotendeels zelf schreef, met twee door AI geschreven alinea's die je hebt herwerkt.",
+        "Een track die jij componeerde en speelde, met één door AI gegenereerde textuur in de bridge.",
+        "Een feature die jij ontwierp en schreef, met door AI geschreven hulpfuncties die je hebt nagekeken.",
+        "Een foto die jij maakte, waarbij een storend object met generatief vullen is weggehaald."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Level 2 — Samen gemaakt.",
+        "medium": "Grotendeels gemaakt door de auteur; een deel van het materiaal is door AI gegenereerd en behouden. Level 2 van de AI Usage Scale.",
+        "long": "De auteur heeft het grootste deel van dit werk gemaakt — de meeste woorden, pixels of klanken. Een deel van het door AI gegenereerde materiaal is erin blijven staan, door de auteur gekozen en bewerkt. Dit is Level 2 van de AI Usage Scale."
+      }
+    },
+    {
+      "id": 3,
+      "name": "Aangestuurd",
+      "oneLine": "De substantie is van jou. De vorm komt van de AI.",
+      "definition": "De werkspecifieke kennis, bewijzen, redenering, compositie of randvoorwaarden zijn van jou en bepalen het resultaat in wezenlijke mate. Een model heeft op basis van die oorspronkelijke inbreng het merendeel van de uiteindelijke woorden, pixels of klanken geproduceerd. Jij hebt aangestuurd, gekozen, gecorrigeerd, inhoudelijk beoordeeld en bent verantwoordelijk voor het resultaat. Alleen een prompt schrijven of verfijnen is niet genoeg.",
+      "note": "Dit is het niveau dat het huidige binaire etiket niet kan zien, en de reden dat deze schaal bestaat. Een expert die dicteert wat hij weet en een model er vorm aan laat geven, heeft geen fraude gepleegd. Hij heeft een gereedschap gebruikt — en kan dat nu eindelijk ook zeggen.",
+      "includes": [
+        "Een specialist levert kennis, aantekeningen, data of een uitgewerkte briefing die een model in proza omzet",
+        "Een art director stuurt een beeld door vele ronden van precieze aanwijzingen",
+        "Onderzoek dat jij hebt gedaan, door een model omgezet in een script of een ingesproken video",
+        "Een codebase die jij tot in detail hebt gespecificeerd en nagekeken, grotendeels geschreven door een AI-agent"
+      ],
+      "excludes": [
+        "Een prompt of iteratief prompten zonder oorspronkelijke, werkspecifieke substantie bij te dragen — dat is Level 4",
+        "Werk waarvan jij het merendeel van de uiteindelijke woorden zelf hebt geschreven — dat is Level 2"
+      ],
+      "examples": [
+        "Een chirurg dicteert dertig jaar praktijk; een model schrijft het artikel; de chirurg corrigeert en ondertekent.",
+        "De ruwe aantekeningen en prijzen van een oprichter worden een landingspagina, geschreven door een model.",
+        "Een illustrator stuurt veertig iteraties van een gegenereerd beeld naar een precieze compositie toe.",
+        "De dataset en de bevindingen van een onderzoeker worden een uitlegvideo, ingesproken door een synthetische stem."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Level 3 — Aangestuurd.",
+        "medium": "De kennis, de data en de redenering zijn van de auteur; AI heeft daar de tekst uit geproduceerd. Level 3 van de AI Usage Scale.",
+        "long": "De substantie van dit werk — de kennis, de data, de redenering, de regie — is van de auteur. Een model heeft daaruit het grootste deel van de uiteindelijke vorm geproduceerd. De auteur heeft aangestuurd, gecontroleerd en neemt de verantwoordelijkheid voor wat er staat. Dit is Level 3 van de AI Usage Scale."
+      }
+    },
+    {
+      "id": 4,
+      "name": "Opgedragen",
+      "oneLine": "AI produceerde de substantie en de vorm. Jij vroeg erom, jij controleerde het, jij staat ervoor in.",
+      "definition": "Een model heeft zowel geproduceerd wát het werk zegt als hóe het dat zegt, op basis van een prompt, sjabloon of briefing waarin weinig oorspronkelijke, werkspecifieke substantie van jou zat. Een mens heeft het voltooide werk inhoudelijk beoordeeld, belangrijke beweringen waar nodig gecontroleerd en neemt de verantwoordelijkheid voor de publicatie.",
+      "includes": [
+        "Een model om inhoud over een onderwerp vragen en die na controle publiceren",
+        "Gegenereerde marketingteksten, productbeschrijvingen of social posts, nagekeken voordat ze de deur uit gaan",
+        "Stockbeelden, gegenereerd uit een korte prompt en gecontroleerd vóór gebruik",
+        "Door AI geschreven code die je hebt gelezen en getest voordat je hem samenvoegde"
+      ],
+      "excludes": [
+        "Werk dat gebouwd is op kennis, data of regie die werkelijk van jou zijn — dat is Level 3",
+        "Publiceren zonder dat een mens het heeft gelezen — dat is Level 5"
+      ],
+      "examples": [
+        "“Schrijf tien berichten over diabetes” — gelezen, gecorrigeerd, gepubliceerd.",
+        "Productbeschrijvingen, gegenereerd voor een catalogus en nagekeken door een mens.",
+        "Een gegenereerd headerbeeld, op fouten gecontroleerd voordat het live gaat.",
+        "Een samenvatting van een document, gemaakt door een model en getoetst aan de bron."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Level 4 — Opgedragen.",
+        "medium": "Door AI geproduceerd uit een prompt; nagekeken door een mens die er de verantwoordelijkheid voor neemt. Level 4 van de AI Usage Scale.",
+        "long": "Een model heeft zowel de substantie als de vorm van dit werk geproduceerd. Een mens heeft erom gevraagd, het gelezen, het gecontroleerd en neemt de verantwoordelijkheid voor de publicatie. Dit is Level 4 van de AI Usage Scale."
+      }
+    },
+    {
+      "id": 5,
+      "name": "Geautomatiseerd",
+      "oneLine": "AI produceerde de substantie en de vorm. Geen mens heeft het gelezen voordat het werd gepubliceerd.",
+      "definition": "Een model heeft het werk geproduceerd en het is gepubliceerd zonder menselijke controle. Dit is het eerlijke niveau voor geautomatiseerde pijplijnen, massaproductie en agents die op eigen houtje publiceren. Voor heel veel volstrekt legitiem werk is dit het juiste antwoord — en het uitspreken ervan is precies wat dat werk legitiem maakt.",
+      "note": "Level 5 is geen aanklacht. Een geautomatiseerd marktrapport, een gegenereerde wedstrijdsamenvatting, een machinaal vertaalde helppagina op schaal: dat alles is eerlijk op Level 5 en oneerlijk op elk ander. Een 5 vermelden is wat een geautomatiseerd systeem onderscheidt van bedrog.",
+      "includes": [
+        "Geplande of agentische publicatie zonder mens in de lus",
+        "Massaproductie van pagina's, advertenties of samenvattingen",
+        "Live generatie op aanvraag, aan een gebruiker getoond terwijl ze ontstaat",
+        "Machinevertaling die op grote schaal en ongecontroleerd wordt gepubliceerd"
+      ],
+      "excludes": [
+        "Alles wat een mens werkelijk heeft gelezen voordat het naar buiten ging — dat is Level 4"
+      ],
+      "examples": [
+        "Een marktsamenvatting die elk uur door een script wordt gegenereerd en geplaatst.",
+        "Tienduizend productpagina's die 's nachts worden gegenereerd.",
+        "De antwoorden van een chatbot, aan de gebruiker getoond terwijl ze ontstaan.",
+        "Een agent die volgens een schema een blog schrijft en publiceert."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Level 5 — Geautomatiseerd.",
+        "medium": "Door AI gegenereerd en gepubliceerd zonder menselijke controle. Level 5 van de AI Usage Scale.",
+        "long": "Een model heeft dit werk geproduceerd en het is gepubliceerd zonder dat een mens het eerst heeft gelezen. Dit is Level 5 van de AI Usage Scale, de eerlijke vermelding voor geautomatiseerde systemen."
+      }
+    }
+  ],
+  "tree": [
+    {
+      "question": "Is er bij het maken van dit werk generatieve AI gebruikt?",
+      "help": "Generatieve AI betekent een model dat nieuwe tekst, beelden, audio, video of code produceert. Tel ook AI mee die is gebruikt voor onderzoek, ideevorming of feedback, zelfs wanneer de output ervan niet in het werk voorkomt. Spellingcontrole, autofocus, noise gates, zoekmachines en rekenmachines zijn geen generatieve AI."
+    },
+    {
+      "question": "Heeft AI nieuw materiaal geproduceerd dat in het gepubliceerde werk voorkomt — meer dan het mechanisch verwerken van wat jij al had gemaakt?",
+      "help": "Je grammatica corrigeren, je woorden getrouw transcriberen of vertalen, je foto ontruisen of je bestanden labelen is mechanische verwerking. Dat geldt ook voor onderzoek, ideevorming of feedback waardoor geen door het model geproduceerd materiaal in het werk achterblijft. Een nieuwe alinea schrijven, een nieuw beeld tekenen of een nieuwe melodie componeren is nieuw materiaal."
+    },
+    {
+      "question": "Heb je het grootste deel van de uiteindelijke vorm zelf gemaakt — de meeste woorden, pixels of klanken?",
+      "help": "Beoordeel het gepubliceerde resultaat, niet de moeite. Als het meeste van wat een lezer ziet of hoort door jou is getypt, getekend of gespeeld, antwoord dan ja."
+    },
+    {
+      "question": "Is de substantie van jou — de kennis, de data, de redenering, de regie?",
+      "help": "Substantie is de werkspecifieke kennis, bewijzen, redenering, compositie of randvoorwaarden die bepalen wat het werk zegt. Ze is van jou wanneer jouw oorspronkelijke inbreng het resultaat in wezenlijke mate bepaalt — niet alleen omdat je de prompt hebt geschreven of verfijnd."
+    },
+    {
+      "question": "Heeft een mens dit vóór publicatie nagekeken en de verantwoordelijkheid genomen voor wat er staat?",
+      "help": "De beoordeling moet inhoudelijk zijn en passen bij wat er op het spel staat: het voltooide werk controleren, belangrijke beweringen waar nodig verifiëren en problemen vóór publicatie corrigeren. Verantwoordelijkheid nemen betekent dat je het verdedigt of corrigeert als het onjuist is."
+    }
+  ],
+  "edgeCases": [
+    {
+      "case": "Vertaling",
+      "rule": "Een getrouwe vertaling erft het niveau van het bronwerk en voegt een vertaalnotitie toe. Wie een Level 1-artikel met een model vertaalt, publiceert het als Level 1, vertaald door AI.",
+      "why": "De substantie en de structuur blijven onveranderd. Vertaling bestraffen zou de teksten van de wereld minder toegankelijk maken — precies het tegenovergestelde van het doel."
+    },
+    {
+      "case": "Transcriptie",
+      "rule": "Spraak transcriberen die jij hebt opgenomen is mechanische verwerking. Het verhoogt het niveau niet.",
+      "why": "De woorden zijn van jou. Het model heeft ze alleen opgeschreven."
+    },
+    {
+      "case": "Decoratieve elementen",
+      "rule": "Een gegenereerd headerbeeld boven een door mensen geschreven artikel maakt het artikel nog geen Level 4. Vermeld het beeld onder Onderdelen.",
+      "why": "Het hoofdniveau beschrijft wat de betekenis draagt. Anders zou één stockbeeld de hele vermelding opslokken, en zouden mensen simpelweg stoppen met vermelden."
+    },
+    {
+      "case": "Afgeleide werken",
+      "rule": "Vermeld het niveau van je eigen bijdrage, en noem het niveau van de bron als die er een heeft vermeld."
+    },
+    {
+      "case": "Live generatie",
+      "rule": "Inhoud die op aanvraag wordt gegenereerd en zonder controle aan een gebruiker wordt getoond, is Level 5 — ook als de systeemprompt zorgvuldig door een mens is geschreven."
+    },
+    {
+      "case": "Niet-generatieve machine learning",
+      "rule": "Autofocus, ruisreductie, opschalen, kleurafstemming en classificatie die niets verzinnen, zijn geen generatieve AI. Ze halen je niet van Level 0 af."
+    }
+  ],
+  "ui": {
+    "nav": {
+      "manifesto": "Manifest",
+      "scale": "Schaal",
+      "level": "Jouw niveau",
+      "badges": "Badges",
+      "spec": "Specificatie",
+      "sign": "Ondertekenen"
+    },
+    "wordmark": "AI Usage Scale",
+    "foot": {
+      "tagline": "Een open standaard om te vermelden hoe een werk is gemaakt.",
+      "licence": "Merktekens en levels.json: CC0. Tekst: CC BY 4.0. Code: MIT.",
+      "spec": "Specificatie",
+      "source": "Broncode & issues",
+      "thisPage": "Deze pagina",
+      "ownDeclaration": "De substantie is van de auteur; het proza is met AI geproduceerd en vóór publicatie regel voor regel gelezen."
+    },
+    "hero": {
+      "eyebrowBefore": "Het etiket dat een maker vandaag heeft",
+      "eyebrowAfter": "Het etiket dat een maker nodig heeft",
+      "binaryYes": "AI",
+      "binaryNo": "GEEN AI",
+      "beforeHead": "Schuldig, of niet schuldig.",
+      "beforeBody": "Meer mag je op dit moment niet zeggen.",
+      "afterHead": "Zes niveaus.",
+      "afterBody": "Wijs er één aan.",
+      "h1a": "Er bestaat geen beschamend niveau.",
+      "h1b": "Er bestaat alleen een niet-vermeld niveau.",
+      "sub": "Een vrije, open schaal om te zeggen hoe een werk is gemaakt — wiens kennis het draagt en wie ervoor staat. Zes niveaus. Dertig seconden. Geen commissie om iets aan te vragen.",
+      "cta": "Vind je niveau",
+      "ctaAlt": "of lees de zes",
+      "inOneLine": "De schaal, in één regel per niveau",
+      "levelHead": "Level {n}"
+    },
+    "level": {
+      "eyebrow": "AI Usage Scale · Level {n} van 0–5",
+      "allLevels": "Alle niveaus",
+      "includes": "Dit is het niveau wanneer",
+      "excludes": "Dit is niet het niveau wanneer",
+      "examples": "Voorbeelden",
+      "sentenceH": "Zeg het in één zin",
+      "sentenceLede": "Plak een van deze zinnen in een auteursvermelding, onder een artikel, in een videobeschrijving, in de beschrijving van een zoekresultaat of in een e-mailhandtekening. Geen beeld nodig — een vermelding die alleen als plaatje werkt, is een vermelding die het halve web niet kan lezen.",
+      "short": "Kort — voor een auteursvermelding of een bio",
+      "medium": "Middel — voor onder een artikel of een meta-omschrijving",
+      "long": "Lang — voor een noot van de redactie",
+      "markH": "Zet het merkteken erop",
+      "markLede": "Kopieer de badge als inline SVG: hij rendert direct, werkt offline en stuurt ons geen enkel verzoek. Dat laatste telt: een badge die je hotlinkt, is een trackingpixel op jouw pagina, en een standaard die over eerlijkheid gaat, hoort er geen te leveren. Het gehoste bestand hieronder is er voor het gemak — niet omdat wij het verkeer willen.",
+      "markCap": "Level {n}-chip · geen extern lettertype, geen verzoek",
+      "inline": "Inline SVG — aanbevolen",
+      "inlineNote": "Op zichzelf staand. Niets te laden, niets te volgen.",
+      "hosted": "Gehost beeld — als je liever linkt",
+      "plain": "Platte tekst — waar geen beelden kunnen komen",
+      "machineH": "Laat het ook door machines lezen",
+      "machineLede": "Dezelfde vermelding, in de vocabulaires die de compliancelaag toch al spreekt. Wij concurreren daar niet mee — wij zijn het menselijk leesbare gezicht ervan.",
+      "headOf": "Voor de <head> van je pagina",
+      "surfacesH": "Als de onderdelen verschillen",
+      "copy": "Kopiëren",
+      "copied": "Gekopieerd"
+    },
+    "scalePage": {
+      "eyebrow": "De schaal",
+      "h1": "Zes niveaus, en geen ervan is een vonnis.",
+      "measures": "Ze meet",
+      "refuses": "Ze weigert te meten",
+      "forInstance": "Bijvoorbeeld",
+      "more": "Definitie, voorbeelden, badge en code →",
+      "closingH": "Waarom de cijfers geen kleuren hebben",
+      "closingA": "Elk merkteken op deze site is in dezelfde inkt gedrukt. Er is geen groen uiteinde en geen rood uiteinde, want een schaal die haar eigen uitersten inkleurt, heeft je al verteld voor welk je je zou moeten schamen — en schaamte is wat mensen doet liegen.",
+      "closingB": "Een geautomatiseerde marktsamenvatting is eerlijk op Level 5 en oneerlijk op elk ander. Een autobiografie is eerlijk op Level 0. Geen van beide getallen is het betere. Het enige slechte antwoord is het antwoord dat niemand geeft."
+    },
+    "wizard": {
+      "eyebrow": "Vijf vragen",
+      "h1": "Wat heb je werkelijk gedaan?",
+      "standfirst": "Antwoord eerlijk. Niemand controleert het, en dat is precies de bedoeling — een vermelding waartoe je gedwongen kunt worden, zou niets waard zijn.",
+      "count": "Vraag {n} van {total}",
+      "yes": "Ja",
+      "no": "Nee",
+      "back": "← Terug",
+      "yourLevel": "Jouw niveau",
+      "getBadge": "Haal de badge en de code",
+      "startOver": "Opnieuw beginnen",
+      "treeLabel": "De beslisboom",
+      "yesNext": "Ja → volgende vraag",
+      "noNext": "Nee → volgende vraag",
+      "yesLevel": "Ja → Level {n} · {name}",
+      "noLevel": "Nee → Level {n} · {name}",
+      "fineH": "En als twee van ons verschillend zouden antwoorden?",
+      "fineA": "Vermeld dan de dubbelzinnigheid en leg uit welke delen verschillen. Als een systeem maar één getal accepteert, kies dan het niveau dat de rol van AI niet kleiner voorstelt. De schaal is bedoeld voor bruikbare eerlijkheid, niet voor schijnprecisie.",
+      "fineB": "Grensgevallen — vertaling, transcriptie, decoratieve beelden, afgeleid werk, live generatie — zijn beslecht in de specificatie."
+    },
+    "badgesPage": {
+      "eyebrow": "Merktekens",
+      "h1": "Zes merktekens. Eén inkt.",
+      "standfirst": "Er is geen groen uiteinde en geen rood uiteinde. Een schaal die haar eigen uitersten inkleurt, heeft je al verteld voor welk je je zou moeten schamen.",
+      "intro": "Alles hier is CC0 — geen naamsvermelding vereist, geen licentie te accepteren, geen account aan te maken. Neem ze mee.",
+      "hotlinkH": "Waarom wij liever hebben dat je niet hotlinkt",
+      "hotlinkA": "Elke badge hier werkt als inline SVG: je plakt de markup, en hij rendert zonder extern lettertype, zonder extern bestand en zonder één verzoek aan ons. Dat is de versie die wij aanraden, en de niveaupagina's geven je het exacte fragment.",
+      "hotlinkB": "Een badge die je hotlinkt, is een trackingpixel op jouw pagina. Hij zou ons de URL verraden van elk artikel dat een vermelding draagt, en hoe vaak elk artikel wordt gelezen. Wij willen die data niet, en een standaard die volledig over eerlijkheid gaat, hoort ze niet stiekem te verzamelen. De gehoste bestanden staan er omdat je soms werkelijk een URL nodig hebt — niet omdat wij het verkeer willen.",
+      "rulesH": "Regels voor de merktekens",
+      "rules": [
+        "Kleur een niveau niet om, om te suggereren dat het beter of slechter is dan een ander.",
+        "Zet geen merkteken op werk waarvoor jij de vermelding niet hebt gedaan.",
+        "Houd de link. Een merkteken zonder definitie erachter is versiering.",
+        "Vertaal ze. Teken ze opnieuw. Fork het geheel."
+      ],
+      "whereH": "Waar het hoort",
+      "whereA": "Een auteursvermelding. De voet van een artikel. Een videobeschrijving. Een over-ons-pagina. Een README. Een modelkaart. De shownotes van een podcast. Een e-mailhandtekening. Het beschrijvingsveld van een zoekresultaat. Overal waar een lezer redelijkerwijs wil weten wat hij leest."
+    },
+    "specPage": {
+      "eyebrow": "Specificatie",
+      "h1": "Hoe ze is gedefinieerd, en hoe ze met al het andere praat.",
+      "standfirst": "Dit is een standaard voor vermelding, geen standaard voor bewijs. Ze valt niet cryptografisch te verifiëren en probeert dat ook niet. Een auteursvermelding evenmin.",
+      "procedure": "Beslisprocedure",
+      "procedureLede": "Vijf vragen, op volgorde gesteld. De eerste die eindigt, geeft het niveau.",
+      "question": "Vraag",
+      "yesCol": "Ja",
+      "noCol": "Nee",
+      "next": "verder",
+      "surfaces": "Onderdelen",
+      "headlineRule": "Regel voor het hoofdniveau.",
+      "recognised": "Erkende onderdelen:",
+      "edgeCases": "Grensgevallen",
+      "edgeLede": "Elk hiervan komt voort uit een poging om de beslisboom te breken. Ze zijn hier beslecht, zodat twee eerlijke mensen op hetzelfde getal uitkomen.",
+      "interop": "Interoperabiliteit",
+      "interopLede": "Deze schaal vult herkomststandaarden aan. Ze sluit aan op het gevestigde IPTC-vocabulaire en experimenteert met de kandidaatsyntaxis die door de W3C AI Content Disclosure Community Group wordt besproken; die syntaxis is geen W3C-standaard.",
+      "mapping": "Level-mapping",
+      "lossy": "De mapping verliest informatie in precies één richting, en dat verlies is nu juist het punt: IPTC kan Level 3, 4 en 5 niet uit elkaar houden. Het heeft geen term voor van wie de substantie is, en geen voor de vraag of een mens het heeft gelezen. Dat zijn de twee vragen waar lezers werkelijk om geven, en het zijn de twee die deze schaal bestaat om te beantwoorden.",
+      "machine": "Machineleesbare vorm",
+      "machineLede": "De canonieke Engelse definities staan in één bestand en sturen de badges en machineleesbare uitvoer aan. Gelokaliseerde toelichtingen worden afzonderlijk onderhouden en op structurele gelijkheid gecontroleerd.",
+      "priorArt": "Eerder werk",
+      "priorLede": "Niets hier is zonder precedent, en het tegendeel beweren zou een eigen kleine oneerlijkheid zijn.",
+      "why": "Waarom"
+    },
+    "signPage": {
+      "eyebrow": "Ondertekenaars",
+      "h1": "Ondertekenen verplicht je tot één ding.",
+      "standfirst": "Vermeld het niveau op wat je publiceert. Dat is de hele toezegging.",
+      "intro": "Niet om minder AI te gebruiken. Niet om meer te gebruiken. Niet om het met elk woord van het manifest eens te zijn — verscheidene mensen hieronder zijn dat niet. Alleen om te stoppen met de lezer te laten gissen.",
+      "howH": "Hoe je ondertekent",
+      "howA": "Open een pull request die je toevoegt aan signatories.json. Die kleine drempel is met opzet: hij betekent dat elke naam hier is toegevoegd door iemand die het meende, en dat er geen formulier is dat wij kunnen oogsten en geen mailinglijst waarop jij belandt.",
+      "howB": "Is een pull request niet jouw wereld, open dan een issue en iemand voegt je toe.",
+      "addName": "Voeg je naam toe",
+      "count": "ondertekenaars",
+      "note": "Het getal naast een naam, waar dat er staat, is het niveau waarop die persoon het vaakst publiceert. Het is geen score. Verscheidene mensen hier zijn meestal een 4, en zeggen dat ook — precies daar gaat het om."
+    },
+    "lang": {
+      "label": "Taal",
+      "readEnglish": "Lees het Engelse origineel",
+      "improve": "Verbeter deze vertaling",
+      "machineNotice": "Deze pagina is door een machine vertaald uit het Engelse origineel en is niet nagekeken door een menselijke spreker.",
+      "ownRule": "Volgens de eigen vertaalregel van deze schaal draagt ze het niveau van de bron — 3, Aangestuurd — plus deze notitie.",
+      "humanNotice": "Deze pagina is vertaald uit het Engelse origineel en nagekeken door een menselijke spreker."
+    }
+  }
+}

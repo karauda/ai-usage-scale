@@ -1,0 +1,200 @@
+---
+import { VERSION } from '../lib/levels';
+import { levelsIn, treeIn, alternates, localePath, DEFAULT_LANG, getLocale } from '../lib/i18n';
+
+interface Props {
+  lang?: string;
+  /** Unprefixed path: '/', '/3', '/scale'. */
+  path: string;
+  title: string;
+  description: string;
+  /** 'default' | '0'…'5' | 'scale' | 'spec' | 'find-your-level' */
+  card?: string;
+  /** The page's own AI Usage Level. We declare ours; it would be absurd not to. */
+  level?: number;
+  aiDisclosure?: string;
+  breadcrumb?: Array<[string, string]>;
+  /** Page-specific structured data, merged into the graph. */
+  schema?: object[];
+  /**
+   * Whether this page's body is actually translated per locale. Content pages are; the
+   * English-only reference pages (ecosystem, integrations) are served under every locale but
+   * their body stays English — so they must NOT claim to be a machine translation.
+   */
+  translated?: boolean;
+}
+
+const {
+  lang = DEFAULT_LANG,
+  path,
+  title,
+  description,
+  card = 'default',
+  level = 3,
+  aiDisclosure = 'ai-generated',
+  breadcrumb = [],
+  schema = [],
+  translated = true,
+} = Astro.props;
+
+const LEVELS = levelsIn(lang);
+const TREE = treeIn(lang);
+const t = getLocale(lang);
+
+const SITE = 'https://usagescale.org';
+
+/*
+  With build.format: 'file', Astro reports the pathname of the *file* (/3.html), but the
+  URL people will actually see and share is /3 — Cloudflare Pages serves the extension-less
+  form. Canonical and og:url must be the public URL, or every share and every crawl points
+  at an address that is not the one in the badge.
+*/
+// No trailing-slash strip: on the root, localePath returns '/', and the hreflang self/x-default
+// and the sitemap all address the home as `${SITE}/`. Stripping it here made the canonical the
+// one URL on the page that disagreed with its own alternates.
+const url = `${SITE}${localePath(lang, path)}`;
+const image = `${SITE}/og/${card}.png`;
+const alts = alternates(path);
+
+/*
+  The levels are a controlled vocabulary, so they are published as one — a DefinedTermSet
+  of six DefinedTerms. That is the schema.org type built for exactly this, it is what makes
+  a level citable by machines as a *term* rather than a page, and it is how a search engine
+  can show "Level 3 — Directed" as an entity instead of a blue link.
+
+  Everything here is generated from spec/levels.json, so the structured data cannot drift
+  from the definitions the way hand-written JSON-LD always eventually does.
+*/
+const termSet = {
+  '@type': 'DefinedTermSet',
+  '@id': `${SITE}/#scale`,
+  name: 'AI Usage Scale',
+  alternateName: 'Usage Scale',
+  description:
+    'A six-level scale for declaring the role AI played in making a work: whose substance it carries, and who is accountable for it. No level ranks above another.',
+  url: `${SITE}${localePath(lang, '/scale')}`,
+  inLanguage: lang,
+  version: VERSION,
+  license: 'https://creativecommons.org/publicdomain/zero/1.0/',
+  hasDefinedTerm: LEVELS.map((l) => ({
+    '@type': 'DefinedTerm',
+    '@id': `${SITE}${localePath(lang, `/${l.id}`)}#term`,
+    termCode: String(l.id),
+    name: l.name,
+    description: `${l.oneLine} ${l.definition}`,
+    url: `${SITE}${localePath(lang, `/${l.id}`)}`,
+    inDefinedTermSet: { '@id': `${SITE}/#scale` },
+  })),
+};
+
+const organisation = {
+  '@type': 'Organization',
+  '@id': `${SITE}/#org`,
+  name: 'AI Usage Scale',
+  url: SITE,
+  description: 'An open standard for declaring how a work was made. Free, CC0, no gatekeeper.',
+  sameAs: ['https://github.com/karauda/ai-usage-scale'],
+};
+
+const website = {
+  '@type': 'WebSite',
+  '@id': `${SITE}/#site`,
+  url: SITE,
+  name: 'AI Usage Scale',
+  description,
+  inLanguage: lang,
+  publisher: { '@id': `${SITE}/#org` },
+  license: 'https://creativecommons.org/licenses/by/4.0/',
+};
+
+/** The decision procedure, as a procedure. Five steps, each a real yes/no. */
+const howTo = {
+  '@type': 'HowTo',
+  '@id': `${SITE}${localePath(lang, '/find-your-level')}#howto`,
+  name: 'Find your AI Usage Level',
+  description: 'Five yes/no questions that decide which of the six levels describes how you made a work.',
+  totalTime: 'PT30S',
+  step: TREE.map((s: any, i: number) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: s.question,
+    text: `${s.question} ${s.help}`,
+    url: `${SITE}${localePath(lang, '/find-your-level')}#step-${i + 1}`,
+  })),
+};
+
+const crumbs = breadcrumb.length
+  ? [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [[t.ui.nav.manifesto, '/'], ...breadcrumb].map(([name, href], i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name,
+          item: `${SITE}${localePath(lang, href)}`.replace(/\/$/, ''),
+        })),
+      },
+    ]
+  : [];
+
+const graph = {
+  '@context': 'https://schema.org',
+  // HowTo ships only on the page that IS the how-to. Emitting five step-by-step instructions
+  // site-wide is the classic trigger for Google's "structured data doesn't match visible
+  // content" warning (and, for HowTo, a possible manual action).
+  '@graph': [organisation, website, termSet, ...(path === '/find-your-level' ? [howTo] : []), ...crumbs, ...schema],
+};
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={url} />
+
+{/* Every language points at every other, and x-default at the source. Without this each
+    translation competes with the original for the same query and all of them lose. */}
+{alts.map((a) => <link rel="alternate" hreflang={a.lang} href={a.href} />)}
+<link rel="alternate" hreflang="x-default" href={`https://usagescale.org${localePath(DEFAULT_LANG, path)}`} />
+
+{/* The declaration this site makes about itself, in the vocabularies it asks others to use. */}
+{/* Proposed AI Usage Scale metadata. These names are intentionally documented as custom,
+    not as registered HTML or W3C standards. */}
+<meta name="ai-usage" content={String(level)} />
+<meta name="ai-usage-standard" content={SITE} />
+<meta name="ai-disclosure" content={aiDisclosure} />
+<link rel="ai-disclosure" href={`${SITE}/${level}`} />
+{
+  translated && t.translation && (
+    <meta
+      name="ai-usage-translation"
+      content={`source-language=en; source-level=${level}; method=${t.translation.by}; review=${t.translation.by === 'human' ? 'human-reviewed' : 'unreviewed'}`}
+    />
+  )
+}
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="AI Usage Scale" />
+<meta property="og:locale" content={lang} />
+{alts.filter((a) => a.lang !== lang).map((a) => <meta property="og:locale:alternate" content={a.lang} />)}
+<meta property="og:url" content={url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={description} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<meta name="author" content="AI Usage Scale contributors" />
+
+{/* Everything here is CC0 or CC BY. Read it, train on it, quote it, fork it. */}
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/" />
+<link rel="alternate" type="text/plain" href={`${SITE}/llms.txt`} title="llms.txt" />
+<link rel="alternate" type="application/json" href={`${SITE}/levels.json`} title="The scale, machine-readable" />
+<link rel="alternate" type="application/rss+xml" href={`${SITE}/feed.xml`} title="AI Usage Scale — releases" />
+
+<script type="application/ld+json" set:html={JSON.stringify(graph).replace(/</g, '\\u003c')} is:inline />

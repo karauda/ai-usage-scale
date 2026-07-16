@@ -1,0 +1,159 @@
+---
+import '../styles/global.css';
+import Seo from '../components/Seo.astro';
+import LangSwitcher from '../components/LangSwitcher.astro';
+import { getLocale, localePath, DEFAULT_LANG } from '../lib/i18n';
+import { VERSION } from '../lib/levels';
+
+interface Props {
+  lang?: string;
+  /** The unprefixed path of this page: '/', '/3', '/scale'. Drives hreflang and the switcher. */
+  path: string;
+  title: string;
+  description: string;
+  card?: string;
+  /** The AI Usage Level of this page itself. We declare our own. */
+  level?: number;
+  aiDisclosure?: string;
+  breadcrumb?: Array<[string, string]>;
+  schema?: object[];
+  /** False for English-only reference pages so they don't claim to be a machine translation. */
+  translated?: boolean;
+}
+const {
+  lang = DEFAULT_LANG,
+  path,
+  title,
+  description,
+  card,
+  level = 3,
+  aiDisclosure,
+  breadcrumb,
+  schema,
+  translated = true,
+} = Astro.props;
+
+const t = getLocale(lang);
+const L = (p: string) => localePath(lang, p);
+
+const nav = [
+  ['/', t.ui.nav.manifesto],
+  ['/scale', t.ui.nav.scale],
+  ['/find-your-level', t.ui.nav.level],
+  ['/badges', t.ui.nav.badges],
+  ['/spec', t.ui.nav.spec],
+  ['/sign', t.ui.nav.sign],
+] as const;
+---
+
+<!doctype html>
+<html lang={lang} dir={t.dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <Seo
+      lang={lang}
+      path={path}
+      title={title}
+      description={description}
+      card={card}
+      level={level}
+      aiDisclosure={aiDisclosure}
+      breadcrumb={breadcrumb}
+      schema={schema}
+      translated={translated}
+    />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    {/* Set before first paint, so JS-enhanced states never flash their baseline. */}
+    <script is:inline>
+      document.documentElement.dataset.js = '';
+    </script>
+  </head>
+
+  <body>
+    <a href="#main" class="skip">Skip to content</a>
+    <div class="shell">
+      {/*
+        Grid, not a wrapping flex row. The wordmark and the language switcher hold the top
+        line (switcher pinned to the far end, wherever "end" is in this script); the nav gets
+        its own full-width row below. A flex masthead worked in English and fell apart in
+        Dutch, where six longer labels shoved the switcher onto its own line — on the left.
+        This lays out the same in every language and at every width.
+      */}
+      <header class="masthead">
+        <a href={L('/')} class="wordmark"><span class="q">AI</span>&nbsp;Usage&nbsp;Scale</a>
+        <LangSwitcher lang={lang} path={path} />
+        <nav aria-label="Primary">
+          {
+            nav.map(([href, text]) => (
+              <a href={L(href)} aria-current={path === href ? 'page' : undefined}>
+                {text}
+              </a>
+            ))
+          }
+        </nav>
+      </header>
+
+      <main id="main" tabindex="-1">
+        <slot />
+      </main>
+
+      <footer class="foot">
+        <div class="cols">
+          <div>
+            <div><strong>AI Usage Scale</strong> · {VERSION}</div>
+            <div>{t.ui.foot.tagline}</div>
+            <div>{t.ui.foot.licence}</div>
+          </div>
+          <div>
+            <div><a href={L('/spec')}>{t.ui.foot.spec}</a></div>
+            <div><a href={L('/levels.json')}>levels.json</a></div>
+            <div><a href={L('/integrations')}>Integrations</a></div>
+            <div><a href={L('/ecosystem')}>Ecosystem</a></div>
+            <div><a href="/llms.txt">llms.txt</a></div>
+            <div><a href="https://github.com/karauda/ai-usage-scale">{t.ui.foot.source}</a></div>
+          </div>
+        </div>
+
+        {/* The site declares its own level. Refusing to would have made the whole thing a joke. */}
+        <div class="own">
+          <span class="label">{t.ui.foot.thisPage}</span>
+          <a href={L(`/${level}`)}>Level {level}</a>. {t.ui.foot.ownDeclaration}
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style>
+  /* Hidden until a keyboard user tabs to it — then it drops in at the top and jumps past the
+     masthead's ~8 links straight to <main>. Landmarks already cover AT; this is for sighted
+     keyboard use. */
+  .skip {
+    position: absolute;
+    inset-inline-start: 0.5rem;
+    top: 0.5rem;
+    z-index: 50;
+    padding: 0.5rem 0.85rem;
+    background: var(--accent);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    text-decoration: none;
+    transform: translateY(-160%);
+  }
+  .skip:focus { transform: translateY(0); }
+  main:focus { outline: none; }
+
+  .own {
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule-soft);
+    max-width: var(--measure);
+  }
+  .own .label { display: block; margin-bottom: 0.35rem; }
+</style>

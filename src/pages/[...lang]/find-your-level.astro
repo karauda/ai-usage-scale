@@ -1,0 +1,306 @@
+---
+import Base from '../../layouts/Base.astro';
+import TranslationNotice from '../../components/TranslationNotice.astro';
+import { badgeSvg, levelAlt } from '../../lib/levels';
+import { localeParams, getLocale, levelsIn, treeIn, localePath, fmt } from '../../lib/i18n';
+
+export const getStaticPaths = localeParams;
+
+const { lang } = Astro.props;
+const t = getLocale(lang);
+const LEVELS = levelsIn(lang);
+const TREE = treeIn(lang);
+const L = (p: string) => localePath(lang, p);
+
+const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
+
+const outcome = (step: any, answer: 'yes' | 'no') =>
+  typeof step[answer] === 'number' ? step[answer] : null;
+---
+
+<Base
+  lang={lang}
+  path="/find-your-level"
+  title={`${t.ui.wizard.h1} — AI Usage Scale`}
+  description={t.ui.wizard.standfirst}
+  card="find-your-level"
+  breadcrumb={[[t.ui.nav.level, '/find-your-level']]}
+  schema={[
+    {
+      '@type': 'FAQPage',
+      '@id': `https://usagescale.org${L('/find-your-level')}#faq`,
+      inLanguage: lang,
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: t.ui.wizard.fineH,
+          acceptedAnswer: { '@type': 'Answer', text: t.ui.wizard.fineA },
+        },
+      ],
+    },
+  ]}
+>
+  <TranslationNotice lang={lang} path="/find-your-level" />
+
+  <header class="top prose">
+    <p class="label">{t.ui.wizard.eyebrow}</p>
+    <h1>{t.ui.wizard.h1}</h1>
+    <p class="standfirst">{t.ui.wizard.standfirst}</p>
+  </header>
+
+  {/* Enhanced: one question at a time. Every string comes from the server, in the reader's
+      language, on the elements themselves — the client bundle knows no locale. */}
+  <section class="stepper" data-stepper data-count-tpl={t.ui.wizard.count} hidden>
+    <div class="q-frame">
+      <p class="q-count" data-count></p>
+      <p class="q-text" data-question></p>
+      <p class="q-help" data-help></p>
+      <div class="q-actions">
+        <button type="button" data-answer="yes" class="ans">{t.ui.wizard.yes}</button>
+        <button type="button" data-answer="no" class="ans">{t.ui.wizard.no}</button>
+      </div>
+      <button type="button" data-back class="back" hidden>{t.ui.wizard.back}</button>
+    </div>
+
+    <script is:inline type="application/json" data-tree set:html={JSON.stringify(
+      TREE.map((s: any) => ({ question: s.question, help: s.help, yes: s.yes, no: s.no }))
+    ).replace(/</g, '\\u003c')} />
+  </section>
+
+  <section class="results" data-results hidden>
+    {
+      LEVELS.map((l) => (
+        <div class="result" data-result={l.id} hidden>
+          <p class="label">{t.ui.wizard.yourLevel}</p>
+          <div class="r-head">
+            <span class="r-num">{l.id}</span>
+            <div>
+              <h2 class="r-name">{l.name}</h2>
+              <p class="r-line">{l.oneLine}</p>
+            </div>
+          </div>
+
+          <div class="r-mark" set:html={badgeSvg(l.id, 'chip', false, alt(l))} />
+
+          <div class="snippet r-sent">
+            <pre><code>{l.sentences.medium}</code></pre>
+            <button type="button" data-copy data-idle={t.ui.level.copy} data-done={t.ui.level.copied}>
+              {t.ui.level.copy}
+            </button>
+          </div>
+
+          <p class="r-cta">
+            <a href={L(`/${l.id}`)} class="cta">{t.ui.wizard.getBadge}</a>
+            <button type="button" data-restart class="restart">{t.ui.wizard.startOver}</button>
+          </p>
+        </div>
+      ))
+    }
+  </section>
+
+  {/* Baseline: the whole decision procedure, readable and usable by hand. */}
+  <section class="tree" data-tree-static>
+    <p class="label tree-label">{t.ui.wizard.treeLabel}</p>
+    <ol class="steps">
+      {
+        TREE.map((step: any, i: number) => {
+          const y = outcome(step, 'yes');
+          const n = outcome(step, 'no');
+          return (
+            <li id={`step-${i + 1}`}>
+              <p class="s-n">{String(i + 1).padStart(2, '0')}</p>
+              <p class="s-q">{step.question}</p>
+              <p class="s-help">{step.help}</p>
+              <p class="s-out">
+                {y !== null ? (
+                  <a href={L(`/${y}`)}>{fmt(t.ui.wizard.yesLevel, { n: y, name: LEVELS[y].name })}</a>
+                ) : (
+                  <span class="cont">{t.ui.wizard.yesNext}</span>
+                )}
+                {n !== null ? (
+                  <a href={L(`/${n}`)}>{fmt(t.ui.wizard.noLevel, { n, name: LEVELS[n].name })}</a>
+                ) : (
+                  <span class="cont">{t.ui.wizard.noNext}</span>
+                )}
+              </p>
+            </li>
+          );
+        })
+      }
+    </ol>
+  </section>
+
+  <aside class="fineprint prose">
+    <h2>{t.ui.wizard.fineH}</h2>
+    <p>{t.ui.wizard.fineA}</p>
+    <p>{t.ui.wizard.fineB}</p>
+  </aside>
+</Base>
+
+<style>
+  .top { margin: 3rem 0 2.5rem; }
+  .top h1 { font-size: clamp(2.25rem, 6vw, 3.25rem); letter-spacing: -0.02em; margin: 0.4rem 0 0.75rem; }
+
+  .q-frame { border: 1px solid var(--rule); background: var(--raised); padding: clamp(1.5rem, 4vw, 2.75rem); }
+  .q-count {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1rem;
+  }
+  .q-text { font-size: clamp(1.25rem, 3vw, 1.625rem); line-height: 1.35; margin: 0 0 0.9rem; text-wrap: balance; }
+  .q-help { font-size: 0.9375rem; color: var(--ink-mid); margin: 0 0 1.75rem; }
+  .q-actions { display: flex; gap: 0.75rem; }
+  .ans {
+    flex: 1;
+    max-width: 11rem;
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.9rem 1rem;
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    cursor: pointer;
+  }
+  .ans:hover { background: var(--ink); color: var(--paper); }
+  .back {
+    margin-top: 1.25rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+  .back:hover { color: var(--accent); }
+
+  .result { border: 1px solid var(--rule); background: var(--raised); padding: clamp(1.5rem, 4vw, 2.75rem); }
+  .r-head { display: flex; gap: 1.5rem; align-items: baseline; margin: 0.5rem 0 1.5rem; }
+  .r-num { font-family: var(--mono); font-weight: 600; font-size: clamp(3.5rem, 10vw, 5rem); line-height: 0.9; }
+  .r-name {
+    font-family: var(--mono);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 0.35rem;
+  }
+  .r-line { margin: 0; color: var(--ink-mid); font-size: 1.0625rem; }
+  .r-mark { padding: 1.25rem 0; border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
+  .r-sent { margin: 1.5rem 0; }
+  .r-sent pre { margin: 0; white-space: pre-wrap; }
+  .r-cta { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: center; margin: 0; }
+  .cta {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    background: var(--ink);
+    color: var(--paper);
+    border: 1px solid var(--ink);
+  }
+  .cta:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .restart { font-family: var(--mono); font-size: 0.75rem; background: none; border: 0; color: var(--ink-soft); cursor: pointer; padding: 0; }
+  .restart:hover { color: var(--accent); }
+
+  .tree-label { margin-bottom: 1.25rem; }
+  .steps { list-style: none; padding: 0; margin: 0; }
+  .steps li { border-top: 1px solid var(--rule); padding: 1.5rem 0; scroll-margin-top: 2rem; }
+  .steps li:last-child { border-bottom: 1px solid var(--rule); }
+  .s-n { font-family: var(--mono); font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.14em; color: var(--accent); margin: 0 0 0.5rem; }
+  .s-q { font-size: 1.1875rem; line-height: 1.4; margin: 0 0 0.5rem; }
+  .s-help { font-size: 0.9375rem; color: var(--ink-mid); margin: 0 0 0.9rem; }
+  .s-out { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin: 0; font-family: var(--mono); font-size: 0.8125rem; }
+  .s-out a { color: var(--ink); text-decoration-color: var(--accent); }
+  .s-out .cont { color: var(--ink-soft); }
+
+  :global(:root[data-js]) .tree { display: none; }
+
+  .fineprint { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+  .fineprint h2 { font-size: 1.25rem; }
+  .fineprint p { color: var(--ink-mid); font-size: 1.0625rem; }
+</style>
+
+<script>
+  /** Narrowing does not survive into a closure, and scattering `!` hides real breakage. */
+  const must = <T extends HTMLElement>(sel: string, root: ParentNode = document): T => {
+    const el = root.querySelector<T>(sel);
+    if (!el) throw new Error(`find-your-level: markup is missing ${sel}`);
+    return el;
+  };
+
+  const stepper = must('[data-stepper]');
+  const results = must('[data-results]');
+  const qCount = must('[data-count]', stepper);
+  const qText = must('[data-question]', stepper);
+  const qHelp = must('[data-help]', stepper);
+  const backBtn = must<HTMLButtonElement>('[data-back]', stepper);
+
+  // The tree comes from the server in the reader's language. A client bundle cannot import
+  // a locale it does not know about at build time, and hard-coding English here would
+  // quietly un-translate the one page people actually use.
+  const steps: Array<{ question: string; help: string; yes?: number; no?: number }> = JSON.parse(
+    must('[data-tree]', stepper).textContent ?? '[]'
+  );
+  const countTpl = stepper.dataset.countTpl ?? 'Question {n} of {total}';
+
+  stepper.hidden = false;
+
+  let at = 0;
+  const seen: number[] = [];
+
+  function render() {
+    const step = steps[at];
+    qCount.textContent = countTpl.replace('{n}', String(at + 1)).replace('{total}', String(steps.length));
+    qText.textContent = step.question;
+    qHelp.textContent = step.help;
+    backBtn.hidden = seen.length === 0;
+    stepper.hidden = false;
+    results.hidden = true;
+  }
+
+  function finish(level: number) {
+    stepper.hidden = true;
+    results.hidden = false;
+    for (const panel of results.querySelectorAll<HTMLElement>('[data-result]')) {
+      panel.hidden = Number(panel.dataset.result) !== level;
+    }
+    window.history.replaceState(null, '', `#level-${level}`);
+  }
+
+  function answer(a: 'yes' | 'no') {
+    const out = steps[at][a];
+    seen.push(at);
+    if (typeof out === 'number') return finish(out);
+    at += 1;
+    render();
+  }
+
+  for (const btn of stepper.querySelectorAll<HTMLButtonElement>('[data-answer]')) {
+    btn.addEventListener('click', () => answer(btn.dataset.answer as 'yes' | 'no'));
+  }
+  backBtn.addEventListener('click', () => {
+    at = seen.pop() ?? 0;
+    render();
+  });
+  for (const btn of results.querySelectorAll<HTMLButtonElement>('[data-restart]')) {
+    btn.addEventListener('click', () => {
+      at = 0;
+      seen.length = 0;
+      window.history.replaceState(null, '', window.location.pathname);
+      render();
+    });
+  }
+
+  render();
+</script>

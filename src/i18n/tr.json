@@ -1,0 +1,388 @@
+{
+  "lang": "tr",
+  "name": "Turkish",
+  "endonym": "Türkçe",
+  "dir": "ltr",
+  "translation": { "by": "machine" },
+  "principle": "Hiçbir düzey bir diğerinden üstün değildir. Kendi düzeylerini sıraya dizen bir ölçek, bir utanç merdivenidir; herkes yalan söyleyerek o merdivenden aşağı iner. Dürüst olmayan tek düzey, beyan edilmemiş olandır.",
+  "axis": {
+    "measures": "Yapay zekânın eserin yapımında oynadığı rol: eserin özü kime ait ve sorumluluğunu kim taşıyor.",
+    "doesNotMeasure": "Bir modelin ürettiği karakterlerin, piksellerin ya da ses örneklerinin oranı. Bu sayı, otuz yıllık mesleğini dikte eden uzmanı mahkûm eder ve kimseyi aklamaz."
+  },
+  "surfaces": {
+    "note": "İsteğe bağlı. Tek bir sayı eseri bütün olarak tanımlar. Parçaları birbirinden belirgin biçimde ayrılıyorsa onları da beyan edin. Rozet her zaman tek bir sayı gösterir; ayrıntılı döküm bağlantının arkasında durur.",
+    "headlineRule": "Ana düzey, eserin anlamını taşıyan kısmını tanımlar. Makul bir izleyicinin eser açısından belirleyici saymayacağı süsleyici malzeme ana düzeyi belirlemez — onu bunun yerine burada beyan edin."
+  },
+  "levels": [
+    {
+      "id": 0,
+      "name": "İnsan",
+      "oneLine": "Üretken yapay zekâ kullanılmadı.",
+      "definition": "Bu eserin yapımının hiçbir aşamasında üretken yapay zekâ yer almadı. Üretken olmayan araçlar — yazım denetimi, otomatik düzeltme, otomatik odaklama, gürültü azaltma, arama motorları, hesap makineleri, renk düzenleme, derleyiciler — üretken yapay zekâ değildir ve bu düzeyi etkilemez.",
+      "includes": [
+        "Yazmayı, çizmeyi, çekmeyi, kaydetmeyi, çalmayı ya da kodlamayı kendiniz yapmak",
+        "Geleneksel yazılımlar: kelime işlemciler, Lightroom, Pro Tools, bir derleyici, bir kamera",
+        "Sonra kendiniz okuyacağınız kaynakları bulmak için arama motoru kullanmak",
+        "Üretken olmayan makine öğrenmesi: otomatik odaklama, gürültü giderme, hiçbir şey uydurmayan ölçek büyütme"
+      ],
+      "excludes": [
+        "Çıktısı esere ulaşan herhangi bir dil, görsel ya da ses modelinin kullanımı",
+        "Süsleme olarak bile olsa yapay zekâ ile üretilmiş stok görseller — bunu Bileşenler altında beyan edin"
+      ],
+      "examples": [
+        "Elle yazılmış ve elden geçirilmiş bir deneme.",
+        "Kamerayla çekilmiş ve Lightroom'da işlenmiş bir fotoğraf.",
+        "Gerçek enstrümanlarla çalınmış ve bir mühendisin mikslediği bir şarkı.",
+        "Bir geliştiricinin yapay zekâ asistanı olmadan kodladığı bir site."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Düzey 0 — İnsan.",
+        "medium": "Bu eserin yapımında üretken yapay zekâ kullanılmadı. AI Usage Scale ölçeğinde Düzey 0.",
+        "long": "Bu eser üretken yapay zekâ kullanılmadan yapıldı. İçindeki hiçbir metin, görsel, ses, video ya da kod bir model tarafından üretilmedi. Bu, bir eserin nasıl yapıldığını beyan etmeye yarayan açık standart AI Usage Scale ölçeğinde Düzey 0'dır."
+      }
+    },
+    {
+      "id": 1,
+      "name": "Destekli",
+      "oneLine": "Yapay zekâ yalnızca sizin zaten ürettiğiniz malzeme üzerinde çalıştı. Hiçbir şey uydurmadı.",
+      "definition": "Eseri siz yaptınız. Yapay zekâ yalnızca malzemenizi işledi ya da arka planda yardımcı oldu: düzeltme yaptı; sözlerinizi aslına sadık biçimde deşifre etti veya çevirdi; temizledi, etiketledi, biçimlendirdi, arama yaptı ya da geri bildirim verdi. Malzemenizin aslına sadık bir deşifresi veya çevirisi dışında, yayımlanan eserde model üretimi hiçbir malzeme yer almıyor.",
+      "includes": [
+        "Sizin yazdığınız cümlelerde dilbilgisi, yazım ve üslup düzeltmesi",
+        "Sizin kaydettiğiniz sesin deşifre edilmesi",
+        "Sizin çektiğiniz bir görselin gürültüsünün giderilmesi, maskelenmesi ya da ölçeğinin büyütülmesi",
+        "Kendi kullanımınız için etiketleme, biçimlendirme, özetleme ya da kendi arşivinizde arama",
+        "Sonra kendiniz okuyup doğruladığınız kaynakları bulmak için yapay zekâ kullanmak"
+      ],
+      "excludes": [
+        "Yapay zekânın esere sağ çıkan bir cümle, paragraf, görsel ya da ezgi taslağı üretmesi — bu Düzey 2 ya da üzeridir",
+        "Yapay zekânın üslubunuzu değil, savınızın yapısını yeniden kurması"
+      ],
+      "examples": [
+        "Sizin yazdığınız, dilbilgisi için bir modelden geçirilmiş bir makale.",
+        "Sizin kaydettiğiniz, bölüm notları için bir modelin deşifre ettiği bir podcast.",
+        "Sizin yazdığınız, teslimden önce yazım hataları için bir modele denetletilmiş bir bildiri.",
+        "Sizin yazdığınız, yapay zekâ asistanının yalnızca değişkenleri yeniden adlandırıp biçimlendirdiği bir kod."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Düzey 1 — Destekli.",
+        "medium": "Yazar tarafından yazıldı; yapay zekâ yalnızca düzeltme ve deşifre gibi mekanik işler için kullanıldı. AI Usage Scale ölçeğinde Düzey 1.",
+        "long": "Bu eseri yazar yaptı. Yapay zekâ yalnızca yazarın zaten ürettiği malzemeyi işlemek için kullanıldı: düzeltmek, deşifre etmek ya da temizlemek için. Yayımlanan eserdeki hiçbir cümle, görsel ya da ses bir model tarafından uydurulmadı. Bu, AI Usage Scale ölçeğinde Düzey 1'dir."
+      }
+    },
+    {
+      "id": 2,
+      "name": "Ortak Yapım",
+      "oneLine": "Son biçimin çoğunu siz yaptınız. Yapay zekânın yaptığı parçaların bir kısmı eserde kaldı.",
+      "definition": "Eser, yapısı ve icrasının büyük bölümü bakımından sizindir; ama bir modelin ürettiği malzeme yayımlanan sonuçta yaşamaya devam eder: pasajlar, ögeler, aralarından seçim yaptığınız varyasyonlar. İzleyicinin aldığı şeyin çoğunu siz yazdınız, çizdiniz ya da çaldınız.",
+      "includes": [
+        "Yapay zekânın taslağını çıkardığı, sonra sizin yeniden yazdığınız ve bütünde sizin sözcüklerinizin baskın olduğu bir bölüm",
+        "Yapay zekânın ürettiği, aralarından seçim yapıp üzerinde çalıştığınız varyasyonlar",
+        "Sizin tasarlayıp büyük ölçüde yazdığınız bir kod tabanında yapay zekânın bir fonksiyon yazması",
+        "Sizin kurguladığınız bir görselin bir kısmını yapay zekânın genişletmesi ya da doldurması"
+      ],
+      "excludes": [
+        "Son sözcüklerin ya da piksellerin çoğunu yapay zekânın üretmesi — bu Düzey 3 ya da üzeridir",
+        "Hiçbir şeyin uydurulmadığı, tümüyle mekanik düzeltme — bu Düzey 1'dir"
+      ],
+      "examples": [
+        "Ana hatlarını çıkarıp büyük bölümünü yazdığınız, yapay zekânın taslağını çıkardığı ve sizin elden geçirdiğiniz iki paragrafı olan bir deneme.",
+        "Bestesini yapıp çaldığınız, köprü bölümünde yapay zekâyla üretilmiş bir dokusu olan bir parça.",
+        "Mimarisini kurup yazdığınız, gözden geçirdiğiniz yardımcı fonksiyonları yapay zekânın yazdığı bir özellik.",
+        "Sizin çektiğiniz, dikkat dağıtan bir nesnesi üretken doldurmayla kaldırılmış bir fotoğraf."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Düzey 2 — Ortak Yapım.",
+        "medium": "Büyük bölümü yazar tarafından yapıldı; bir kısım malzeme yapay zekâ ile üretilip korundu. AI Usage Scale ölçeğinde Düzey 2.",
+        "long": "Bu eserin çoğunu — sözcüklerin, piksellerin ya da sesin çoğunu — yazar yaptı. Yapay zekâ ile üretilmiş bir kısım malzeme, yazarın seçip düzenlemesiyle eserde yaşamaya devam ediyor. Bu, AI Usage Scale ölçeğinde Düzey 2'dir."
+      }
+    },
+    {
+      "id": 3,
+      "name": "Yönlendirilmiş",
+      "oneLine": "Öz sizindir. Biçimi yapay zekâ üretti.",
+      "definition": "Esere özgü bilgi, kanıt, sav, kompozisyon ya da kısıtlar sizindir ve sonucu önemli ölçüde belirler. Bir model, bu özgün girdilerden yola çıkarak son sözcüklerin, piksellerin ya da sesin çoğunu üretti. Siz yönlendirdiniz, seçtiniz, düzelttiniz, esaslı bir inceleme yaptınız ve sonuçtan sorumlusunuz. Yalnızca bir istem yazmak ya da geliştirmek yeterli değildir.",
+      "note": "Bugünkü ikili etiketin göremediği düzey budur; bu ölçek tam da bunun için var. Bildiklerini dikte edip bir modelin onlara biçim vermesine izin veren bir uzman sahtekârlık yapmış olmaz. Bir alet kullanmıştır — ve artık bunu söyleyebilir.",
+      "includes": [
+        "Bir uzmanın, bir modelin metne dönüştürdüğü bilgiyi, notları, veriyi ya da ayrıntılı bir brifi sağlaması",
+        "Bir sanat yönetmeninin bir görseli, birçok tur boyunca belirli yönergelerle yineleyerek geliştirmesi",
+        "Sizin yürüttüğünüz, bir modelin senaryoya ya da seslendirilmiş bir videoya dönüştürdüğü araştırma",
+        "Ayrıntılı olarak tanımlayıp gözden geçirdiğiniz, büyük ölçüde bir yapay zekâ ajanının yazdığı bir kod tabanı"
+      ],
+      "excludes": [
+        "Esere özgü, özgün bir katkı sunmayan bir istem ya da yinelenen istemler — bu Düzey 4'tür",
+        "Son sözcüklerin çoğunu kendiniz yazdığınız bir eser — bu Düzey 2'dir"
+      ],
+      "examples": [
+        "Bir cerrah otuz yıllık mesleğini dikte eder; makaleyi bir model yazar; cerrah düzeltir ve imzalar.",
+        "Bir kurucunun ham notları ve fiyatlandırması, bir modelin yazdığı bir açılış sayfasına dönüşür.",
+        "Bir illüstratör, üretilmiş bir görselin kırk yinelemesini belirli bir kompozisyona göre yönlendirir.",
+        "Bir araştırmacının veri kümesi ve bulguları, sentetik bir sesin seslendirdiği açıklayıcı bir videoya dönüşür."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Düzey 3 — Yönlendirilmiş.",
+        "medium": "Bilgi, veri ve sav yazarındır; metni bunlardan yapay zekâ üretti. AI Usage Scale ölçeğinde Düzey 3.",
+        "long": "Bu eserin özü — bilgi, veri, sav, yön — yazarındır. Son biçimin çoğunu bir model bu özden üretti. Yazar yönlendirdi, doğruladı ve eserin söylediklerinin sorumluluğunu üstleniyor. Bu, AI Usage Scale ölçeğinde Düzey 3'tür."
+      }
+    },
+    {
+      "id": 4,
+      "name": "İstemli",
+      "oneLine": "Özü de biçimi de yapay zekâ üretti. Siz istediniz, siz denetlediniz, sorumluluk sizde.",
+      "definition": "Bir model, size ait esere özgü ve özgün katkının az olduğu bir istem, şablon ya da briften yola çıkarak eserin hem ne söylediğini hem de nasıl söylediğini üretti. Bir insan bitmiş eseri esaslı biçimde inceledi, gerektiğinde önemli iddiaları doğruladı ve yayımlama sorumluluğunu üstleniyor.",
+      "includes": [
+        "Bir modelden bir konuda içerik isteyip gözden geçirdikten sonra yayımlamak",
+        "Yayına çıkmadan önce gözden geçirilen, üretilmiş pazarlama metinleri, ürün açıklamaları ya da sosyal medya gönderileri",
+        "Kısa bir istemden üretilen ve kullanımdan önce denetlenen stok görseller",
+        "Birleştirmeden önce okuyup test ettiğiniz, yapay zekânın yazdığı kod"
+      ],
+      "excludes": [
+        "Gerçekten size ait bilgi, veri ya da yön üzerine kurulmuş bir eser — bu Düzey 3'tür",
+        "Bir insan okumadan yayımlamak — bu Düzey 5'tir"
+      ],
+      "examples": [
+        "\"Diyabet üzerine on gönderi yaz\" — okundu, düzeltildi, yayımlandı.",
+        "Bir katalog için üretilen ve bir insanın gözden geçirdiği ürün açıklamaları.",
+        "Yayına çıkmadan önce hatalara karşı denetlenen, üretilmiş bir başlık görseli.",
+        "Bir modelin ürettiği ve kaynağa karşı doğrulanan bir belge özeti."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Düzey 4 — İstemli.",
+        "medium": "Bir istemden yapay zekâ ile üretildi; sorumluluğunu üstlenen bir insan gözden geçirdi. AI Usage Scale ölçeğinde Düzey 4.",
+        "long": "Bu eserin hem özünü hem biçimini bir model üretti. Bir insan onu istedi, okudu, denetledi ve yayımlamanın sorumluluğunu üstleniyor. Bu, AI Usage Scale ölçeğinde Düzey 4'tür."
+      }
+    },
+    {
+      "id": 5,
+      "name": "Otomatik",
+      "oneLine": "Özü de biçimi de yapay zekâ üretti. Yayımlanmadan önce hiçbir insan okumadı.",
+      "definition": "Eseri bir model üretti ve insan denetimi olmadan yayımlandı. Otomatik hatlar, toplu üretim ve kendi başına yayın yapan ajanlar için dürüst düzey budur. Pek çok meşru iş için doğru yanıt budur — ve o işi meşru kılan şey, bunu söylemektir.",
+      "note": "Düzey 5 bir suçlama değildir. Otomatik bir piyasa raporu, üretilmiş bir maç özeti, ölçekli olarak makineyle çevrilmiş bir yardım sayfası: bunların hepsi Düzey 5'te dürüst, başka her düzeyde sahtekârdır. Otomatik bir sistemi bir aldatmacadan ayıran şey, 5'i beyan etmektir.",
+      "includes": [
+        "Döngüde hiçbir insan olmadan zamanlanmış ya da ajan eliyle yapılan yayın",
+        "Sayfaların, ilanların ya da özetlerin toplu üretimi",
+        "Üretildiği anda kullanıcıya gösterilen canlı, talep üzerine üretim",
+        "Gözden geçirilmeden ölçekli olarak yayımlanan makine çevirisi"
+      ],
+      "excludes": [
+        "Yayına çıkmadan önce bir insanın gerçekten okuduğu her şey — bu Düzey 4'tür"
+      ],
+      "examples": [
+        "Bir betiğin ürettiği ve yayımladığı saatlik piyasa özeti.",
+        "Bir gecede üretilen on bin ürün sayfası.",
+        "Bir sohbet botunun, üretildikçe kullanıcıya gösterilen yanıtları.",
+        "Bir bloga zamanlanmış biçimde yazıp yayımlayan bir ajan."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Düzey 5 — Otomatik.",
+        "medium": "Yapay zekâ ile üretildi ve insan denetimi olmadan yayımlandı. AI Usage Scale ölçeğinde Düzey 5.",
+        "long": "Bu eseri bir model üretti ve önce bir insan okumadan yayımlandı. Bu, AI Usage Scale ölçeğinde Düzey 5'tir: otomatik sistemler için dürüst beyan."
+      }
+    }
+  ],
+  "tree": [
+    {
+      "question": "Bu eserin yapımında üretken yapay zekâ kullanıldı mı?",
+      "help": "Üretken yapay zekâ, yeni metin, görsel, ses, video ya da kod üreten bir model demektir. Çıktısı eserde yer almasa bile araştırma, fikir geliştirme veya geri bildirim için kullanılan yapay zekâyı da hesaba katın. Yazım denetimi, otomatik odaklama, gürültü kapıları, arama motorları ve hesap makineleri üretken yapay zekâ değildir."
+    },
+    {
+      "question": "Yapay zekâ, sizin zaten ürettiğinizi mekanik olarak işlemenin ötesinde, yayımlanan eserde görünen yeni malzeme üretti mi?",
+      "help": "Dilbilginizi düzeltmek, sözlerinizi aslına sadık biçimde deşifre etmek veya çevirmek, fotoğrafınızın gürültüsünü gidermek ya da dosyalarınızı etiketlemek mekanik işlemedir. Eserde model üretimi malzeme bırakmayan araştırma, fikir geliştirme veya geri bildirim de öyledir. Yeni bir paragraf, görsel veya ezgi ise yeni malzemedir."
+    },
+    {
+      "question": "Son biçimin çoğunu — sözcüklerin, piksellerin ya da sesin çoğunu — kendiniz mi yaptınız?",
+      "help": "Emeği değil, yayımlanan eseri değerlendirin. Bir okurun gördüğü ya da duyduğu şeyin çoğunu siz yazdıysanız, çizdiyseniz ya da çaldıysanız evet deyin."
+    },
+    {
+      "question": "Öz size mi ait — bilgi, veri, sav, yön?",
+      "help": "Öz; eserin ne söylediğini belirleyen, esere özgü bilgi, kanıt, sav, kompozisyon ya da kısıtlardır. Özgün girdileriniz sonucu önemli ölçüde belirliyorsa öz sizindir — yalnızca istemi yazmış veya geliştirmiş olmanız bunu sağlamaz."
+    },
+    {
+      "question": "Yayımlanmadan önce bir insan bunu gözden geçirdi ve söylediklerinin sorumluluğunu üstlendi mi?",
+      "help": "İnceleme esaslı ve söz konusu risklere uygun olmalıdır: bitmiş eseri denetlemek, gerektiğinde önemli iddiaları doğrulamak ve sorunları yayımdan önce düzeltmek gerekir. Sorumluluğu üstlenmek, yanlışsa eseri savunacağınız ya da düzelteceğiniz anlamına gelir."
+    }
+  ],
+  "edgeCases": [
+    {
+      "case": "Çeviri",
+      "rule": "Sadık bir çeviri, kaynak eserin düzeyini devralır ve bir çeviri notu ekler. Düzey 1 bir makaleyi bir modelle çevirmek, onu yapay zekâ ile çevrilmiş Düzey 1 olarak yayımlar.",
+      "why": "Öz ve yapı değişmemiştir. Çeviriyi cezalandırmak dünyanın yazısını daha az erişilebilir kılardı; bu da amacın tam tersidir."
+    },
+    {
+      "case": "Deşifre",
+      "rule": "Kaydettiğiniz konuşmanın deşifre edilmesi mekanik işlemedir. Düzeyi yükseltmez.",
+      "why": "Sözcükler sizindir. Model onları yalnızca yazıya geçirdi."
+    },
+    {
+      "case": "Süsleyici ögeler",
+      "rule": "İnsan eliyle yazılmış bir makaledeki üretilmiş bir başlık görseli, makaleyi Düzey 4 yapmaz. Görseli Bileşenler altında beyan edin.",
+      "why": "Ana düzey, anlamı taşıyan şeyi tanımlar. Aksi hâlde tek bir stok görsel bütün beyanı yutar ve insanlar beyan etmeyi büsbütün bırakır."
+    },
+    {
+      "case": "Türev eserler",
+      "rule": "Kendi katkınızın düzeyini beyan edin; kaynak bir düzey beyan etmişse onu da anın."
+    },
+    {
+      "case": "Canlı üretim",
+      "rule": "Talep üzerine üretilip gözden geçirilmeden bir kullanıcıya gösterilen içerik Düzey 5'tir — sistem istemi bir insan tarafından ne kadar özenle yazılmış olursa olsun."
+    },
+    {
+      "case": "Üretken olmayan makine öğrenmesi",
+      "rule": "Hiçbir şey uydurmayan otomatik odaklama, gürültü giderme, ölçek büyütme, renk eşleme ve sınıflandırma üretken yapay zekâ değildir. Sizi Düzey 0'dan çıkarmazlar."
+    }
+  ],
+  "ui": {
+    "nav": {
+      "manifesto": "Manifesto",
+      "scale": "Ölçek",
+      "level": "Düzeyiniz",
+      "badges": "Rozetler",
+      "spec": "Şartname",
+      "sign": "İmzala"
+    },
+    "wordmark": "AI Usage Scale",
+    "foot": {
+      "tagline": "Bir eserin nasıl yapıldığını beyan etmek için açık bir standart.",
+      "licence": "İşaretler ve levels.json: CC0. Metin: CC BY 4.0. Kod: MIT.",
+      "spec": "Şartname",
+      "source": "Kaynak kod ve issue'lar",
+      "thisPage": "Bu sayfa",
+      "ownDeclaration": "Öz yazarındır; metni yapay zekâ üretti ve yayına çıkmadan önce satır satır okundu."
+    },
+    "hero": {
+      "eyebrowBefore": "Bir üreticinin bugün elindeki etiket",
+      "eyebrowAfter": "Bir üreticinin ihtiyaç duyduğu etiket",
+      "binaryYes": "YAPAY ZEKÂ",
+      "binaryNo": "YAPAY ZEKÂ DEĞİL",
+      "beforeHead": "Suçlu ya da suçsuz.",
+      "beforeBody": "Şu anda söylemenize izin verilen yalnızca bu ikisi.",
+      "afterHead": "Altı düzey.",
+      "afterBody": "Birini gösterin.",
+      "h1a": "Utanılacak bir düzey yoktur.",
+      "h1b": "Yalnızca beyan edilmemiş bir düzey vardır.",
+      "sub": "Bir eserin nasıl yapıldığını — kimin bilgisini taşıdığını ve arkasında kimin durduğunu — söylemek için ücretsiz, açık bir ölçek. Altı düzey. Otuz saniye. İzin isteyeceğiniz bir kurul yok.",
+      "cta": "Düzeyinizi bulun",
+      "ctaAlt": "ya da altısını okuyun",
+      "inOneLine": "Ölçek, her düzey tek satırda",
+      "levelHead": "Düzey {n}"
+    },
+    "level": {
+      "eyebrow": "AI Usage Scale · 0–5 arasında Düzey {n}",
+      "allLevels": "Tüm düzeyler",
+      "includes": "Bu düzey şu durumlarda geçerlidir",
+      "excludes": "Bu düzey şu durumlarda geçerli değildir",
+      "examples": "Örnekler",
+      "sentenceH": "Tek cümleyle söyleyin",
+      "sentenceLede": "Bunlardan birini bir imza satırına, bir makale altlığına, bir video açıklamasına, bir arama sonucu açıklamasına ya da bir e-posta imzasına yapıştırın. Görsel gerekmez — yalnızca resim olarak işleyen bir beyan, webin yarısının okuyamadığı bir beyandır.",
+      "short": "Kısa — imza satırı ya da biyografi için",
+      "medium": "Orta — makale altlığı ya da meta açıklaması için",
+      "long": "Uzun — editör notu için",
+      "markH": "İşareti eserin üzerine koyun",
+      "markLede": "Rozeti satır içi SVG olarak kopyalayın: anında görüntülenir, çevrimdışı çalışır ve bize hiçbir istek göndermez. Sonuncusu önemli: dışarıdan bağlanan bir rozet, sayfanızdaki bir izleme pikselidir; konusu dürüstlük olan bir standardın böyle bir şey dağıtması olacak iş değil. Aşağıdaki barındırılan dosya kolaylık olsun diye var, trafiği istediğimiz için değil.",
+      "markCap": "Düzey {n} çipi · harici yazı tipi yok, istek yok",
+      "inline": "Satır içi SVG — önerilen",
+      "inlineNote": "Kendi kendine yeter. Yüklenecek bir şey yok, izlenecek bir şey yok.",
+      "hosted": "Barındırılan görsel — bağlantı vermeyi tercih ederseniz",
+      "plain": "Düz metin — görsellerin giremediği yerler için",
+      "machineH": "Makineler de okusun",
+      "machineLede": "Aynı beyan, uyum katmanının hâlihazırda konuştuğu sözcük dağarcıklarıyla. Bunlarla rekabet etmiyoruz — onların insan tarafından okunabilir yüzüyüz.",
+      "headOf": "Sayfanızın <head> bölümü için",
+      "surfacesH": "Parçalar birbirinden ayrılıyorsa",
+      "copy": "Kopyala",
+      "copied": "Kopyalandı"
+    },
+    "scalePage": {
+      "eyebrow": "Ölçek",
+      "h1": "Altı düzey ve hiçbiri bir hüküm değil.",
+      "measures": "Şunu ölçer",
+      "refuses": "Şunu ölçmeyi reddeder",
+      "forInstance": "Örneğin",
+      "more": "Tanım, örnekler, rozet ve kod →",
+      "closingH": "Sayıların neden rengi yok",
+      "closingA": "Bu sitedeki her işaret aynı mürekkeple basılmıştır. Yeşil bir uç ya da kırmızı bir uç yok; çünkü kendi uçlarını renklendiren bir ölçek, hangisinden utanmanız gerektiğini size çoktan söylemiştir — ve insanlara yalan söyleten şey utançtır.",
+      "closingB": "Otomatik bir piyasa özeti Düzey 5'te dürüst, başka her düzeyde sahtekârdır. Bir anı kitabı Düzey 0'da dürüsttür. Hiçbiri diğerinden daha iyi bir sayı değildir. Tek kötü yanıt, kimsenin vermediği yanıttır."
+    },
+    "wizard": {
+      "eyebrow": "Beş soru",
+      "h1": "Gerçekte ne yaptınız?",
+      "standfirst": "Dürüstçe yanıtlayın. Kimse denetlemiyor — mesele de bu: zorla ettirilebilen bir beyanın hiçbir değeri olmazdı.",
+      "count": "Soru {n} / {total}",
+      "yes": "Evet",
+      "no": "Hayır",
+      "back": "← Geri",
+      "yourLevel": "Düzeyiniz",
+      "getBadge": "Rozeti ve kodu alın",
+      "startOver": "Baştan başla",
+      "treeLabel": "Karar ağacı",
+      "yesNext": "Evet → sonraki soru",
+      "noNext": "Hayır → sonraki soru",
+      "yesLevel": "Evet → Düzey {n} · {name}",
+      "noLevel": "Hayır → Düzey {n} · {name}",
+      "fineH": "Ya ikimiz farklı yanıt verirsek?",
+      "fineA": "O zaman belirsizliği açıklayın ve hangi kısımların farklı olduğunu belirtin. Bir sistem yalnızca tek sayı kabul ediyorsa yapay zekânın rolünü olduğundan az göstermeyen düzeyi seçin. Ölçek, sahte bir kesinlik için değil, işe yarar bir dürüstlük için tasarlandı.",
+      "fineB": "Sınır durumlar — çeviri, deşifre, süsleyici görseller, türev eser, canlı üretim — şartnamede karara bağlanmıştır."
+    },
+    "badgesPage": {
+      "eyebrow": "İşaretler",
+      "h1": "Altı işaret. Tek mürekkep.",
+      "standfirst": "Yeşil bir uç yok, kırmızı bir uç yok. Kendi uçlarını renklendiren bir ölçek, hangisinden utanmanız gerektiğini size çoktan söylemiştir.",
+      "intro": "Buradaki her şey CC0 — atıf gerekmez, kabul edilecek bir lisans yok, açılacak bir hesap yok. Alın kullanın.",
+      "hotlinkH": "Dışarıdan bağlantı vermemenizi neden tercih ediyoruz",
+      "hotlinkA": "Buradaki her rozet satır içi SVG olarak çalışır: işaretlemeyi yapıştırırsınız ve harici yazı tipi, harici dosya ve bize giden bir istek olmadan görüntülenir. Önerdiğimiz sürüm budur; düzey sayfaları size tam kod parçasını verir.",
+      "hotlinkB": "Dışarıdan bağlanan bir rozet, sayfanızdaki bir izleme pikselidir. Bize, beyan taşıyan her yazının URL'sini ve her birinin ne sıklıkla okunduğunu bildirirdi. Bu veriyi istemiyoruz; konusu baştan sona dürüstlük olan bir standardın onu sessizce toplaması olacak iş değil. Barındırılan dosyalar, gerçekten bir URL'ye ihtiyaç duyduğunuz durumlar için burada — trafiği istediğimiz için değil.",
+      "rulesH": "İşaretlerin kuralları",
+      "rules": [
+        "Bir düzeyin diğerinden daha iyi ya da daha kötü olduğunu ima etmek için rengini değiştirmeyin.",
+        "Beyanını yapmadığınız bir eserin üzerine işaret koymayın.",
+        "Bağlantıyı koruyun. Arkasında tanımı olmayan bir işaret süsten ibarettir.",
+        "Onları çevirin. Yeniden çizin. Tümünü fork edin."
+      ],
+      "whereH": "Nereye konur",
+      "whereA": "Bir imza satırı. Bir makale altlığı. Bir video açıklaması. Bir hakkında sayfası. Bir README. Bir model kartı. Bir podcast'in bölüm notları. Bir e-posta imzası. Bir arama sonucunun açıklama alanı. Bir okurun ne okuduğunu bilmek isteyeceği her yer."
+    },
+    "specPage": {
+      "eyebrow": "Şartname",
+      "h1": "Nasıl tanımlandığı ve geri kalan her şeyle nasıl konuştuğu.",
+      "standfirst": "Bu bir beyan standardıdır, bir kanıt standardı değil. Kriptografiyle doğrulanamaz ve bunu denemiyor da. Bir imza satırı da doğrulanamaz.",
+      "procedure": "Karar yordamı",
+      "procedureLede": "Sırayla sorulan beş soru. Sonlandıran ilk soru düzeyi verir.",
+      "question": "Soru",
+      "yesCol": "Evet",
+      "noCol": "Hayır",
+      "next": "sonraki",
+      "surfaces": "Bileşenler",
+      "headlineRule": "Ana düzey kuralı.",
+      "recognised": "Tanınan bileşenler:",
+      "edgeCases": "Sınır durumlar",
+      "edgeLede": "Bunların her biri, karar ağacını kırma denemelerinden çıktı. Dürüst iki insanın aynı sayıya ulaşması için burada karara bağlandılar.",
+      "interop": "Birlikte çalışabilirlik",
+      "interopLede": "Bu ölçek, köken standartlarını tamamlar. Yerleşik IPTC söz dağarcığıyla eşleşir ve W3C AI Content Disclosure Community Group'ta tartışılan aday söz dizimini dener; bu söz dizimi bir W3C standardı değildir.",
+      "mapping": "Düzey eşlemesi",
+      "lossy": "Eşleme tam olarak tek bir yönde kayıplıdır ve asıl mesele o kayıptır: IPTC, Düzey 3, 4 ve 5'i birbirinden ayırt edemez. Bunun kimin özü olduğunu anlatacak bir terimi yok; bir insanın onu okuyup okumadığını anlatacak bir terimi de yok. Okurların gerçekten önemsediği iki soru bunlar ve bu ölçek tam da bu ikisini yanıtlamak için var.",
+      "machine": "Makine tarafından okunabilir biçim",
+      "machineLede": "Kanonik İngilizce tanımlar tek bir dosyada bulunur; rozetleri ve makinece okunabilir çıktıyı yönlendirir. Yerelleştirilmiş açıklayıcı metin ayrı tutulur ve yapısal eşdeğerlik açısından denetlenir.",
+      "priorArt": "Öncel çalışmalar",
+      "priorLede": "Burada emsalsiz hiçbir şey yok; aksini iddia etmek kendi başına küçük bir sahtekârlık olurdu.",
+      "why": "Neden"
+    },
+    "signPage": {
+      "eyebrow": "İmzacılar",
+      "h1": "İmzalamak sizi tek bir şeye bağlar.",
+      "standfirst": "Yayımladığınız şeyin düzeyini beyan edin. Taahhüdün tamamı bu.",
+      "intro": "Daha az yapay zekâ kullanmaya değil. Daha çok kullanmaya da değil. Manifestonun her kelimesine katılmaya da değil — aşağıdaki isimlerin birkaçı katılmıyor. Yalnızca okuru tahmine bırakmaktan vazgeçmeye.",
+      "howH": "Nasıl imzalanır",
+      "howA": "signatories.json dosyasına kendinizi ekleyen bir pull request açın. Bu küçük sürtünme bilinçli: buradaki her ismin, gerçekten isteyen bir insan tarafından eklendiği anlamına geliyor; ayrıca bizim toplayacağımız bir form ve sizin kaydolacağınız bir e-posta listesi olmadığı anlamına geliyor.",
+      "howB": "Pull request sizin dünyanız değilse, bir issue açın; biri sizi ekler.",
+      "addName": "Adınızı ekleyin",
+      "count": "imzacı",
+      "note": "Bir ismin yanındaki sayı — varsa — o kişinin en sık hangi düzeyde yayın yaptığını gösterir. Bir puan değildir. Buradaki birkaç kişi genellikle 4'tür ve bunu söyler; mesele de tam olarak budur."
+    },
+    "lang": {
+      "label": "Dil",
+      "readEnglish": "İngilizce aslını okuyun",
+      "improve": "Bu çeviriyi iyileştirin",
+      "machineNotice": "Bu sayfa İngilizce aslından bir makine tarafından çevrildi ve dili konuşan bir insan tarafından gözden geçirilmedi.",
+      "ownRule": "Bu ölçeğin kendi çeviri kuralı uyarınca kaynağın düzeyini taşır — 3, Yönlendirilmiş — artı bu not.",
+      "humanNotice": "Bu sayfa İngilizce aslından çevrildi ve dili konuşan bir insan tarafından gözden geçirildi."
+    }
+  }
+}

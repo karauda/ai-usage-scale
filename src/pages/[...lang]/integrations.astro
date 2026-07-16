@@ -1,0 +1,113 @@
+---
+/* The machine-facing index: every endpoint and integration in one place. English on every
+   route, like the ecosystem map — a developer reference, not translated prose, so no notice. */
+import Base from '../../layouts/Base.astro';
+import Snippet from '../../components/Snippet.astro';
+import { localeParams, localePath } from '../../lib/i18n';
+
+export const getStaticPaths = localeParams;
+const { lang } = Astro.props;
+const L = (p: string) => localePath(lang, p);
+// These endpoints have a per-locale variant; the rest (feed, schema, ecosystem.json…) are root-only.
+const PER_LOCALE = new Set(['/levels.json']);
+
+const endpoints = [
+  ['/levels.json', 'The scale itself — levels, definitions, decision tree, mappings. The single source of truth, CC0. Also per-language at /<lang>/levels.json.'],
+  ['/levels.schema.json', 'JSON Schema for a declaration object, so a tool can validate one without hard-coding the rules.'],
+  ['/ecosystem.json', 'The AI-provenance ecosystem, mapped: what the scale interoperates with, complements, and does not rely on.'],
+  ['/llms.txt', 'The map for language models (llmstxt.org) — levels, decision procedure, docs.'],
+  ['/llms-full.txt', 'The whole standard in one file: manifesto, levels, edge cases, mappings. One fetch, no crawl.'],
+  ['/feed.xml', 'RSS of releases. A change to what a level means invalidates declarations made against it — subscribe to know when the standard moves.'],
+  ['/.well-known/ai-disclosure.json', "This site's own declaration, at a well-known path."],
+  ['/sitemap-index.xml', 'Every page and its translations, with reciprocal hreflang.'],
+];
+
+const mcpConfig = `{
+  "mcpServers": {
+    "usagescale": {
+      "command": "npx",
+      "args": ["-y", "usagescale-mcp"]
+    }
+  }
+}`;
+---
+
+<Base
+  lang={lang}
+  path="/integrations"
+  translated={false}
+  title="Integrations & machine endpoints — AI Usage Scale"
+  description="Every machine-readable entry point for the AI Usage Scale: levels.json, JSON Schema, the ecosystem map, llms.txt, an RSS release feed, and an MCP server agents can call directly."
+  breadcrumb={[['Integrations', '/integrations']]}
+  schema={[
+    {
+      '@type': 'WebPage',
+      '@id': 'https://usagescale.org/integrations#page',
+      name: 'Integrations & machine endpoints',
+      inLanguage: 'en',
+      isPartOf: { '@id': 'https://usagescale.org/#site' },
+    },
+  ]}
+>
+  <header class="top prose">
+    <p class="label">For machines</p>
+    <h1>Integrations & endpoints</h1>
+    <p class="standfirst">
+      A standard whose subject is machine-readable honesty should be trivial for a machine to
+      read. Everything here is static, CC0, and served without a request back to us.
+    </p>
+  </header>
+
+  <section class="prose">
+    <h2>Endpoints</h2>
+    <dl>
+      {
+        endpoints.map(([path, desc]) => (
+          <div class="row">
+            <dt><a href={PER_LOCALE.has(path) ? L(path) : path}><code>{path}</code></a></dt>
+            <dd>{desc}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  <section class="prose">
+    <h2>MCP server</h2>
+    <p>
+      An <a href="https://modelcontextprotocol.io">MCP</a> server so an AI agent can query the
+      scale directly — classify a work through the five questions, look up a level, or read the
+      spec — instead of scraping the site. It runs locally over stdio and needs no network: the
+      whole standard travels inside the package.
+    </p>
+    <Snippet
+      label="Add it to an MCP client (e.g. an mcp.json config)"
+      code={mcpConfig}
+      note="Tools: classify, get_level, list_levels, get_spec. Resources: levels.json, llms-full.txt."
+    />
+    <p class="meta">
+      Or run it straight from the terminal: <code>npx -y usagescale-mcp</code>. Source in
+      <a href="https://github.com/karauda/ai-usage-scale/tree/main/mcp"><code>/mcp</code></a>.
+    </p>
+  </section>
+
+  <section class="prose">
+    <h2>Put the declaration in your <code>&lt;head&gt;</code></h2>
+    <p>
+      Each level page carries a copy-paste block. In short: <code>&lt;meta name="ai-usage"
+      content="3"&gt;</code> plus the experimental <code>ai-disclosure</code> value and a
+      schema.org term. See any level, e.g. <a href={L('/3')}>/3</a>.
+    </p>
+  </section>
+</Base>
+
+<style>
+  .top { margin: 2rem 0 1rem; }
+  .meta { font-family: var(--mono); font-size: 0.8125rem; color: var(--ink-mid); }
+  dl { margin: 1.25rem 0 0; }
+  .row { padding: 1rem 0; border-top: 1px solid var(--rule-soft); }
+  dt { font-weight: 600; }
+  dt code { font-size: 0.9em; }
+  dd { margin: 0.35rem 0 0; color: var(--ink-mid); }
+  section { margin: 2.5rem 0; }
+</style>

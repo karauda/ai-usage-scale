@@ -1,0 +1,57 @@
+---
+interface Props {
+  label: string;
+  code: string;
+  note?: string;
+  /** { copy, copied } in the reader's language. */
+  ui?: { copy: string; copied: string };
+}
+const { label, code, note, ui = { copy: 'Copy', copied: 'Copied' } } = Astro.props;
+---
+
+<div class="wrap">
+  <p class="label">{label}</p>
+  {note && <p class="note">{note}</p>}
+  <div class="snippet">
+    <pre><code>{code}</code></pre>
+    {/*
+      The copy button carries its own labels, so the script never has to know the language.
+      A page mounts several of these; the aria-label folds in the snippet's own label so a
+      screen-reader user hears "Copy: the sentence to paste", not six identical "Copy"s.
+    */}
+    <button type="button" data-copy data-idle={ui.copy} data-done={ui.copied} aria-label={`${ui.copy}: ${label}`}>{ui.copy}</button>
+    <span class="sr-status" role="status" aria-live="polite"></span>
+  </div>
+</div>
+
+<style>
+  .wrap { margin: 1.75rem 0; }
+  .note { font-size: 0.9375rem; color: var(--ink-mid); margin: 0.4rem 0 0; }
+  .snippet pre { margin: 0.6rem 0 0; white-space: pre-wrap; word-break: break-word; }
+  /* Visually hidden, still announced: the success state is otherwise silent to AT. */
+  .sr-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>
+
+<script>
+  // Without JavaScript the code is still there, selectable, copyable by hand.
+  const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.userAgent);
+  for (const btn of document.querySelectorAll<HTMLButtonElement>('[data-copy]')) {
+    const idle = btn.dataset.idle ?? 'Copy';
+    const done = btn.dataset.done ?? 'Copied';
+    const status = btn.parentElement?.querySelector<HTMLElement>('.sr-status');
+    btn.addEventListener('click', async () => {
+      const code = btn.parentElement?.querySelector('code')?.textContent ?? '';
+      try {
+        await navigator.clipboard.writeText(code);
+        btn.textContent = done;
+        if (status) status.textContent = done;
+      } catch {
+        btn.textContent = isMac ? '⌘C' : 'Ctrl+C';
+      }
+      setTimeout(() => {
+        btn.textContent = idle;
+        if (status) status.textContent = '';
+      }, 1600);
+    });
+  }
+</script>

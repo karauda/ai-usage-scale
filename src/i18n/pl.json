@@ -1,0 +1,388 @@
+{
+  "lang": "pl",
+  "name": "Polish",
+  "endonym": "Polski",
+  "dir": "ltr",
+  "translation": { "by": "machine" },
+  "principle": "Żaden poziom nie stoi wyżej od innego. Skala, która ustawia własne poziomy w hierarchii, jest drabiną wstydu — a każdy będzie kłamał, żeby zejść po niej niżej. Jedyny nieuczciwy poziom to ten niezadeklarowany.",
+  "axis": {
+    "measures": "Rolę, jaką w powstaniu pracy odegrała sztuczna inteligencja: czyje jest jej meritum i kto za nią odpowiada.",
+    "doesNotMeasure": "Odsetka znaków, pikseli czy próbek wypluty przez model. Ta liczba skazuje chirurga, który podyktował trzydzieści lat praktyki, i nie uniewinnia nikogo."
+  },
+  "surfaces": {
+    "note": "Opcjonalne. Jedna liczba opisuje pracę jako całość. Kiedy jej części różnią się między sobą wyraźnie, zadeklaruj je osobno. Znak zawsze pokazuje jedną liczbę; rozbicie na warstwy mieszka pod linkiem.",
+    "headlineRule": "Poziom główny opisuje tę część pracy, która niesie jej sens. Materiał dekoracyjny, którego rozsądny odbiorca nie uzna za istotny dla pracy, nie decyduje o poziomie głównym — zadeklaruj go tutaj."
+  },
+  "levels": [
+    {
+      "id": 0,
+      "name": "Ludzkie",
+      "oneLine": "Nie użyto generatywnej AI.",
+      "definition": "Na żadnym etapie powstawania tej pracy nie brała udziału generatywna AI. Narzędzia niegeneratywne — sprawdzanie pisowni, autokorekta, autofokus, redukcja szumu, wyszukiwarki, kalkulatory, korekcja koloru, kompilatory — nie są generatywną AI i nie zmieniają tego poziomu.",
+      "includes": [
+        "Piszesz, rysujesz, fotografujesz, nagrywasz, grasz lub kodujesz samodzielnie",
+        "Klasyczne oprogramowanie: edytory tekstu, Lightroom, Pro Tools, kompilator, aparat",
+        "Wyszukiwarka, w której znajdujesz źródła, a potem czytasz je sam",
+        "Niegeneratywne uczenie maszynowe: autofokus, odszumianie, powiększanie, które niczego nie wymyśla"
+      ],
+      "excludes": [
+        "Każde użycie modelu językowego, graficznego lub dźwiękowego, którego wynik trafił do pracy",
+        "Grafika stockowa wygenerowana przez AI, nawet jako ozdoba — zadeklaruj ją w Warstwach"
+      ],
+      "examples": [
+        "Esej napisany i poprawiony ręcznie.",
+        "Zdjęcie zrobione aparatem i wywołane w Lightroomie.",
+        "Utwór zagrany na prawdziwych instrumentach i zmiksowany przez realizatora.",
+        "Strona napisana przez programistę bez asystenta AI."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Poziom 0 — Ludzkie.",
+        "medium": "Przy powstaniu tej pracy nie użyto generatywnej AI. Poziom 0 w AI Usage Scale.",
+        "long": "Ta praca powstała bez generatywnej AI. Żaden tekst, obraz, dźwięk, film ani kod w niej nie wyszedł spod modelu. To Poziom 0 w AI Usage Scale — otwartym standardzie deklarowania tego, jak powstała praca."
+      }
+    },
+    {
+      "id": 1,
+      "name": "Wspomagane",
+      "oneLine": "AI pracowała wyłącznie na twoim gotowym materiale. Niczego nie wymyśliła.",
+      "definition": "Pracę wykonujesz ty. AI jedynie obrabia twój materiał albo pomaga na zapleczu: poprawia, wiernie transkrybuje lub tłumaczy, czyści, taguje, formatuje, wyszukuje albo przekazuje uwagi. Poza wierną transkrypcją lub tłumaczeniem twojego materiału w opublikowanej pracy nie ma treści wytworzonej przez model.",
+      "includes": [
+        "Poprawa gramatyki, ortografii i stylu w twoich zdaniach",
+        "Transkrypcja twojego nagrania",
+        "Odszumianie, maskowanie lub powiększanie twojego zdjęcia",
+        "Tagowanie, formatowanie, streszczanie na własny użytek, przeszukiwanie własnego archiwum",
+        "Szukanie źródeł przez AI, które potem czytasz i weryfikujesz osobiście"
+      ],
+      "excludes": [
+        "AI pisze zdanie, akapit, obraz lub melodię, które zostają w pracy — to Poziom 2 lub wyżej",
+        "AI przebudowuje twój wywód, a nie twoją prozę"
+      ],
+      "examples": [
+        "Artykuł, który napisałeś, przepuszczony przez model dla gramatyki.",
+        "Podcast, który nagrałeś, przepisany przez model na potrzeby opisu odcinka.",
+        "Praca naukowa sprawdzona przez model pod kątem literówek przed wysłaniem.",
+        "Twój kod, w którym asystent AI zmienił tylko nazwy zmiennych i formatowanie."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Poziom 1 — Wspomagane.",
+        "medium": "Napisane przez autora; AI posłużyła wyłącznie do prac mechanicznych, takich jak korekta i transkrypcja. Poziom 1 w AI Usage Scale.",
+        "long": "Tę pracę wykonał autor. AI posłużyła wyłącznie do obróbki materiału, który autor już wytworzył — do poprawiania, przepisywania i czyszczenia. Żadne zdanie, obraz ani dźwięk w opublikowanej pracy nie zostały wymyślone przez model. To Poziom 1 w AI Usage Scale."
+      }
+    },
+    {
+      "id": 2,
+      "name": "Współtworzone",
+      "oneLine": "Większość finalnej formy zrobiłeś ty. AI zrobiła te części, które zostały.",
+      "definition": "Praca jest twoja w konstrukcji i w większości wykonania, ale w opublikowanym efekcie przetrwał materiał wytworzony przez model: fragmenty, elementy, warianty, spośród których wybierałeś. Większość tego, co dostaje odbiorca, napisałeś, narysowałeś lub zagrałeś ty.",
+      "includes": [
+        "AI pisze szkic sekcji, którą potem przerabiasz, a w całości dominują twoje słowa",
+        "AI generuje warianty, z których wybierasz i które redagujesz",
+        "AI pisze funkcję wewnątrz kodu, który zaprojektowałeś i w większości napisałeś",
+        "AI dopełnia lub rozszerza fragment obrazu, który skomponowałeś"
+      ],
+      "excludes": [
+        "AI wytwarza większość finalnych słów lub pikseli — to Poziom 3 lub wyżej",
+        "Czysto mechaniczna korekta, bez niczego wymyślonego — to Poziom 1"
+      ],
+      "examples": [
+        "Esej, którego plan i większość tekstu są twoje, z dwoma przerobionymi akapitami napisanymi przez AI.",
+        "Kawałek, który skomponowałeś i zagrałeś, z jedną wygenerowaną fakturą w przejściu.",
+        "Funkcjonalność, którą zaprojektowałeś i napisałeś, z pomocniczymi funkcjami od AI, które przejrzałeś.",
+        "Twoje zdjęcie, z którego generatywne wypełnienie usunęło rozpraszający obiekt."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Poziom 2 — Współtworzone.",
+        "medium": "W większości zrobione przez autora; część materiału wygenerowała AI i została ona w pracy. Poziom 2 w AI Usage Scale.",
+        "long": "Autor zrobił większość tej pracy — większość słów, pikseli lub dźwięku. Przetrwał w niej materiał wygenerowany przez AI, wybrany i zredagowany przez autora. To Poziom 2 w AI Usage Scale."
+      }
+    },
+    {
+      "id": 3,
+      "name": "Kierowane",
+      "oneLine": "Meritum jest twoje. Formę wytworzyła AI.",
+      "definition": "Twoje są specyficzne dla tej pracy wiedza, dowody, argument, kompozycja lub ograniczenia, które rzeczywiście wyznaczają wynik. Model wytworzył większość finalnych słów, pikseli lub dźwięku na podstawie tych oryginalnych danych wejściowych. Ty kierujesz, wybierasz, poprawiasz, rzetelnie weryfikujesz i odpowiadasz za wynik. Samo napisanie lub dopracowanie promptu nie wystarcza.",
+      "note": "To jest ten poziom, którego dzisiejsza etykieta zero-jedynkowa nie widzi, i powód, dla którego ta skala istnieje. Ekspert, który dyktuje to, co wie, i pozwala modelowi nadać temu formę, nie popełnił żadnego oszustwa. Użył narzędzia — i może to wreszcie powiedzieć.",
+      "includes": [
+        "Specjalista dostarcza wiedzę, notatki, dane lub szczegółowy brief, a model zamienia to w prozę",
+        "Dyrektor artystyczny doprowadza obraz do celu przez wiele rund konkretnych poprawek",
+        "Twoje badania, z których model robi scenariusz albo narrację do wideo",
+        "Kod, który szczegółowo zdefiniowałeś i zrecenzowałeś, napisany w większości przez agenta AI"
+      ],
+      "excludes": [
+        "Prompt lub kolejne rundy promptowania bez oryginalnego, specyficznego dla tej pracy meritum — to Poziom 4",
+        "Praca, w której większość finalnych słów napisałeś sam — to Poziom 2"
+      ],
+      "examples": [
+        "Chirurg dyktuje trzydzieści lat praktyki; model pisze artykuł; chirurg poprawia go i podpisuje.",
+        "Surowe notatki i cennik założyciela stają się stroną sprzedażową napisaną przez model.",
+        "Ilustrator prowadzi czterdzieści iteracji wygenerowanego obrazu pod konkretną kompozycję.",
+        "Zbiór danych i wnioski badaczki stają się filmem objaśniającym, czytanym przez syntetyczny głos."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Poziom 3 — Kierowane.",
+        "medium": "Wiedza, dane i argument należą do autora; tekst wytworzyła z nich AI. Poziom 3 w AI Usage Scale.",
+        "long": "Meritum tej pracy — wiedza, dane, argument, kierunek — należy do autora. Model wytworzył z tego większość finalnej formy. Autor kierował, sprawdził i bierze odpowiedzialność za to, co tu stoi. To Poziom 3 w AI Usage Scale."
+      }
+    },
+    {
+      "id": 4,
+      "name": "Zlecone",
+      "oneLine": "AI wytworzyła i meritum, i formę. Ty poprosiłeś, ty sprawdziłeś, ty odpowiadasz.",
+      "definition": "Model wytworzył zarówno to, co praca mówi, jak i sposób, w jaki to mówi — z promptu, szablonu lub briefu zawierającego niewiele twojego oryginalnego, specyficznego dla tej pracy meritum. Człowiek rzetelnie sprawdził gotowy materiał, w razie potrzeby zweryfikował istotne twierdzenia i bierze odpowiedzialność za publikację.",
+      "includes": [
+        "Prosisz model o treść na jakiś temat i publikujesz ją po przejrzeniu",
+        "Wygenerowane teksty marketingowe, opisy produktów lub posty, przejrzane przed wysłaniem",
+        "Grafika stockowa wygenerowana z krótkiego promptu i sprawdzona przed użyciem",
+        "Kod napisany przez AI, który przeczytałeś i przetestowałeś przed scaleniem"
+      ],
+      "excludes": [
+        "Praca oparta na wiedzy, danych lub kierunku, które są naprawdę twoje — to Poziom 3",
+        "Publikacja bez przeczytania przez człowieka — to Poziom 5"
+      ],
+      "examples": [
+        "„Napisz dziesięć postów o cukrzycy” — przeczytane, poprawione, opublikowane.",
+        "Opisy produktów wygenerowane do katalogu i przejrzane przez człowieka.",
+        "Wygenerowana grafika nagłówkowa, sprawdzona pod kątem błędów przed publikacją.",
+        "Streszczenie dokumentu zrobione przez model i zweryfikowane ze źródłem."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Poziom 4 — Zlecone.",
+        "medium": "Wytworzone przez AI z promptu; przejrzane przez człowieka, który bierze za to odpowiedzialność. Poziom 4 w AI Usage Scale.",
+        "long": "Model wytworzył i meritum, i formę tej pracy. Człowiek o nią poprosił, przeczytał ją, sprawdził i bierze odpowiedzialność za jej publikację. To Poziom 4 w AI Usage Scale."
+      }
+    },
+    {
+      "id": 5,
+      "name": "Zautomatyzowane",
+      "oneLine": "AI wytworzyła i meritum, i formę. Przed publikacją nie przeczytał tego żaden człowiek.",
+      "definition": "Model wytworzył pracę, a ta została opublikowana bez przejrzenia przez człowieka. To uczciwy poziom dla zautomatyzowanych potoków, generowania masowego i agentów, które publikują samodzielnie. Dla ogromnej ilości całkowicie legalnej pracy jest to właściwa odpowiedź — a to, że się ją podaje, jest tym, co czyni tę pracę uczciwą.",
+      "note": "Poziom 5 nie jest oskarżeniem. Automatyczny raport giełdowy, wygenerowana relacja z meczu, maszynowo przetłumaczona strona pomocy w skali tysięcy adresów: wszystko to jest uczciwe na Poziomie 5 i nieuczciwe na każdym innym. Zadeklarowanie piątki jest dokładnie tym, co oddziela system automatyczny od oszustwa.",
+      "includes": [
+        "Publikacja z harmonogramu lub przez agenta, bez człowieka w pętli",
+        "Masowe generowanie stron, ofert lub streszczeń",
+        "Generowanie na żywo, na żądanie, pokazywane użytkownikowi w trakcie powstawania",
+        "Tłumaczenie maszynowe publikowane masowo, bez przeglądu"
+      ],
+      "excludes": [
+        "Cokolwiek, co człowiek naprawdę przeczytał przed publikacją — to Poziom 4"
+      ],
+      "examples": [
+        "Cogodzinne podsumowanie rynku generowane i publikowane przez skrypt.",
+        "Dziesięć tysięcy stron produktowych wygenerowanych przez noc.",
+        "Odpowiedzi chatbota, pokazywane użytkownikowi w miarę generowania.",
+        "Agent, który pisze i publikuje na blogu według harmonogramu."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Poziom 5 — Zautomatyzowane.",
+        "medium": "Wygenerowane przez AI i opublikowane bez przeglądu przez człowieka. Poziom 5 w AI Usage Scale.",
+        "long": "Model wytworzył tę pracę i została ona opublikowana bez uprzedniego przeczytania jej przez człowieka. To Poziom 5 w AI Usage Scale — uczciwa deklaracja dla systemów automatycznych."
+      }
+    }
+  ],
+  "tree": [
+    {
+      "question": "Czy przy powstaniu tej pracy użyto generatywnej AI?",
+      "help": "Generatywna AI to model, który wytwarza nowy tekst, obrazy, dźwięk, wideo lub kod. Uwzględnij także AI używaną do researchu, szukania pomysłów lub uzyskania uwag, nawet jeśli jej wynik nie trafił do pracy. Sprawdzanie pisowni, autofokus, bramki szumów, wyszukiwarki i kalkulatory nie są generatywną AI."
+    },
+    {
+      "question": "Czy AI wytworzyła nowy materiał, który jest w opublikowanej pracy — ponad mechaniczną obróbkę tego, co już zrobiłeś?",
+      "help": "Poprawianie gramatyki, wierna transkrypcja lub tłumaczenie twoich słów, odszumianie zdjęcia czy tagowanie plików to obróbka mechaniczna. Tak samo research, pomysły lub uwagi, po których w pracy nie zostaje materiał modelu. Nowy akapit, obraz lub melodia są nowym materiałem."
+    },
+    {
+      "question": "Czy większość finalnej formy zrobiłeś sam — większość słów, pikseli lub dźwięku?",
+      "help": "Oceniaj opublikowany efekt, a nie wysiłek. Jeśli większość tego, co czytelnik widzi lub słyszy, wystukałeś, narysowałeś lub zagrałeś ty, odpowiedz „tak”."
+    },
+    {
+      "question": "Czy meritum jest twoje — wiedza, dane, argument, kierunek?",
+      "help": "Meritum to specyficzne dla tej pracy wiedza, dowody, argument, kompozycja lub ograniczenia, które wyznaczają jej treść. Jest twoje, gdy twoje oryginalne dane wejściowe rzeczywiście determinują wynik — nie tylko dlatego, że napisałeś lub poprawiałeś prompt."
+    },
+    {
+      "question": "Czy przed publikacją przejrzał to człowiek i wziął odpowiedzialność za to, co tam stoi?",
+      "help": "Przegląd musi być rzetelny i adekwatny do ryzyka: obejmować gotową pracę, weryfikację istotnych twierdzeń, gdy jest potrzebna, i poprawienie problemów przed publikacją. Odpowiedzialność oznacza gotowość do obrony lub korekty błędu."
+    }
+  ],
+  "edgeCases": [
+    {
+      "case": "Tłumaczenie",
+      "rule": "Wierne tłumaczenie dziedziczy poziom oryginału i dodaje notę o tłumaczeniu. Przetłumaczenie modelem artykułu z Poziomu 1 publikuje go jako Poziom 1, przetłumaczony przez AI.",
+      "why": "Meritum i konstrukcja pozostają te same. Karanie za tłumaczenie zmniejszyłoby dostępność piśmiennictwa świata, a to dokładne przeciwieństwo sensu tej skali."
+    },
+    {
+      "case": "Transkrypcja",
+      "rule": "Przepisanie mowy, którą sam nagrałeś, to obróbka mechaniczna. Nie podnosi poziomu.",
+      "why": "Słowa są twoje. Model tylko je zapisał."
+    },
+    {
+      "case": "Elementy dekoracyjne",
+      "rule": "Wygenerowana grafika nagłówkowa nad artykułem napisanym przez człowieka nie czyni z tego artykułu Poziomu 4. Zadeklaruj tę grafikę w Warstwach.",
+      "why": "Poziom główny opisuje to, co niesie sens. Inaczej jeden obrazek stockowy połknąłby całą deklarację, a ludzie po prostu przestaliby deklarować."
+    },
+    {
+      "case": "Utwory zależne",
+      "rule": "Zadeklaruj poziom własnego wkładu i podaj poziom źródła, jeśli źródło go zadeklarowało."
+    },
+    {
+      "case": "Generowanie na żywo",
+      "rule": "Treść generowana na żądanie i pokazywana użytkownikowi bez przeglądu to Poziom 5 — nawet jeśli prompt systemowy człowiek napisał z największą starannością."
+    },
+    {
+      "case": "Niegeneratywne uczenie maszynowe",
+      "rule": "Autofokus, odszumianie, powiększanie, dopasowanie kolorów i klasyfikacja, które niczego nie wymyślają, nie są generatywną AI. Nie ruszają cię z Poziomu 0."
+    }
+  ],
+  "ui": {
+    "nav": {
+      "manifesto": "Manifest",
+      "scale": "Skala",
+      "level": "Twój poziom",
+      "badges": "Znaki",
+      "spec": "Specyfikacja",
+      "sign": "Podpisz"
+    },
+    "wordmark": "AI Usage Scale",
+    "foot": {
+      "tagline": "Otwarty standard deklarowania tego, jak powstała praca.",
+      "licence": "Znaki i levels.json: CC0. Tekst: CC BY 4.0. Kod: MIT.",
+      "spec": "Specyfikacja",
+      "source": "Kod źródłowy i zgłoszenia",
+      "thisPage": "Ta strona",
+      "ownDeclaration": "Meritum należy do autora; prozę wytworzono z pomocą AI i przeczytano linijka po linijce, zanim poszła w świat."
+    },
+    "hero": {
+      "eyebrowBefore": "Etykieta, którą twórca ma dzisiaj",
+      "eyebrowAfter": "Etykieta, której twórca potrzebuje",
+      "binaryYes": "AI",
+      "binaryNo": "NIE AI",
+      "beforeHead": "Winny albo niewinny.",
+      "beforeBody": "To jedyne dwie rzeczy, jakie wolno ci dziś powiedzieć.",
+      "afterHead": "Sześć poziomów.",
+      "afterBody": "Wskaż jeden.",
+      "h1a": "Nie ma wstydliwego poziomu.",
+      "h1b": "Jest tylko niezadeklarowany.",
+      "sub": "Darmowa, otwarta skala do powiedzenia, jak powstała praca — czyją wiedzę niesie i kto za nią stoi. Sześć poziomów. Trzydzieści sekund. Nikogo nie trzeba pytać o zgodę.",
+      "cta": "Znajdź swój poziom",
+      "ctaAlt": "albo przeczytaj wszystkie sześć",
+      "inOneLine": "Skala, po jednym zdaniu na poziom",
+      "levelHead": "Poziom {n}"
+    },
+    "level": {
+      "eyebrow": "AI Usage Scale · Poziom {n} z 0–5",
+      "allLevels": "Wszystkie poziomy",
+      "includes": "To ten poziom, kiedy",
+      "excludes": "To nie ten poziom, kiedy",
+      "examples": "Przykłady",
+      "sentenceH": "Powiedz to jednym zdaniem",
+      "sentenceLede": "Wklej jedno z tych zdań pod podpisem autora, w stopce artykułu, w opisie filmu, w opisie wyniku wyszukiwania albo w stopce maila. Obrazek nie jest potrzebny — deklaracja, która działa wyłącznie jako obrazek, jest deklaracją, której połowa sieci nie przeczyta.",
+      "short": "Krótkie — pod podpis autora albo do biogramu",
+      "medium": "Średnie — do stopki artykułu albo do meta description",
+      "long": "Długie — do noty od redakcji",
+      "markH": "Postaw na tym znak",
+      "markLede": "Skopiuj znak jako inline SVG, a wyrenderuje się natychmiast, zadziała offline i nie wyśle do nas żadnego żądania. To ostatnie ma znaczenie: znak wczytywany z cudzego serwera to piksel śledzący na twojej stronie, a standardowi o uczciwości nic do tego, żeby taki piksel rozsyłać. Plik hostowany poniżej jest dla wygody, a nie dlatego, że chcemy ten ruch.",
+      "markCap": "Znak Poziomu {n} · bez zewnętrznego fontu, bez żądania",
+      "inline": "Inline SVG — zalecane",
+      "inlineNote": "Samowystarczalne. Nic do wczytania, nic do śledzenia.",
+      "hosted": "Obrazek hostowany — jeśli wolisz go podlinkować",
+      "plain": "Czysty tekst — tam, gdzie obrazek nie wejdzie",
+      "machineH": "Niech przeczytają to też maszyny",
+      "machineLede": "Ta sama deklaracja, w słownikach, którymi warstwa zgodności już mówi. Nie konkurujemy z nimi — jesteśmy ich twarzą czytelną dla człowieka.",
+      "headOf": "Do sekcji <head> twojej strony",
+      "surfacesH": "Jeśli części się różnią",
+      "copy": "Kopiuj",
+      "copied": "Skopiowano"
+    },
+    "scalePage": {
+      "eyebrow": "Skala",
+      "h1": "Sześć poziomów i żaden z nich nie jest wyrokiem.",
+      "measures": "Mierzy",
+      "refuses": "Odmawia mierzenia",
+      "forInstance": "Na przykład",
+      "more": "Definicja, przykłady, znak i kod →",
+      "closingH": "Dlaczego te liczby nie mają kolorów",
+      "closingA": "Każdy znak na tej stronie jest odbity tym samym tuszem. Nie ma zielonego końca ani czerwonego końca, bo skala, która koloruje własne skrajności, już ci powiedziała, którego końca masz się wstydzić — a to wstyd każe ludziom kłamać.",
+      "closingB": "Automatyczne podsumowanie rynku jest uczciwe na Poziomie 5 i nieuczciwe na każdym innym. Pamiętnik jest uczciwy na Poziomie 0. Żadna z tych liczb nie jest lepsza. Jedyna zła odpowiedź to ta, której nikt nie udziela."
+    },
+    "wizard": {
+      "eyebrow": "Pięć pytań",
+      "h1": "Co ty właściwie zrobiłeś?",
+      "standfirst": "Odpowiadaj uczciwie. Nikt tego nie sprawdza — i o to właśnie chodzi. Deklaracja, do której można by cię zmusić, nie byłaby warta nic.",
+      "count": "Pytanie {n} z {total}",
+      "yes": "Tak",
+      "no": "Nie",
+      "back": "← Wstecz",
+      "yourLevel": "Twój poziom",
+      "getBadge": "Weź znak i kod",
+      "startOver": "Zacznij od nowa",
+      "treeLabel": "Drzewo decyzyjne",
+      "yesNext": "Tak → następne pytanie",
+      "noNext": "Nie → następne pytanie",
+      "yesLevel": "Tak → Poziom {n} · {name}",
+      "noLevel": "Nie → Poziom {n} · {name}",
+      "fineH": "A jeśli dwoje z nas odpowiedziałoby inaczej?",
+      "fineA": "Ujawnijcie niejednoznaczność i wyjaśnijcie, które części się różnią. Jeśli system przyjmuje tylko jedną liczbę, wybierz poziom, który nie zaniża roli AI. Celem skali jest użyteczna uczciwość, nie pozorna precyzja.",
+      "fineB": "Przypadki brzegowe — tłumaczenie, transkrypcja, grafika dekoracyjna, utwory zależne, generowanie na żywo — są rozstrzygnięte w specyfikacji."
+    },
+    "badgesPage": {
+      "eyebrow": "Znaki",
+      "h1": "Sześć znaków. Jeden tusz.",
+      "standfirst": "Nie ma zielonego końca ani czerwonego końca. Skala, która koloruje własne skrajności, już ci powiedziała, którego końca masz się wstydzić.",
+      "intro": "Wszystko tutaj jest na CC0 — bez wymogu atrybucji, bez licencji do zaakceptowania, bez konta do założenia. Bierz.",
+      "hotlinkH": "Dlaczego wolelibyśmy, żebyś nie linkował do naszego serwera",
+      "hotlinkA": "Każdy znak tutaj działa jako inline SVG: wklejasz kod, a on renderuje się bez zewnętrznego fontu, bez zewnętrznego pliku i bez żadnego żądania do nas. To jest wersja, którą zalecamy, a strony poziomów dają ci gotowy fragment kodu.",
+      "hotlinkB": "Znak wczytywany z naszego serwera to piksel śledzący na twojej stronie. Powiedziałby nam adres każdego artykułu, który nosi deklarację, i to, jak często się go czyta. Nie chcemy tych danych, a standardowi, którego całym tematem jest uczciwość, nic do tego, żeby po cichu je zbierać. Pliki hostowane są tutaj dlatego, że czasem naprawdę potrzebujesz adresu — a nie dlatego, że chcemy ten ruch.",
+      "rulesH": "Zasady dla znaków",
+      "rules": [
+        "Nie przekolorowuj poziomu tak, żeby sugerować, że jest lepszy albo gorszy od innego.",
+        "Nie stawiaj znaku na pracy, dla której nie złożyłeś deklaracji.",
+        "Zostaw link. Znak bez definicji za sobą jest ozdobą.",
+        "Tłumacz je. Przerysowuj je. Forkuj całość."
+      ],
+      "whereH": "Gdzie to idzie",
+      "whereA": "Pod podpisem autora. W stopce artykułu. W opisie filmu. Na stronie „o mnie”. W pliku README. W karcie modelu. W notatkach do odcinka podcastu. W stopce maila. W polu opisu wyniku wyszukiwania. Wszędzie tam, gdzie czytelnik miałby prawo chcieć wiedzieć, co właściwie czyta."
+    },
+    "specPage": {
+      "eyebrow": "Specyfikacja",
+      "h1": "Jak to jest zdefiniowane i jak rozmawia z całą resztą.",
+      "standfirst": "To standard deklaracji, a nie standard dowodu. Kryptografia go nie zweryfikuje i nawet nie próbuje. Podpisu autora też nie zweryfikuje.",
+      "procedure": "Procedura decyzyjna",
+      "procedureLede": "Pięć pytań, zadawanych po kolei. Pierwsze, które się kończy, daje poziom.",
+      "question": "Pytanie",
+      "yesCol": "Tak",
+      "noCol": "Nie",
+      "next": "dalej",
+      "surfaces": "Warstwy",
+      "headlineRule": "Zasada poziomu głównego.",
+      "recognised": "Rozpoznawane warstwy:",
+      "edgeCases": "Przypadki brzegowe",
+      "edgeLede": "Każdy z nich wziął się z prób złamania drzewa decyzyjnego. Są tu rozstrzygnięte po to, żeby dwoje uczciwych ludzi doszło do tej samej liczby.",
+      "interop": "Interoperacyjność",
+      "interopLede": "Ta skala uzupełnia standardy proweniencji. Mapuje poziomy na istniejący słownik IPTC i eksperymentuje ze składnią omawianą przez W3C AI Content Disclosure Community Group; składnia ta nie jest standardem W3C.",
+      "mapping": "Mapowanie poziomów",
+      "lossy": "Mapowanie jest stratne dokładnie w jedną stronę i ta strata jest tu sednem: IPTC nie odróżnia Poziomów 3, 4 i 5. Nie ma terminu na to, czyje jest meritum, ani na to, czy przeczytał to człowiek. A to są dokładnie te dwa pytania, które obchodzą czytelników — i dokładnie te dwa, na które ta skala istnieje, żeby odpowiedzieć.",
+      "machine": "Postać czytelna dla maszyn",
+      "machineLede": "Kanoniczne definicje angielskie są w jednym pliku i sterują znakami oraz danymi dla maszyn. Lokalizowane teksty objaśniające są utrzymywane osobno i sprawdzane pod kątem zgodności struktury.",
+      "priorArt": "Wcześniejsze prace",
+      "priorLede": "Nic tutaj nie jest bezprecedensowe, a udawanie, że jest, byłoby własną małą nieuczciwością.",
+      "why": "Dlaczego"
+    },
+    "signPage": {
+      "eyebrow": "Sygnatariusze",
+      "h1": "Podpis zobowiązuje cię do jednej rzeczy.",
+      "standfirst": "Deklaruj poziom tego, co publikujesz. Na tym kończy się całe zobowiązanie.",
+      "intro": "Nie do używania mniej AI. Nie do używania więcej. Nie do zgadzania się z każdym słowem manifestu — kilkoro z podpisanych niżej się nie zgadza. Tylko do tego, żeby przestać zostawiać czytelnika ze zgadywanką.",
+      "howH": "Jak podpisać",
+      "howA": "Otwórz pull request, dopisując się do signatories.json. To celowo odrobina tarcia: znaczy, że każde nazwisko tutaj dopisał człowiek, który chciał to zrobić, i znaczy, że nie ma formularza, który moglibyśmy zżąć, ani listy mailingowej, na którą mógłbyś trafić.",
+      "howB": "Jeśli pull request to nie twój świat, załóż issue, a ktoś cię dopisze.",
+      "addName": "Dopisz się",
+      "count": "sygnatariuszy",
+      "note": "Liczba obok nazwiska, jeśli tam jest, oznacza poziom, na którym ta osoba publikuje najczęściej. To nie jest ocena. Kilkoro z tych ludzi to zwykle czwórka — i mówią to wprost, i o to dokładnie chodzi."
+    },
+    "lang": {
+      "label": "Język",
+      "readEnglish": "Przeczytaj angielski oryginał",
+      "improve": "Popraw to tłumaczenie",
+      "machineNotice": "Ta strona została przetłumaczona z angielskiego oryginału maszynowo i nie przejrzał jej żaden człowiek mówiący tym językiem.",
+      "ownRule": "Zgodnie z własną zasadą tłumaczeń tej skali strona nosi poziom źródła — 3, Kierowane — plus tę notę.",
+      "humanNotice": "Ta strona została przetłumaczona z angielskiego oryginału i przejrzana przez człowieka mówiącego tym językiem."
+    }
+  }
+}

@@ -1,0 +1,259 @@
+@import './fonts.css';
+
+/*
+  Two typefaces, and they carry meaning rather than decoration.
+
+    Spectral (serif)  — the human voice. Every sentence a person is responsible for.
+    IBM Plex Mono     — the machine layer. Navigation, labels, levels, code, metadata.
+
+  On any page you can see, at a glance, where the human is and where the machine is.
+  That is the argument this site makes, set in type. It is also the one aesthetic risk
+  here, so everything else stays quiet.
+*/
+
+:root {
+  /* Paper, not cream: this is a spec run off on office stock, not a letterpress broadside. */
+  --paper:      #F0F2ED;
+  --band:       #E4E9DF;   /* greenbar — the stripe machine output was printed on for humans to read */
+  --raised:     #F7F8F5;
+  --ink:        #16191B;
+  --ink-mid:    #5C6560;
+  --ink-soft:   #8B938D;
+  --rule:       #CBD2C7;
+  --rule-soft:  #DDE2D9;
+  --accent:     #0D4F45;   /* ledger ink. Not a warning colour — there is nothing here to warn about. */
+  --accent-bg:  #0D4F450F;
+
+  /*
+    Spectral and IBM Plex Mono cover Latin, Latin-ext, Cyrillic, Greek and Vietnamese —
+    and nothing else. Chinese, Japanese, Korean, Arabic, Persian, Hindi, Bengali and Thai
+    fall through to the reader's system fonts, on purpose. Shipping a webfont for every
+    script would put megabytes in front of exactly the readers who can least afford them,
+    and a standard that is expensive to read in Hindi is a standard nobody reads in Hindi.
+  */
+  --serif: 'Spectral', 'Songti SC', 'Hiragino Mincho ProN', 'Yu Mincho', 'Apple SD Gothic Neo',
+    'Noto Serif CJK SC', 'Noto Serif Devanagari', 'Noto Serif Bengali', 'Noto Serif Thai',
+    'Geeza Pro', 'Noto Naskh Arabic', Georgia, 'Times New Roman', serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, 'Noto Sans Mono CJK SC',
+    'Noto Sans Mono', monospace;
+
+  /*
+    One width. Not two.
+
+    A document has a single column: prose, rules, tables and marks all share the same
+    left and right edge. A wide container with a narrow text column inside it leaves a
+    dead strip down the right of every page, and the eye reads that as ragged rather
+    than composed. RFCs, 12factor and the Agile Manifesto are all one column, and they
+    are the documents this one is trying to stand next to.
+
+    46rem at 19px Spectral is ~82 characters — a shade past the classic 75, which buys the
+    navigation room to breathe across 22 languages without wrapping, at a readability cost
+    the wider gutters and generous line-height absorb.
+  */
+  --doc: 46rem;
+  --measure: var(--doc);
+  --wide: var(--doc);
+  --gutter: clamp(1.25rem, 5vw, 3rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:     #16191B;
+    --band:      #1C2022;
+    --raised:    #1E2224;
+    --ink:       #E9ECE7;
+    --ink-mid:   #99A29C;
+    --ink-soft:  #6C756F;
+    --rule:      #333A36;
+    --rule-soft: #262C29;
+    --accent:    #6FC0AC;
+    --accent-bg: #6FC0AC14;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.1875rem;
+  line-height: 1.65;
+  font-feature-settings: 'onum' 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── The machine layer ─────────────────────────────────────────── */
+
+.mono, nav, code, pre, kbd, .label, .meta, th, .lv-name, .tick-row {
+  font-family: var(--mono);
+  font-feature-settings: normal;
+}
+
+.label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ── Links ─────────────────────────────────────────────────────── */
+
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { color: var(--accent); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* ── Structure ─────────────────────────────────────────────────── */
+
+.shell { max-width: var(--wide); margin: 0 auto; padding: 0 var(--gutter); }
+.prose { max-width: var(--measure); }
+
+hr, .rule {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 3.5rem 0;
+}
+
+/* ── Site chrome ───────────────────────────────────────────────── */
+
+.masthead {
+  display: grid;
+  grid-template-columns: 1fr auto; /* wordmark | switcher */
+  align-items: baseline;
+  column-gap: 1.5rem;
+  row-gap: 1.15rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.masthead .wordmark { grid-row: 1; grid-column: 1; }
+.masthead .lang { grid-row: 1; grid-column: 2; justify-self: end; } /* pinned to the far edge */
+.masthead nav { grid-row: 2; grid-column: 1 / -1; } /* full-width row of its own */
+.masthead a { text-decoration: none; }
+.wordmark {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+/* The name is "AI Usage Scale"; the home is usagescale.org. So "Usage Scale" reads as the
+   word, and "AI" as the qualifier that keeps it unambiguous — present, legible, but not the
+   thing you type. The mark itself still spells "AI USAGE" in full, so any embedded widget
+   stands on its own. */
+.wordmark .q { color: var(--ink-soft); font-weight: 500; }
+.masthead nav { display: flex; flex-wrap: wrap; gap: 1.25rem; font-size: 0.8125rem; }
+.masthead nav a { color: var(--ink-mid); }
+.masthead nav a[aria-current='page'] { color: var(--ink); text-decoration-color: var(--accent); }
+
+.foot {
+  margin-top: 6rem;
+  padding: 2.5rem 0 4rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  line-height: 1.9;
+  color: var(--ink-mid);
+}
+.foot .cols { display: grid; gap: 1.75rem; grid-template-columns: 1fr; }
+@media (min-width: 34rem) { .foot .cols { grid-template-columns: 1fr 1fr; } }
+
+/* ── Headings ──────────────────────────────────────────────────── */
+
+h1, h2, h3 { font-weight: 600; line-height: 1.2; text-wrap: balance; }
+h1 { font-size: clamp(2rem, 5vw, 2.75rem); letter-spacing: -0.015em; margin: 0 0 0.5rem; }
+h2 { font-size: 1.5rem; margin: 3rem 0 0.75rem; }
+h3 { font-size: 1.1875rem; margin: 2rem 0 0.5rem; }
+
+.standfirst {
+  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+  font-style: italic;
+  color: var(--ink-mid);
+  margin: 0 0 2rem;
+  text-wrap: balance;
+}
+
+/* ── Position indicator: six marks, one filled ─────────────────── */
+/* A position on a scale, never a quantity in a tank. A fuel gauge would read
+   "fuller is worse", and that reading is the thing we are trying to kill. */
+
+.tick-row { display: inline-flex; gap: 3px; align-items: center; }
+.tick { width: 3px; height: 6px; background: currentColor; opacity: 0.28; }
+.tick[data-on] { height: 14px; opacity: 1; }
+
+/* ── Level table (greenbar) ────────────────────────────────────── */
+
+.levels { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.9375rem; }
+.levels td, .levels th { padding: 0.9rem 1rem; text-align: start; vertical-align: baseline; }
+.levels tbody tr:nth-child(odd) { background: var(--band); }
+.levels tbody tr:hover { background: var(--accent-bg); }
+.levels .n { font-family: var(--mono); font-weight: 600; font-size: 1.375rem; width: 1.5em; }
+.levels .lv-name { font-weight: 600; font-size: 0.8125rem; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
+.levels .desc { font-family: var(--serif); color: var(--ink-mid); }
+.levels a { text-decoration: none; }
+.levels tr:hover .lv-name { color: var(--accent); }
+/* On a phone, a long translated name in a nowrap cell would push the table — and with it the
+   whole page — into horizontal scroll. Let the name wrap below the comfortable width. */
+@media (max-width: 32rem) { .levels .lv-name { white-space: normal; } }
+
+/* ── Code ──────────────────────────────────────────────────────── */
+
+pre, .code {
+  background: var(--raised);
+  border: 1px solid var(--rule-soft);
+  padding: 1rem 1.125rem;
+  overflow-x: auto;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  margin: 1.25rem 0;
+}
+/* Keep the code clear of the copy button, which floats over the top-right corner. */
+.snippet pre { padding-inline-end: 5rem; }
+:not(pre) > code {
+  background: var(--accent-bg);
+  padding: 0.1em 0.35em;
+  font-size: 0.875em;
+}
+
+/* ── Copy button ───────────────────────────────────────────────── */
+
+.snippet { position: relative; }
+.snippet button {
+  position: absolute; top: 8px; inset-inline-end: 8px;
+  font-family: var(--mono); font-size: 0.625rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.35rem 0.6rem;
+  background: var(--paper); color: var(--ink-mid);
+  border: 1px solid var(--rule); cursor: pointer;
+}
+.snippet button:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ── Footnotes (the manifesto cites its sources; a manifesto that throws
+       numbers around without them is a blog post) ─────────────── */
+
+.footnotes { font-size: 0.8125rem; line-height: 1.8; color: var(--ink-mid); }
+.footnotes ol { padding-inline-start: 1.25rem; }
+.footnotes li { margin-bottom: 0.5rem; }
+[data-footnote-ref] { font-family: var(--mono); font-size: 0.7em; text-decoration: none; padding: 0 0.15em; color: var(--accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Several of the scripts we serve have no italic tradition, and a synthesised oblique on
+   Arabic, Thai or CJK looks like a rendering fault rather than emphasis. */
+:is([lang='ar'], [lang='fa'], [lang='zh'], [lang='ja'], [lang='ko'], [lang='th'], [lang='hi'], [lang='bn'])
+  :is(.standfirst, em, i, .pull, .lv-eg, .why, .fineprint p, blockquote) {
+  font-style: normal;
+}
+
+/* RTL: the accent rule and the position ticks read from the other side. */
+[dir='rtl'] .tick-row { flex-direction: row-reverse; }

@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Sign the manifesto
+    url: https://github.com/karauda/ai-usage-scale/blob/main/signatories.json
+    about: Add your name by pull request. Signing commits you to one thing — declare the level on what you publish.

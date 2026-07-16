@@ -1,0 +1,162 @@
+---
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import TranslationNotice from '../../components/TranslationNotice.astro';
+import LevelMark from '../../components/LevelMark.astro';
+import { localeParams, getLocale, levelsIn, localePath } from '../../lib/i18n';
+
+export const getStaticPaths = localeParams;
+
+const { lang } = Astro.props;
+const t = getLocale(lang);
+const LEVELS = levelsIn(lang);
+
+// A language whose manifesto has not landed yet still gets the scale, the marks and the
+// tool — in its own language — with the English argument. Half a standard beats none.
+const manifestos = import.meta.glob('../../content/manifesto/*.md', { eager: true });
+const entry = (manifestos[`../../content/manifesto/${lang}.md`] ??
+  manifestos['../../content/manifesto/en.md']) as any;
+const { Content, frontmatter } = entry;
+---
+
+<Base
+  lang={lang}
+  path="/"
+  title={`${frontmatter.title} — AI Usage Scale`}
+  description={t.ui.hero.sub}
+  card="default"
+  schema={[
+    {
+      '@type': 'Article',
+      '@id': `https://usagescale.org${localePath(lang, '/')}#manifesto`.replace(/\/#/, '/#'),
+      headline: frontmatter.title,
+      alternativeHeadline: frontmatter.standfirst,
+      inLanguage: lang,
+      datePublished: '2026-07-13',
+      author: { '@id': 'https://usagescale.org/#org' },
+      publisher: { '@id': 'https://usagescale.org/#org' },
+      license: 'https://creativecommons.org/licenses/by/4.0/',
+      about: { '@id': 'https://usagescale.org/#scale' },
+      // The manifesto wears its own badge. Refusing to would have made it a joke.
+      additionalProperty: {
+        '@type': 'PropertyValue',
+        propertyID: 'https://usagescale.org/spec#aiUsageLevel',
+        name: 'aiUsageLevel',
+        value: 3,
+      },
+    },
+  ]}
+>
+  <TranslationNotice lang={lang} path="/" />
+
+  <Hero lang={lang} />
+
+  <hr />
+
+  <article class="manifesto prose">
+    <Content />
+  </article>
+
+  <aside class="colophon">
+    <LevelMark id={3} name={LEVELS[3].name} oneLine={LEVELS[3].oneLine} lang={lang} />
+    <div>
+      <p class="label">{t.ui.hero.inOneLine}</p>
+      <table class="levels">
+        <tbody>
+          {
+            LEVELS.map((l) => (
+              <tr>
+                <td class="n">{l.id}</td>
+                <td>
+                  <a href={localePath(lang, `/${l.id}`)}>
+                    <span class="lv-name">{l.name}</span>
+                  </a>
+                </td>
+                <td class="desc">{l.oneLine}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+      <p class="after">
+        <a href={localePath(lang, '/find-your-level')} class="cta">{t.ui.hero.cta}</a>
+      </p>
+    </div>
+  </aside>
+</Base>
+
+<style>
+  .manifesto { counter-reset: thesis; }
+
+  .manifesto :global(h2) {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 4rem 0 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* Each thesis: a mono numeral (the machine's index) above a serif sentence (the human's
+     claim). The type system says which is which, on every line of the page. */
+  .manifesto :global(h3) {
+    counter-increment: thesis;
+    position: relative;
+    font-size: 1.4375rem;
+    line-height: 1.3;
+    margin: 3.25rem 0 0.75rem;
+  }
+  .manifesto :global(h3)::before {
+    content: counter(thesis, decimal-leading-zero);
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  .manifesto :global(p) { margin: 0 0 1.15rem; }
+  .manifesto :global(strong) { font-weight: 600; }
+  .manifesto :global(hr) { margin: 3rem 0; border-top: 1px solid var(--rule-soft); }
+  .manifesto :global(.footnotes) { margin-top: 1rem; }
+  .manifesto :global(.footnotes a) { font-family: var(--mono); word-break: break-all; }
+
+  @media (min-width: 62rem) {
+    .manifesto :global(h3)::before {
+      position: absolute;
+      inset-inline-start: -4.5rem;
+      top: 0.45rem;
+      margin: 0;
+      text-align: end;
+      width: 3rem;
+    }
+  }
+
+  .colophon {
+    display: grid;
+    gap: 2.5rem;
+    margin: 5rem 0 0;
+    padding: 2.5rem 0 0;
+    border-top: 1px solid var(--rule);
+  }
+  .after { margin-top: 1.5rem; }
+  .cta {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    background: var(--ink);
+    color: var(--paper);
+    border: 1px solid var(--ink);
+    display: inline-block;
+  }
+  .cta:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+</style>

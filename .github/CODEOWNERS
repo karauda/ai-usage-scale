@@ -1,0 +1,7 @@
+# The project is open to contributions, but nothing reaches the protected branch
+# without the maintainer responsible for the published standard.
+* @karauda
+/.github/ @karauda
+/spec/ @karauda
+/public/badge/ @karauda
+

@@ -1,0 +1,64 @@
+---
+import { badgeSvg, levelAlt } from '../lib/levels';
+import { DEFAULT_LANG } from '../lib/i18n';
+
+interface Props {
+  id: number;
+  name: string;
+  lang: string;
+  /** One-liner in the reader's language, for the text alternative. */
+  oneLine?: string;
+}
+const { id, name, lang, oneLine = '' } = Astro.props;
+
+/*
+  The mark itself is English — "AI USAGE 3" is the standard's name, the way "CC BY" is
+  Creative Commons'. But the *stamp* also spells out the level's name, and printing
+  "DIRECTED" above a heading that reads "Kierowany" would put an English word in the middle
+  of a Polish page for no reason.
+
+  So: the number is the universal code, and outside English we set it in the reader's own
+  language rather than shipping a mark that half-translates itself. The chip — number only,
+  no name — stays identical everywhere, which is why it is the one we ask people to embed.
+*/
+const useStamp = lang === DEFAULT_LANG;
+---
+
+{
+  useStamp ? (
+    <div class="mark stamp" set:html={badgeSvg(id, 'stamp', false, levelAlt({ id, name, oneLine }))} />
+  ) : (
+    <div class="mark local">
+      <span class="big">{id}</span>
+      <div class="meta">
+        <span class="tick-row" aria-hidden="true">
+          {[0, 1, 2, 3, 4, 5].map((i) => <span class="tick" data-on={i === id ? '' : undefined} />)}
+        </span>
+        <span class="name">{name}</span>
+      </div>
+    </div>
+  )
+}
+
+<style>
+  .mark { max-width: 300px; }
+  .stamp :global(svg) { max-width: 100%; height: auto; }
+
+  .local {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--rule);
+    background: var(--raised);
+  }
+  .big { font-family: var(--mono); font-weight: 600; font-size: 3.5rem; line-height: 1; }
+  .meta { display: grid; gap: 0.6rem; }
+  .name {
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+</style>

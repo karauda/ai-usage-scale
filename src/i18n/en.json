@@ -1,0 +1,388 @@
+{
+  "lang": "en",
+  "name": "English",
+  "endonym": "English",
+  "dir": "ltr",
+  "translation": null,
+  "principle": "No level ranks above another. A scale that ranks its own levels is a shame ladder, and everyone lies their way down it. The only dishonest level is an undeclared one.",
+  "axis": {
+    "measures": "The role artificial intelligence played in making the work: whose substance it is, and who is accountable for it.",
+    "doesNotMeasure": "The proportion of characters, pixels, or samples emitted by a model. That number condemns the expert who dictates thirty years of practice and absolves nobody."
+  },
+  "surfaces": {
+    "note": "Optional. A single number describes the work as a whole. When parts of it differ sharply, declare them. The badge always shows one number; the breakdown lives behind the link.",
+    "headlineRule": "The headline level describes the part of the work that carries its meaning. Decorative material that a reasonable audience would not consider material to the work does not drive the headline — declare it here instead."
+  },
+  "levels": [
+    {
+      "id": 0,
+      "name": "Human",
+      "oneLine": "No generative AI was used.",
+      "definition": "No generative AI was involved at any stage of making this work. Non-generative tools — spellcheck, autocorrect, autofocus, noise reduction, search engines, calculators, colour grading, compilers — are not generative AI and do not affect this level.",
+      "includes": [
+        "Writing, drawing, shooting, recording, playing, or coding it yourself",
+        "Traditional software: word processors, Lightroom, Pro Tools, a compiler, a camera",
+        "Using a search engine to find sources you then read yourself",
+        "Non-generative machine learning: autofocus, denoise, upscaling that invents nothing"
+      ],
+      "excludes": [
+        "Any use of a language model, image model, or audio model whose output reached the work",
+        "AI-generated stock imagery, even as decoration — declare that under Surfaces"
+      ],
+      "examples": [
+        "An essay written and revised by hand.",
+        "A photograph shot on a camera and edited in Lightroom.",
+        "A song performed on real instruments and mixed by an engineer.",
+        "A site coded by a developer without an AI assistant."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Level 0 — Human.",
+        "medium": "No generative AI was used in making this work. Level 0 on the AI Usage Scale.",
+        "long": "This work was made without generative AI. No text, image, audio, video, or code in it was produced by a model. This is Level 0 on the AI Usage Scale, an open standard for declaring how a work was made."
+      }
+    },
+    {
+      "id": 1,
+      "name": "Assisted",
+      "oneLine": "AI worked only on material you had already made. It invented nothing.",
+      "definition": "You made the work. AI only processed your material, or helped behind the scenes: correcting, faithfully transcribing or translating, cleaning, tagging, formatting, searching, or giving feedback. Except for a faithful transcription or translation of your material, no model-produced material appears in the published work.",
+      "includes": [
+        "Grammar, spelling, and style correction of sentences you wrote",
+        "Transcribing audio you recorded",
+        "Denoising, masking, or upscaling an image you shot",
+        "Tagging, formatting, summarising for your own use, or searching your own archive",
+        "Using AI to find sources, which you then read and verified yourself"
+      ],
+      "excludes": [
+        "AI drafting a sentence, paragraph, image, or melody that survives into the work — that is Level 2 or above",
+        "AI restructuring your argument rather than your prose"
+      ],
+      "examples": [
+        "An article you wrote, run through a model for grammar.",
+        "A podcast you recorded, transcribed by a model for the show notes.",
+        "A paper you wrote, checked by a model for typos before submission.",
+        "Code you wrote, with an AI assistant only renaming variables and formatting."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Level 1 — Assisted.",
+        "medium": "Written by the author; AI was used only for mechanical work such as correction and transcription. Level 1 on the AI Usage Scale.",
+        "long": "The author made this work. AI was used only to process material the author had already produced — correcting, transcribing, or cleaning it. No sentence, image, or sound in the published work was invented by a model. This is Level 1 on the AI Usage Scale."
+      }
+    },
+    {
+      "id": 2,
+      "name": "Co-created",
+      "oneLine": "You made most of the final form. AI made parts of it that stayed.",
+      "definition": "The work is yours in structure and in most of its execution, but material a model produced survives in the published result: passages, elements, variations you chose between. You wrote, drew, or played the majority of what the audience receives.",
+      "includes": [
+        "AI drafting a section you then rewrote, where your words dominate the whole",
+        "AI generating variations you selected from and edited",
+        "AI writing a function inside a codebase you designed and mostly wrote",
+        "AI extending or filling part of an image you composed"
+      ],
+      "excludes": [
+        "AI producing most of the final words or pixels — that is Level 3 or above",
+        "Purely mechanical correction with nothing invented — that is Level 1"
+      ],
+      "examples": [
+        "An essay you outlined and largely wrote, with two AI-drafted paragraphs you reworked.",
+        "A track you composed and performed, with one AI-generated texture in the bridge.",
+        "A feature you architected and wrote, with AI-written helper functions you reviewed.",
+        "A photo you shot, with a distracting object removed by generative fill."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Level 2 — Co-created.",
+        "medium": "Mostly made by the author; some material was generated by AI and kept. Level 2 on the AI Usage Scale.",
+        "long": "The author made most of this work — most of the words, pixels, or sound. Some material generated by AI survives in it, selected and edited by the author. This is Level 2 on the AI Usage Scale."
+      }
+    },
+    {
+      "id": 3,
+      "name": "Directed",
+      "oneLine": "The substance is yours. AI produced the form.",
+      "definition": "The work-specific knowledge, evidence, argument, composition, or constraints are yours and materially determine the result. A model produced most of the final words, pixels, or sound from those original inputs. You directed, chose, corrected, meaningfully reviewed, and are accountable for the result. Writing or refining a prompt is not enough by itself.",
+      "note": "This is the level the current binary label cannot see, and the reason this scale exists. An expert who dictates what they know and lets a model shape it has not committed a fraud. They have used a tool, and they can now say so.",
+      "includes": [
+        "A specialist supplying knowledge, notes, data, or a detailed brief that a model turns into prose",
+        "An art director iterating an image through many rounds of specific direction",
+        "Research you conducted, turned into a script or a narrated video by a model",
+        "A codebase you specified and reviewed in detail, written largely by an AI agent"
+      ],
+      "excludes": [
+        "A prompt or iterative prompting that contributes no original, work-specific substance — that is Level 4",
+        "Work where you wrote most of the final words yourself — that is Level 2"
+      ],
+      "examples": [
+        "A surgeon dictates thirty years of practice; a model writes the article; the surgeon corrects and signs it.",
+        "A founder's raw notes and pricing become a landing page written by a model.",
+        "An illustrator directs forty iterations of a generated image against a specific composition.",
+        "A researcher's dataset and findings become an explanatory video narrated by a synthetic voice."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Level 3 — Directed.",
+        "medium": "The knowledge, data and argument are the author's; AI produced the text from them. Level 3 on the AI Usage Scale.",
+        "long": "The substance of this work — the knowledge, the data, the argument, the direction — is the author's. A model produced most of the final form from it. The author directed, verified, and takes responsibility for what it says. This is Level 3 on the AI Usage Scale."
+      }
+    },
+    {
+      "id": 4,
+      "name": "Prompted",
+      "oneLine": "AI produced the substance and the form. You asked, you checked, you are accountable.",
+      "definition": "A model produced both what the work says and how it says it, from a prompt, template, or brief that carried little original, work-specific substance of your own. A human meaningfully reviewed the finished work, checked material claims where necessary, and takes responsibility for publishing it.",
+      "includes": [
+        "Asking a model for content on a topic and publishing it after review",
+        "Generated marketing copy, product descriptions, or social posts, reviewed before going out",
+        "Stock imagery generated from a short prompt and checked before use",
+        "AI-written code you read and tested before merging"
+      ],
+      "excludes": [
+        "Work built on knowledge, data, or direction that is genuinely yours — that is Level 3",
+        "Publishing without a human reading it — that is Level 5"
+      ],
+      "examples": [
+        "\"Write ten posts about diabetes\" — read, corrected, published.",
+        "Product descriptions generated for a catalogue and reviewed by a person.",
+        "A generated header image, checked for errors before it ships.",
+        "A summary of a document produced by a model and verified against the source."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Level 4 — Prompted.",
+        "medium": "Produced by AI from a prompt; reviewed by a person who takes responsibility for it. Level 4 on the AI Usage Scale.",
+        "long": "A model produced both the substance and the form of this work. A person asked for it, read it, checked it, and takes responsibility for publishing it. This is Level 4 on the AI Usage Scale."
+      }
+    },
+    {
+      "id": 5,
+      "name": "Automated",
+      "oneLine": "AI produced the substance and the form. No human read it before it was published.",
+      "definition": "A model produced the work and it was published without human review. This is the honest level for automated pipelines, bulk generation, and agents that publish on their own. It is the right answer for a great deal of legitimate work — and stating it is what makes that work legitimate.",
+      "note": "Level 5 is not an accusation. An automated market report, a generated match summary, a machine-translated help page at scale: all of these are honest at Level 5 and dishonest at any other. Declaring 5 is what separates an automated system from a deception.",
+      "includes": [
+        "Scheduled or agentic publishing with no human in the loop",
+        "Bulk generation of pages, listings, or summaries",
+        "Live, on-demand generation shown to a user as it is produced",
+        "Machine translation published at scale without review"
+      ],
+      "excludes": [
+        "Anything a person actually read before it went out — that is Level 4"
+      ],
+      "examples": [
+        "An hourly market summary generated and posted by a script.",
+        "Ten thousand product pages generated overnight.",
+        "A chatbot's answers, shown to the user as they are generated.",
+        "An agent that writes and publishes to a blog on a schedule."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Level 5 — Automated.",
+        "medium": "Generated by AI and published without human review. Level 5 on the AI Usage Scale.",
+        "long": "A model produced this work and it was published without a human reading it first. This is Level 5 on the AI Usage Scale, the honest declaration for automated systems."
+      }
+    }
+  ],
+  "tree": [
+    {
+      "question": "Was any generative AI used in making this work?",
+      "help": "Generative AI means a model that produces new text, images, audio, video, or code. Count AI used for research, ideation, or feedback even when its output does not appear in the work. Spellcheck, autofocus, noise gates, search engines, and calculators are not generative AI."
+    },
+    {
+      "question": "Did AI produce new material that appears in the published work — beyond mechanically processing what you had already made?",
+      "help": "Correcting your grammar, faithfully transcribing or translating your words, denoising your photo, or tagging your files is mechanical processing. So is research, ideation, or feedback that leaves no model-produced material in the work. Writing a new paragraph, drawing a new image, or composing a new melody is new material."
+    },
+    {
+      "question": "Did you make most of the final form yourself — most of the words, pixels, or sound?",
+      "help": "Judge the published artifact, not the effort. If most of what a reader sees or hears was typed, drawn, or played by you, answer yes."
+    },
+    {
+      "question": "Is the substance yours — the knowledge, the data, the argument, the direction?",
+      "help": "Substance is the work-specific knowledge, evidence, argument, composition, or constraints that determine what the work says. It is yours when your original inputs materially determine the result — not merely because you wrote or refined the prompt."
+    },
+    {
+      "question": "Did a human review this before publication and take responsibility for what it says?",
+      "help": "Review must be meaningful and appropriate to the stakes: checking the finished work, verifying material claims where necessary, and correcting problems before publication. Taking responsibility means you will defend or correct it if it is wrong."
+    }
+  ],
+  "edgeCases": [
+    {
+      "case": "Translation",
+      "rule": "A faithful translation inherits the level of the source work and adds a translation note. Translating a Level 1 article with a model publishes it as Level 1, translated by AI.",
+      "why": "The substance and structure are unchanged. Penalising translation would make the world's writing less available, which is the opposite of the point."
+    },
+    {
+      "case": "Transcription",
+      "rule": "Transcribing speech you recorded is mechanical processing. It does not raise the level.",
+      "why": "The words are yours. The model only wrote them down."
+    },
+    {
+      "case": "Decorative assets",
+      "rule": "A generated header image on a human-written article does not make the article Level 4. Declare the image under Surfaces.",
+      "why": "The headline level describes what carries the meaning. Otherwise one stock image would swallow the whole declaration, and people would simply stop declaring."
+    },
+    {
+      "case": "Derivative works",
+      "rule": "Declare the level of your own contribution, and cite the level of the source if it declared one."
+    },
+    {
+      "case": "Live generation",
+      "rule": "Content generated on demand and shown to a user without review is Level 5, even if the system prompt was written carefully by a person."
+    },
+    {
+      "case": "Non-generative machine learning",
+      "rule": "Autofocus, denoise, upscaling, colour matching, and classification that invent nothing are not generative AI. They do not move you off Level 0."
+    }
+  ],
+  "ui": {
+    "nav": {
+      "manifesto": "Manifesto",
+      "scale": "Scale",
+      "level": "Your level",
+      "badges": "Badges",
+      "spec": "Spec",
+      "sign": "Sign"
+    },
+    "wordmark": "AI Usage Scale",
+    "foot": {
+      "tagline": "An open standard for declaring how a work was made.",
+      "licence": "Marks and levels.json: CC0. Text: CC BY 4.0. Code: MIT.",
+      "spec": "Specification",
+      "source": "Source & issues",
+      "thisPage": "This page",
+      "ownDeclaration": "The substance is the author's; the prose was produced with AI, and read line by line before it went out."
+    },
+    "hero": {
+      "eyebrowBefore": "The label a creator has today",
+      "eyebrowAfter": "The label a creator needs",
+      "binaryYes": "AI",
+      "binaryNo": "NOT AI",
+      "beforeHead": "Guilty, or not guilty.",
+      "beforeBody": "Those are the only two things you are currently allowed to say.",
+      "afterHead": "Six levels.",
+      "afterBody": "Point at one.",
+      "h1a": "There is no shameful level.",
+      "h1b": "There is only an undeclared one.",
+      "sub": "A free, open scale for saying how a work was made — whose knowledge it carries and who stands behind it. Six levels. Thirty seconds. No committee to ask.",
+      "cta": "Find your level",
+      "ctaAlt": "or read the six",
+      "inOneLine": "The scale, in one line each",
+      "levelHead": "Level {n}"
+    },
+    "level": {
+      "eyebrow": "AI Usage Scale · Level {n} of 0–5",
+      "allLevels": "All levels",
+      "includes": "This is the level when",
+      "excludes": "This is not the level when",
+      "examples": "Examples",
+      "sentenceH": "Say it in a sentence",
+      "sentenceLede": "Paste one of these into a byline, an article footer, a video description, a search-result description, or an email signature. No image required — a declaration that only works as a picture is a declaration half the web cannot read.",
+      "short": "Short — for a byline or a bio",
+      "medium": "Medium — for an article footer or a meta description",
+      "long": "Long — for an editor's note",
+      "markH": "Put the mark on it",
+      "markLede": "Copy the badge as inline SVG and it renders instantly, works offline, and sends no request to us. That last part matters: a hotlinked badge is a tracking pixel on your page, and a standard about honesty has no business shipping one. The hosted file below is there for convenience, not because we want the traffic.",
+      "markCap": "Level {n} chip · no external font, no request",
+      "inline": "Inline SVG — recommended",
+      "inlineNote": "Self-contained. Nothing to load, nothing to track.",
+      "hosted": "Hosted image — if you would rather link it",
+      "plain": "Plain text — where images cannot go",
+      "machineH": "Let machines read it too",
+      "machineLede": "The same declaration, in the vocabularies the compliance layer already speaks. We are not competing with these — we are the human-readable face of them.",
+      "headOf": "For the <head> of your page",
+      "surfacesH": "If the parts differ",
+      "copy": "Copy",
+      "copied": "Copied"
+    },
+    "scalePage": {
+      "eyebrow": "The scale",
+      "h1": "Six levels, and none of them is a verdict.",
+      "measures": "It measures",
+      "refuses": "It refuses to measure",
+      "forInstance": "For instance",
+      "more": "Definition, examples, badge and code →",
+      "closingH": "Why the numbers do not have colours",
+      "closingA": "Every mark on this site is printed in the same ink. There is no green end and no red end, because a scale that colours its own extremes has already told you which one to be ashamed of — and shame is what makes people lie.",
+      "closingB": "An automated market summary is honest at Level 5 and dishonest at any other. A memoir is honest at Level 0. Neither is the better number. The only bad answer is the one nobody gives."
+    },
+    "wizard": {
+      "eyebrow": "Five questions",
+      "h1": "What did you actually do?",
+      "standfirst": "Answer honestly. Nobody is checking, and that is the point — a declaration you could be forced into would be worth nothing.",
+      "count": "Question {n} of {total}",
+      "yes": "Yes",
+      "no": "No",
+      "back": "← Back",
+      "yourLevel": "Your level",
+      "getBadge": "Get the badge and the code",
+      "startOver": "Start over",
+      "treeLabel": "The decision tree",
+      "yesNext": "Yes → next question",
+      "noNext": "No → next question",
+      "yesLevel": "Yes → Level {n} · {name}",
+      "noLevel": "No → Level {n} · {name}",
+      "fineH": "What if two of us would answer differently?",
+      "fineA": "Then disclose the ambiguity and explain which parts differ. If a system accepts only one number, choose the level that does not understate AI's role. The scale is designed for useful honesty, not false precision.",
+      "fineB": "Edge cases — translation, transcription, decorative images, derivative work, live generation — are settled in the specification."
+    },
+    "badgesPage": {
+      "eyebrow": "Marks",
+      "h1": "Six marks. One ink.",
+      "standfirst": "There is no green end and no red end. A scale that colours its own extremes has already told you which one to be ashamed of.",
+      "intro": "Everything here is CC0 — no attribution required, no licence to accept, no account to make. Take them.",
+      "hotlinkH": "Why we would rather you did not hotlink",
+      "hotlinkA": "Every badge here works as inline SVG: you paste the markup, and it renders with no external font, no external file, and no request to us. That is the version we recommend, and the level pages give you the exact snippet.",
+      "hotlinkB": "A hotlinked badge is a tracking pixel on your page. It would tell us the URL of every article that carries a declaration, and how often each one is read. We do not want that data, and a standard whose whole subject is honesty has no business collecting it quietly. The hosted files are here because sometimes you genuinely need a URL — not because we want the traffic.",
+      "rulesH": "Rules for the marks",
+      "rules": [
+        "Do not recolour a level to imply it is better or worse than another.",
+        "Do not put a mark on work you did not make the declaration for.",
+        "Do keep the link. A mark with no definition behind it is decoration.",
+        "Do translate them. Do redraw them. Do fork the whole thing."
+      ],
+      "whereH": "Where it goes",
+      "whereA": "A byline. An article footer. A video description. An about page. A README. A model card. A podcast's show notes. An email signature. The description field of a search result. Anywhere a reader would reasonably want to know what they are reading."
+    },
+    "specPage": {
+      "eyebrow": "Specification",
+      "h1": "How it is defined, and how it talks to everything else.",
+      "standfirst": "This is a declaration standard, not a proof standard. It cannot be verified by cryptography and it is not trying to be. Neither can a byline.",
+      "procedure": "Decision procedure",
+      "procedureLede": "Five questions, asked in order. The first one that terminates gives the level.",
+      "question": "Question",
+      "yesCol": "Yes",
+      "noCol": "No",
+      "next": "next",
+      "surfaces": "Surfaces",
+      "headlineRule": "Headline rule.",
+      "recognised": "Recognised surfaces:",
+      "edgeCases": "Edge cases",
+      "edgeLede": "Every one of these came from trying to break the decision tree. They are settled here so that two honest people reach the same number.",
+      "interop": "Interoperability",
+      "interopLede": "This scale complements provenance standards. It maps to the established IPTC vocabulary and experiments with the candidate syntax discussed by the W3C AI Content Disclosure Community Group; that syntax is not a W3C standard.",
+      "mapping": "Level mapping",
+      "lossy": "The mapping is lossy in exactly one direction, and the loss is the point: IPTC cannot tell Levels 3, 4 and 5 apart. It has no term for whose substance this is, and none for whether a person read it. Those are the two questions readers actually care about, and they are the two this scale exists to answer.",
+      "machine": "Machine-readable form",
+      "machineLede": "The canonical English definitions live in one file and drive the badges and machine-readable output. Localised explanatory copy is maintained separately and checked for structural parity.",
+      "priorArt": "Prior art",
+      "priorLede": "Nothing here is unprecedented, and pretending otherwise would be its own small dishonesty.",
+      "why": "Why"
+    },
+    "signPage": {
+      "eyebrow": "Signatories",
+      "h1": "Signing commits you to one thing.",
+      "standfirst": "Declare the level on what you publish. That is the whole undertaking.",
+      "intro": "Not to use less AI. Not to use more. Not to agree with every word of the manifesto — several of the people below do not. Only to stop leaving the reader to guess.",
+      "howH": "How to sign",
+      "howA": "Open a pull request adding yourself to signatories.json. That is deliberately a small amount of friction: it means every name here was added by a person who meant it, and it means there is no form for us to harvest and no mailing list for you to get onto.",
+      "howB": "If a pull request is not your world, open an issue and someone will add you.",
+      "addName": "Add your name",
+      "count": "signatories",
+      "note": "The number beside a name, where there is one, is the level that person most often publishes at. It is not a score. Several of the people here are usually a 4, and say so, which is exactly the point."
+    },
+    "lang": {
+      "label": "Language",
+      "readEnglish": "Read the English original",
+      "improve": "Improve this translation",
+      "machineNotice": "This page was translated from the English original by a machine, and has not been reviewed by a human speaker.",
+      "ownRule": "Under this scale's own translation rule it carries the source's level — 3, Directed — plus this note.",
+      "humanNotice": "This page was translated from the English original and reviewed by a human speaker."
+    }
+  }
+}

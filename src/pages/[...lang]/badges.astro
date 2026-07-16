@@ -1,0 +1,109 @@
+---
+import Base from '../../layouts/Base.astro';
+import TranslationNotice from '../../components/TranslationNotice.astro';
+import { badgeSvg, levelAlt } from '../../lib/levels';
+import { localeParams, getLocale, levelsIn, localePath } from '../../lib/i18n';
+
+export const getStaticPaths = localeParams;
+
+const { lang } = Astro.props;
+const t = getLocale(lang);
+const LEVELS = levelsIn(lang);
+const L = (p: string) => localePath(lang, p);
+const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
+---
+
+<Base
+  lang={lang}
+  path="/badges"
+  title={`${t.ui.badgesPage.h1} — AI Usage Scale`}
+  description={t.ui.badgesPage.standfirst}
+  card="default"
+  breadcrumb={[[t.ui.nav.badges, '/badges']]}
+>
+  <TranslationNotice lang={lang} path="/badges" />
+
+  <header class="top prose">
+    <p class="label">{t.ui.badgesPage.eyebrow}</p>
+    <h1>{t.ui.badgesPage.h1}</h1>
+    <p class="standfirst">{t.ui.badgesPage.standfirst}</p>
+    <p>{t.ui.badgesPage.intro}</p>
+  </header>
+
+  <section class="grid" aria-label={t.ui.level.allLevels}>
+    {
+      LEVELS.map((l) => (
+        <div class="cell">
+          <a href={L(`/${l.id}`)} class="cell-mark" set:html={badgeSvg(l.id, 'stamp', false, alt(l))} />
+          <div class="cell-chip" set:html={badgeSvg(l.id, 'chip', false, alt(l))} />
+          <p class="cell-links">
+            <a href={`/badge/${l.id}.svg`}>chip.svg</a>
+            <a href={`/badge/${l.id}-stamp.svg`}>stamp.svg</a>
+            <a href={`/badge/${l.id}-dark.svg`}>dark</a>
+            <a href={L(`/${l.id}`)}>code →</a>
+          </p>
+        </div>
+      ))
+    }
+  </section>
+
+  <section class="prose why">
+    <h2>{t.ui.badgesPage.hotlinkH}</h2>
+    <p>{t.ui.badgesPage.hotlinkA}</p>
+    <p>{t.ui.badgesPage.hotlinkB}</p>
+
+    <h2>{t.ui.badgesPage.rulesH}</h2>
+    <ul>{t.ui.badgesPage.rules.map((r: string) => <li>{r}</li>)}</ul>
+
+    <h2>{t.ui.badgesPage.whereH}</h2>
+    <p>{t.ui.badgesPage.whereA}</p>
+  </section>
+</Base>
+
+<style>
+  .top { margin: 3rem 0 2.5rem; }
+  .top h1 { font-size: clamp(2.25rem, 6vw, 3.25rem); letter-spacing: -0.02em; margin: 0.4rem 0 0.75rem; }
+  .top p:not(.standfirst):not(.label) { color: var(--ink-mid); }
+
+  .grid {
+    display: grid;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+    margin: 2.5rem 0 4rem;
+  }
+  .cell {
+    background: var(--paper);
+    padding: 1.25rem;
+    display: grid;
+    gap: 1.25rem;
+    justify-items: center;
+    align-content: start;
+  }
+  .cell-mark { display: block; }
+  .cell-mark :global(svg), .cell-chip :global(svg) { max-width: 100%; height: auto; display: block; }
+  .cell-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
+    justify-content: center;
+    margin: 0;
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+  }
+  .cell-links a { color: var(--ink-soft); text-decoration: none; }
+  .cell-links a:hover { color: var(--accent); text-decoration: underline; }
+
+  .why h2 { font-size: 1.375rem; }
+  .why p, .why li { color: var(--ink-mid); }
+  .why ul { padding: 0; list-style: none; }
+  .why li { position: relative; padding-inline-start: 1.1rem; margin-bottom: 0.5rem; }
+  .why li::before {
+    content: '·';
+    position: absolute;
+    inset-inline-start: 0;
+    font-family: var(--mono);
+    color: var(--accent);
+  }
+</style>

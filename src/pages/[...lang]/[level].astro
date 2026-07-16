@@ -1,0 +1,263 @@
+---
+import Base from '../../layouts/Base.astro';
+import Snippet from '../../components/Snippet.astro';
+import LevelMark from '../../components/LevelMark.astro';
+import TranslationNotice from '../../components/TranslationNotice.astro';
+import { badgeSvg, embedHtml, embedMeta, levelAlt } from '../../lib/levels';
+import { LANGS, DEFAULT_LANG, getLocale, levelsIn, localePath, fmt } from '../../lib/i18n';
+
+export function getStaticPaths() {
+  return LANGS.flatMap((lang) =>
+    levelsIn(lang).map((level) => ({
+      params: { lang: lang === DEFAULT_LANG ? undefined : lang, level: String(level.id) },
+      props: { lang, level },
+    }))
+  );
+}
+
+const { lang, level: l } = Astro.props;
+const t = getLocale(lang);
+const LEVELS = levelsIn(lang);
+const prev = LEVELS.find((x) => x.id === l.id - 1);
+const next = LEVELS.find((x) => x.id === l.id + 1);
+const L = (p: string) => localePath(lang, p);
+
+// The mark always links to the canonical English URL. A badge in a Polish article should
+// still resolve for a reader who does not read Polish — the level is the same fact in
+// every language, and the page it lands on offers every translation.
+const canonicalUrl = `https://usagescale.org/${l.id}`;
+
+// The mark's glyphs stay English; what a screen reader says does not.
+const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
+---
+
+{/*
+  Note what is NOT passed to <Base>: level and aiDisclosure. This page *documents* level
+  ${l.id}, but the page itself — like every page on the site — is a Level-3 work (human
+  diagnosis, AI-drafted prose, reviewed). Declaring level={l.id} here made /5 announce
+  itself as "Level 5, published without human review", which is false and self-undermining.
+  Base defaults to level 3 / ai-generated, which is the honest self-declaration.
+*/}
+<Base
+  lang={lang}
+  path={`/${l.id}`}
+  title={`Level ${l.id} — ${l.name} · AI Usage Scale`}
+  description={l.sentences.long}
+  card={String(l.id)}
+  breadcrumb={[[t.ui.nav.scale, '/scale'], [`Level ${l.id} — ${l.name}`, `/${l.id}`]]}
+  schema={[
+    {
+      '@type': 'WebPage',
+      '@id': `https://usagescale.org${L(`/${l.id}`)}#page`,
+      name: `Level ${l.id} — ${l.name}`,
+      description: l.sentences.long,
+      inLanguage: lang,
+      mainEntity: { '@id': `https://usagescale.org${L(`/${l.id}`)}#term` },
+      isPartOf: { '@id': 'https://usagescale.org/#site' },
+    },
+  ]}
+>
+  <TranslationNotice lang={lang} path={`/${l.id}`} />
+
+  <article>
+    <header class="head">
+      <LevelMark id={l.id} name={l.name} oneLine={l.oneLine} lang={lang} />
+      <div class="head-text">
+        <p class="label">{fmt(t.ui.level.eyebrow, { n: l.id })}</p>
+        <h1>{l.name}</h1>
+        <p class="standfirst">{l.oneLine}</p>
+        <p class="prose">{l.definition}</p>
+        {l.note && <p class="pull">{l.note}</p>}
+      </div>
+    </header>
+
+    <nav class="ladder" aria-label={t.ui.level.allLevels}>
+      {
+        LEVELS.map((x) => (
+          <a href={L(`/${x.id}`)} aria-current={x.id === l.id ? 'page' : undefined}>
+            <span class="ln">{x.id}</span>
+            <span class="lname">{x.name}</span>
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="two">
+      <section>
+        <h2>{t.ui.level.includes}</h2>
+        <ul class="ticks">{l.includes.map((i: string) => <li>{i}</li>)}</ul>
+      </section>
+      <section>
+        <h2>{t.ui.level.excludes}</h2>
+        <ul class="crosses">{l.excludes.map((i: string) => <li>{i}</li>)}</ul>
+      </section>
+    </div>
+
+    <section>
+      <h2>{t.ui.level.examples}</h2>
+      <ul class="examples">{l.examples.map((e: string) => <li>{e}</li>)}</ul>
+    </section>
+
+    <hr />
+
+    <section>
+      <h2>{t.ui.level.sentenceH}</h2>
+      <p class="prose lede">{t.ui.level.sentenceLede}</p>
+      <Snippet label={t.ui.level.short} code={l.sentences.short} ui={t.ui.level} />
+      <Snippet label={t.ui.level.medium} code={l.sentences.medium} ui={t.ui.level} />
+      <Snippet label={t.ui.level.long} code={l.sentences.long} ui={t.ui.level} />
+    </section>
+
+    <section>
+      <h2>{t.ui.level.markH}</h2>
+      <p class="prose lede">{t.ui.level.markLede}</p>
+
+      <div class="marks">
+        <div class="mark-demo"><div set:html={badgeSvg(l.id, 'chip', false, alt(l))} /></div>
+        <p class="mark-cap">{fmt(t.ui.level.markCap, { n: l.id })}</p>
+      </div>
+
+      {/* The mark stays in English — "AI USAGE 3" is the standard's name, the way "CC BY" is
+          Creative Commons'. What travels with it is the title and alt text, translated. */}
+      <Snippet
+        label={t.ui.level.inline}
+        note={t.ui.level.inlineNote}
+        ui={t.ui.level}
+        code={`<a href="${canonicalUrl}" rel="ai-disclosure" title="${l.sentences.medium.replace(/"/g, '&quot;')}">\n${badgeSvg(l.id, 'chip', false, alt(l)).trim()}\n</a>`}
+      />
+      <Snippet label={t.ui.level.hosted} code={embedHtml(l.id)} ui={t.ui.level} />
+      <Snippet
+        label={t.ui.level.plain}
+        code={`AI Usage Scale: Level ${l.id} (${l.name}) — ${canonicalUrl}`}
+        ui={t.ui.level}
+      />
+    </section>
+
+    <section>
+      <h2>{t.ui.level.machineH}</h2>
+      <p class="prose lede">{t.ui.level.machineLede}</p>
+      <Snippet label={t.ui.level.headOf} code={embedMeta(l.id)} ui={t.ui.level} />
+
+      <table class="levels map">
+        <tbody>
+          <tr>
+            <td class="lv-name">Experimental ai-disclosure</td>
+            <td><code>{l.mappings.w3cAiDisclosure}</code></td>
+          </tr>
+          <tr>
+            <td class="lv-name">IPTC</td>
+            <td><code>{l.mappings.iptcDigitalSourceType.split('/').pop()}</code></td>
+          </tr>
+          <tr>
+            <td class="lv-name">schema.org</td>
+            <td><code>aiUsageLevel: {l.mappings.schemaOrgAiUsageLevel}</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>{t.ui.level.surfacesH}</h2>
+      <p class="prose">{t.surfaces.note} {t.surfaces.headlineRule}</p>
+    </section>
+
+    <nav class="pager">
+      {prev ? <a href={L(`/${prev.id}`)}>← {prev.id} · {prev.name}</a> : <span />}
+      {next && <a href={L(`/${next.id}`)} class="r">{next.id} · {next.name} →</a>}
+    </nav>
+  </article>
+</Base>
+
+<style>
+  .head { display: grid; gap: 2.25rem; margin: 3rem 0 2.5rem; }
+  .head-text h1 { font-size: clamp(2.25rem, 6vw, 3.5rem); letter-spacing: -0.02em; margin: 0.4rem 0 0.75rem; }
+
+  .pull {
+    border-inline-start: 2px solid var(--accent);
+    padding: 0.15rem 0 0.15rem 1.15rem;
+    margin: 1.5rem 0 0;
+    color: var(--ink-mid);
+    font-style: italic;
+  }
+
+  /* All six, always. No level page gets to pretend the others are not there. */
+  .ladder {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    border: 1px solid var(--rule);
+    margin: 2.5rem 0 3rem;
+  }
+  .ladder a {
+    display: grid;
+    place-content: center;
+    gap: 0.25rem;
+    text-align: center;
+    padding: 0.7rem 0.25rem;
+    text-decoration: none;
+  }
+  .ladder a + a { border-inline-start: 1px solid var(--rule); }
+  .ladder a:hover { background: var(--accent-bg); }
+  .ladder a[aria-current='page'] { background: var(--ink); color: var(--paper); }
+  .ln { font-family: var(--mono); font-weight: 600; font-size: 1.125rem; }
+  .lname {
+    font-family: var(--mono);
+    font-size: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.65;
+  }
+  @media (max-width: 40rem) { .lname { display: none; } }
+
+  .two { display: grid; gap: 2.5rem; }
+
+  ul { padding: 0; margin: 0.75rem 0 0; list-style: none; }
+  li { position: relative; padding-inline-start: 1.5rem; margin-bottom: 0.6rem; font-size: 1.0625rem; }
+  .ticks li::before,
+  .crosses li::before,
+  .examples li::before {
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0.05em;
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+  }
+  .ticks li::before { content: '+'; color: var(--accent); font-weight: 600; }
+  .crosses li::before { content: '−'; color: var(--ink-soft); font-weight: 600; }
+  .examples li::before { content: '·'; color: var(--ink-soft); }
+  .examples li { color: var(--ink-mid); }
+
+  .lede { color: var(--ink-mid); margin: 0.75rem 0 0; }
+
+  .marks { margin: 1.75rem 0; }
+  .mark-demo {
+    padding: 1.75rem;
+    border: 1px solid var(--rule-soft);
+    background: var(--raised);
+    display: flex;
+    justify-content: center;
+  }
+  .mark-cap {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    color: var(--ink-soft);
+    margin: 0.6rem 0 0;
+    text-align: center;
+  }
+
+  .map td:first-child { width: 12rem; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .pager {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+  }
+  .pager a { text-decoration: none; color: var(--ink-mid); }
+  .pager a:hover { color: var(--accent); }
+  .pager .r { margin-inline-start: auto; }
+</style>

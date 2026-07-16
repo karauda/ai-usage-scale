@@ -1,0 +1,230 @@
+---
+import Base from '../../layouts/Base.astro';
+import TranslationNotice from '../../components/TranslationNotice.astro';
+import { INTEROP, PRIOR_ART, SURFACES, VERSION } from '../../lib/levels';
+import { localeParams, getLocale, levelsIn, treeIn, edgeCasesIn, localePath } from '../../lib/i18n';
+
+export const getStaticPaths = localeParams;
+
+const { lang } = Astro.props;
+const t = getLocale(lang);
+const LEVELS = levelsIn(lang);
+const TREE = treeIn(lang);
+const CASES = edgeCasesIn(lang);
+const L = (p: string) => localePath(lang, p);
+---
+
+<Base
+  lang={lang}
+  path="/spec"
+  title={`${t.ui.specPage.eyebrow} — AI Usage Scale`}
+  description={t.ui.specPage.standfirst}
+  card="spec"
+  breadcrumb={[[t.ui.specPage.eyebrow, '/spec']]}
+  schema={[
+    {
+      '@type': 'TechArticle',
+      '@id': `https://usagescale.org${L('/spec')}#article`,
+      headline: `AI Usage Scale — ${t.ui.specPage.eyebrow}`,
+      inLanguage: lang,
+      version: VERSION,
+      about: { '@id': 'https://usagescale.org/#scale' },
+      publisher: { '@id': 'https://usagescale.org/#org' },
+      license: 'https://creativecommons.org/licenses/by/4.0/',
+    },
+  ]}
+>
+  <TranslationNotice lang={lang} path="/spec" />
+
+  <header class="top prose">
+    <p class="label">{t.ui.specPage.eyebrow} · {VERSION}</p>
+    <h1>{t.ui.specPage.h1}</h1>
+    <p class="standfirst">{t.ui.specPage.standfirst}</p>
+  </header>
+
+  <nav class="toc">
+    <a href="#procedure">{t.ui.specPage.procedure}</a>
+    <a href="#surfaces">{t.ui.specPage.surfaces}</a>
+    <a href="#edge-cases">{t.ui.specPage.edgeCases}</a>
+    <a href="#interop">{t.ui.specPage.interop}</a>
+    <a href="#machine">{t.ui.specPage.machine}</a>
+    <a href="#prior-art">{t.ui.specPage.priorArt}</a>
+  </nav>
+
+  <section id="procedure">
+    <h2>{t.ui.specPage.procedure}</h2>
+    <p class="prose">{t.ui.specPage.procedureLede}</p>
+    <table class="levels">
+      <thead>
+        <tr>
+          <th>#</th><th>{t.ui.specPage.question}</th>
+          <th>{t.ui.specPage.yesCol}</th><th>{t.ui.specPage.noCol}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          TREE.map((s: any, i: number) => (
+            <tr>
+              <td class="n">{i + 1}</td>
+              <td>{s.question}</td>
+              <td class="out">{typeof s.yes === 'number' ? `${s.yes}` : t.ui.specPage.next}</td>
+              <td class="out">{typeof s.no === 'number' ? `${s.no}` : t.ui.specPage.next}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </section>
+
+  <section id="surfaces">
+    <h2>{t.ui.specPage.surfaces}</h2>
+    <p class="prose">{t.surfaces.note}</p>
+    <p class="prose"><strong>{t.ui.specPage.headlineRule}</strong> {t.surfaces.headlineRule}</p>
+    <p class="prose">{t.ui.specPage.recognised} {SURFACES.keys.map((k: string) => <code>{k}</code>)}</p>
+    <pre><code>{`{
+  "aiUsageScale": "1.0",
+  "level": 3,
+  "surfaces": { "text": 3, "image": 5, "audio": 0 }
+}`}</code></pre>
+  </section>
+
+  <section id="edge-cases">
+    <h2>{t.ui.specPage.edgeCases}</h2>
+    <p class="prose">{t.ui.specPage.edgeLede}</p>
+    <dl class="cases">
+      {
+        CASES.map((c: any) => (
+          <div class="case" id={c.anchor}>
+            <dt>{c.case}</dt>
+            <dd>
+              <p class="rule-txt">{c.rule}</p>
+              {c.why && <p class="why">{c.why}</p>}
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  <section id="interop">
+    <h2>{t.ui.specPage.interop}</h2>
+    <p class="prose">{t.ui.specPage.interopLede}</p>
+
+    {/* Interop copy stays in English: it is a factual statement about other people's
+        specifications, and paraphrasing it in twenty languages is twenty chances to
+        misstate what someone else's standard does. */}
+    {
+      Object.values(INTEROP).map((v: any) => (
+        <div class="interop">
+          <h3><a href={v.url}>{v.name}</a></h3>
+          <p lang="en">{v.relationship}</p>
+        </div>
+      ))
+    }
+
+    <h3 class="mt">{t.ui.specPage.mapping}</h3>
+    <table class="levels">
+      <thead>
+        <tr><th>#</th><th>Experimental <code>ai-disclosure</code></th><th>IPTC</th></tr>
+      </thead>
+      <tbody>
+        {
+          LEVELS.map((l) => (
+            <tr>
+              <td class="n">{l.id}</td>
+              <td><code>{l.mappings.w3cAiDisclosure}</code></td>
+              <td><code>{l.mappings.iptcDigitalSourceType.split('/').pop()}</code></td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+    <p class="caveat prose">{t.ui.specPage.lossy}</p>
+  </section>
+
+  <section id="machine">
+    <h2>{t.ui.specPage.machine}</h2>
+    <p class="prose">{t.ui.specPage.machineLede}</p>
+    <p class="prose">
+      <a href={L('/levels.json')} class="mono">GET {L('/levels.json')}</a> · CC0
+    </p>
+    <pre><code>{`<!-- AI Usage Scale proposal; custom metadata, not a registered standard -->
+<meta name="ai-usage" content="3">
+<meta name="ai-usage-standard" content="https://usagescale.org">
+
+<!-- Experimental W3C Community Group alignment; not a W3C standard -->
+<meta name="ai-disclosure" content="ai-generated">
+<link rel="ai-disclosure" href="https://usagescale.org/3">`}</code></pre>
+  </section>
+
+  <section id="prior-art">
+    <h2>{t.ui.specPage.priorArt}</h2>
+    <p class="prose">{t.ui.specPage.priorLede}</p>
+    {
+      PRIOR_ART.map((p: any) => (
+        <div class="interop">
+          <h3><a href={p.url}>{p.name}</a></h3>
+          {p.authors && <p class="authors">{p.authors}</p>}
+          <p lang="en">{p.note}</p>
+        </div>
+      ))
+    }
+  </section>
+</Base>
+
+<style>
+  .top { margin: 3rem 0 2rem; }
+  .top h1 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.02em; margin: 0.4rem 0 0.75rem; }
+
+  .toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+  }
+  .toc a { color: var(--ink-mid); text-decoration: none; }
+  .toc a:hover { color: var(--accent); text-decoration: underline; }
+
+  section { margin: 3.5rem 0; scroll-margin-top: 2rem; }
+  h2 { font-size: 1.625rem; }
+  h3 { font-size: 1.125rem; }
+  .mt { margin-top: 2.5rem; }
+
+  .levels th {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--rule);
+  }
+  .levels .out { font-family: var(--mono); font-size: 0.8125rem; color: var(--ink-mid); }
+
+  .cases { margin: 1.5rem 0; }
+  .case { border-top: 1px solid var(--rule-soft); padding: 1.25rem 0; scroll-margin-top: 2rem; }
+  .case:last-child { border-bottom: 1px solid var(--rule-soft); }
+  dt {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  dd { margin: 0; }
+  .rule-txt { margin: 0 0 0.4rem; }
+  .why { margin: 0; font-size: 0.9375rem; color: var(--ink-mid); font-style: italic; }
+
+  .interop { margin: 1.75rem 0; }
+  .interop h3 { margin: 0 0 0.35rem; }
+  .interop p { margin: 0; color: var(--ink-mid); font-size: 1.0625rem; }
+  .authors { font-size: 0.875rem !important; font-family: var(--mono); margin-bottom: 0.35rem !important; }
+
+  .caveat { color: var(--ink-mid); font-size: 1.0625rem; }
+  .mono { font-family: var(--mono); font-size: 0.875rem; }
+</style>

@@ -1,0 +1,124 @@
+---
+import Base from '../../layouts/Base.astro';
+import TranslationNotice from '../../components/TranslationNotice.astro';
+import signatories from '../../../signatories.json';
+import { localeParams, getLocale, localePath } from '../../lib/i18n';
+
+export const getStaticPaths = localeParams;
+
+const { lang } = Astro.props;
+const t = getLocale(lang);
+const L = (p: string) => localePath(lang, p);
+const { signatories: people } = signatories as {
+  signatories: Array<{ name: string; role?: string; url?: string; level?: number }>;
+};
+---
+
+<Base
+  lang={lang}
+  path="/sign"
+  title={`${t.ui.signPage.h1} — AI Usage Scale`}
+  description={t.ui.signPage.standfirst}
+  card="default"
+  breadcrumb={[[t.ui.nav.sign, '/sign']]}
+>
+  <TranslationNotice lang={lang} path="/sign" />
+
+  <header class="top prose">
+    <p class="label">{t.ui.signPage.eyebrow}</p>
+    <h1>{t.ui.signPage.h1}</h1>
+    <p class="standfirst">{t.ui.signPage.standfirst}</p>
+    <p>{t.ui.signPage.intro}</p>
+  </header>
+
+  <section class="how">
+    <div class="how-body prose">
+      <h2>{t.ui.signPage.howH}</h2>
+      <p>{t.ui.signPage.howA}</p>
+      <p>{t.ui.signPage.howB}</p>
+      <p>
+        <a href="https://github.com/karauda/ai-usage-scale/blob/main/signatories.json" class="cta">
+          {t.ui.signPage.addName}
+        </a>
+      </p>
+    </div>
+    <div class="how-count">
+      <p class="count">{people.length}</p>
+      <p class="label">{t.ui.signPage.count}</p>
+    </div>
+  </section>
+
+  <section class="list-wrap">
+    <ol class="list">
+      {
+        people.map((p) => (
+          <li>
+            <span class="s-name">{p.url ? <a href={p.url}>{p.name}</a> : p.name}</span>
+            {p.role && <span class="s-role">{p.role}</span>}
+            {typeof p.level === 'number' && (
+              <a class="s-level" href={L(`/${p.level}`)}>{p.level}</a>
+            )}
+          </li>
+        ))
+      }
+    </ol>
+    <p class="note">{t.ui.signPage.note}</p>
+  </section>
+</Base>
+
+<style>
+  .top { margin: 3rem 0 2.5rem; }
+  .top h1 { font-size: clamp(2.25rem, 6vw, 3.25rem); letter-spacing: -0.02em; margin: 0.4rem 0 0.75rem; }
+  .top p:not(.standfirst):not(.label) { color: var(--ink-mid); }
+
+  .how {
+    display: grid;
+    gap: 2.5rem;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  @media (min-width: 34rem) { .how { grid-template-columns: 1fr auto; gap: 3rem; align-items: center; } }
+  .how-body h2 { margin-top: 0; font-size: 1.375rem; }
+  .how-body p { color: var(--ink-mid); }
+  .how-count { text-align: center; }
+  .count { font-family: var(--mono); font-weight: 600; font-size: clamp(3.5rem, 11vw, 5.5rem); line-height: 1; margin: 0; }
+  .cta {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    background: var(--ink);
+    color: var(--paper);
+    border: 1px solid var(--ink);
+  }
+  .cta:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  .list-wrap { margin: 3rem 0; }
+  .list { list-style: none; padding: 0; margin: 0; }
+  .list li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .s-name { font-size: 1.0625rem; }
+  .s-role { font-family: var(--mono); font-size: 0.6875rem; color: var(--ink-soft); }
+  .s-level {
+    margin-inline-start: auto;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--ink-mid);
+    text-decoration: none;
+    border: 1px solid var(--rule);
+    padding: 0.1rem 0.4rem;
+  }
+  .s-level:hover { color: var(--accent); border-color: var(--accent); }
+  .note { margin-top: 2rem; font-size: 0.9375rem; color: var(--ink-mid); }
+</style>

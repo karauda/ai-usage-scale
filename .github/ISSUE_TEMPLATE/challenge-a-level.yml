@@ -1,0 +1,33 @@
+name: Challenge a level boundary
+description: The decision tree gives an answer that feels false. This is the most useful thing you can bring here.
+labels: [scale]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The scale will be wrong in places. Finding where matters more than any code change.
+  - type: textarea
+    id: what
+    attributes:
+      label: What did you actually do?
+      description: One or two sentences. The real work, not a hypothetical.
+      placeholder: I dictated twenty years of clinical notes and a model turned them into an article. I corrected every paragraph and I stand behind every claim.
+    validations: { required: true }
+  - type: dropdown
+    id: given
+    attributes:
+      label: The level the tree gives you
+      options: ['0 — Human', '1 — Assisted', '2 — Co-created', '3 — Directed', '4 — Prompted', '5 — Automated']
+    validations: { required: true }
+  - type: dropdown
+    id: expected
+    attributes:
+      label: The level you believe is right
+      options: ['0 — Human', '1 — Assisted', '2 — Co-created', '3 — Directed', '4 — Prompted', '5 — Automated']
+    validations: { required: true }
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: Which question in the tree is asking the wrong thing, or asking it the wrong way?
+    validations: { required: true }

@@ -1,0 +1,122 @@
+---
+import { LANGS, LOCALES, localePath, getLocale } from '../lib/i18n';
+
+interface Props {
+  lang: string;
+  /** The current page, unprefixed: '/', '/3', '/scale'. */
+  path: string;
+}
+const { lang, path } = Astro.props;
+const t = getLocale(lang);
+---
+
+{/*
+  A <details> menu, not a <select>. It works with no JavaScript, it is keyboard-navigable
+  for free, and it shows each language in its own script — a reader looking for 日本語 is
+  scanning for 日本語, not for the word "Japanese" written in English.
+*/}
+<details class="lang">
+  <summary aria-label={`${t.ui.lang.label} (${lang.toUpperCase()})`}>
+    <span class="cur">{lang.toUpperCase()}</span>
+    <span class="chev" aria-hidden="true">▾</span>
+  </summary>
+  <ul>
+    {
+      LANGS.map((code) => (
+        <li>
+          <a
+            href={localePath(code, path)}
+            hreflang={code}
+            lang={code}
+            dir={LOCALES[code].dir}
+            aria-current={code === lang ? 'true' : undefined}
+          >
+            <span class="endonym">{LOCALES[code].endonym}</span>
+            <span class="tag">{code}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</details>
+
+<script>
+  // Progressive enhancement only — the no-JS <details> already opens and closes on click.
+  // This adds the two dismissals a native <details> lacks: Escape, and clicking away.
+  const menu = document.querySelector<HTMLDetailsElement>('details.lang');
+  if (menu) {
+    const summary = menu.querySelector('summary');
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.open) {
+        menu.open = false;
+        summary?.focus();
+      }
+    });
+    document.addEventListener('click', (e) => {
+      if (menu.open && !menu.contains(e.target as Node)) menu.open = false;
+    });
+  }
+</script>
+
+<style>
+  .lang { position: relative; font-family: var(--mono); }
+
+  summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    cursor: pointer;
+    list-style: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    color: var(--ink-mid);
+    padding: 0.4rem 0.55rem;
+    border: 1px solid var(--rule);
+    border-radius: 1px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary:hover { color: var(--accent); border-color: var(--ink-soft); }
+  details[open] summary { color: var(--ink); border-color: var(--ink-soft); }
+  .chev { font-size: 0.6rem; opacity: 0.7; }
+  details[open] .chev { transform: rotate(180deg); }
+
+  ul {
+    /* Explicit, because an absolutely-positioned child of a *closed* <details> is NOT
+       hidden by the UA stylesheet in Chromium — it would otherwise hang open permanently. */
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    inset-inline-end: 0;
+    z-index: 20;
+    margin: 0;
+    padding: 0.35rem 0;
+    list-style: none;
+    min-width: 12rem;
+    max-height: 60vh;
+    overflow-y: auto;
+    background: var(--raised);
+    border: 1px solid var(--rule);
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.08);
+  }
+  details[open] ul { display: block; }
+
+  ul a {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.4rem 0.85rem;
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.8125rem;
+  }
+  ul a:hover { background: var(--accent-bg); color: var(--accent); }
+  ul a[aria-current] { font-weight: 600; }
+  ul a[aria-current]::before { content: '·'; margin-inline-end: 0.3rem; color: var(--accent); }
+
+  /* The endonym is set in its own script, so it needs the reading face, not the mono one. */
+  .endonym { font-family: var(--serif); font-size: 0.9375rem; }
+  .tag { font-size: 0.625rem; letter-spacing: 0.1em; color: var(--ink-soft); text-transform: uppercase; }
+</style>

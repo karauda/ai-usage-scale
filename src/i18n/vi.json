@@ -1,0 +1,388 @@
+{
+  "lang": "vi",
+  "name": "Vietnamese",
+  "endonym": "Tiếng Việt",
+  "dir": "ltr",
+  "translation": { "by": "machine" },
+  "principle": "Không cấp độ nào cao hơn cấp độ nào. Một thang đo tự xếp hạng các cấp độ của chính mình là một cái thang của sự xấu hổ, và ai cũng sẽ nói dối để tụt xuống dưới. Cấp độ duy nhất không trung thực là cấp độ không được công bố.",
+  "axis": {
+    "measures": "Vai trò của trí tuệ nhân tạo trong việc làm ra tác phẩm: nội dung của nó là của ai, và ai chịu trách nhiệm về nó.",
+    "doesNotMeasure": "Tỷ lệ ký tự, điểm ảnh hay mẫu âm thanh do một mô hình sinh ra. Con số ấy kết tội vị chuyên gia đọc ra ba mươi năm hành nghề của mình, và không tha bổng cho ai cả."
+  },
+  "surfaces": {
+    "note": "Không bắt buộc. Một con số duy nhất mô tả cả tác phẩm. Khi các phần của nó khác nhau rõ rệt, hãy công bố chúng. Huy hiệu luôn hiển thị một con số; phần chi tiết nằm sau đường liên kết.",
+    "headlineRule": "Cấp độ chính mô tả phần tác phẩm mang ý nghĩa của nó. Chất liệu trang trí mà một khán giả tỉnh táo sẽ không coi là trọng yếu đối với tác phẩm thì không quyết định cấp độ chính — hãy công bố nó ở đây."
+  },
+  "levels": [
+    {
+      "id": 0,
+      "name": "Con người",
+      "oneLine": "Không sử dụng AI tạo sinh.",
+      "definition": "Không có AI tạo sinh nào tham gia vào bất kỳ giai đoạn nào của việc làm ra tác phẩm này. Các công cụ không tạo sinh — kiểm tra chính tả, tự sửa lỗi, lấy nét tự động, khử ồn, công cụ tìm kiếm, máy tính, chỉnh màu, trình biên dịch — không phải AI tạo sinh và không làm thay đổi cấp độ này.",
+      "includes": [
+        "Tự mình viết, vẽ, quay, thu âm, chơi nhạc hay lập trình",
+        "Phần mềm truyền thống: trình soạn thảo văn bản, Lightroom, Pro Tools, một trình biên dịch, một chiếc máy ảnh",
+        "Dùng công cụ tìm kiếm để tìm nguồn, rồi bạn tự đọc chúng",
+        "Học máy không tạo sinh: lấy nét tự động, khử nhiễu, phóng lớn ảnh mà không bịa ra thứ gì"
+      ],
+      "excludes": [
+        "Bất kỳ việc dùng mô hình ngôn ngữ, mô hình hình ảnh hay mô hình âm thanh nào mà kết quả của nó lọt vào tác phẩm",
+        "Ảnh kho do AI tạo, kể cả chỉ để trang trí — hãy công bố nó ở mục “Thành phần”"
+      ],
+      "examples": [
+        "Một bài luận viết và sửa hoàn toàn bằng tay.",
+        "Một bức ảnh chụp bằng máy ảnh và hậu kỳ trong Lightroom.",
+        "Một bài hát chơi bằng nhạc cụ thật và được kỹ sư âm thanh phối.",
+        "Một trang web do lập trình viên tự viết, không dùng trợ lý AI."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Cấp độ 0 — Con người.",
+        "medium": "Không sử dụng AI tạo sinh trong việc làm ra tác phẩm này. Cấp độ 0 trên AI Usage Scale.",
+        "long": "Tác phẩm này được làm ra mà không dùng AI tạo sinh. Không có văn bản, hình ảnh, âm thanh, video hay dòng mã nào trong đó do một mô hình tạo ra. Đây là Cấp độ 0 trên AI Usage Scale, một chuẩn mở để công bố cách một tác phẩm được làm ra."
+      }
+    },
+    {
+      "id": 1,
+      "name": "Hỗ trợ",
+      "oneLine": "AI chỉ xử lý những gì bạn đã làm ra. Nó không bịa thêm điều gì.",
+      "definition": "Bạn làm ra tác phẩm. AI chỉ xử lý chất liệu của bạn hoặc hỗ trợ ở hậu trường: sửa lỗi, chép lại hay dịch trung thành, làm sạch, gắn thẻ, định dạng, tìm kiếm hoặc góp ý. Ngoài bản chép lại hay bản dịch trung thành từ chất liệu của bạn, không có chất liệu nào do mô hình tạo ra xuất hiện trong tác phẩm đã công bố.",
+      "includes": [
+        "Sửa ngữ pháp, chính tả và văn phong cho những câu do bạn viết",
+        "Gỡ băng đoạn ghi âm do bạn thu",
+        "Khử nhiễu, tạo mặt nạ hay phóng lớn bức ảnh do bạn chụp",
+        "Gắn thẻ, định dạng, tóm tắt để bạn tự dùng, hay tìm kiếm trong kho tư liệu của chính bạn",
+        "Dùng AI để tìm nguồn, rồi bạn tự đọc và tự kiểm chứng"
+      ],
+      "excludes": [
+        "AI phác một câu, một đoạn, một hình ảnh hay một giai điệu còn trụ lại trong tác phẩm — đó là Cấp độ 2 trở lên",
+        "AI tái cấu trúc lập luận của bạn, chứ không chỉ câu chữ của bạn"
+      ],
+      "examples": [
+        "Một bài báo bạn viết, đưa qua mô hình để soát ngữ pháp.",
+        "Một podcast bạn thu, được mô hình gỡ băng để làm ghi chú chương trình.",
+        "Một bài nghiên cứu bạn viết, được mô hình soát lỗi chính tả trước khi nộp.",
+        "Mã bạn viết, trợ lý AI chỉ đổi tên biến và định dạng lại."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Cấp độ 1 — Hỗ trợ.",
+        "medium": "Do tác giả viết; AI chỉ được dùng cho những việc máy móc như sửa lỗi và gỡ băng. Cấp độ 1 trên AI Usage Scale.",
+        "long": "Tác giả làm ra tác phẩm này. AI chỉ được dùng để xử lý những gì tác giả đã làm ra — sửa lỗi, gỡ băng hay làm sạch. Không một câu chữ, hình ảnh hay âm thanh nào trong tác phẩm đã công bố do một mô hình bịa ra. Đây là Cấp độ 1 trên AI Usage Scale."
+      }
+    },
+    {
+      "id": 2,
+      "name": "Đồng sáng tạo",
+      "oneLine": "Phần lớn hình thức cuối cùng là do bạn làm. AI làm ra vài phần còn ở lại trong đó.",
+      "definition": "Tác phẩm là của bạn về cấu trúc và về phần lớn công đoạn thực hiện, nhưng chất liệu do một mô hình sinh ra vẫn còn lại trong kết quả đã công bố: những đoạn văn, những chi tiết, những phương án bạn chọn giữa chúng. Phần lớn những gì khán giả nhận được là do bạn viết, vẽ hay chơi ra.",
+      "includes": [
+        "AI phác một mục, rồi bạn viết lại, và chữ của bạn áp đảo toàn bài",
+        "AI sinh ra nhiều phương án, bạn chọn lấy rồi biên tập",
+        "AI viết một hàm bên trong mã nguồn mà bạn thiết kế và tự viết phần lớn",
+        "AI mở rộng hay lấp đầy một phần bức ảnh do bạn bố cục"
+      ],
+      "excludes": [
+        "AI tạo ra phần lớn câu chữ hay điểm ảnh cuối cùng — đó là Cấp độ 3 trở lên",
+        "Chỉ sửa lỗi thuần máy móc, không bịa ra gì — đó là Cấp độ 1"
+      ],
+      "examples": [
+        "Một bài luận bạn dựng dàn ý và viết gần hết, với hai đoạn do AI phác mà bạn viết lại.",
+        "Một bản nhạc bạn soạn và chơi, với một lớp âm sắc do AI tạo ở đoạn bridge.",
+        "Một tính năng bạn thiết kế và viết, với vài hàm phụ trợ do AI viết và bạn rà soát.",
+        "Một bức ảnh bạn chụp, có một vật gây rối mắt được xóa bằng generative fill."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Cấp độ 2 — Đồng sáng tạo.",
+        "medium": "Phần lớn do tác giả làm; một phần chất liệu do AI sinh ra và được giữ lại. Cấp độ 2 trên AI Usage Scale.",
+        "long": "Tác giả làm ra phần lớn tác phẩm này — phần lớn câu chữ, điểm ảnh hay âm thanh. Một phần chất liệu do AI sinh ra vẫn còn trong đó, do tác giả chọn lấy và biên tập. Đây là Cấp độ 2 trên AI Usage Scale."
+      }
+    },
+    {
+      "id": 3,
+      "name": "Định hướng",
+      "oneLine": "Nội dung là của bạn. AI tạo ra hình thức.",
+      "definition": "Kiến thức, bằng chứng, lập luận, bố cục hoặc các ràng buộc riêng của tác phẩm là của bạn và thực sự quyết định kết quả. Từ những đầu vào nguyên gốc ấy, một mô hình tạo ra phần lớn câu chữ, điểm ảnh hoặc âm thanh cuối cùng. Bạn định hướng, lựa chọn, sửa chữa, rà soát nghiêm túc và chịu trách nhiệm về kết quả. Chỉ viết hoặc tinh chỉnh câu lệnh thôi thì chưa đủ.",
+      "note": "Đây chính là cấp độ mà cái nhãn nhị phân hiện nay không thể nhìn thấy, và là lý do thang đo này tồn tại. Một chuyên gia đọc ra những gì mình biết rồi để mô hình tạo hình cho nó thì không hề gian dối. Người ấy đã dùng một công cụ, và giờ đây người ấy có thể nói ra điều đó.",
+      "includes": [
+        "Một chuyên gia cung cấp kiến thức, ghi chú, dữ liệu hay một bản brief chi tiết, rồi mô hình chuyển thành văn xuôi",
+        "Một giám đốc mỹ thuật lặp đi lặp lại một hình ảnh qua nhiều vòng chỉ dẫn cụ thể",
+        "Nghiên cứu do bạn thực hiện, được mô hình chuyển thành kịch bản hay video thuyết minh",
+        "Một mã nguồn bạn đặc tả và rà soát kỹ lưỡng, phần lớn do một tác nhân AI viết"
+      ],
+      "excludes": [
+        "Một câu lệnh hoặc quá trình liên tục điều chỉnh câu lệnh nhưng không đóng góp nội dung nguyên gốc, riêng cho tác phẩm — đó là Cấp độ 4",
+        "Tác phẩm mà phần lớn câu chữ cuối cùng do chính bạn viết — đó là Cấp độ 2"
+      ],
+      "examples": [
+        "Một bác sĩ phẫu thuật đọc ra ba mươi năm hành nghề; mô hình viết bài báo; bác sĩ sửa lại và ký tên.",
+        "Ghi chú thô và bảng giá của một nhà sáng lập trở thành trang đích do mô hình viết.",
+        "Một họa sĩ minh họa chỉ đạo bốn mươi vòng lặp của một hình ảnh được sinh ra, bám sát một bố cục cụ thể.",
+        "Bộ dữ liệu và phát hiện của một nhà nghiên cứu trở thành video giải thích do giọng tổng hợp thuyết minh."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Cấp độ 3 — Định hướng.",
+        "medium": "Kiến thức, dữ liệu và lập luận là của tác giả; AI tạo ra phần chữ từ những thứ đó. Cấp độ 3 trên AI Usage Scale.",
+        "long": "Nội dung của tác phẩm này — kiến thức, dữ liệu, lập luận, định hướng — là của tác giả. Một mô hình tạo ra phần lớn hình thức cuối cùng từ đó. Tác giả đã định hướng, kiểm chứng, và chịu trách nhiệm về những gì nó nói. Đây là Cấp độ 3 trên AI Usage Scale."
+      }
+    },
+    {
+      "id": 4,
+      "name": "Theo yêu cầu",
+      "oneLine": "AI tạo ra cả nội dung lẫn hình thức. Bạn yêu cầu, bạn kiểm tra, bạn chịu trách nhiệm.",
+      "definition": "Một mô hình tạo ra cả điều tác phẩm nói lẫn cách nó nói, từ một câu lệnh, mẫu có sẵn hoặc bản yêu cầu chỉ chứa rất ít nội dung nguyên gốc, riêng cho tác phẩm của bạn. Một con người đã rà soát thành phẩm một cách nghiêm túc, kiểm chứng các tuyên bố quan trọng khi cần và chịu trách nhiệm công bố nó.",
+      "includes": [
+        "Yêu cầu mô hình viết về một chủ đề rồi công bố sau khi rà soát",
+        "Nội dung tiếp thị, mô tả sản phẩm hay bài đăng mạng xã hội do AI sinh ra, được rà soát trước khi phát hành",
+        "Ảnh kho sinh ra từ một câu lệnh ngắn và được kiểm tra trước khi dùng",
+        "Mã do AI viết mà bạn đọc và kiểm thử trước khi hợp nhất"
+      ],
+      "excludes": [
+        "Tác phẩm dựng trên kiến thức, dữ liệu hay định hướng thực sự là của bạn — đó là Cấp độ 3",
+        "Công bố mà không có ai đọc qua — đó là Cấp độ 5"
+      ],
+      "examples": [
+        "“Viết mười bài về bệnh tiểu đường” — đọc, sửa, công bố.",
+        "Mô tả sản phẩm sinh ra cho một danh mục hàng và được một người rà soát.",
+        "Một ảnh tiêu đề được sinh ra, kiểm tra lỗi trước khi phát hành.",
+        "Bản tóm tắt một tài liệu do mô hình tạo ra và được đối chiếu với bản gốc."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Cấp độ 4 — Theo yêu cầu.",
+        "medium": "Do AI tạo ra từ một câu lệnh; một người đã rà soát và chịu trách nhiệm về nó. Cấp độ 4 trên AI Usage Scale.",
+        "long": "Một mô hình tạo ra cả nội dung lẫn hình thức của tác phẩm này. Một người đã yêu cầu nó, đọc nó, kiểm tra nó, và nhận trách nhiệm về việc công bố nó. Đây là Cấp độ 4 trên AI Usage Scale."
+      }
+    },
+    {
+      "id": 5,
+      "name": "Tự động",
+      "oneLine": "AI tạo ra cả nội dung lẫn hình thức. Không ai đọc nó trước khi nó được công bố.",
+      "definition": "Một mô hình tạo ra tác phẩm và nó được công bố mà không có người rà soát. Đây là cấp độ trung thực cho các quy trình tự động, việc sinh nội dung hàng loạt, và những tác nhân tự công bố. Đây là câu trả lời đúng cho rất nhiều công việc chính đáng — và chính việc nói ra điều đó làm cho công việc ấy trở nên chính đáng.",
+      "note": "Cấp độ 5 không phải một lời buộc tội. Một báo cáo thị trường tự động, một bản tóm tắt trận đấu do máy sinh, một trang trợ giúp dịch máy ở quy mô lớn: tất cả đều trung thực ở Cấp độ 5 và không trung thực ở bất kỳ cấp độ nào khác. Công bố số 5 chính là thứ tách một hệ thống tự động ra khỏi một trò lừa dối.",
+      "includes": [
+        "Công bố theo lịch hoặc bằng tác nhân, không có con người trong vòng lặp",
+        "Sinh hàng loạt trang, mục sản phẩm hay bản tóm tắt",
+        "Sinh trực tiếp theo yêu cầu, hiển thị cho người dùng ngay khi được tạo ra",
+        "Dịch máy công bố ở quy mô lớn mà không rà soát"
+      ],
+      "excludes": [
+        "Bất cứ thứ gì thực sự có người đọc trước khi phát hành — đó là Cấp độ 4"
+      ],
+      "examples": [
+        "Một bản tóm tắt thị trường mỗi giờ do một script tạo ra và tự đăng.",
+        "Mười nghìn trang sản phẩm được sinh ra chỉ sau một đêm.",
+        "Câu trả lời của một chatbot, hiển thị cho người dùng ngay khi được sinh ra.",
+        "Một tác nhân tự viết và đăng lên blog theo lịch."
+      ],
+      "sentences": {
+        "short": "AI Usage Scale: Cấp độ 5 — Tự động.",
+        "medium": "Do AI sinh ra và công bố mà không có người rà soát. Cấp độ 5 trên AI Usage Scale.",
+        "long": "Một mô hình tạo ra tác phẩm này và nó được công bố mà không có ai đọc trước. Đây là Cấp độ 5 trên AI Usage Scale, lời công bố trung thực dành cho các hệ thống tự động."
+      }
+    }
+  ],
+  "tree": [
+    {
+      "question": "Có sử dụng AI tạo sinh nào trong việc làm ra tác phẩm này không?",
+      "help": "AI tạo sinh là mô hình tạo ra văn bản, hình ảnh, âm thanh, video hoặc mã mới. Hãy tính cả AI dùng để nghiên cứu, lên ý tưởng hoặc góp ý, ngay cả khi đầu ra của nó không xuất hiện trong tác phẩm. Kiểm tra chính tả, lấy nét tự động, cổng khử ồn, công cụ tìm kiếm và máy tính không phải AI tạo sinh."
+    },
+    {
+      "question": "AI có tạo ra chất liệu mới xuất hiện trong tác phẩm đã công bố không — vượt quá việc xử lý máy móc những gì bạn đã làm ra?",
+      "help": "Sửa ngữ pháp, chép lại hoặc dịch trung thành lời của bạn, khử nhiễu ảnh hay gắn thẻ tệp là xử lý máy móc. Việc nghiên cứu, lên ý tưởng hoặc góp ý mà không để lại chất liệu do mô hình tạo ra trong tác phẩm cũng vậy. Viết một đoạn mới, vẽ một hình mới hoặc soạn một giai điệu mới là tạo ra chất liệu mới."
+    },
+    {
+      "question": "Phần lớn hình thức cuối cùng có phải do chính bạn làm không — phần lớn câu chữ, điểm ảnh hay âm thanh?",
+      "help": "Hãy xét sản phẩm đã công bố, không xét công sức. Nếu phần lớn những gì người đọc thấy hoặc nghe là do bạn gõ, vẽ hay chơi ra, hãy trả lời có."
+    },
+    {
+      "question": "Nội dung có phải của bạn không — kiến thức, dữ liệu, lập luận, định hướng?",
+      "help": "Nội dung cốt lõi là kiến thức, bằng chứng, lập luận, bố cục hoặc các ràng buộc riêng của tác phẩm, quyết định tác phẩm nói gì. Nó là của bạn khi những đầu vào nguyên gốc của bạn thực sự quyết định kết quả — không phải chỉ vì bạn đã viết hoặc tinh chỉnh câu lệnh."
+    },
+    {
+      "question": "Có con người nào rà soát nó trước khi công bố và nhận trách nhiệm về những gì nó nói không?",
+      "help": "Việc rà soát phải nghiêm túc và tương xứng với mức độ hệ trọng: kiểm tra thành phẩm, xác minh các tuyên bố quan trọng khi cần và sửa vấn đề trước khi công bố. Chịu trách nhiệm nghĩa là bạn sẽ bảo vệ hoặc sửa tác phẩm nếu nó sai."
+    }
+  ],
+  "edgeCases": [
+    {
+      "case": "Dịch thuật",
+      "rule": "Một bản dịch trung thành thừa hưởng cấp độ của tác phẩm gốc và thêm một ghi chú về việc dịch. Dịch một bài viết Cấp độ 1 bằng mô hình thì công bố nó vẫn là Cấp độ 1, do AI dịch.",
+      "why": "Nội dung và cấu trúc không đổi. Trừng phạt việc dịch sẽ khiến chữ nghĩa của thế giới ít đến được với người khác hơn, đi ngược lại toàn bộ mục đích của việc này."
+    },
+    {
+      "case": "Gỡ băng",
+      "rule": "Gỡ băng lời nói do chính bạn thu là xử lý máy móc. Nó không làm cấp độ tăng lên.",
+      "why": "Chữ là của bạn. Mô hình chỉ chép chúng xuống."
+    },
+    {
+      "case": "Chất liệu trang trí",
+      "rule": "Một ảnh tiêu đề do AI sinh ra trên một bài viết do người viết không biến bài viết đó thành Cấp độ 4. Hãy công bố bức ảnh ấy ở mục “Thành phần”.",
+      "why": "Cấp độ chính mô tả thứ mang ý nghĩa. Nếu không, một tấm ảnh kho sẽ nuốt trọn cả lời công bố, và người ta sẽ đơn giản là thôi công bố."
+    },
+    {
+      "case": "Tác phẩm phái sinh",
+      "rule": "Hãy công bố cấp độ của phần bạn đóng góp, và dẫn lại cấp độ của tác phẩm gốc nếu nó có công bố."
+    },
+    {
+      "case": "Sinh trực tiếp",
+      "rule": "Nội dung được sinh theo yêu cầu và hiển thị cho người dùng mà không rà soát là Cấp độ 5, kể cả khi câu lệnh hệ thống được một người viết rất cẩn thận."
+    },
+    {
+      "case": "Học máy không tạo sinh",
+      "rule": "Lấy nét tự động, khử nhiễu, phóng lớn ảnh, so màu và phân loại — những thứ không bịa ra gì — đều không phải AI tạo sinh. Chúng không đưa bạn ra khỏi Cấp độ 0."
+    }
+  ],
+  "ui": {
+    "nav": {
+      "manifesto": "Tuyên ngôn",
+      "scale": "Thang đo",
+      "level": "Cấp độ của bạn",
+      "badges": "Huy hiệu",
+      "spec": "Đặc tả",
+      "sign": "Ký tên"
+    },
+    "wordmark": "AI Usage Scale",
+    "foot": {
+      "tagline": "Một chuẩn mở để công bố cách một tác phẩm được làm ra.",
+      "licence": "Dấu hiệu và levels.json: CC0. Văn bản: CC BY 4.0. Mã: MIT.",
+      "spec": "Đặc tả",
+      "source": "Mã nguồn & vấn đề",
+      "thisPage": "Trang này",
+      "ownDeclaration": "Nội dung là của tác giả; phần văn xuôi được tạo ra cùng AI, và được đọc từng dòng trước khi phát hành."
+    },
+    "hero": {
+      "eyebrowBefore": "Cái nhãn mà người sáng tạo đang có",
+      "eyebrowAfter": "Cái nhãn mà người sáng tạo cần",
+      "binaryYes": "AI",
+      "binaryNo": "KHÔNG PHẢI AI",
+      "beforeHead": "Có tội, hoặc vô tội.",
+      "beforeBody": "Hiện giờ bạn chỉ được phép nói đúng hai điều đó.",
+      "afterHead": "Sáu cấp độ.",
+      "afterBody": "Chỉ vào một cấp.",
+      "h1a": "Không có cấp độ nào đáng xấu hổ.",
+      "h1b": "Chỉ có cấp độ không được công bố.",
+      "sub": "Một thang đo mở, miễn phí, để nói tác phẩm được làm ra thế nào — nó mang kiến thức của ai và ai đứng sau nó. Sáu cấp độ. Ba mươi giây. Không phải xin phép hội đồng nào.",
+      "cta": "Tìm cấp độ của bạn",
+      "ctaAlt": "hoặc đọc cả sáu",
+      "inOneLine": "Thang đo, mỗi cấp một dòng",
+      "levelHead": "Cấp độ {n}"
+    },
+    "level": {
+      "eyebrow": "AI Usage Scale · Cấp độ {n} trong 0–5",
+      "allLevels": "Tất cả cấp độ",
+      "includes": "Đây là cấp độ khi",
+      "excludes": "Đây không phải cấp độ khi",
+      "examples": "Ví dụ",
+      "sentenceH": "Nói ra trong một câu",
+      "sentenceLede": "Dán một trong các câu này vào dòng tác giả, chân bài viết, phần mô tả video, phần mô tả kết quả tìm kiếm, hay chữ ký email. Không cần hình ảnh — một lời công bố chỉ hoạt động khi ở dạng ảnh là lời công bố mà một nửa web không đọc được.",
+      "short": "Ngắn — cho dòng tác giả hay tiểu sử",
+      "medium": "Vừa — cho chân bài viết hay thẻ mô tả",
+      "long": "Dài — cho ghi chú của biên tập viên",
+      "markH": "Đặt dấu hiệu lên tác phẩm",
+      "markLede": "Sao chép huy hiệu dưới dạng SVG nội tuyến: nó hiện ra tức thì, chạy được ngoại tuyến, và không gửi yêu cầu nào về phía chúng tôi. Vế cuối mới là điều quan trọng: một huy hiệu liên kết nóng chính là một pixel theo dõi trên trang của bạn, và một chuẩn nói về sự trung thực thì không có tư cách phát tán thứ đó. Tệp được lưu trữ bên dưới có ở đó cho tiện, không phải vì chúng tôi muốn lưu lượng truy cập.",
+      "markCap": "Chip Cấp độ {n} · không phông chữ ngoài, không yêu cầu mạng",
+      "inline": "SVG nội tuyến — nên dùng",
+      "inlineNote": "Tự chứa. Không có gì để tải, không có gì để theo dõi.",
+      "hosted": "Ảnh được lưu trữ — nếu bạn vẫn muốn liên kết",
+      "plain": "Văn bản thuần — nơi hình ảnh không đến được",
+      "machineH": "Hãy để máy cũng đọc được",
+      "machineLede": "Vẫn lời công bố ấy, bằng đúng thứ từ vựng mà lớp tuân thủ đang nói. Chúng tôi không cạnh tranh với chúng — chúng tôi là gương mặt mà con người đọc được của chúng.",
+      "headOf": "Cho phần <head> của trang bạn",
+      "surfacesH": "Nếu các phần khác nhau",
+      "copy": "Sao chép",
+      "copied": "Đã sao chép"
+    },
+    "scalePage": {
+      "eyebrow": "Thang đo",
+      "h1": "Sáu cấp độ, và không cấp nào là một bản án.",
+      "measures": "Nó đo",
+      "refuses": "Nó từ chối đo",
+      "forInstance": "Ví dụ",
+      "more": "Định nghĩa, ví dụ, huy hiệu và mã →",
+      "closingH": "Vì sao các con số không có màu",
+      "closingA": "Mọi dấu hiệu trên trang này đều in bằng một thứ mực. Không có đầu xanh, không có đầu đỏ, bởi một thang đo tô màu cho hai đầu của chính nó thì đã nói cho bạn biết phải xấu hổ vì đầu nào — và xấu hổ chính là thứ khiến người ta nói dối.",
+      "closingB": "Một bản tóm tắt thị trường tự động là trung thực ở Cấp độ 5 và không trung thực ở bất kỳ cấp nào khác. Một cuốn hồi ký là trung thực ở Cấp độ 0. Không con số nào tốt hơn con số nào. Câu trả lời tồi duy nhất là câu trả lời không ai đưa ra."
+    },
+    "wizard": {
+      "eyebrow": "Năm câu hỏi",
+      "h1": "Thật ra bạn đã làm gì?",
+      "standfirst": "Hãy trả lời trung thực. Không ai kiểm tra cả, và đó chính là điểm mấu chốt — một lời công bố có thể bị ép buộc thì chẳng đáng giá gì.",
+      "count": "Câu hỏi {n} trong {total}",
+      "yes": "Có",
+      "no": "Không",
+      "back": "← Quay lại",
+      "yourLevel": "Cấp độ của bạn",
+      "getBadge": "Lấy huy hiệu và mã",
+      "startOver": "Làm lại từ đầu",
+      "treeLabel": "Cây quyết định",
+      "yesNext": "Có → câu hỏi tiếp theo",
+      "noNext": "Không → câu hỏi tiếp theo",
+      "yesLevel": "Có → Cấp độ {n} · {name}",
+      "noLevel": "Không → Cấp độ {n} · {name}",
+      "fineH": "Nếu hai chúng ta trả lời khác nhau thì sao?",
+      "fineA": "Hãy công khai điểm chưa rõ và giải thích những phần nào khác nhau. Nếu hệ thống chỉ chấp nhận một con số, hãy chọn cấp độ không làm giảm nhẹ vai trò của AI. Thang đo này hướng tới sự trung thực hữu ích, không phải độ chính xác giả tạo.",
+      "fineB": "Các trường hợp biên — dịch thuật, gỡ băng, ảnh trang trí, tác phẩm phái sinh, sinh trực tiếp — đã được xử lý dứt điểm trong bản đặc tả."
+    },
+    "badgesPage": {
+      "eyebrow": "Dấu hiệu",
+      "h1": "Sáu dấu hiệu. Một thứ mực.",
+      "standfirst": "Không có đầu xanh, không có đầu đỏ. Một thang đo tô màu cho hai đầu của chính nó thì đã nói cho bạn biết phải xấu hổ vì đầu nào.",
+      "intro": "Mọi thứ ở đây đều là CC0 — không cần ghi công, không giấy phép phải chấp nhận, không tài khoản phải tạo. Cứ lấy đi.",
+      "hotlinkH": "Vì sao chúng tôi mong bạn đừng liên kết nóng",
+      "hotlinkA": "Mọi huy hiệu ở đây đều chạy được dưới dạng SVG nội tuyến: bạn dán đoạn mã vào, và nó hiện ra mà không cần phông chữ ngoài, không cần tệp ngoài, và không gửi yêu cầu nào về phía chúng tôi. Đó là phiên bản chúng tôi khuyên dùng, và các trang cấp độ cho bạn đúng đoạn mã ấy.",
+      "hotlinkB": "Một huy hiệu liên kết nóng là một pixel theo dõi trên trang của bạn. Nó sẽ cho chúng tôi biết URL của từng bài viết có gắn lời công bố, và mỗi bài được đọc bao nhiêu lần. Chúng tôi không muốn dữ liệu đó, và một chuẩn mà toàn bộ chủ đề là sự trung thực thì không có tư cách lặng lẽ thu thập nó. Các tệp được lưu trữ có ở đây vì đôi khi bạn thực sự cần một URL — không phải vì chúng tôi muốn lưu lượng truy cập.",
+      "rulesH": "Quy tắc cho các dấu hiệu",
+      "rules": [
+        "Đừng đổi màu một cấp độ để ám chỉ nó tốt hơn hay tệ hơn cấp khác.",
+        "Đừng gắn dấu hiệu lên tác phẩm mà bạn không phải người đưa ra lời công bố.",
+        "Hãy giữ lại đường liên kết. Một dấu hiệu không có định nghĩa phía sau chỉ là đồ trang trí.",
+        "Hãy dịch chúng. Hãy vẽ lại chúng. Hãy fork toàn bộ thứ này."
+      ],
+      "whereH": "Nó đi đâu",
+      "whereA": "Dòng tác giả. Chân bài viết. Phần mô tả video. Trang giới thiệu. Một README. Một thẻ mô hình. Ghi chú chương trình của một podcast. Chữ ký email. Ô mô tả của một kết quả tìm kiếm. Bất cứ nơi nào người đọc có lý do muốn biết họ đang đọc thứ gì."
+    },
+    "specPage": {
+      "eyebrow": "Đặc tả",
+      "h1": "Nó được định nghĩa thế nào, và nói chuyện với mọi thứ khác ra sao.",
+      "standfirst": "Đây là một chuẩn về việc công bố, không phải một chuẩn về việc chứng minh. Nó không thể được xác minh bằng mật mã học và cũng không cố làm vậy. Dòng tác giả cũng vậy thôi.",
+      "procedure": "Quy trình quyết định",
+      "procedureLede": "Năm câu hỏi, hỏi theo thứ tự. Câu đầu tiên dừng lại sẽ cho ra cấp độ.",
+      "question": "Câu hỏi",
+      "yesCol": "Có",
+      "noCol": "Không",
+      "next": "tiếp",
+      "surfaces": "Thành phần",
+      "headlineRule": "Quy tắc cấp độ chính.",
+      "recognised": "Các thành phần được công nhận:",
+      "edgeCases": "Trường hợp biên",
+      "edgeLede": "Mỗi trường hợp ở đây đều đến từ những nỗ lực bẻ gãy cây quyết định. Chúng được xử lý dứt điểm tại đây, để hai người trung thực đi tới cùng một con số.",
+      "interop": "Khả năng liên thông",
+      "interopLede": "Thang đo này bổ trợ cho các tiêu chuẩn về nguồn gốc. Nó ánh xạ sang bộ từ vựng IPTC đã được xác lập và thử nghiệm cú pháp ứng viên đang được W3C AI Content Disclosure Community Group thảo luận; cú pháp đó không phải là tiêu chuẩn W3C.",
+      "mapping": "Ánh xạ cấp độ",
+      "lossy": "Phép ánh xạ này mất mát đúng theo một chiều, và chính sự mất mát ấy mới là điều đáng nói: IPTC không phân biệt nổi Cấp độ 3, 4 và 5. Nó không có thuật ngữ nào cho câu hỏi nội dung này là của ai, và cũng không có thuật ngữ nào cho câu hỏi liệu đã có người đọc nó hay chưa. Đó đúng là hai câu hỏi mà người đọc thực sự quan tâm, và là hai câu hỏi mà thang đo này sinh ra để trả lời.",
+      "machine": "Dạng máy đọc được",
+      "machineLede": "Các định nghĩa tiếng Anh chính thức nằm trong một tệp duy nhất và làm nguồn cho huy hiệu cùng đầu ra máy có thể đọc. Phần giải thích đã bản địa hóa được duy trì riêng và được kiểm tra để bảo đảm tương ứng về cấu trúc.",
+      "priorArt": "Những gì có trước",
+      "priorLede": "Không có gì ở đây là chưa từng có tiền lệ, và giả vờ ngược lại thì tự nó đã là một sự thiếu trung thực nho nhỏ.",
+      "why": "Vì sao"
+    },
+    "signPage": {
+      "eyebrow": "Người ký tên",
+      "h1": "Ký tên chỉ ràng buộc bạn vào đúng một điều.",
+      "standfirst": "Hãy công bố cấp độ trên những gì bạn phát hành. Toàn bộ cam kết chỉ có vậy.",
+      "intro": "Không phải dùng ít AI đi. Không phải dùng nhiều hơn. Không phải đồng ý với từng chữ trong bản tuyên ngôn — nhiều người dưới đây không đồng ý. Chỉ là thôi để người đọc phải tự đoán.",
+      "howH": "Ký tên thế nào",
+      "howA": "Mở một pull request thêm tên bạn vào signatories.json. Đó là một chút ma sát cố ý: nó có nghĩa mọi cái tên ở đây đều do một con người thực sự muốn thế thêm vào, và nó có nghĩa chúng tôi không có biểu mẫu nào để thu hoạch dữ liệu, còn bạn không bị đưa vào danh sách gửi thư nào.",
+      "howB": "Nếu pull request không phải thế giới của bạn, hãy mở một issue và sẽ có người thêm tên bạn vào.",
+      "addName": "Thêm tên của bạn",
+      "count": "người ký tên",
+      "note": "Con số bên cạnh một cái tên, ở nơi có nó, là cấp độ mà người ấy phát hành thường xuyên nhất. Đó không phải điểm số. Nhiều người ở đây thường là 4, và họ nói thẳng ra như vậy, mà đó đúng là toàn bộ vấn đề."
+    },
+    "lang": {
+      "label": "Ngôn ngữ",
+      "readEnglish": "Đọc bản gốc tiếng Anh",
+      "improve": "Cải thiện bản dịch này",
+      "machineNotice": "Trang này được máy dịch từ bản gốc tiếng Anh, và chưa được người bản ngữ rà soát.",
+      "ownRule": "Theo chính quy tắc dịch thuật của thang đo này, nó mang cấp độ của bản gốc — 3, Định hướng — cộng thêm ghi chú này.",
+      "humanNotice": "Trang này được dịch từ bản gốc tiếng Anh và đã được một người bản ngữ rà soát."
+    }
+  }
+}

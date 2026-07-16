@@ -1,0 +1,105 @@
+---
+import { getLocale, localePath, DEFAULT_LANG } from '../lib/i18n';
+
+interface Props {
+  lang: string;
+  path: string;
+}
+const { lang, path } = Astro.props;
+const t = getLocale(lang);
+
+// The source language has nothing to declare here.
+if (!t.translation) {
+  // fall through to the empty render below
+}
+const machine = t.translation?.by === 'machine';
+---
+
+{/*
+  The scale's own translation rule, applied to the scale.
+
+  "A faithful translation inherits the level of the source work and adds a translation
+  note." So this page — machine-translated from an English original that is itself Level 3
+  — says exactly that, on the page, above the fold, in the reader's language.
+
+  It would be difficult to think of a faster way to discredit a transparency standard than
+  to ship twenty silent machine translations of it.
+*/}
+
+{
+  t.translation && (
+    <aside class="tn" dir={t.dir}>
+      <p class="tn-body">
+        <span
+          class="tn-mark"
+          aria-hidden="true"
+          title={machine ? 'AI Usage Level 3 · machine translation · unreviewed' : 'AI Usage Level 3 · human-reviewed translation'}
+        >
+          AI · 3 · {machine ? 'MT' : 'HR'}
+        </span>
+        <span>
+          {machine ? (
+            <>
+              {t.ui.lang.machineNotice ??
+                'This page was translated from the English original by a machine, and has not been reviewed by a human speaker.'}{' '}
+              {t.ui.lang.ownRule ??
+                "Under this scale's own translation rule it carries the source's level — 3, Directed — plus this note."}
+            </>
+          ) : (
+            (t.ui.lang.humanNotice ??
+              'This page was translated from the English original and reviewed by a human speaker.')
+          )}
+        </span>
+      </p>
+      <p class="tn-links">
+        <a href={localePath(DEFAULT_LANG, path)} hreflang={DEFAULT_LANG} lang={DEFAULT_LANG}>
+          {t.ui.lang.readEnglish}
+        </a>
+        <a href={`https://github.com/karauda/ai-usage-scale/blob/main/src/i18n/${lang}.json`}>
+          {t.ui.lang.improve}
+        </a>
+      </p>
+    </aside>
+  )
+}
+
+<style>
+  .tn {
+    display: grid;
+    gap: 0.6rem;
+    margin: 1.5rem 0 0;
+    padding: 1rem 1.15rem;
+    background: var(--band);
+    border-inline-start: 2px solid var(--accent);
+    font-size: 0.9375rem;
+  }
+  .tn-body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 0.75rem;
+    margin: 0;
+    color: var(--ink-mid);
+  }
+  .tn-mark {
+    flex: none;
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    padding: 0.15rem 0.45rem;
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .tn-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    margin: 0;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+  }
+  .tn-links a { color: var(--ink-mid); }
+  .tn-links a:hover { color: var(--accent); }
+</style>
