@@ -71,6 +71,10 @@ const nav = [
     {/* Set before first paint, so JS-enhanced states never flash their baseline. */}
     <script is:inline>
       document.documentElement.dataset.js = '';
+      try {
+        const t = localStorage.getItem('theme');
+        if (t) document.documentElement.dataset.theme = t;
+      } catch {}
     </script>
   </head>
 
@@ -86,7 +90,15 @@ const nav = [
       */}
       <header class="masthead">
         <a href={L('/')} class="wordmark"><span class="q">AI</span>&nbsp;Usage&nbsp;Scale</a>
-        <LangSwitcher lang={lang} path={path} />
+        <div class="chrome">
+          {/* Icon shows the mode you switch TO: moon in light, sun in dark. Swapped by CSS
+              off the resolved theme, so it is correct on first paint without JS. */}
+          <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch between light and dark theme">
+            <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+            <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg>
+          </button>
+          <LangSwitcher lang={lang} path={path} />
+        </div>
         <nav aria-label="Primary">
           {
             nav.map(([href, text]) => (
@@ -126,6 +138,21 @@ const nav = [
         </div>
       </footer>
     </div>
+
+    <script>
+      // No-JS keeps the OS theme; this only adds a manual override. Flip the *resolved* theme so
+      // the first click always does the visible thing, whether the page was following the OS or not.
+      document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
+        const root = document.documentElement;
+        const systemDark = matchMedia('(prefers-color-scheme: dark)').matches;
+        const current = root.dataset.theme || (systemDark ? 'dark' : 'light');
+        const next = current === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        try {
+          localStorage.setItem('theme', next);
+        } catch {}
+      });
+    </script>
   </body>
 </html>
 

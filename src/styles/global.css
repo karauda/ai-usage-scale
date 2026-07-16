@@ -56,8 +56,15 @@
   --gutter: clamp(1.25rem, 5vw, 3rem);
 }
 
+/*
+  Theme resolution, in three layers:
+    :root                        → light, the default
+    system dark, unless forced   → dark (the :not() lets a manual "light" win over the OS)
+    [data-theme='dark']          → dark, forced (wins over an OS set to light)
+  The toggle stamps data-theme on <html> and persists it; with no choice stored, the OS decides.
+*/
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --paper:     #16191B;
     --band:      #1C2022;
     --raised:    #1E2224;
@@ -69,6 +76,18 @@
     --accent:    #6FC0AC;
     --accent-bg: #6FC0AC14;
   }
+}
+:root[data-theme='dark'] {
+  --paper:     #16191B;
+  --band:      #1C2022;
+  --raised:    #1E2224;
+  --ink:       #E9ECE7;
+  --ink-mid:   #99A29C;
+  --ink-soft:  #6C756F;
+  --rule:      #333A36;
+  --rule-soft: #262C29;
+  --accent:    #6FC0AC;
+  --accent-bg: #6FC0AC14;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -135,8 +154,45 @@ hr, .rule {
   border-bottom: 1px solid var(--rule);
 }
 .masthead .wordmark { grid-row: 1; grid-column: 1; }
-.masthead .lang { grid-row: 1; grid-column: 2; justify-self: end; } /* pinned to the far edge */
+.masthead .chrome { grid-row: 1; grid-column: 2; justify-self: end; display: flex; align-items: center; gap: 0.5rem; } /* theme toggle + language, pinned to the far edge */
 .masthead nav { grid-row: 2; grid-column: 1 / -1; } /* full-width row of its own */
+
+/* Theme toggle — a bordered square that matches the language pill. The icon is swapped by CSS
+   off the resolved theme (moon in light = "go dark", sun in dark = "go light"), so it is right
+   on first paint even before the click script loads. */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  padding: 0;
+  border: 1px solid var(--rule);
+  border-radius: 1px;
+  background: none;
+  color: var(--ink-mid);
+  cursor: pointer;
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--ink-soft); }
+.theme-toggle svg { width: 15px; height: 15px; display: block; }
+.theme-toggle .sun { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .theme-toggle .sun { display: block; }
+  :root:not([data-theme='light']) .theme-toggle .moon { display: none; }
+}
+:root[data-theme='dark'] .theme-toggle .sun { display: block; }
+:root[data-theme='dark'] .theme-toggle .moon { display: none; }
+
+/* Marks inlined for display swap with the theme — a fixed-ink light mark is invisible on dark.
+   display:contents so the wrapper never disturbs the badge's own layout. */
+.mark-light { display: contents; }
+.mark-dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .mark-light { display: none; }
+  :root:not([data-theme='light']) .mark-dark { display: contents; }
+}
+:root[data-theme='dark'] .mark-light { display: none; }
+:root[data-theme='dark'] .mark-dark { display: contents; }
 .masthead a { text-decoration: none; }
 .wordmark {
   font-family: var(--mono);

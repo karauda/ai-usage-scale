@@ -85,6 +85,16 @@ export function levelAlt(
   return `AI Usage Scale: ${levelHead.replace('{n}', String(level.id))} — ${level.name}. ${level.oneLine}`;
 }
 
+/**
+ * A mark for DISPLAY on our own themed pages. The generated marks carry a fixed ink so they
+ * render identically wherever they are embedded — which means a light mark is invisible on our
+ * dark theme. So for our pages we inline both variants and let CSS show the one that matches the
+ * resolved theme. The single badge a creator copies to embed is unchanged.
+ */
+export function adaptiveMark(id: number, variant: 'chip' | 'stamp', alt?: string): string {
+  return `<span class="mark-light">${badgeSvg(id, variant, false, alt)}</span><span class="mark-dark">${badgeSvg(id, variant, true, alt)}</span>`;
+}
+
 /** The HTML a creator copies into their page. */
 export function embedHtml(id: number): string {
   const l = byId(id);
