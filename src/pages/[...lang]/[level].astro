@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Snippet from '../../components/Snippet.astro';
 import LevelMark from '../../components/LevelMark.astro';
 import TranslationNotice from '../../components/TranslationNotice.astro';
-import { badgeSvg, embedHtml, embedMeta, levelAlt } from '../../lib/levels';
+import { badgeSvg, embedHtml, embedMeta, levelAlt, adaptiveMark } from '../../lib/levels';
 import { LANGS, DEFAULT_LANG, getLocale, levelsIn, localePath, fmt } from '../../lib/i18n';
 
 export function getStaticPaths() {
@@ -113,7 +113,7 @@ const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
       <p class="prose lede">{t.ui.level.markLede}</p>
 
       <div class="marks">
-        <div class="mark-demo"><div set:html={badgeSvg(l.id, 'chip', false, alt(l))} /></div>
+        <div class="mark-demo"><div set:html={adaptiveMark(l.id, 'chip', alt(l))} /></div>
         <p class="mark-cap">{fmt(t.ui.level.markCap, { n: l.id })}</p>
       </div>
 
