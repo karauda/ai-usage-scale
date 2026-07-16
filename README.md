@@ -143,6 +143,6 @@ To sign the manifesto, add yourself to [`signatories.json`](signatories.json).
 
 See the [translation policy](docs/TRANSLATION-POLICY.md) before submitting a language,
 [governance](GOVERNANCE.md) for how decisions are made and what a breaking change means, and
-the [roadmap](docs/ROADMAP.md) for where this is going. Repository and release operations live in
-[RELEASING.md](docs/RELEASING.md); see also the [security policy](SECURITY.md), the
-[code of conduct](CODE_OF_CONDUCT.md), and [ways to support the project](SUPPORT.md).
+the [roadmap](docs/ROADMAP.md) for where this is going. See also the
+[security policy](SECURITY.md), the [code of conduct](CODE_OF_CONDUCT.md), and
+[ways to support the project](SUPPORT.md).
