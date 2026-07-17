@@ -1,7 +1,7 @@
 {
   "$schema": "https://usagescale.org/schema/levels-1.0.json",
   "standard": "AI Usage Scale",
-  "version": "1.0.0-draft",
+  "version": "1.1.0-draft",
   "url": "https://usagescale.org",
   "license": "CC0-1.0",
   "updated": "2026-07-17",
