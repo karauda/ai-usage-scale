@@ -3,7 +3,9 @@
   "name": "Vietnamese",
   "endonym": "Tiếng Việt",
   "dir": "ltr",
-  "translation": { "by": "machine" },
+  "translation": {
+    "by": "machine"
+  },
   "principle": "Không cấp độ nào cao hơn cấp độ nào. Một thang đo tự xếp hạng các cấp độ của chính mình là một cái thang của sự xấu hổ, và ai cũng sẽ nói dối để tụt xuống dưới. Cấp độ duy nhất không trung thực là cấp độ không được công bố.",
   "axis": {
     "measures": "Vai trò của trí tuệ nhân tạo trong việc làm ra tác phẩm: nội dung của nó là của ai, và ai chịu trách nhiệm về nó.",
@@ -45,7 +47,7 @@
       "id": 1,
       "name": "Hỗ trợ",
       "oneLine": "AI chỉ xử lý những gì bạn đã làm ra. Nó không bịa thêm điều gì.",
-      "definition": "Bạn làm ra tác phẩm. AI chỉ xử lý chất liệu của bạn hoặc hỗ trợ ở hậu trường: sửa lỗi, chép lại hay dịch trung thành, làm sạch, gắn thẻ, định dạng, tìm kiếm hoặc góp ý. Ngoài bản chép lại hay bản dịch trung thành từ chất liệu của bạn, không có chất liệu nào do mô hình tạo ra xuất hiện trong tác phẩm đã công bố.",
+      "definition": "Bạn làm ra tác phẩm. AI chỉ xử lý chất liệu của bạn hoặc giúp phía sau hậu trường: sửa lỗi, gỡ băng hay dịch trung thực, làm sạch, gắn thẻ, định dạng, tìm kiếm, góp ý. Ngoài bản gỡ băng hay bản dịch trung thực chất liệu của bạn, không có gì của riêng mô hình — câu chữ hay nội dung cốt lõi — xuất hiện trong tác phẩm được công bố.",
       "includes": [
         "Sửa ngữ pháp, chính tả và văn phong cho những câu do bạn viết",
         "Gỡ băng đoạn ghi âm do bạn thu",
@@ -55,7 +57,7 @@
       ],
       "excludes": [
         "AI phác một câu, một đoạn, một hình ảnh hay một giai điệu còn trụ lại trong tác phẩm — đó là Cấp độ 2 trở lên",
-        "AI tái cấu trúc lập luận của bạn, chứ không chỉ câu chữ của bạn"
+        "AI nghĩ ra hoặc tái cấu trúc chính lập luận, chứ không chỉ câu chữ của bạn — đó là Cấp độ 2 trở lên, ngay cả khi từng chữ đều do bạn viết"
       ],
       "examples": [
         "Một bài báo bạn viết, đưa qua mô hình để soát ngữ pháp.",
@@ -73,12 +75,13 @@
       "id": 2,
       "name": "Đồng sáng tạo",
       "oneLine": "Phần lớn hình thức cuối cùng là do bạn làm. AI làm ra vài phần còn ở lại trong đó.",
-      "definition": "Tác phẩm là của bạn về cấu trúc và về phần lớn công đoạn thực hiện, nhưng chất liệu do một mô hình sinh ra vẫn còn lại trong kết quả đã công bố: những đoạn văn, những chi tiết, những phương án bạn chọn giữa chúng. Phần lớn những gì khán giả nhận được là do bạn viết, vẽ hay chơi ra.",
+      "definition": "Phần thực hiện tác phẩm chủ yếu là của bạn, nhưng chất liệu do mô hình tạo ra còn trụ lại trong kết quả công bố: các đoạn, các thành phần, các phương án bạn chọn giữa chúng — hay lập luận hoặc cấu trúc nó đề xuất mà bạn giữ lại, dù bằng lời của mình. Phần lớn những gì khán giả nhận được là do bạn viết, vẽ hoặc chơi.",
       "includes": [
         "AI phác một mục, rồi bạn viết lại, và chữ của bạn áp đảo toàn bài",
         "AI sinh ra nhiều phương án, bạn chọn lấy rồi biên tập",
         "AI viết một hàm bên trong mã nguồn mà bạn thiết kế và tự viết phần lớn",
-        "AI mở rộng hay lấp đầy một phần bức ảnh do bạn bố cục"
+        "AI mở rộng hay lấp đầy một phần bức ảnh do bạn bố cục",
+        "AI đề xuất luận đề, dàn ý hoặc cấu trúc mà sau đó bạn tự viết ra bằng lời của mình"
       ],
       "excludes": [
         "AI tạo ra phần lớn câu chữ hay điểm ảnh cuối cùng — đó là Cấp độ 3 trở lên",
@@ -186,7 +189,7 @@
     },
     {
       "question": "AI có tạo ra chất liệu mới xuất hiện trong tác phẩm đã công bố không — vượt quá việc xử lý máy móc những gì bạn đã làm ra?",
-      "help": "Sửa ngữ pháp, chép lại hoặc dịch trung thành lời của bạn, khử nhiễu ảnh hay gắn thẻ tệp là xử lý máy móc. Việc nghiên cứu, lên ý tưởng hoặc góp ý mà không để lại chất liệu do mô hình tạo ra trong tác phẩm cũng vậy. Viết một đoạn mới, vẽ một hình mới hoặc soạn một giai điệu mới là tạo ra chất liệu mới."
+      "help": "Sửa ngữ pháp của bạn, gỡ băng hay dịch trung thực lời của bạn, khử nhiễu ảnh của bạn hoặc gắn thẻ tệp của bạn là xử lý cơ học. Phản hồi, phê bình, tra cứu và kiểm chứng dữ kiện mà không để lại gì của riêng mô hình trong tác phẩm cũng vậy — lời khuyên của biên tập viên không biến biên tập viên thành tác giả. Chất liệu mới bao gồm cả nội dung cốt lõi lẫn câu chữ: một đoạn văn, một hình ảnh, một giai điệu — hay một luận đề, lập luận, cấu trúc do mô hình nghĩ ra, ngay cả khi bạn viết lại toàn bộ bằng lời của mình."
     },
     {
       "question": "Phần lớn hình thức cuối cùng có phải do chính bạn làm không — phần lớn câu chữ, điểm ảnh hay âm thanh?",
@@ -211,6 +214,11 @@
       "case": "Gỡ băng",
       "rule": "Gỡ băng lời nói do chính bạn thu là xử lý máy móc. Nó không làm cấp độ tăng lên.",
       "why": "Chữ là của bạn. Mô hình chỉ chép chúng xuống."
+    },
+    {
+      "case": "Nội dung cốt lõi từ AI, câu chữ từ bạn",
+      "rule": "Nếu mô hình nghĩ ra nội dung cốt lõi quyết định tác phẩm nói gì — luận đề, lập luận, cấu trúc — thì nó đã tạo ra chất liệu mới còn trụ lại trong tác phẩm, ngay cả khi từng chữ đều do bạn viết. Đó là Cấp độ 2 trở lên, không bao giờ là Cấp độ 1. Phản hồi, phê bình và kiểm chứng dữ kiện mà bạn tự xác minh vẫn là Cấp độ 1: lời khuyên của biên tập viên không biến biên tập viên thành tác giả.",
+      "why": "Ý tưởng là chất liệu. Viết lại chúng bằng lời của mình không xoá được việc chúng đã được nghĩ ra — và lời hứa của Cấp độ 1, rằng mô hình không nghĩ ra gì cả, phải đúng nghĩa đen."
     },
     {
       "case": "Chất liệu trang trí",
@@ -288,7 +296,8 @@
       "headOf": "Cho phần <head> của trang bạn",
       "surfacesH": "Nếu các phần khác nhau",
       "copy": "Sao chép",
-      "copied": "Đã sao chép"
+      "copied": "Đã sao chép",
+      "inlineName": "SVG nhúng kèm tên cấp độ — cho người đọc lần đầu thấy thang đo và cần con chữ, không chỉ con số"
     },
     "scalePage": {
       "eyebrow": "Thang đo",
@@ -362,7 +371,11 @@
       "machineLede": "Các định nghĩa tiếng Anh chính thức nằm trong một tệp duy nhất và làm nguồn cho huy hiệu cùng đầu ra máy có thể đọc. Phần giải thích đã bản địa hóa được duy trì riêng và được kiểm tra để bảo đảm tương ứng về cấu trúc.",
       "priorArt": "Những gì có trước",
       "priorLede": "Không có gì ở đây là chưa từng có tiền lệ, và giả vờ ngược lại thì tự nó đã là một sự thiếu trung thực nho nhỏ.",
-      "why": "Vì sao"
+      "why": "Vì sao",
+      "wellKnown": "Một trang web cũng có thể công bố bản khai cho toàn trang tại đường dẫn well-known, nơi trình thu thập biết tìm mà không cần chỉ dẫn:",
+      "challengeH": "Nếu bạn nghi ngờ một bản khai",
+      "challengeA": "Bản khai có thể bị bác bỏ công khai. Hãy kiểm tra liên kết và siêu dữ liệu; đối chiếu cấp độ đã khai với tác phẩm, và ở chỗ khác nhau — với phần chia theo bề mặt; rồi hỏi tác giả — trong bình luận, bài đánh giá, hay issue. Phần lớn chênh lệch là cách đọc trung thực về một ranh giới, và các trường hợp biên ở trên giải quyết được phần lớn.",
+      "challengeB": "Nếu một bản khai cố tình sai, câu trả lời của chuẩn này là câu trả lời có thể mở rộng: tuyên bố đã công khai, có thể liên kết — và giờ bị bác bỏ công khai. Ở đây cố ý không có máy dò, không có sổ đăng ký. Uy tín chính là cơ chế thực thi, hệt như với một dòng đề tên tác giả."
     },
     "signPage": {
       "eyebrow": "Người ký tên",
@@ -374,7 +387,8 @@
       "howB": "Nếu pull request không phải thế giới của bạn, hãy mở một issue và sẽ có người thêm tên bạn vào.",
       "addName": "Thêm tên của bạn",
       "count": "người ký tên",
-      "note": "Con số bên cạnh một cái tên, ở nơi có nó, là cấp độ mà người ấy phát hành thường xuyên nhất. Đó không phải điểm số. Nhiều người ở đây thường là 4, và họ nói thẳng ra như vậy, mà đó đúng là toàn bộ vấn đề."
+      "note": "Con số bên cạnh một cái tên, ở nơi có nó, là cấp độ mà người ấy phát hành thường xuyên nhất. Đó không phải điểm số. Nhiều người ở đây thường là 4, và họ nói thẳng ra như vậy, mà đó đúng là toàn bộ vấn đề.",
+      "noGithub": "Hoàn toàn không dùng GitHub? Gửi tên bạn qua trang liên hệ và tên sẽ được thêm giúp bạn."
     },
     "lang": {
       "label": "Ngôn ngữ",

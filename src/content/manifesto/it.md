@@ -2,7 +2,7 @@
 lang: it
 title: Il manifesto dell'uso dell'IA
 standfirst: Non esiste un livello vergognoso. Esiste solo quello non dichiarato.
-version: 1.0.0-draft
+version: 1.1.0-draft
 level: 3
 ---
 

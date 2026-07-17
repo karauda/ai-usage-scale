@@ -3,7 +3,9 @@
   "name": "Swedish",
   "endonym": "Svenska",
   "dir": "ltr",
-  "translation": { "by": "machine" },
+  "translation": {
+    "by": "machine"
+  },
   "principle": "Ingen nivå rangordnas över någon annan. En skala som rangordnar sina egna nivåer är en skamstege, och alla ljuger sig nedför den. Den enda oärliga nivån är en odeklarerad nivå.",
   "axis": {
     "measures": "Den roll artificiell intelligens spelade när verket blev till: vems substans det är, och vem som ansvarar för det.",
@@ -45,7 +47,7 @@
       "id": 1,
       "name": "Assisterat",
       "oneLine": "AI arbetade bara med material du redan hade gjort. Den hittade inte på något.",
-      "definition": "Du gjorde verket. AI bearbetade bara ditt material eller hjälpte till bakom kulisserna: rättade, transkriberade eller översatte troget, rensade, taggade, formaterade, sökte eller gav återkoppling. Med undantag för en trogen transkribering eller översättning av ditt material förekommer inget modellproducerat material i det publicerade verket.",
+      "definition": "Du gjorde verket. AI har bara bearbetat ditt material eller hjälpt till bakom kulisserna: rättat, troget transkriberat eller översatt, städat, taggat, formaterat, sökt eller gett feedback. Bortsett från en trogen transkription eller översättning av ditt material finns inget av modellens eget — varken formulering eller substans — i det publicerade verket.",
       "includes": [
         "Grammatik-, stavnings- och stilrättning av meningar du skrivit",
         "Transkribering av ljud du spelat in",
@@ -55,7 +57,7 @@
       ],
       "excludes": [
         "AI som skriver utkastet till en mening, ett stycke, en bild eller en melodi som överlever in i verket — det är Nivå 2 eller högre",
-        "AI som strukturerar om ditt argument snarare än din prosa"
+        "AI som tänker ut eller strukturerar om själva resonemanget snarare än din prosa — det är Nivå 2 eller högre, även om du skrivit varje ord själv"
       ],
       "examples": [
         "En artikel du skrivit, körd genom en modell för grammatikkontroll.",
@@ -73,12 +75,13 @@
       "id": 2,
       "name": "Samskapat",
       "oneLine": "Du gjorde det mesta av den slutliga formen. AI gjorde delar av den som blev kvar.",
-      "definition": "Verket är ditt till sin struktur och i större delen av utförandet, men material som en modell producerat överlever i det publicerade resultatet: passager, element, varianter du valde mellan. Du skrev, tecknade eller spelade merparten av det publiken tar emot.",
+      "definition": "Verket är i utförandet till största delen ditt, men material som en modell producerat överlever i det publicerade resultatet: passager, element, varianter du valt mellan — eller resonemanget eller strukturen som den föreslog och som du behöll, även med egna ord. Merparten av det publiken tar emot har du skrivit, tecknat eller spelat.",
       "includes": [
         "AI skriver utkastet till ett avsnitt som du sedan skriver om, där dina ord dominerar helheten",
         "AI genererar varianter som du väljer bland och redigerar",
         "AI skriver en funktion inuti en kodbas du designat och till största delen skrivit",
-        "AI utökar eller fyller i en del av en bild du komponerat"
+        "AI utökar eller fyller i en del av en bild du komponerat",
+        "AI som föreslår tesen, dispositionen eller strukturen som du sedan skriver ut med egna ord"
       ],
       "excludes": [
         "AI producerar merparten av de slutliga orden eller pixlarna — det är Nivå 3 eller högre",
@@ -186,7 +189,7 @@
     },
     {
       "question": "Producerade AI nytt material som finns i det publicerade verket — utöver att mekaniskt bearbeta det du redan hade gjort?",
-      "help": "Att rätta din grammatik, troget transkribera eller översätta dina ord, brusreducera ditt foto eller tagga dina filer är mekanisk bearbetning. Detsamma gäller research, idéarbete eller återkoppling som inte lämnar något modellproducerat material i verket. Att skriva ett nytt stycke, teckna en ny bild eller komponera en ny melodi är nytt material."
+      "help": "Att rätta din grammatik, troget transkribera eller översätta dina ord, brusreducera ditt foto eller tagga dina filer är mekanisk bearbetning. Detsamma gäller feedback, kritik, efterforskning och faktakoll som inte lämnar något av modellens eget i verket — en redaktörs råd gör inte redaktören till författare. Nytt material omfattar substans såväl som formulering: ett stycke, en bild, en melodi — eller en tes, ett resonemang eller en struktur som modellen tänkt ut, även om du återgett dem helt med egna ord."
     },
     {
       "question": "Gjorde du merparten av den slutliga formen själv — de flesta orden, pixlarna eller ljudet?",
@@ -211,6 +214,11 @@
       "case": "Transkribering",
       "rule": "Att transkribera tal du spelat in är mekanisk bearbetning. Det höjer inte nivån.",
       "why": "Orden är dina. Modellen skrev bara ned dem."
+    },
+    {
+      "case": "Substansen från AI, orden från dig",
+      "rule": "Om en modell tänkt ut den substans som väsentligen avgör vad verket säger — tesen, resonemanget, strukturen — har den producerat nytt material som överlever i verket, även om du skrivit varje ord själv. Det är Nivå 2 eller högre, aldrig Nivå 1. Feedback, kritik och faktakoll som du själv kontrollerar förblir Nivå 1: en redaktörs råd gör inte redaktören till författare.",
+      "why": "Idéer är material. Att återge dem med egna ord gör dem inte o-uppfunna — och Nivå 1:s löfte, att modellen inte tänkt ut något, måste betyda just det."
     },
     {
       "case": "Dekorativa element",
@@ -288,7 +296,8 @@
       "headOf": "För <head> på din sida",
       "surfacesH": "Om delarna skiljer sig åt",
       "copy": "Kopiera",
-      "copied": "Kopierat"
+      "copied": "Kopierat",
+      "inlineName": "Inline-SVG med nivåns namn — där någon ser skalan för första gången och behöver ordet, inte bara siffran"
     },
     "scalePage": {
       "eyebrow": "Skalan",
@@ -362,7 +371,11 @@
       "machineLede": "De kanoniska engelska definitionerna finns i en enda fil och styr märkena och den maskinläsbara utdataformen. Lokaliserade förklarande texter underhålls separat och kontrolleras så att strukturen överensstämmer.",
       "priorArt": "Föregångare",
       "priorLede": "Ingenting här saknar motstycke, och att låtsas något annat vore en egen liten oärlighet.",
-      "why": "Varför"
+      "why": "Varför",
+      "wellKnown": "En webbplats kan också publicera en deklaration för hela platsen på en well-known-sökväg, där en crawler vet att titta utan att bli tillsagd:",
+      "challengeH": "Om du tvivlar på en deklaration",
+      "challengeA": "En deklaration är offentligt falsifierbar. Kontrollera länken och metadatan; jämför den deklarerade nivån med verket och, där de skiljer sig, med uppdelningen per yta; fråga sedan upphovspersonen — i en kommentar, en recension, ett ärende. De flesta avvikelser är ärliga tolkningar av en gräns, och gränsfallen ovan avgör de flesta.",
+      "challengeB": "Är en deklaration medvetet falsk är standardens svar det som skalar: påståendet var offentligt och länkbart — och nu offentligt vederlagt. Här finns ingen detektor och inget register, med avsikt. Ryktet är sanktionen, precis som för en byline."
     },
     "signPage": {
       "eyebrow": "Undertecknare",
@@ -374,7 +387,8 @@
       "howB": "Om pull requests inte är din värld, öppna ett issue så lägger någon till dig.",
       "addName": "Lägg till ditt namn",
       "count": "undertecknare",
-      "note": "Siffran bredvid ett namn, där det finns en, är den nivå personen oftast publicerar på. Det är inte ett betyg. Flera av personerna här är oftast en 4:a, och säger det, vilket är precis poängen."
+      "note": "Siffran bredvid ett namn, där det finns en, är den nivå personen oftast publicerar på. Det är inte ett betyg. Flera av personerna här är oftast en 4:a, och säger det, vilket är precis poängen.",
+      "noGithub": "Inget GitHub alls? Skicka ditt namn via kontaktsidan så läggs det till åt dig."
     },
     "lang": {
       "label": "Språk",

@@ -3,7 +3,9 @@
   "name": "French",
   "endonym": "Français",
   "dir": "ltr",
-  "translation": { "by": "machine" },
+  "translation": {
+    "by": "machine"
+  },
   "principle": "Aucun niveau ne se situe au-dessus d'un autre. Une échelle qui classe ses propres niveaux est une échelle de la honte, et chacun ment pour en descendre. Le seul niveau malhonnête est celui qu'on ne déclare pas.",
   "axis": {
     "measures": "Le rôle que l'intelligence artificielle a joué dans la fabrication de l'œuvre : de qui est la substance, et qui en répond.",
@@ -45,7 +47,7 @@
       "id": 1,
       "name": "Assisté",
       "oneLine": "L'IA n'a travaillé que sur du matériau que vous aviez déjà produit. Elle n'a rien inventé.",
-      "definition": "Vous avez fait l'œuvre. L'IA s'est contentée de traiter votre matériau ou de vous aider en coulisses : correction, transcription ou traduction fidèle, nettoyage, indexation, mise en forme, recherche ou retours. Hormis une transcription ou une traduction fidèle de votre matériau, aucun matériau produit par un modèle n'apparaît dans l'œuvre publiée.",
+      "definition": "Vous avez fait l'œuvre. L'IA n'a fait que traiter votre matériau, ou aider en coulisses : corriger, transcrire ou traduire fidèlement, nettoyer, étiqueter, mettre en forme, chercher, donner des retours. Hormis une transcription ou une traduction fidèle de votre matériau, rien qui vienne du modèle lui-même — ni formulation ni substance — n'apparaît dans l'œuvre publiée.",
       "includes": [
         "Correction de la grammaire, de l'orthographe et du style de phrases que vous avez écrites",
         "Transcription d'un audio que vous avez enregistré",
@@ -55,7 +57,7 @@
       ],
       "excludes": [
         "L'IA rédige une phrase, un paragraphe, une image ou une mélodie qui survit dans l'œuvre — c'est le Level 2 ou au-dessus",
-        "L'IA restructure votre argumentation, et pas seulement votre prose"
+        "L'IA conçoit ou restructure l'argumentation elle-même, et pas seulement votre prose — c'est le Level 2 ou au-dessus, même si vous avez écrit chaque mot vous-même"
       ],
       "examples": [
         "Un article que vous avez écrit, passé dans un modèle pour la grammaire.",
@@ -73,12 +75,13 @@
       "id": 2,
       "name": "Cocréé",
       "oneLine": "Vous avez fait l'essentiel de la forme finale. L'IA en a produit des parties qui sont restées.",
-      "definition": "L'œuvre est la vôtre dans sa structure et dans la plus grande part de son exécution, mais du matériau produit par un modèle survit dans le résultat publié : des passages, des éléments, des variantes entre lesquelles vous avez choisi. Vous avez écrit, dessiné ou joué la majorité de ce que le public reçoit.",
+      "definition": "L'œuvre est majoritairement vôtre dans l'exécution, mais du matériau produit par un modèle survit dans le résultat publié : des passages, des éléments, des variantes entre lesquelles vous avez choisi — ou l'argumentation ou la structure qu'il a proposées et que vous avez gardées, même dans vos propres mots. Vous avez écrit, dessiné ou joué la majorité de ce que le public reçoit.",
       "includes": [
         "L'IA rédige une section que vous réécrivez ensuite, vos mots dominant l'ensemble",
         "L'IA génère des variantes que vous sélectionnez et retravaillez",
         "L'IA écrit une fonction dans une base de code que vous avez conçue et écrite en grande partie",
-        "L'IA étend ou complète une partie d'une image que vous avez composée"
+        "L'IA étend ou complète une partie d'une image que vous avez composée",
+        "L'IA propose la thèse, le plan ou la structure que vous rédigez ensuite dans vos propres mots"
       ],
       "excludes": [
         "L'IA produit la majorité des mots ou des pixels finaux — c'est le Level 3 ou au-dessus",
@@ -186,7 +189,7 @@
     },
     {
       "question": "L'IA a-t-elle produit du matériau nouveau qui apparaît dans l'œuvre publiée — au-delà du traitement mécanique de ce que vous aviez déjà fait ?",
-      "help": "Corriger votre grammaire, transcrire ou traduire fidèlement vos mots, débruiter votre photo ou indexer vos fichiers, c'est du traitement mécanique. Il en va de même pour la recherche, l'idéation ou les retours qui ne laissent aucun matériau produit par le modèle dans l'œuvre. Écrire un paragraphe nouveau, dessiner une image nouvelle ou composer une mélodie nouvelle, c'est du matériau nouveau."
+      "help": "Corriger votre grammaire, transcrire ou traduire fidèlement vos mots, débruiter votre photo ou étiqueter vos fichiers relève du traitement mécanique. De même pour les retours, la critique, la recherche et la vérification de faits qui ne laissent rien du modèle lui-même dans l'œuvre — le conseil d'un éditeur ne fait pas de l'éditeur un auteur. Le matériau nouveau inclut la substance autant que la formulation : un paragraphe, une image, une mélodie — ou une thèse, une argumentation, une structure que le modèle a conçues, même si vous les avez entièrement reformulées dans vos propres mots."
     },
     {
       "question": "Avez-vous fait vous-même l'essentiel de la forme finale — la plupart des mots, des pixels ou des sons ?",
@@ -211,6 +214,11 @@
       "case": "Transcription",
       "rule": "Transcrire une parole que vous avez enregistrée est un traitement mécanique. Cela ne fait pas monter le niveau.",
       "why": "Les mots sont les vôtres. Le modèle n'a fait que les écrire."
+    },
+    {
+      "case": "La substance vient de l'IA, les mots de vous",
+      "rule": "Si un modèle a conçu la substance qui détermine matériellement ce que dit l'œuvre — la thèse, l'argumentation, la structure —, il a produit du matériau nouveau qui survit dans l'œuvre, même si vous avez écrit chaque mot vous-même. C'est le Level 2 ou au-dessus, jamais le Level 1. Les retours, la critique et la vérification de faits que vous contrôlez restent Level 1 : le conseil d'un éditeur ne fait pas de l'éditeur un auteur.",
+      "why": "Les idées sont du matériau. Les reformuler dans vos propres mots ne les dés-invente pas — et la promesse du Level 1, que le modèle n'a rien inventé, doit vouloir dire exactement cela."
     },
     {
       "case": "Éléments décoratifs",
@@ -288,7 +296,8 @@
       "headOf": "Pour le <head> de votre page",
       "surfacesH": "Si les parties diffèrent",
       "copy": "Copier",
-      "copied": "Copié"
+      "copied": "Copié",
+      "inlineName": "SVG en ligne avec le nom du niveau — là où un lecteur qui découvre l'échelle a besoin du mot, pas seulement du chiffre"
     },
     "scalePage": {
       "eyebrow": "L'échelle",
@@ -362,7 +371,11 @@
       "machineLede": "Les définitions canoniques en anglais résident dans un seul fichier et alimentent les badges ainsi que la sortie lisible par machine. Les textes explicatifs localisés sont gérés séparément et leur parité structurelle est contrôlée.",
       "priorArt": "Antériorités",
       "priorLede": "Rien ici n'est sans précédent, et prétendre le contraire serait une petite malhonnêteté de plus.",
-      "why": "Pourquoi"
+      "why": "Pourquoi",
+      "wellKnown": "Un site peut aussi publier une déclaration pour tout le site à un chemin well-known, où un robot sait regarder sans qu'on le lui dise :",
+      "challengeH": "Si vous doutez d'une déclaration",
+      "challengeA": "Une déclaration est falsifiable en public. Vérifiez le lien et les métadonnées ; comparez le niveau déclaré à l'œuvre et, là où ils divergent, au détail par surfaces ; puis demandez à l'auteur — en commentaire, dans une critique, dans une issue. La plupart des écarts sont des lectures honnêtes d'une frontière, et les cas limites ci-dessus en règlent la plupart.",
+      "challengeB": "Si une déclaration est sciemment fausse, la réponse du standard est celle qui passe à l'échelle : l'affirmation était publique et liable, et la voilà falsifiée en public. Pas de détecteur ni de registre ici, à dessein — la réputation est la sanction, exactement comme pour une signature."
     },
     "signPage": {
       "eyebrow": "Signataires",
@@ -374,7 +387,8 @@
       "howB": "Si la pull request n'est pas votre monde, ouvrez un ticket et quelqu'un vous ajoutera.",
       "addName": "Ajoutez votre nom",
       "count": "signataires",
-      "note": "Le chiffre à côté d'un nom, quand il y en a un, est le niveau auquel cette personne publie le plus souvent. Ce n'est pas une note. Plusieurs des personnes ici sont le plus souvent un 4, et le disent — c'est exactement le propos."
+      "note": "Le chiffre à côté d'un nom, quand il y en a un, est le niveau auquel cette personne publie le plus souvent. Ce n'est pas une note. Plusieurs des personnes ici sont le plus souvent un 4, et le disent — c'est exactement le propos.",
+      "noGithub": "Pas de GitHub du tout ? Envoyez votre nom via la page de contact, et il sera ajouté pour vous."
     },
     "lang": {
       "label": "Langue",

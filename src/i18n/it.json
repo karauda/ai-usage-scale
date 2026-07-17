@@ -3,7 +3,9 @@
   "name": "Italian",
   "endonym": "Italiano",
   "dir": "ltr",
-  "translation": { "by": "machine" },
+  "translation": {
+    "by": "machine"
+  },
   "principle": "Nessun livello vale più di un altro. Una scala che mette in classifica i propri livelli è una scala della vergogna, e tutti mentiranno per scenderla. L'unico livello disonesto è quello non dichiarato.",
   "axis": {
     "measures": "Il ruolo che l'intelligenza artificiale ha avuto nel fare l'opera: di chi è la sostanza e chi ne risponde.",
@@ -45,7 +47,7 @@
       "id": 1,
       "name": "Assistito",
       "oneLine": "L'IA ha lavorato solo su materiale che avevi già fatto tu. Non ha inventato nulla.",
-      "definition": "L'opera l'hai fatta tu. L'IA si è limitata a elaborare il tuo materiale o ti ha aiutato dietro le quinte: correggendo, trascrivendo o traducendo fedelmente, ripulendo, etichettando, formattando, cercando o dando riscontri. Salvo una trascrizione o una traduzione fedele del tuo materiale, nell'opera pubblicata non compare alcun materiale prodotto da un modello.",
+      "definition": "L'opera l'hai fatta tu. L'IA ha solo elaborato il tuo materiale o aiutato dietro le quinte: correggendo, trascrivendo o traducendo fedelmente, ripulendo, etichettando, formattando, cercando o dando riscontri. Salvo una trascrizione o traduzione fedele del tuo materiale, nell'opera pubblicata non compare nulla del modello — né formulazione né sostanza.",
       "includes": [
         "Correzione di grammatica, ortografia e stile di frasi che hai scritto tu",
         "Trascrivere un audio che hai registrato tu",
@@ -55,7 +57,7 @@
       ],
       "excludes": [
         "L'IA che scrive una frase, un paragrafo, un'immagine o una melodia che sopravvive nell'opera: quello è Livello 2 o superiore",
-        "L'IA che ristruttura il tuo ragionamento e non solo la tua prosa"
+        "L'IA che idea o ristruttura il ragionamento stesso, e non solo la tua prosa: quello è Livello 2 o superiore, anche se ogni parola l'hai scritta tu"
       ],
       "examples": [
         "Un articolo che hai scritto tu, passato a un modello per la grammatica.",
@@ -73,12 +75,13 @@
       "id": 2,
       "name": "Cocreato",
       "oneLine": "La maggior parte della forma finale l'hai fatta tu. L'IA ne ha fatto parti che sono rimaste.",
-      "definition": "L'opera è tua nella struttura e nella maggior parte dell'esecuzione, ma nel risultato pubblicato sopravvive del materiale prodotto da un modello: passaggi, elementi, varianti fra cui hai scelto. Hai scritto, disegnato o suonato la maggior parte di ciò che il pubblico riceve.",
+      "definition": "L'esecuzione dell'opera è in gran parte tua, ma materiale prodotto da un modello sopravvive nel risultato pubblicato: passaggi, elementi, varianti fra cui hai scelto — o il ragionamento o la struttura che ha proposto e che hai tenuto, anche con parole tue. La maggior parte di ciò che il pubblico riceve l'hai scritta, disegnata o suonata tu.",
       "includes": [
         "L'IA che scrive una sezione che poi riscrivi, e le tue parole dominano l'insieme",
         "L'IA che genera varianti fra cui scegli e che poi correggi",
         "L'IA che scrive una funzione dentro un codice che hai progettato e scritto in gran parte tu",
-        "L'IA che estende o riempie parte di un'immagine che hai composto tu"
+        "L'IA che estende o riempie parte di un'immagine che hai composto tu",
+        "L'IA che propone la tesi, la scaletta o la struttura che poi scrivi con parole tue"
       ],
       "excludes": [
         "L'IA che produce la maggior parte delle parole o dei pixel finali: quello è Livello 3 o superiore",
@@ -186,7 +189,7 @@
     },
     {
       "question": "L'IA ha prodotto materiale nuovo che compare nell'opera pubblicata, al di là dell'elaborazione meccanica di ciò che avevi già fatto tu?",
-      "help": "Correggere la tua grammatica, trascrivere o tradurre fedelmente le tue parole, togliere il rumore dalla tua foto o etichettare i tuoi file è elaborazione meccanica. Lo sono anche la ricerca, l'ideazione o i riscontri che non lasciano nell'opera alcun materiale prodotto dal modello. Scrivere un paragrafo nuovo, disegnare un'immagine nuova o comporre una melodia nuova è materiale nuovo."
+      "help": "Correggere la tua grammatica, trascrivere o tradurre fedelmente le tue parole, ripulire dal rumore la tua foto o etichettare i tuoi file è elaborazione meccanica. Lo sono anche i commenti, la critica, la ricerca e la verifica dei fatti che non lasciano nell'opera nulla del modello — il consiglio di un editor non fa dell'editor un autore. Il materiale nuovo include la sostanza oltre alla formulazione: un paragrafo, un'immagine, una melodia — o una tesi, un ragionamento, una struttura ideati dal modello, anche se li hai riscritti interamente con parole tue."
     },
     {
       "question": "Hai fatto tu la maggior parte della forma finale: la maggior parte delle parole, dei pixel o del suono?",
@@ -211,6 +214,11 @@
       "case": "Trascrizione",
       "rule": "Trascrivere un parlato che hai registrato tu è elaborazione meccanica. Non alza il livello.",
       "why": "Le parole sono tue. Il modello si è limitato a metterle per iscritto."
+    },
+    {
+      "case": "La sostanza dall'IA, le parole da te",
+      "rule": "Se un modello ha ideato la sostanza che determina materialmente ciò che l'opera dice — la tesi, il ragionamento, la struttura — ha prodotto materiale nuovo che sopravvive nell'opera, anche se ogni parola l'hai scritta tu. Quello è Livello 2 o superiore, mai Livello 1. Commenti, critica e verifica dei fatti che controlli tu restano Livello 1: il consiglio di un editor non fa dell'editor un autore.",
+      "why": "Le idee sono materiale. Riscriverle con parole tue non le dis-inventa — e la promessa del Livello 1, che il modello non abbia ideato nulla, deve significare esattamente questo."
     },
     {
       "case": "Elementi decorativi",
@@ -288,7 +296,8 @@
       "headOf": "Per il <head> della tua pagina",
       "surfacesH": "Se le parti divergono",
       "copy": "Copia",
-      "copied": "Copiato"
+      "copied": "Copiato",
+      "inlineName": "SVG inline con il nome del livello — dove chi vede la scala per la prima volta ha bisogno della parola, non solo del numero"
     },
     "scalePage": {
       "eyebrow": "La scala",
@@ -362,7 +371,11 @@
       "machineLede": "Le definizioni canoniche in inglese risiedono in un unico file e alimentano i badge e l'output leggibile dalle macchine. I testi esplicativi localizzati sono mantenuti separatamente e ne viene verificata la parità strutturale.",
       "priorArt": "Precedenti",
       "priorLede": "Niente di tutto questo è inedito, e fingere il contrario sarebbe una piccola disonestà in sé.",
-      "why": "Perché"
+      "why": "Perché",
+      "wellKnown": "Un sito può anche pubblicare una dichiarazione per l'intero sito a un percorso well-known, dove un crawler sa dove guardare senza che glielo si dica:",
+      "challengeH": "Se dubiti di una dichiarazione",
+      "challengeA": "Una dichiarazione è falsificabile in pubblico. Controlla il link e i metadati; confronta il livello dichiarato con l'opera e, dove divergono, con la ripartizione per superfici; poi chiedi all'autore — in un commento, una recensione, una issue. La maggior parte degli scarti sono letture oneste di un confine, e i casi limite qui sopra ne risolvono quasi tutti.",
+      "challengeB": "Se una dichiarazione è consapevolmente falsa, la risposta dello standard è quella che scala: l'affermazione era pubblica e linkabile, e ora è falsificata in pubblico. Qui non c'è né detector né registro, di proposito: la reputazione è l'applicazione, esattamente come per una firma."
     },
     "signPage": {
       "eyebrow": "Firmatari",
@@ -374,7 +387,8 @@
       "howB": "Se le pull request non sono il tuo mondo, apri una issue e qualcuno ti aggiungerà.",
       "addName": "Aggiungi il tuo nome",
       "count": "firmatari",
-      "note": "Il numero accanto a un nome, dove c'è, è il livello a cui quella persona pubblica più spesso. Non è un voto. Diverse delle persone qui sono di solito un 4, e lo dicono, che è esattamente il punto."
+      "note": "Il numero accanto a un nome, dove c'è, è il livello a cui quella persona pubblica più spesso. Non è un voto. Diverse delle persone qui sono di solito un 4, e lo dicono, che è esattamente il punto.",
+      "noGithub": "Niente GitHub? Manda il tuo nome dalla pagina dei contatti e verrà aggiunto per te."
     },
     "lang": {
       "label": "Lingua",

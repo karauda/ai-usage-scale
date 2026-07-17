@@ -1,0 +1,162 @@
+---
+/* The case corpus: real published works, classified, with the reasoning shown. English on
+   every route, like the ecosystem map — factual reference prose about other people's work,
+   where a paraphrase in twenty languages is twenty chances to misstate what happened. */
+import Base from '../../layouts/Base.astro';
+import { CASES } from '../../data/cases';
+import { localeParams, localePath } from '../../lib/i18n';
+
+export const getStaticPaths = localeParams;
+const { lang } = Astro.props;
+const L = (p: string) => localePath(lang, p);
+---
+
+<Base
+  lang={lang}
+  path="/cases"
+  translated={false}
+  title="The case corpus — AI Usage Scale"
+  description="Real published works classified on the AI Usage Scale, with the reasoning shown: The Beatles at Level 0, The Guardian's GPT-3 essay at 4, the AP's automated earnings at 5, and the case with no level at all."
+  breadcrumb={[['Cases', '/cases']]}
+  schema={[
+    {
+      '@type': 'WebPage',
+      '@id': 'https://usagescale.org/cases#page',
+      name: 'The case corpus',
+      inLanguage: 'en',
+      isPartOf: { '@id': 'https://usagescale.org/#site' },
+    },
+  ]}
+>
+  <header class="top prose">
+    <p class="label">Real works, classified</p>
+    <h1>The case corpus</h1>
+    <p class="standfirst">
+      A scale is tested on works, not on examples it wrote for itself. These are real,
+      published, sourced — with the walk to the number shown, so you can disagree with it.
+    </p>
+    <p>
+      Every claim below is checkable against the linked sources. The classification is ours,
+      read from public reporting of how each work was made; it is never a judgment of the
+      work's quality, and where the makers declare a level themselves, their declaration wins.
+      A case that refuses to classify cleanly is a finding about the scale —
+      <a href="https://github.com/karauda/ai-usage-scale">bring it</a>.
+    </p>
+  </header>
+
+  <div class="sheet">
+    {
+      CASES.map((c) => (
+        <article class="case-row" id={c.slug}>
+          <div class="c-mark">
+            {c.level === null ? (
+              <span class="c-big none" title="Undeclared">—</span>
+            ) : (
+              <a class="c-big" href={L(`/${c.level}`)}>{c.level}</a>
+            )}
+            <span class="tick-row" aria-hidden="true">
+              {[0, 1, 2, 3, 4, 5].map((i) => (
+                <span class="tick" data-on={i === c.level ? '' : undefined} />
+              ))}
+            </span>
+            {c.surfaces && (
+              <span class="c-surfaces">
+                {Object.entries(c.surfaces).map(([k, v]) => (
+                  <span class="c-surface">{k} {v}</span>
+                ))}
+              </span>
+            )}
+          </div>
+          <div class="c-body">
+            <h2>{c.title}</h2>
+            <p class="c-year">{c.year}{c.level === null && ' · undeclared'}</p>
+            <p class="c-what">{c.what}</p>
+            <p class="c-walk"><span class="label">The walk</span>{c.walk}</p>
+            {c.lesson && <p class="c-lesson">{c.lesson}</p>}
+            <p class="c-sources">
+              {c.sources.map((s) => (
+                <a href={s.url}>{s.label}</a>
+              ))}
+            </p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+  <aside class="gap prose">
+    <h2>The corpus is short two levels</h2>
+    <p>
+      No publicly documented Level 1 or Level 2 case has made it in yet — not because they are
+      rare, but because they are the levels nobody writes news stories about: work that is
+      simply yours, with a model correcting it or drafting the parts you rewrote. If you have
+      published one and declared it, <a href="https://github.com/karauda/ai-usage-scale">add it</a> —
+      the undramatic cases are the ones the corpus needs most.
+    </p>
+  </aside>
+</Base>
+
+<style>
+  .top { margin: 3rem 0 2.5rem; }
+  .top h1 { font-size: clamp(2.25rem, 6vw, 3.25rem); letter-spacing: -0.02em; margin: 0.4rem 0 0.75rem; }
+  .top p:not(.standfirst):not(.label) { color: var(--ink-mid); }
+
+  .case-row {
+    display: grid;
+    gap: 1.25rem;
+    padding: 2.25rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  /* Greenbar, like the scale sheet: machine output striped for humans to read. */
+  .case-row:nth-child(odd) { background: var(--band); margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); }
+
+  .c-mark { display: flex; align-items: center; gap: 1rem; }
+  .c-big {
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: 2.75rem;
+    line-height: 1;
+    text-decoration: none;
+  }
+  a.c-big:hover { color: var(--accent); }
+  .c-big.none { color: var(--ink-soft); }
+  .c-surfaces { display: inline-flex; gap: 0.5rem; margin-inline-start: 0.5rem; }
+  .c-surface {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    border: 1px solid var(--rule);
+    padding: 0.15rem 0.45rem;
+  }
+
+  .c-body h2 { margin: 0 0 0.35rem; font-size: 1.375rem; }
+  .c-year {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 1rem;
+  }
+  .c-what { margin: 0 0 1rem; max-width: var(--measure); }
+  .c-walk { color: var(--ink-mid); margin: 0 0 1rem; max-width: var(--measure); font-size: 1.0625rem; }
+  .c-walk .label { display: block; margin-bottom: 0.25rem; }
+  .c-lesson {
+    border-inline-start: 2px solid var(--accent);
+    padding: 0.15rem 0 0.15rem 1.15rem;
+    margin: 0 0 1rem;
+    color: var(--ink-mid);
+    font-style: italic;
+    max-width: var(--measure);
+  }
+  .c-sources { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; margin: 0; font-family: var(--mono); font-size: 0.75rem; }
+  .c-sources a { color: var(--ink-mid); }
+
+  .gap { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+  .gap h2 { font-size: 1.25rem; }
+  .gap p { color: var(--ink-mid); font-size: 1.0625rem; }
+</style>

@@ -36,8 +36,10 @@ const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
         <div class="cell">
           <a href={L(`/${l.id}`)} class="cell-mark" set:html={adaptiveMark(l.id, 'stamp', alt(l))} />
           <div class="cell-chip" set:html={adaptiveMark(l.id, 'chip', alt(l))} />
+          <div class="cell-chip" set:html={adaptiveMark(l.id, 'name', alt(l))} />
           <p class="cell-links">
             <a href={`/badge/${l.id}.svg`}>chip.svg</a>
+            <a href={`/badge/${l.id}-name.svg`}>name.svg</a>
             <a href={`/badge/${l.id}-stamp.svg`}>stamp.svg</a>
             <a href={`/badge/${l.id}-dark.svg`}>dark</a>
             <a href={L(`/${l.id}`)}>code →</a>

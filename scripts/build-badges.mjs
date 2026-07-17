@@ -100,7 +100,10 @@ const charW = (fontKey, size, tracking) =>
 const advance = (fontKey, text, size, tracking = 0) =>
   text.length * charW(fontKey, size, tracking) - tracking;
 
-const INK = { light: '#16191B', dark: '#ECEEE9' };
+/* `auto` inherits the host page's text colour (currentColor), so one inline mark is legible
+   on any background without picking a theme. Only for inlining: inside an <img>, currentColor
+   resolves to black, so the hosted files stay on fixed inks. */
+const INK = { light: '#16191B', dark: '#ECEEE9', auto: 'currentColor' };
 
 /**
  * Six marks, one filled. A *position* on a scale, never a *quantity* in a tank —
@@ -149,6 +152,37 @@ ${ticks(level.id, pad + labelW + gap, (H - 11) / 2, 11, ink)}
 </svg>`;
 }
 
+/**
+ * Inline chip with the level's name spelled out — for a first-contact audience the bare
+ * number lacks a denominator. The name stays English (it is part of the mark, like "CC BY"),
+ * so the number-only chip remains the universal default; this one is the self-explanatory option.
+ */
+function nameChip(level, theme) {
+  const H = 24, ink = INK[theme], pad = 9, gap = 9;
+  const LABEL = 'AI USAGE', ls = 9.5, tr = 0.75, ns = 13.5;
+  const p = glyphPool(`aus-n${level.id}${theme[0]}-`);
+
+  const labelW = advance('b', LABEL, ls, tr);
+  const numW = advance('b', String(level.id), ns);
+  const NAME = level.name.toUpperCase();
+  const nameW = advance('b', NAME, ls, tr);
+  const W = pad + labelW + gap + TICKS_W + gap + numW + 7 + nameW + pad;
+
+  const label = p.run('b', LABEL, ls, pad, H / 2 + ls * 0.35, tr);
+  const digitX = pad + labelW + gap + TICKS_W + gap;
+  const digit = p.run('b', String(level.id), ns, digitX, H / 2 + ns * 0.36);
+  const name = p.run('b', NAME, ls, digitX + numW + 7, H / 2 + ls * 0.35, tr);
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${num(W)}" height="${H}" viewBox="0 0 ${num(W)} ${H}" role="img" aria-label="${esc(alt(level))}">
+<title>${esc(alt(level))}</title>
+${p.defs()}
+<rect x="0.5" y="0.5" width="${num(W - 1)}" height="${H - 1}" fill="none" stroke="${ink}" stroke-opacity="0.55"/>
+<g fill="${ink}" opacity="0.72">${label}</g>
+${ticks(level.id, pad + labelW + gap, (H - 11) / 2, 11, ink)}
+<g fill="${ink}">${digit}${name}</g>
+</svg>`;
+}
+
 /** Display stamp — for a colophon, an about page, a poster. */
 function stamp(level, theme) {
   const W = 300, H = 208, pad = 18, ink = INK[theme];
@@ -189,9 +223,13 @@ mkdirSync(OUT, { recursive: true });
 let n = 0, bytes = 0;
 const seenIds = new Map();
 for (const level of levels) {
-  for (const theme of ['light', 'dark']) {
-    const sfx = theme === 'light' ? '' : '-dark';
-    for (const [name, svg] of [[`${level.id}${sfx}.svg`, chip(level, theme)], [`${level.id}-stamp${sfx}.svg`, stamp(level, theme)]]) {
+  for (const theme of ['light', 'dark', 'auto']) {
+    const sfx = theme === 'light' ? '' : `-${theme}`;
+    for (const [name, svg] of [
+      [`${level.id}${sfx}.svg`, chip(level, theme)],
+      [`${level.id}-name${sfx}.svg`, nameChip(level, theme)],
+      [`${level.id}-stamp${sfx}.svg`, stamp(level, theme)],
+    ]) {
       // A NaN here truncates text mid-glyph in every browser. Never ship one.
       if (/NaN|Infinity|undefined/.test(svg)) throw new Error(`${name} contains a non-finite value`);
       // Element ids are document-global. Two badges inlined on one page must not collide,

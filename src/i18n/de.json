@@ -3,7 +3,9 @@
   "name": "German",
   "endonym": "Deutsch",
   "dir": "ltr",
-  "translation": { "by": "machine" },
+  "translation": {
+    "by": "machine"
+  },
   "principle": "Kein Level steht über einem anderen. Eine Skala, die ihre eigenen Level in eine Rangfolge bringt, ist eine Schamleiter, und alle lügen sich auf ihr nach unten. Das einzige unehrliche Level ist ein nicht deklariertes.",
   "axis": {
     "measures": "Die Rolle, die künstliche Intelligenz bei der Entstehung des Werks gespielt hat: wessen Substanz darin steckt und wer dafür geradesteht.",
@@ -45,7 +47,7 @@
       "id": 1,
       "name": "Unterstützt",
       "oneLine": "KI hat nur an Material gearbeitet, das du bereits geschaffen hattest. Sie hat nichts erfunden.",
-      "definition": "Du hast das Werk geschaffen. KI hat dein Material lediglich verarbeitet oder im Hintergrund geholfen: korrigiert, originalgetreu transkribiert oder übersetzt, bereinigt, verschlagwortet, formatiert, durchsucht oder Feedback gegeben. Abgesehen von einer originalgetreuen Transkription oder Übersetzung deines Materials erscheint im veröffentlichten Werk kein von einem Modell erzeugtes Material.",
+      "definition": "Du hast das Werk gemacht. KI hat nur dein Material verarbeitet oder hinter den Kulissen geholfen: korrigiert, getreu transkribiert oder übersetzt, bereinigt, verschlagwortet, formatiert, gesucht oder Feedback gegeben. Abgesehen von einer getreuen Transkription oder Übersetzung deines Materials erscheint nichts Eigenes des Modells — weder Formulierung noch Substanz — im veröffentlichten Werk.",
       "includes": [
         "Grammatik-, Rechtschreib- und Stilkorrektur an Sätzen, die du geschrieben hast",
         "Transkription von Audio, das du aufgenommen hast",
@@ -55,7 +57,7 @@
       ],
       "excludes": [
         "KI entwirft einen Satz, einen Absatz, ein Bild oder eine Melodie, die es ins Werk schafft — das ist Level 2 oder höher",
-        "KI strukturiert deine Argumentation um, nicht nur deine Prosa"
+        "KI erdenkt oder restrukturiert die Argumentation selbst, nicht nur deine Prosa — das ist Level 2 oder höher, selbst wenn du jedes Wort selbst geschrieben hast"
       ],
       "examples": [
         "Ein Artikel, den du geschrieben und von einem Modell auf Grammatik hast prüfen lassen.",
@@ -73,12 +75,13 @@
       "id": 2,
       "name": "Mitgestaltet",
       "oneLine": "Den größten Teil der endgültigen Form hast du geschaffen. KI hat Teile beigesteuert, die geblieben sind.",
-      "definition": "Das Werk ist in seiner Struktur und in weiten Teilen seiner Ausführung deins, aber Material, das ein Modell erzeugt hat, überlebt im veröffentlichten Ergebnis: Passagen, Elemente, Varianten, zwischen denen du gewählt hast. Den größten Teil dessen, was beim Publikum ankommt, hast du geschrieben, gezeichnet oder eingespielt.",
+      "definition": "Das Werk ist in der Ausführung überwiegend deines, aber Material, das ein Modell erzeugt hat, überlebt im veröffentlichten Ergebnis: Passagen, Elemente, Varianten, zwischen denen du gewählt hast — oder die Argumentation oder Struktur, die es vorgeschlagen hat und die du behalten hast, auch in eigenen Worten. Die Mehrheit dessen, was das Publikum erhält, hast du geschrieben, gezeichnet oder gespielt.",
       "includes": [
         "KI entwirft einen Abschnitt, den du anschließend umschreibst, während deine Worte das Ganze prägen",
         "KI erzeugt Varianten, aus denen du auswählst und die du bearbeitest",
         "KI schreibt eine Funktion in einer Codebasis, die du entworfen und größtenteils selbst geschrieben hast",
-        "KI erweitert oder füllt einen Teil eines Bildes, das du komponiert hast"
+        "KI erweitert oder füllt einen Teil eines Bildes, das du komponiert hast",
+        "KI schlägt These, Gliederung oder Struktur vor, die du dann in eigenen Worten ausformulierst"
       ],
       "excludes": [
         "KI erzeugt den größten Teil der endgültigen Worte oder Pixel — das ist Level 3 oder höher",
@@ -186,7 +189,7 @@
     },
     {
       "question": "Hat die KI neues Material erzeugt, das im veröffentlichten Werk auftaucht — über das mechanische Verarbeiten dessen hinaus, was du bereits geschaffen hattest?",
-      "help": "Deine Grammatik korrigieren, deine Worte originalgetreu transkribieren oder übersetzen, dein Foto entrauschen oder deine Dateien verschlagworten ist mechanische Verarbeitung. Das gilt auch für Recherche, Ideenfindung oder Feedback, wenn dadurch kein vom Modell erzeugtes Material im Werk verbleibt. Einen neuen Absatz schreiben, ein neues Bild zeichnen oder eine neue Melodie komponieren ist neues Material."
+      "help": "Deine Grammatik korrigieren, deine Worte getreu transkribieren oder übersetzen, dein Foto entrauschen oder deine Dateien verschlagworten ist mechanische Verarbeitung. Ebenso Feedback, Kritik, Recherche und Faktensuche, von denen nichts Eigenes des Modells im Werk zurückbleibt — der Rat eines Lektors macht den Lektor nicht zum Autor. Neues Material umfasst Substanz ebenso wie Formulierung: einen Absatz, ein Bild, eine Melodie — oder eine These, eine Argumentation, eine Struktur, die das Modell erdacht hat, selbst wenn du sie vollständig in eigenen Worten wiedergegeben hast."
     },
     {
       "question": "Hast du den größten Teil der endgültigen Form selbst geschaffen — die meisten Worte, Pixel oder Töne?",
@@ -211,6 +214,11 @@
       "case": "Transkription",
       "rule": "Sprache zu transkribieren, die du aufgenommen hast, ist mechanische Verarbeitung. Sie hebt das Level nicht an.",
       "why": "Die Worte sind deine. Das Modell hat sie nur aufgeschrieben."
+    },
+    {
+      "case": "Substanz von der KI, Worte von dir",
+      "rule": "Hat ein Modell die Substanz erdacht, die maßgeblich bestimmt, was das Werk sagt — die These, die Argumentation, die Struktur —, dann hat es neues Material erzeugt, das im Werk überlebt, selbst wenn du jedes Wort selbst geschrieben hast. Das ist Level 2 oder höher, niemals Level 1. Feedback, Kritik und Faktensuche, die du überprüfst, bleiben Level 1: Der Rat eines Lektors macht den Lektor nicht zum Autor.",
+      "why": "Ideen sind Material. Sie in eigenen Worten wiederzugeben macht sie nicht un-erdacht — und das Versprechen von Level 1, das Modell habe nichts erdacht, muss wörtlich gelten."
     },
     {
       "case": "Dekorative Elemente",
@@ -288,7 +296,8 @@
       "headOf": "Für den <head> deiner Seite",
       "surfacesH": "Wenn die Teile sich unterscheiden",
       "copy": "Kopieren",
-      "copied": "Kopiert"
+      "copied": "Kopiert",
+      "inlineName": "Inline-SVG mit dem Namen des Levels — dort, wo jemand die Skala zum ersten Mal sieht und das Wort braucht, nicht nur die Zahl"
     },
     "scalePage": {
       "eyebrow": "Die Skala",
@@ -362,7 +371,11 @@
       "machineLede": "Die kanonischen englischen Definitionen liegen in einer einzigen Datei und steuern die Badges sowie die maschinenlesbare Ausgabe. Lokalisierte Erläuterungstexte werden getrennt gepflegt und auf strukturelle Übereinstimmung geprüft.",
       "priorArt": "Stand der Technik",
       "priorLede": "Nichts hier ist beispiellos, und etwas anderes zu behaupten wäre eine eigene kleine Unehrlichkeit.",
-      "why": "Warum"
+      "why": "Warum",
+      "wellKnown": "Eine Website kann außerdem eine Erklärung für die ganze Site unter einem Well-known-Pfad veröffentlichen, wo ein Crawler ohne Hinweis nachsieht:",
+      "challengeH": "Wenn du einer Erklärung nicht traust",
+      "challengeA": "Eine Erklärung ist öffentlich falsifizierbar. Prüfe den Link und die Metadaten; vergleiche das erklärte Level mit dem Werk und, wo sie auseinandergehen, mit der Aufschlüsselung nach Oberflächen; dann frag die Autorin oder den Autor — im Kommentar, in einer Rezension, in einem Issue. Die meisten Abweichungen sind ehrliche Lesarten einer Grenze, und die Grenzfälle oben klären die meisten davon.",
+      "challengeB": "Ist eine Erklärung wissentlich falsch, ist die Antwort des Standards die, die skaliert: Die Behauptung war öffentlich und verlinkbar — und ist nun öffentlich widerlegt. Es gibt hier keinen Detektor und kein Register, mit Absicht. Reputation ist die Durchsetzung, genau wie bei einer Byline."
     },
     "signPage": {
       "eyebrow": "Unterzeichnende",
@@ -374,7 +387,8 @@
       "howB": "Wenn ein Pull Request nicht deine Welt ist, öffne ein Issue, und jemand trägt dich ein.",
       "addName": "Trag dich ein",
       "count": "Unterzeichnende",
-      "note": "Die Zahl neben einem Namen, wo es eine gibt, ist das Level, auf dem dieser Mensch am häufigsten veröffentlicht. Sie ist keine Wertung. Mehrere Menschen hier sind meistens eine 4 und sagen das auch — genau darum geht es."
+      "note": "Die Zahl neben einem Namen, wo es eine gibt, ist das Level, auf dem dieser Mensch am häufigsten veröffentlicht. Sie ist keine Wertung. Mehrere Menschen hier sind meistens eine 4 und sagen das auch — genau darum geht es.",
+      "noGithub": "Gar kein GitHub? Schick deinen Namen über die Kontaktseite, und er wird für dich eingetragen."
     },
     "lang": {
       "label": "Sprache",

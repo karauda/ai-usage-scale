@@ -113,17 +113,26 @@ const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
       <p class="prose lede">{t.ui.level.markLede}</p>
 
       <div class="marks">
-        <div class="mark-demo"><div set:html={adaptiveMark(l.id, 'chip', alt(l))} /></div>
+        <div class="mark-demo">
+          <div set:html={adaptiveMark(l.id, 'chip', alt(l))} />
+          <div set:html={adaptiveMark(l.id, 'name', alt(l))} />
+        </div>
         <p class="mark-cap">{fmt(t.ui.level.markCap, { n: l.id })}</p>
       </div>
 
       {/* The mark stays in English — "AI USAGE 3" is the standard's name, the way "CC BY" is
-          Creative Commons'. What travels with it is the title and alt text, translated. */}
+          Creative Commons'. What travels with it is the title and alt text, translated.
+          The inline builds use currentColor, so one snippet is legible on any host theme. */}
       <Snippet
         label={t.ui.level.inline}
         note={t.ui.level.inlineNote}
         ui={t.ui.level}
-        code={`<a href="${canonicalUrl}" rel="ai-disclosure" title="${l.sentences.medium.replace(/"/g, '&quot;')}">\n${badgeSvg(l.id, 'chip', false, alt(l)).trim()}\n</a>`}
+        code={`<a href="${canonicalUrl}" rel="ai-disclosure" title="${l.sentences.medium.replace(/"/g, '&quot;')}">\n${badgeSvg(l.id, 'chip', 'auto', alt(l)).trim()}\n</a>`}
+      />
+      <Snippet
+        label={t.ui.level.inlineName}
+        ui={t.ui.level}
+        code={`<a href="${canonicalUrl}" rel="ai-disclosure" title="${l.sentences.medium.replace(/"/g, '&quot;')}">\n${badgeSvg(l.id, 'name', 'auto', alt(l)).trim()}\n</a>`}
       />
       <Snippet label={t.ui.level.hosted} code={embedHtml(l.id)} ui={t.ui.level} />
       <Snippet
@@ -235,7 +244,9 @@ const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
     border: 1px solid var(--rule-soft);
     background: var(--raised);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
   .mark-cap {
     font-family: var(--mono);

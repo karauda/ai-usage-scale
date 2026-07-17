@@ -3,7 +3,9 @@
   "name": "Indonesian",
   "endonym": "Bahasa Indonesia",
   "dir": "ltr",
-  "translation": { "by": "machine" },
+  "translation": {
+    "by": "machine"
+  },
   "principle": "Tidak ada tingkat yang berperingkat lebih tinggi daripada tingkat lain. Skala yang memeringkat tingkatnya sendiri adalah tangga rasa malu, dan semua orang akan berbohong untuk menuruninya. Satu-satunya tingkat yang tidak jujur adalah tingkat yang tidak dinyatakan.",
   "axis": {
     "measures": "Peran kecerdasan buatan dalam pembuatan karya: substansi siapa yang dibawanya, dan siapa yang bertanggung jawab atasnya.",
@@ -45,7 +47,7 @@
       "id": 1,
       "name": "Dibantu",
       "oneLine": "AI hanya mengerjakan materi yang sudah Anda buat. Ia tidak mengarang apa pun.",
-      "definition": "Anda yang membuat karya ini. AI hanya mengolah materi Anda atau membantu di balik layar: membetulkan, mentranskripsikan atau menerjemahkan dengan setia, membersihkan, menandai, memformat, mencari, atau memberi umpan balik. Selain transkripsi atau terjemahan setia atas materi Anda, tidak ada materi buatan model yang muncul dalam karya terbitan.",
+      "definition": "Anda yang membuat karya ini. AI hanya memproses materi Anda atau membantu di balik layar: mengoreksi, mentranskrip atau menerjemahkan secara setia, membersihkan, menandai, memformat, mencari, atau memberi umpan balik. Kecuali transkripsi atau terjemahan yang setia atas materi Anda, tidak ada apa pun dari model itu sendiri — baik redaksi maupun substansi — yang muncul dalam karya yang diterbitkan.",
       "includes": [
         "Koreksi tata bahasa, ejaan, dan gaya pada kalimat yang Anda tulis",
         "Mentranskripsikan audio yang Anda rekam",
@@ -55,7 +57,7 @@
       ],
       "excludes": [
         "AI menyusun draf kalimat, paragraf, gambar, atau melodi yang bertahan sampai ke dalam karya — itu Tingkat 2 atau lebih",
-        "AI menata ulang argumen Anda, bukan sekadar prosanya"
+        "AI mencetuskan atau menata ulang argumen itu sendiri, bukan sekadar prosanya — itu Tingkat 2 atau lebih, sekalipun setiap kata Anda tulis sendiri"
       ],
       "examples": [
         "Artikel yang Anda tulis, lalu dilewatkan ke sebuah model untuk pemeriksaan tata bahasa.",
@@ -73,12 +75,13 @@
       "id": 2,
       "name": "Dibuat Bersama",
       "oneLine": "Sebagian besar bentuk akhirnya Anda yang membuat. AI membuat bagian-bagian yang tetap bertahan.",
-      "definition": "Karya ini milik Anda dalam strukturnya dan dalam sebagian besar pengerjaannya, tetapi materi yang dihasilkan sebuah model bertahan dalam hasil yang diterbitkan: bagian teks, elemen, variasi yang Anda pilih. Anda yang menulis, menggambar, atau memainkan sebagian besar dari apa yang diterima audiens.",
+      "definition": "Pengerjaan karya sebagian besar milik Anda, tetapi materi buatan model bertahan dalam hasil yang diterbitkan: bagian-bagian, elemen, variasi yang Anda pilih — atau argumen atau struktur yang diusulkannya dan Anda pertahankan, meski dengan kata-kata sendiri. Sebagian besar dari yang diterima audiens Anda tulis, gambar, atau mainkan sendiri.",
       "includes": [
         "AI menyusun draf satu bagian yang lalu Anda tulis ulang, sementara kata-kata Anda mendominasi keseluruhannya",
         "AI menghasilkan variasi yang lalu Anda pilih dan sunting",
         "AI menulis satu fungsi di dalam basis kode yang Anda rancang dan sebagian besar Anda tulis sendiri",
-        "AI memperluas atau mengisi sebagian gambar yang Anda komposisikan"
+        "AI memperluas atau mengisi sebagian gambar yang Anda komposisikan",
+        "AI mengusulkan tesis, kerangka, atau struktur yang kemudian Anda tuliskan dengan kata-kata sendiri"
       ],
       "excludes": [
         "AI menghasilkan sebagian besar kata atau piksel akhirnya — itu Tingkat 3 atau lebih",
@@ -186,7 +189,7 @@
     },
     {
       "question": "Apakah AI menghasilkan materi baru yang muncul dalam karya yang diterbitkan — di luar sekadar mengolah secara mekanis apa yang sudah Anda buat?",
-      "help": "Membetulkan tata bahasa, mentranskripsikan atau menerjemahkan kata-kata Anda dengan setia, meredam derau pada foto, atau menandai berkas Anda adalah pengolahan mekanis. Begitu pula riset, pencarian gagasan, atau umpan balik yang tidak meninggalkan materi buatan model dalam karya. Menulis paragraf baru, menggambar gambar baru, atau menggubah melodi baru adalah materi baru."
+      "help": "Mengoreksi tata bahasa Anda, mentranskrip atau menerjemahkan kata-kata Anda secara setia, menghilangkan derau foto Anda, atau menandai berkas Anda adalah pemrosesan mekanis. Begitu pula umpan balik, kritik, riset, dan pemeriksaan fakta yang tidak meninggalkan apa pun dari model itu sendiri di dalam karya — nasihat seorang editor tidak menjadikan editor itu pengarang. Materi baru mencakup substansi maupun redaksi: sebuah paragraf, gambar, melodi — atau tesis, argumen, atau struktur yang dicetuskan model, sekalipun Anda menuliskannya kembali sepenuhnya dengan kata-kata sendiri."
     },
     {
       "question": "Apakah Anda sendiri yang membuat sebagian besar bentuk akhirnya — sebagian besar kata, piksel, atau suaranya?",
@@ -211,6 +214,11 @@
       "case": "Transkripsi",
       "rule": "Mentranskripsikan ucapan yang Anda rekam adalah pengolahan mekanis. Itu tidak menaikkan tingkatnya.",
       "why": "Kata-katanya milik Anda. Model hanya menuliskannya."
+    },
+    {
+      "case": "Substansi dari AI, kata-kata dari Anda",
+      "rule": "Jika sebuah model mencetuskan substansi yang secara material menentukan apa yang dikatakan karya — tesis, argumen, struktur — berarti model itu menghasilkan materi baru yang bertahan dalam karya, sekalipun setiap kata Anda tulis sendiri. Itu Tingkat 2 atau lebih, tidak pernah Tingkat 1. Umpan balik, kritik, dan pemeriksaan fakta yang Anda verifikasi tetap Tingkat 1: nasihat seorang editor tidak menjadikan editor itu pengarang.",
+      "why": "Gagasan adalah materi. Menuliskannya kembali dengan kata-kata sendiri tidak membatalkan penciptaannya — dan janji Tingkat 1, bahwa model tidak mencetuskan apa pun, harus berarti persis itu."
     },
     {
       "case": "Aset dekoratif",
@@ -288,7 +296,8 @@
       "headOf": "Untuk <head> halaman Anda",
       "surfacesH": "Bila bagian-bagiannya berbeda",
       "copy": "Salin",
-      "copied": "Tersalin"
+      "copied": "Tersalin",
+      "inlineName": "SVG sebaris dengan nama tingkat — untuk pembaca yang baru pertama kali melihat skala dan butuh katanya, bukan hanya angkanya"
     },
     "scalePage": {
       "eyebrow": "Skalanya",
@@ -362,7 +371,11 @@
       "machineLede": "Definisi bahasa Inggris kanonik berada dalam satu berkas dan menjadi sumber bagi lencana serta keluaran yang dapat dibaca mesin. Teks penjelas terlokalisasi dikelola terpisah dan diperiksa agar strukturnya tetap sepadan.",
       "priorArt": "Karya terdahulu",
       "priorLede": "Tak ada yang belum pernah ada sebelumnya di sini, dan berpura-pura sebaliknya adalah ketidakjujuran kecil tersendiri.",
-      "why": "Alasan"
+      "why": "Alasan",
+      "wellKnown": "Sebuah situs juga dapat menerbitkan deklarasi untuk seluruh situs di jalur well-known, tempat perayap tahu harus melihat tanpa diberi tahu:",
+      "challengeH": "Jika Anda meragukan sebuah deklarasi",
+      "challengeA": "Deklarasi dapat difalsifikasi di depan publik. Periksa tautan dan metadatanya; bandingkan tingkat yang dideklarasikan dengan karyanya dan, bila berbeda, dengan rincian per permukaan; lalu tanyakan kepada pengarangnya — lewat komentar, ulasan, atau issue. Sebagian besar ketidakcocokan adalah pembacaan batas yang jujur, dan kasus-kasus tepi di atas menyelesaikan sebagian besarnya.",
+      "challengeB": "Jika sebuah deklarasi sengaja dipalsukan, jawaban standar ini adalah jawaban yang bisa diskalakan: klaim itu publik dan dapat ditautkan — dan kini difalsifikasi di depan publik. Sengaja tidak ada detektor maupun registri di sini. Reputasilah penegakannya, persis seperti pada byline."
     },
     "signPage": {
       "eyebrow": "Penanda tangan",
@@ -374,7 +387,8 @@
       "howB": "Bila pull request bukan dunia Anda, buka sebuah issue dan seseorang akan menambahkan Anda.",
       "addName": "Tambahkan nama Anda",
       "count": "penanda tangan",
-      "note": "Angka di samping sebuah nama, bila ada, adalah tingkat yang paling sering dipakai orang itu saat menerbitkan karya. Itu bukan nilai. Beberapa orang di sini biasanya berada di angka 4, dan mereka mengatakannya — dan justru itulah intinya."
+      "note": "Angka di samping sebuah nama, bila ada, adalah tingkat yang paling sering dipakai orang itu saat menerbitkan karya. Itu bukan nilai. Beberapa orang di sini biasanya berada di angka 4, dan mereka mengatakannya — dan justru itulah intinya.",
+      "noGithub": "Tidak punya GitHub sama sekali? Kirim nama Anda lewat halaman kontak dan nama itu akan ditambahkan untuk Anda."
     },
     "lang": {
       "label": "Bahasa",

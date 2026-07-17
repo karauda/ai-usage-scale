@@ -1,0 +1,199 @@
+---
+/* The EU AI Act explainer. English on every route, deliberately: this page states what
+   someone else's law says, and a machine paraphrase in twenty languages is twenty chances
+   to misstate a legal obligation. The Act itself is published in every EU language; we link
+   the authoritative text rather than re-translating it. */
+import Base from '../../layouts/Base.astro';
+import Snippet from '../../components/Snippet.astro';
+import { localeParams, localePath } from '../../lib/i18n';
+import { byId } from '../../lib/levels';
+
+export const getStaticPaths = localeParams;
+const { lang } = Astro.props;
+const L = (p: string) => localePath(lang, p);
+const l5 = byId(5);
+---
+
+<Base
+  lang={lang}
+  path="/eu-ai-act"
+  translated={false}
+  title="EU AI Act, Article 50 — AI Usage Scale"
+  description="From 2 August 2026 the EU AI Act requires disclosure of AI-generated text published to inform the public — unless a human reviewed it and someone holds editorial responsibility. That is the Level 4 / Level 5 distinction, named."
+  breadcrumb={[['EU AI Act', '/eu-ai-act']]}
+  schema={[
+    {
+      '@type': 'WebPage',
+      '@id': 'https://usagescale.org/eu-ai-act#page',
+      name: 'EU AI Act, Article 50, and the AI Usage Scale',
+      inLanguage: 'en',
+      isPartOf: { '@id': 'https://usagescale.org/#site' },
+    },
+  ]}
+>
+  <header class="top prose">
+    <p class="label">For publishers · applies from 2 August 2026</p>
+    <h1>The law can see the difference. It just cannot say it.</h1>
+    <p class="standfirst">
+      Article 50 of the EU AI Act switches the disclosure duty for AI-generated text off the
+      moment a human reviews it and takes editorial responsibility. That switch is the
+      distinction between Level 5 and Level 4 — the law reaches for it, and has no word for it.
+    </p>
+    <p class="disclaimer">
+      This page is orientation, not legal advice, and the scale is not a compliance product.
+      The <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj">text of Regulation (EU) 2024/1689</a>
+      is authoritative, in every EU language; our
+      <a href="https://github.com/karauda/ai-usage-scale/blob/main/docs/ROADMAP.md">roadmap</a>
+      includes legal review of this explanation.
+    </p>
+  </header>
+
+  <section>
+    <h2>What Article 50 requires</h2>
+    <p class="prose">
+      The transparency obligations in
+      <a href="https://artificialintelligenceact.eu/article/50/">Article 50</a> apply from
+      <strong>2 August 2026</strong>. The parts that concern people who publish:
+    </p>
+    <dl class="rules">
+      <div class="rule-row">
+        <dt>Art. 50(4) — AI-generated text</dt>
+        <dd>
+          Deployers who publish AI-generated or AI-manipulated text <em>"with the purpose of
+          informing the public on matters of public interest"</em> must disclose that it was
+          artificially generated. The obligation does <strong>not</strong> apply where the content
+          <em>"has undergone a process of human review or editorial control and where a natural or
+          legal person holds editorial responsibility for the publication"</em>.
+        </dd>
+      </div>
+      <div class="rule-row">
+        <dt>Art. 50(4) — deepfakes</dt>
+        <dd>
+          Deployers of image, audio or video deepfakes must disclose the artificial generation or
+          manipulation; for evidently artistic, creative, satirical or fictional work the duty is
+          limited to a disclosure that does not hamper the enjoyment of the work.
+        </dd>
+      </div>
+      <div class="rule-row">
+        <dt>Art. 50(2) — machine-readable marking</dt>
+        <dd>
+          <strong>Providers</strong> of generative AI systems — the people who build the model or
+          system, not the people who publish with it — must ensure outputs are marked in a
+          machine-readable format and detectable as artificially generated, so far as technically
+          feasible.
+        </dd>
+      </div>
+      <div class="rule-row">
+        <dt>Art. 50(5) — how</dt>
+        <dd>
+          The information must be provided in a clear and distinguishable manner, at the latest at
+          the first interaction or exposure.
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Where the scale lands on it</h2>
+    <p class="prose">
+      The law's test for text is binary — reviewed with editorial responsibility, or not. Those
+      are the two states this scale names as <a href={L('/4')}>Level 4</a> and
+      <a href={L('/5')}>Level 5</a>:
+    </p>
+    <table class="levels map">
+      <thead>
+        <tr><th>You publish at</th><th>Under Art. 50(4)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="lv-name"><a href={L('/5')}>Level 5 · Automated</a></td>
+          <td>No human review — the disclosure duty applies to text informing the public on
+          matters of public interest. A visible Level 5 declaration is a disclosure, made in a
+          vocabulary a reader can look up.</td>
+        </tr>
+        <tr>
+          <td class="lv-name"><a href={L('/4')}>Level 4 · Prompted</a></td>
+          <td>Human review and editorial responsibility — the very precondition of the law's
+          exemption. Disclosure stops being an obligation and becomes what it should have been
+          all along: a credit line you give the reader anyway.</td>
+        </tr>
+        <tr>
+          <td class="lv-name"><a href={L('/3')}>Levels 0–3</a></td>
+          <td>Reviewed by definition wherever a model produced text (Levels 2–3), or no
+          generative output at all (Levels 0–1). The same logic as Level 4: exempt where the
+          duty could apply — and worth declaring regardless.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="prose caveat">
+      Whether a given page "informs the public on matters of public interest", and who counts as
+      the deployer, are questions for a lawyer, not a badge. The scale does not decide them; it
+      gives you the words for whichever side of the line you are on.
+    </p>
+  </section>
+
+  <section>
+    <h2>What to put on an automated page</h2>
+    <p class="prose">
+      For a Level 5 pipeline, the declaration is one sentence and two lines of metadata — visible
+      at first exposure, machine-readable, linked to a public definition:
+    </p>
+    <Snippet label="The sentence, where the reader sees it" code={l5.sentences.medium} />
+    <Snippet
+      label="The metadata, in the <head>"
+      code={`<meta name="ai-usage" content="5">\n<meta name="ai-usage-standard" content="https://usagescale.org">\n<link rel="ai-disclosure" href="https://usagescale.org/5">`}
+    />
+    <p class="prose">
+      The full kit — marks, all three sentence lengths, per-level metadata — is on
+      <a href={L('/5')}>each level's page</a>. Note that <code>ai-usage</code> metadata is this
+      standard's proposal and the <code>ai-disclosure</code> value is experimental; neither is,
+      by itself, a guarantee of compliance with Article 50's marking or disclosure duties.
+    </p>
+  </section>
+
+  <section class="prose">
+    <h2>Sources</h2>
+    <ul class="srcs">
+      <li>
+        <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj">Regulation (EU) 2024/1689 (the AI Act), EUR-Lex</a>
+        — the authoritative text, all EU languages.
+      </li>
+      <li>
+        <a href="https://artificialintelligenceact.eu/article/50/">Article 50, AI Act Explorer (Future of Life Institute)</a>
+        — the article with commentary; application date per Article 113.
+      </li>
+    </ul>
+  </section>
+</Base>
+
+<style>
+  .top { margin: 3rem 0 2rem; }
+  .top h1 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.02em; margin: 0.4rem 0 0.75rem; }
+  .disclaimer { font-size: 0.9375rem; color: var(--ink-mid); }
+
+  section { margin: 3.5rem 0; }
+  h2 { font-size: 1.625rem; }
+
+  .rules { margin: 1.5rem 0 0; }
+  .rule-row { border-top: 1px solid var(--rule-soft); padding: 1.25rem 0; }
+  .rule-row:last-child { border-bottom: 1px solid var(--rule-soft); }
+  dt {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  dd { margin: 0; max-width: var(--measure); }
+
+  .map td:first-child { width: 12rem; }
+  .map .lv-name a { text-decoration: none; }
+  .map .lv-name a:hover { color: var(--accent); }
+  .map td { font-size: 1rem; }
+  .caveat { color: var(--ink-mid); font-size: 1.0625rem; }
+
+  .srcs { padding-inline-start: 1.25rem; }
+  .srcs li { margin-bottom: 0.5rem; color: var(--ink-mid); }
+</style>

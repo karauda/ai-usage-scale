@@ -38,6 +38,8 @@ ${TREE.map((s: any, i: number) => {
 - [The manifesto](https://usagescale.org/): fifteen theses, with sources.
 - [The scale](https://usagescale.org/scale): all six levels with definitions and examples.
 - [Specification](https://usagescale.org/spec): edge cases and interoperability mappings.
+- [The case corpus](https://usagescale.org/cases): real published works classified, with the reasoning shown and sources linked.
+- [EU AI Act, Article 50](https://usagescale.org/eu-ai-act): the disclosure duty for AI-generated text from 2 August 2026, and how the levels map onto its review exemption. Not legal advice.
 - [levels.json](https://usagescale.org/levels.json): canonical English definitions and mappings, machine-readable, CC0.
 - [Find your level](https://usagescale.org/find-your-level): the five questions, as a tool.
 - [Badges](https://usagescale.org/badges): the marks. Inline SVG, no external font, no request home.
