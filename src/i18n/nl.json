@@ -3,7 +3,9 @@
   "name": "Dutch",
   "endonym": "Nederlands",
   "dir": "ltr",
-  "translation": { "by": "machine" },
+  "translation": {
+    "by": "machine"
+  },
   "principle": "Geen enkel niveau staat boven een ander. Een schaal die haar eigen niveaus rangschikt, is een schaamteladder, en iedereen liegt zich er naar beneden. Het enige oneerlijke niveau is het niveau dat niet vermeld wordt.",
   "axis": {
     "measures": "De rol die kunstmatige intelligentie speelde bij het maken van het werk: van wie de substantie is, en wie ervoor instaat.",
@@ -45,7 +47,7 @@
       "id": 1,
       "name": "Ondersteund",
       "oneLine": "AI werkte alleen aan materiaal dat je al had gemaakt. Ze heeft niets verzonnen.",
-      "definition": "Jij hebt het werk gemaakt. AI heeft alleen jouw materiaal verwerkt of achter de schermen geholpen: gecorrigeerd, getrouw getranscribeerd of vertaald, opgeschoond, gelabeld, opgemaakt, doorzocht of feedback gegeven. Afgezien van een getrouwe transcriptie of vertaling van jouw materiaal komt er in het gepubliceerde werk geen door een model geproduceerd materiaal voor.",
+      "definition": "Jij hebt het werk gemaakt. AI heeft alleen je materiaal verwerkt of achter de schermen geholpen: corrigeren, getrouw transcriberen of vertalen, opschonen, taggen, opmaken, zoeken of feedback geven. Behalve een getrouwe transcriptie of vertaling van je materiaal verschijnt er niets eigens van het model — geen formulering en geen substantie — in het gepubliceerde werk.",
       "includes": [
         "Grammatica-, spelling- en stijlcorrectie van zinnen die jij hebt geschreven",
         "Het transcriberen van audio die jij hebt opgenomen",
@@ -55,7 +57,7 @@
       ],
       "excludes": [
         "AI schrijft een zin, een alinea, een beeld of een melodie die het werk haalt — dat is Level 2 of hoger",
-        "AI herstructureert je redenering, niet alleen je proza"
+        "AI die de redenering zelf bedenkt of herstructureert, niet alleen je proza — dat is Level 2 of hoger, ook als je elk woord zelf hebt geschreven"
       ],
       "examples": [
         "Een artikel dat jij schreef en door een model op grammatica liet nakijken.",
@@ -73,12 +75,13 @@
       "id": 2,
       "name": "Samen gemaakt",
       "oneLine": "Het grootste deel van de uiteindelijke vorm heb jij gemaakt. AI maakte delen die zijn blijven staan.",
-      "definition": "Het werk is van jou in structuur en in het grootste deel van de uitvoering, maar materiaal dat een model heeft geproduceerd overleeft in het gepubliceerde resultaat: passages, elementen, varianten waaruit je hebt gekozen. Het merendeel van wat het publiek te zien of te horen krijgt, heb jij geschreven, getekend of gespeeld.",
+      "definition": "Het werk is in uitvoering grotendeels van jou, maar materiaal dat een model produceerde overleeft in het gepubliceerde resultaat: passages, elementen, varianten waaruit je koos — of de redenering of structuur die het voorstelde en die je hebt gehouden, ook in je eigen woorden. Het merendeel van wat het publiek ontvangt heb jij geschreven, getekend of gespeeld.",
       "includes": [
         "AI schrijft een sectie die jij daarna herschrijft, terwijl jouw woorden het geheel bepalen",
         "AI genereert varianten waaruit jij kiest en die je bewerkt",
         "AI schrijft een functie in een codebase die jij hebt ontworpen en grotendeels zelf hebt geschreven",
-        "AI breidt een deel van een beeld uit dat jij hebt gecomponeerd, of vult het aan"
+        "AI breidt een deel van een beeld uit dat jij hebt gecomponeerd, of vult het aan",
+        "AI die de these, de opzet of de structuur voorstelt die jij daarna in je eigen woorden uitschrijft"
       ],
       "excludes": [
         "AI produceert het merendeel van de uiteindelijke woorden of pixels — dat is Level 3 of hoger",
@@ -186,7 +189,7 @@
     },
     {
       "question": "Heeft AI nieuw materiaal geproduceerd dat in het gepubliceerde werk voorkomt — meer dan het mechanisch verwerken van wat jij al had gemaakt?",
-      "help": "Je grammatica corrigeren, je woorden getrouw transcriberen of vertalen, je foto ontruisen of je bestanden labelen is mechanische verwerking. Dat geldt ook voor onderzoek, ideevorming of feedback waardoor geen door het model geproduceerd materiaal in het werk achterblijft. Een nieuwe alinea schrijven, een nieuw beeld tekenen of een nieuwe melodie componeren is nieuw materiaal."
+      "help": "Je grammatica corrigeren, je woorden getrouw transcriberen of vertalen, je foto ontruisen of je bestanden taggen is mechanische verwerking. Dat geldt ook voor feedback, kritiek, onderzoek en factchecken waarvan niets eigens van het model in het werk achterblijft — het advies van een redacteur maakt de redacteur geen auteur. Nieuw materiaal omvat de substantie én de formulering: een alinea, een beeld, een melodie — of een these, een redenering of een structuur die het model heeft bedacht, ook als je die volledig in je eigen woorden hebt weergegeven."
     },
     {
       "question": "Heb je het grootste deel van de uiteindelijke vorm zelf gemaakt — de meeste woorden, pixels of klanken?",
@@ -211,6 +214,11 @@
       "case": "Transcriptie",
       "rule": "Spraak transcriberen die jij hebt opgenomen is mechanische verwerking. Het verhoogt het niveau niet.",
       "why": "De woorden zijn van jou. Het model heeft ze alleen opgeschreven."
+    },
+    {
+      "case": "Substantie van de AI, woorden van jou",
+      "rule": "Als een model de substantie heeft bedacht die wezenlijk bepaalt wat het werk zegt — de these, de redenering, de structuur — dan heeft het nieuw materiaal geproduceerd dat in het werk overleeft, ook als je elk woord zelf hebt geschreven. Dat is Level 2 of hoger, nooit Level 1. Feedback, kritiek en factchecken dat je zelf controleert blijven Level 1: het advies van een redacteur maakt de redacteur geen auteur.",
+      "why": "Ideeën zijn materiaal. Ze in je eigen woorden weergeven maakt ze niet on-bedacht — en de belofte van Level 1, dat het model niets heeft bedacht, moet precies dat betekenen."
     },
     {
       "case": "Decoratieve elementen",
@@ -288,7 +296,8 @@
       "headOf": "Voor de <head> van je pagina",
       "surfacesH": "Als de onderdelen verschillen",
       "copy": "Kopiëren",
-      "copied": "Gekopieerd"
+      "copied": "Gekopieerd",
+      "inlineName": "Inline-SVG met de naam van het level — waar iemand de schaal voor het eerst ziet en het woord nodig heeft, niet alleen het getal"
     },
     "scalePage": {
       "eyebrow": "De schaal",
@@ -362,7 +371,11 @@
       "machineLede": "De canonieke Engelse definities staan in één bestand en sturen de badges en machineleesbare uitvoer aan. Gelokaliseerde toelichtingen worden afzonderlijk onderhouden en op structurele gelijkheid gecontroleerd.",
       "priorArt": "Eerder werk",
       "priorLede": "Niets hier is zonder precedent, en het tegendeel beweren zou een eigen kleine oneerlijkheid zijn.",
-      "why": "Waarom"
+      "why": "Waarom",
+      "wellKnown": "Een site kan ook een verklaring voor de hele site publiceren op een well-known-pad, waar een crawler weet te kijken zonder aanwijzing:",
+      "challengeH": "Als je een verklaring niet vertrouwt",
+      "challengeA": "Een verklaring is publiek falsifieerbaar. Controleer de link en de metadata; leg het verklaarde level naast het werk en, waar ze verschillen, naast de uitsplitsing per oppervlak; vraag het daarna de auteur — in een reactie, een recensie, een issue. De meeste afwijkingen zijn eerlijke lezingen van een grens, en de randgevallen hierboven beslechten de meeste.",
+      "challengeB": "Is een verklaring willens en wetens vals, dan is het antwoord van de standaard het antwoord dat schaalt: de claim was publiek en linkbaar — en is nu publiek weerlegd. Er is hier geen detector en geen register, met opzet. Reputatie is de handhaving, precies zoals bij een byline."
     },
     "signPage": {
       "eyebrow": "Ondertekenaars",
@@ -374,7 +387,8 @@
       "howB": "Is een pull request niet jouw wereld, open dan een issue en iemand voegt je toe.",
       "addName": "Voeg je naam toe",
       "count": "ondertekenaars",
-      "note": "Het getal naast een naam, waar dat er staat, is het niveau waarop die persoon het vaakst publiceert. Het is geen score. Verscheidene mensen hier zijn meestal een 4, en zeggen dat ook — precies daar gaat het om."
+      "note": "Het getal naast een naam, waar dat er staat, is het niveau waarop die persoon het vaakst publiceert. Het is geen score. Verscheidene mensen hier zijn meestal een 4, en zeggen dat ook — precies daar gaat het om.",
+      "noGithub": "Helemaal geen GitHub? Stuur je naam via de contactpagina en hij wordt voor je toegevoegd."
     },
     "lang": {
       "label": "Taal",

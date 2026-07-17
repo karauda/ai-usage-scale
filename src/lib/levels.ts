@@ -47,12 +47,13 @@ export const byId = (id: number) => {
  */
 export function badgeSvg(
   id: number,
-  variant: 'chip' | 'stamp' = 'chip',
-  dark = false,
+  variant: 'chip' | 'name' | 'stamp' = 'chip',
+  /** `auto` inherits the host page's text colour (currentColor) — the right choice for inlining. */
+  theme: 'light' | 'dark' | 'auto' = 'light',
   /** Localised description. The mark's glyphs stay English; what a screen reader says must not. */
   alt?: string
 ): string {
-  const name = `${id}${variant === 'stamp' ? '-stamp' : ''}${dark ? '-dark' : ''}.svg`;
+  const name = `${id}${variant === 'chip' ? '' : `-${variant}`}${theme === 'light' ? '' : `-${theme}`}.svg`;
   const path = fileURLToPath(new URL(`../../public/badge/${name}`, import.meta.url));
   const svg = readFileSync(path, 'utf8');
   if (!alt) return svg;
@@ -86,24 +87,33 @@ export function levelAlt(
 }
 
 /**
- * A mark for DISPLAY on our own themed pages. The generated marks carry a fixed ink so they
- * render identically wherever they are embedded — which means a light mark is invisible on our
- * dark theme. So for our pages we inline both variants and let CSS show the one that matches the
- * resolved theme. The single badge a creator copies to embed is unchanged.
+ * A mark for DISPLAY on our own themed pages: the `auto` build, whose ink is currentColor,
+ * so it follows the resolved theme with no CSS swapping. The fixed-ink light/dark files stay
+ * available for contexts (like a hosted <img>) where currentColor cannot inherit.
  */
-export function adaptiveMark(id: number, variant: 'chip' | 'stamp', alt?: string): string {
-  return `<span class="mark-light">${badgeSvg(id, variant, false, alt)}</span><span class="mark-dark">${badgeSvg(id, variant, true, alt)}</span>`;
+export function adaptiveMark(id: number, variant: 'chip' | 'name' | 'stamp', alt?: string): string {
+  return badgeSvg(id, variant, 'auto', alt);
+}
+
+/** The intrinsic pixel size of a generated mark, read from the file so it can never drift. */
+export function markSize(id: number, variant: 'chip' | 'name' | 'stamp' = 'chip'): { w: number; h: number } {
+  const svg = badgeSvg(id, variant);
+  const w = svg.match(/\bwidth="([\d.]+)"/)?.[1];
+  const h = svg.match(/\bheight="([\d.]+)"/)?.[1];
+  if (!w || !h) throw new Error(`markSize: badge ${id}/${variant} declares no dimensions`);
+  return { w: Number(w), h: Number(h) };
 }
 
 /** The HTML a creator copies into their page. */
 export function embedHtml(id: number): string {
   const l = byId(id);
+  const { w, h } = markSize(id);
   return `<a href="https://usagescale.org/${id}"
    rel="ai-disclosure"
    title="${l.sentences.medium}">
   <img src="https://usagescale.org/badge/${id}.svg"
        alt="${levelAlt(l)}"
-       width="205" height="24">
+       width="${Math.round(w)}" height="${h}">
 </a>`;
 }
 

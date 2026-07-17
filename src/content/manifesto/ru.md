@@ -2,7 +2,7 @@
 lang: ru
 title: Манифест использования ИИ
 standfirst: Нет постыдного уровня. Есть только незадекларированный.
-version: 1.0.0-draft
+version: 1.1.0-draft
 level: 3
 ---
 

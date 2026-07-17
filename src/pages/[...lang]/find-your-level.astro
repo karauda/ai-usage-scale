@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import TranslationNotice from '../../components/TranslationNotice.astro';
-import { badgeSvg, levelAlt, adaptiveMark } from '../../lib/levels';
+import { levelAlt, adaptiveMark } from '../../lib/levels';
 import { localeParams, getLocale, levelsIn, treeIn, localePath, fmt } from '../../lib/i18n';
 
 export const getStaticPaths = localeParams;
@@ -302,5 +302,9 @@ const outcome = (step: any, answer: 'yes' | 'no') =>
     });
   }
 
-  render();
+  // finish() writes #level-N so the result is shareable; honour it on the way back in,
+  // or every shared link would land on question one.
+  const shared = window.location.hash.match(/^#level-([0-5])$/);
+  if (shared) finish(Number(shared[1]));
+  else render();
 </script>

@@ -2,7 +2,7 @@
 lang: ar
 title: بيان استخدام الذكاء الاصطناعي
 standfirst: ليس هناك مستوى مُخجِل. هناك فقط مستوى غير مُعلَن.
-version: 1.0.0-draft
+version: 1.1.0-draft
 level: 3
 ---
 

@@ -2,7 +2,7 @@
 lang: hi
 title: AI उपयोग घोषणापत्र
 standfirst: कोई स्तर शर्मनाक नहीं होता। शर्मनाक सिर्फ़ वह है जो घोषित न हो।
-version: 1.0.0-draft
+version: 1.1.0-draft
 level: 3
 ---
 

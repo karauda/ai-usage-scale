@@ -18,5 +18,13 @@
 - freeze level semantics and document long-term version resolution;
 - promote translations only after the review state is recorded publicly.
 
-The roadmap is evidence-driven. Dates do not outrank correctness or compatibility.
+## The end of the draft
+
+The `-draft` suffix has an end date: the level boundaries remain open for challenge
+through **31 December 2026**, and the first stable release — no suffix — follows once
+the gates above close. A window that never closes is not a draft, it is an excuse.
+
+The roadmap is evidence-driven. Dates do not outrank correctness or compatibility: if a
+gate above is still open at year's end, the date moves and the reason is recorded here —
+but the suffix never outlives the reason for it.
 

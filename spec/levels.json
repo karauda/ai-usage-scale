@@ -1,10 +1,10 @@
 {
   "$schema": "https://usagescale.org/schema/levels-1.0.json",
   "standard": "AI Usage Scale",
-  "version": "1.0.0-draft",
+  "version": "1.1.0-draft",
   "url": "https://usagescale.org",
   "license": "CC0-1.0",
-  "updated": "2026-07-13",
+  "updated": "2026-07-17",
 
   "principle": "No level ranks above another. A scale that ranks its own levels is a shame ladder, and everyone lies their way down it. The only dishonest level is an undeclared one.",
 
@@ -23,7 +23,7 @@
     {
       "step": 2,
       "question": "Did AI produce new material that appears in the published work — beyond mechanically processing what you had already made?",
-      "help": "Correcting your grammar, faithfully transcribing or translating your words, denoising your photo, or tagging your files is mechanical processing. So is research, ideation, or feedback that leaves no model-produced material in the work. Writing a new paragraph, drawing a new image, or composing a new melody is new material.",
+      "help": "Correcting your grammar, faithfully transcribing or translating your words, denoising your photo, or tagging your files is mechanical processing. So are feedback, critique, research, and fact-finding that left nothing of the model's own in the work — an editor's advice does not make the editor an author. New material includes substance as well as wording: a paragraph, an image, a melody — or a thesis, argument, or structure the model originated, even if you restated it entirely in your own words.",
       "no": 1
     },
     {
@@ -87,7 +87,7 @@
       "key": "assisted",
       "name": "Assisted",
       "oneLine": "AI worked only on material you had already made. It invented nothing.",
-      "definition": "You made the work. AI only processed your material, or helped behind the scenes: correcting, faithfully transcribing or translating, cleaning, tagging, formatting, searching, or giving feedback. Except for a faithful transcription or translation of your material, no model-produced material appears in the published work.",
+      "definition": "You made the work. AI only processed your material, or helped behind the scenes: correcting, faithfully transcribing or translating, cleaning, tagging, formatting, searching, or giving feedback. Except for a faithful transcription or translation of your material, nothing of the model's own — neither wording nor substance — appears in the published work.",
       "includes": [
         "Grammar, spelling, and style correction of sentences you wrote",
         "Transcribing audio you recorded",
@@ -97,7 +97,7 @@
       ],
       "excludes": [
         "AI drafting a sentence, paragraph, image, or melody that survives into the work — that is Level 2 or above",
-        "AI restructuring your argument rather than your prose"
+        "AI originating or restructuring the argument itself rather than your prose — that is Level 2 or above, even if you wrote out every word yourself"
       ],
       "examples": [
         "An article you wrote, run through a model for grammar.",
@@ -122,12 +122,13 @@
       "key": "co-created",
       "name": "Co-created",
       "oneLine": "You made most of the final form. AI made parts of it that stayed.",
-      "definition": "The work is yours in structure and in most of its execution, but material a model produced survives in the published result: passages, elements, variations you chose between. You wrote, drew, or played the majority of what the audience receives.",
+      "definition": "The work is mostly yours in execution, but material a model produced survives in the published result: passages, elements, variations you chose between — or the argument or structure it proposed, which you kept, even in your own words. You wrote, drew, or played the majority of what the audience receives.",
       "includes": [
         "AI drafting a section you then rewrote, where your words dominate the whole",
         "AI generating variations you selected from and edited",
         "AI writing a function inside a codebase you designed and mostly wrote",
-        "AI extending or filling part of an image you composed"
+        "AI extending or filling part of an image you composed",
+        "AI proposing the thesis, outline, or structure that you then wrote out in your own words"
       ],
       "excludes": [
         "AI producing most of the final words or pixels — that is Level 3 or above",
@@ -272,6 +273,11 @@
       "case": "Transcription",
       "rule": "Transcribing speech you recorded is mechanical processing. It does not raise the level.",
       "why": "The words are yours. The model only wrote them down."
+    },
+    {
+      "case": "Substance from AI, wording from you",
+      "rule": "If a model originated the substance that materially determines what the work says — the thesis, the argument, the structure — it produced new material that survives into the work, even if you wrote out every word yourself. That is Level 2 or above, never Level 1. Feedback, critique, and fact-finding you verified stay Level 1: an editor's advice does not make the editor an author.",
+      "why": "Ideas are material. Restating them in your own words does not un-invent them — and Level 1's promise that the model invented nothing has to mean it."
     },
     {
       "case": "Decorative assets",

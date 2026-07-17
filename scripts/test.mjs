@@ -144,7 +144,7 @@ console.log('\nThe marks');
 const badgeDir = join(ROOT, 'public', 'badge');
 const svgs = readdirSync(badgeDir).filter((f) => f.endsWith('.svg'));
 
-check('all 24 marks are generated', () => eq(svgs.length, 24));
+check('all 54 marks are generated', () => eq(svgs.length, 54));
 
 check('no mark contains a non-finite coordinate', () => {
   // opentype's own serialiser emits NaN, and one NaN truncates the text mid-glyph.
@@ -178,11 +178,21 @@ check('no mark fetches anything', () => {
 
 check('all six marks use one ink (no level is coloured differently)', () => {
   const inkOf = (f) => [...new Set((readFileSync(join(badgeDir, f), 'utf8').match(/#[0-9A-Fa-f]{6}/g) ?? []))].sort();
-  for (const variant of ['', '-stamp']) {
+  for (const variant of ['', '-name', '-stamp']) {
     for (const theme of ['', '-dark']) {
       const inks = [0, 1, 2, 3, 4, 5].map((i) => inkOf(`${i}${variant}${theme}.svg`).join(','));
       ok(new Set(inks).size === 1, `marks ${variant || 'chip'}${theme} do not share one ink: ${[...new Set(inks)].join(' | ')}`);
     }
+  }
+});
+
+check('the auto marks inherit their ink and fix none', () => {
+  // The `-auto` builds are for inlining: currentColor follows the host page's text colour,
+  // so one snippet is legible on any theme. A stray fixed hex would silently break that.
+  for (const f of svgs.filter((f) => f.includes('-auto'))) {
+    const s = readFileSync(join(badgeDir, f), 'utf8');
+    ok(s.includes('currentColor'), `${f} does not use currentColor`);
+    ok(!/#[0-9A-Fa-f]{6}/.test(s), `${f} fixes an ink alongside currentColor`);
   }
 });
 

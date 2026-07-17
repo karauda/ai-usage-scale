@@ -3,7 +3,9 @@
   "name": "Polish",
   "endonym": "Polski",
   "dir": "ltr",
-  "translation": { "by": "machine" },
+  "translation": {
+    "by": "machine"
+  },
   "principle": "Żaden poziom nie stoi wyżej od innego. Skala, która ustawia własne poziomy w hierarchii, jest drabiną wstydu — a każdy będzie kłamał, żeby zejść po niej niżej. Jedyny nieuczciwy poziom to ten niezadeklarowany.",
   "axis": {
     "measures": "Rolę, jaką w powstaniu pracy odegrała sztuczna inteligencja: czyje jest jej meritum i kto za nią odpowiada.",
@@ -45,7 +47,7 @@
       "id": 1,
       "name": "Wspomagane",
       "oneLine": "AI pracowała wyłącznie na twoim gotowym materiale. Niczego nie wymyśliła.",
-      "definition": "Pracę wykonujesz ty. AI jedynie obrabia twój materiał albo pomaga na zapleczu: poprawia, wiernie transkrybuje lub tłumaczy, czyści, taguje, formatuje, wyszukuje albo przekazuje uwagi. Poza wierną transkrypcją lub tłumaczeniem twojego materiału w opublikowanej pracy nie ma treści wytworzonej przez model.",
+      "definition": "Praca jest twoja. AI tylko przetwarzało twój materiał albo pomagało za kulisami: poprawiało, wiernie transkrybowało lub tłumaczyło, czyściło, tagowało, formatowało, wyszukiwało, dawało uwagi. Poza wierną transkrypcją lub wiernym tłumaczeniem twojego materiału w opublikowanej pracy nie ma nic od samego modelu — ani sformułowań, ani substancji.",
       "includes": [
         "Poprawa gramatyki, ortografii i stylu w twoich zdaniach",
         "Transkrypcja twojego nagrania",
@@ -55,7 +57,7 @@
       ],
       "excludes": [
         "AI pisze zdanie, akapit, obraz lub melodię, które zostają w pracy — to Poziom 2 lub wyżej",
-        "AI przebudowuje twój wywód, a nie twoją prozę"
+        "AI wymyśla lub przebudowuje sam wywód, a nie twoją prozę — to Poziom 2 lub wyżej, nawet jeśli każde słowo zapisujesz samodzielnie"
       ],
       "examples": [
         "Artykuł, który napisałeś, przepuszczony przez model dla gramatyki.",
@@ -73,12 +75,13 @@
       "id": 2,
       "name": "Współtworzone",
       "oneLine": "Większość finalnej formy zrobiłeś ty. AI zrobiła te części, które zostały.",
-      "definition": "Praca jest twoja w konstrukcji i w większości wykonania, ale w opublikowanym efekcie przetrwał materiał wytworzony przez model: fragmenty, elementy, warianty, spośród których wybierałeś. Większość tego, co dostaje odbiorca, napisałeś, narysowałeś lub zagrałeś ty.",
+      "definition": "Wykonanie pracy jest w większości twoje, ale w opublikowanym efekcie zostaje materiał wytworzony przez model: fragmenty, elementy, warianty, spośród których wybierasz — albo zaproponowany przez model wywód lub struktura, które zachowujesz, choćby oddane własnymi słowami. To ty piszesz, rysujesz lub grasz większość tego, co trafia do odbiorcy.",
       "includes": [
         "AI pisze szkic sekcji, którą potem przerabiasz, a w całości dominują twoje słowa",
         "AI generuje warianty, z których wybierasz i które redagujesz",
         "AI pisze funkcję wewnątrz kodu, który zaprojektowałeś i w większości napisałeś",
-        "AI dopełnia lub rozszerza fragment obrazu, który skomponowałeś"
+        "AI dopełnia lub rozszerza fragment obrazu, który skomponowałeś",
+        "AI proponuje tezę, konspekt lub strukturę, które następnie w całości zapisujesz własnymi słowami"
       ],
       "excludes": [
         "AI wytwarza większość finalnych słów lub pikseli — to Poziom 3 lub wyżej",
@@ -186,7 +189,7 @@
     },
     {
       "question": "Czy AI wytworzyła nowy materiał, który jest w opublikowanej pracy — ponad mechaniczną obróbkę tego, co już zrobiłeś?",
-      "help": "Poprawianie gramatyki, wierna transkrypcja lub tłumaczenie twoich słów, odszumianie zdjęcia czy tagowanie plików to obróbka mechaniczna. Tak samo research, pomysły lub uwagi, po których w pracy nie zostaje materiał modelu. Nowy akapit, obraz lub melodia są nowym materiałem."
+      "help": "Poprawianie twojej gramatyki, wierna transkrypcja lub wierne tłumaczenie twoich słów, odszumianie twojego zdjęcia czy tagowanie twoich plików to przetwarzanie mechaniczne. Podobnie uwagi, krytyka, research i sprawdzanie faktów, po których w pracy nie zostaje nic od samego modelu — rada redaktora nie czyni z redaktora autora. Nowy materiał obejmuje substancję, nie tylko sformułowania: akapit, obraz, melodię — albo tezę, wywód lub strukturę, które wymyślił model, nawet jeśli w całości oddajesz je własnymi słowami."
     },
     {
       "question": "Czy większość finalnej formy zrobiłeś sam — większość słów, pikseli lub dźwięku?",
@@ -211,6 +214,11 @@
       "case": "Transkrypcja",
       "rule": "Przepisanie mowy, którą sam nagrałeś, to obróbka mechaniczna. Nie podnosi poziomu.",
       "why": "Słowa są twoje. Model tylko je zapisał."
+    },
+    {
+      "case": "Substancja od AI, słowa twoje",
+      "rule": "Jeśli model wymyślił substancję, która przesądza o tym, co praca mówi — tezę, wywód, strukturę — to wytworzył nowy materiał, który zostaje w pracy, nawet jeśli każde słowo zapisujesz samodzielnie. To Poziom 2 lub wyżej, nigdy Poziom 1. Uwagi, krytyka i sprawdzanie faktów, które weryfikujesz, pozostają Poziomem 1: rada redaktora nie czyni z redaktora autora.",
+      "why": "Idee są materiałem. Oddanie ich własnymi słowami ich nie od-wymyśla — a obietnica Poziomu 1, że model niczego nie wymyślił, musi znaczyć dokładnie to."
     },
     {
       "case": "Elementy dekoracyjne",
@@ -288,7 +296,8 @@
       "headOf": "Do sekcji <head> twojej strony",
       "surfacesH": "Jeśli części się różnią",
       "copy": "Kopiuj",
-      "copied": "Skopiowano"
+      "copied": "Skopiowano",
+      "inlineName": "SVG w treści z nazwą poziomu — tam, gdzie czytelnik widzi skalę pierwszy raz i potrzebuje słowa, nie tylko liczby"
     },
     "scalePage": {
       "eyebrow": "Skala",
@@ -362,7 +371,11 @@
       "machineLede": "Kanoniczne definicje angielskie są w jednym pliku i sterują znakami oraz danymi dla maszyn. Lokalizowane teksty objaśniające są utrzymywane osobno i sprawdzane pod kątem zgodności struktury.",
       "priorArt": "Wcześniejsze prace",
       "priorLede": "Nic tutaj nie jest bezprecedensowe, a udawanie, że jest, byłoby własną małą nieuczciwością.",
-      "why": "Dlaczego"
+      "why": "Dlaczego",
+      "wellKnown": "Witryna może też opublikować deklarację dla całego serwisu pod ścieżką well-known, gdzie robot wie, że ma zajrzeć, bez żadnych wskazówek:",
+      "challengeH": "Jeśli nie wierzysz deklaracji",
+      "challengeA": "Deklaracja jest falsyfikowalna publicznie. Sprawdź link i metadane; porównaj zadeklarowany poziom z samą pracą, a przy rozbieżnościach — z rozbiciem na powierzchnie; potem zapytaj autora — w komentarzu, recenzji, zgłoszeniu. Większość rozbieżności to uczciwe odczytania granicy, a powyższe przypadki brzegowe rozstrzygają większość z nich.",
+      "challengeB": "Jeśli deklaracja jest świadomie fałszywa, odpowiedź standardu jest tą, która się skaluje: roszczenie było publiczne i podlinkowane, a teraz zostało publicznie sfalsyfikowane. Nie ma tu detektora ani rejestru — celowo. Egzekwowaniem jest reputacja, dokładnie tak jak przy podpisie autora."
     },
     "signPage": {
       "eyebrow": "Sygnatariusze",
@@ -374,7 +387,8 @@
       "howB": "Jeśli pull request to nie twój świat, załóż issue, a ktoś cię dopisze.",
       "addName": "Dopisz się",
       "count": "sygnatariuszy",
-      "note": "Liczba obok nazwiska, jeśli tam jest, oznacza poziom, na którym ta osoba publikuje najczęściej. To nie jest ocena. Kilkoro z tych ludzi to zwykle czwórka — i mówią to wprost, i o to dokładnie chodzi."
+      "note": "Liczba obok nazwiska, jeśli tam jest, oznacza poziom, na którym ta osoba publikuje najczęściej. To nie jest ocena. Kilkoro z tych ludzi to zwykle czwórka — i mówią to wprost, i o to dokładnie chodzi.",
+      "noGithub": "Nie masz GitHuba? Prześlij swoje nazwisko przez stronę kontaktową, a zostanie dodane za ciebie."
     },
     "lang": {
       "label": "Język",
