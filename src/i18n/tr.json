@@ -3,7 +3,9 @@
   "name": "Turkish",
   "endonym": "Türkçe",
   "dir": "ltr",
-  "translation": { "by": "machine" },
+  "translation": {
+    "by": "machine"
+  },
   "principle": "Hiçbir düzey bir diğerinden üstün değildir. Kendi düzeylerini sıraya dizen bir ölçek, bir utanç merdivenidir; herkes yalan söyleyerek o merdivenden aşağı iner. Dürüst olmayan tek düzey, beyan edilmemiş olandır.",
   "axis": {
     "measures": "Yapay zekânın eserin yapımında oynadığı rol: eserin özü kime ait ve sorumluluğunu kim taşıyor.",
@@ -45,7 +47,7 @@
       "id": 1,
       "name": "Destekli",
       "oneLine": "Yapay zekâ yalnızca sizin zaten ürettiğiniz malzeme üzerinde çalıştı. Hiçbir şey uydurmadı.",
-      "definition": "Eseri siz yaptınız. Yapay zekâ yalnızca malzemenizi işledi ya da arka planda yardımcı oldu: düzeltme yaptı; sözlerinizi aslına sadık biçimde deşifre etti veya çevirdi; temizledi, etiketledi, biçimlendirdi, arama yaptı ya da geri bildirim verdi. Malzemenizin aslına sadık bir deşifresi veya çevirisi dışında, yayımlanan eserde model üretimi hiçbir malzeme yer almıyor.",
+      "definition": "Eseri siz yaptınız. Yapay zekâ yalnızca malzemenizi işledi ya da perde arkasında yardım etti: düzeltti, aslına sadık deşifre etti ya da çevirdi, temizledi, etiketledi, biçimlendirdi, aradı, geri bildirim verdi. Malzemenizin aslına sadık bir deşifresi ya da çevirisi dışında, yayımlanan eserde modelin kendisinden hiçbir şey — ne ifade ne öz — yer almaz.",
       "includes": [
         "Sizin yazdığınız cümlelerde dilbilgisi, yazım ve üslup düzeltmesi",
         "Sizin kaydettiğiniz sesin deşifre edilmesi",
@@ -55,7 +57,7 @@
       ],
       "excludes": [
         "Yapay zekânın esere sağ çıkan bir cümle, paragraf, görsel ya da ezgi taslağı üretmesi — bu Düzey 2 ya da üzeridir",
-        "Yapay zekânın üslubunuzu değil, savınızın yapısını yeniden kurması"
+        "Yapay zekânın üslubunuzu değil, savın kendisini ortaya atması ya da yeniden kurması — her kelimeyi kendiniz yazmış olsanız bile bu Düzey 2 ya da üzeridir"
       ],
       "examples": [
         "Sizin yazdığınız, dilbilgisi için bir modelden geçirilmiş bir makale.",
@@ -73,12 +75,13 @@
       "id": 2,
       "name": "Ortak Yapım",
       "oneLine": "Son biçimin çoğunu siz yaptınız. Yapay zekânın yaptığı parçaların bir kısmı eserde kaldı.",
-      "definition": "Eser, yapısı ve icrasının büyük bölümü bakımından sizindir; ama bir modelin ürettiği malzeme yayımlanan sonuçta yaşamaya devam eder: pasajlar, ögeler, aralarından seçim yaptığınız varyasyonlar. İzleyicinin aldığı şeyin çoğunu siz yazdınız, çizdiniz ya da çaldınız.",
+      "definition": "Eserin icrası çoğunlukla sizindir, ama bir modelin ürettiği malzeme yayımlanan sonuçta yaşamaya devam eder: pasajlar, öğeler, aralarından seçtiğiniz varyasyonlar — ya da modelin önerdiği ve kendi sözcüklerinizle de olsa koruduğunuz sav veya yapı. İzleyicinin aldığının çoğunu siz yazdınız, çizdiniz ya da çaldınız.",
       "includes": [
         "Yapay zekânın taslağını çıkardığı, sonra sizin yeniden yazdığınız ve bütünde sizin sözcüklerinizin baskın olduğu bir bölüm",
         "Yapay zekânın ürettiği, aralarından seçim yapıp üzerinde çalıştığınız varyasyonlar",
         "Sizin tasarlayıp büyük ölçüde yazdığınız bir kod tabanında yapay zekânın bir fonksiyon yazması",
-        "Sizin kurguladığınız bir görselin bir kısmını yapay zekânın genişletmesi ya da doldurması"
+        "Sizin kurguladığınız bir görselin bir kısmını yapay zekânın genişletmesi ya da doldurması",
+        "Yapay zekânın önerdiği tezi, taslağı ya da yapıyı sonra kendi sözcüklerinizle yazmanız"
       ],
       "excludes": [
         "Son sözcüklerin ya da piksellerin çoğunu yapay zekânın üretmesi — bu Düzey 3 ya da üzeridir",
@@ -186,7 +189,7 @@
     },
     {
       "question": "Yapay zekâ, sizin zaten ürettiğinizi mekanik olarak işlemenin ötesinde, yayımlanan eserde görünen yeni malzeme üretti mi?",
-      "help": "Dilbilginizi düzeltmek, sözlerinizi aslına sadık biçimde deşifre etmek veya çevirmek, fotoğrafınızın gürültüsünü gidermek ya da dosyalarınızı etiketlemek mekanik işlemedir. Eserde model üretimi malzeme bırakmayan araştırma, fikir geliştirme veya geri bildirim de öyledir. Yeni bir paragraf, görsel veya ezgi ise yeni malzemedir."
+      "help": "Dil bilgisi düzeltmek, sözlerinizi aslına sadık biçimde deşifre etmek ya da çevirmek, fotoğrafınızın gürültüsünü gidermek veya dosyalarınızı etiketlemek mekanik işlemedir. Eserde modelin kendisinden hiçbir şey bırakmayan geri bildirim, eleştiri, araştırma ve doğrulama da öyle — bir editörün tavsiyesi editörü yazar yapmaz. Yeni malzeme yalnızca ifadeyi değil özü de kapsar: bir paragraf, bir görsel, bir ezgi — ya da modelin ortaya attığı bir tez, sav veya yapı, her kelimesini kendi sözcüklerinizle yeniden yazmış olsanız bile."
     },
     {
       "question": "Son biçimin çoğunu — sözcüklerin, piksellerin ya da sesin çoğunu — kendiniz mi yaptınız?",
@@ -211,6 +214,11 @@
       "case": "Deşifre",
       "rule": "Kaydettiğiniz konuşmanın deşifre edilmesi mekanik işlemedir. Düzeyi yükseltmez.",
       "why": "Sözcükler sizindir. Model onları yalnızca yazıya geçirdi."
+    },
+    {
+      "case": "Öz yapay zekâdan, sözcükler sizden",
+      "rule": "Bir model, eserin ne söylediğini esaslı biçimde belirleyen özü — tezi, savı, yapıyı — ortaya attıysa, esere sağ çıkan yeni malzeme üretmiş demektir; her kelimeyi kendiniz yazmış olsanız bile. Bu Düzey 2 ya da üzeridir, asla Düzey 1 değildir. Sizin doğruladığınız geri bildirim, eleştiri ve doğrulama Düzey 1'de kalır: bir editörün tavsiyesi editörü yazar yapmaz.",
+      "why": "Fikirler malzemedir. Onları kendi sözcüklerinizle yeniden yazmak icat edilmişliklerini geri almaz — ve Düzey 1'in, modelin hiçbir şey icat etmediği vaadi tam olarak bunu kastetmelidir."
     },
     {
       "case": "Süsleyici ögeler",
@@ -288,7 +296,8 @@
       "headOf": "Sayfanızın <head> bölümü için",
       "surfacesH": "Parçalar birbirinden ayrılıyorsa",
       "copy": "Kopyala",
-      "copied": "Kopyalandı"
+      "copied": "Kopyalandı",
+      "inlineName": "Düzeyin adını da taşıyan satır içi SVG — ölçeği ilk kez gören okurun sayıya değil sözcüğe ihtiyaç duyduğu yerde"
     },
     "scalePage": {
       "eyebrow": "Ölçek",
@@ -362,7 +371,11 @@
       "machineLede": "Kanonik İngilizce tanımlar tek bir dosyada bulunur; rozetleri ve makinece okunabilir çıktıyı yönlendirir. Yerelleştirilmiş açıklayıcı metin ayrı tutulur ve yapısal eşdeğerlik açısından denetlenir.",
       "priorArt": "Öncel çalışmalar",
       "priorLede": "Burada emsalsiz hiçbir şey yok; aksini iddia etmek kendi başına küçük bir sahtekârlık olurdu.",
-      "why": "Neden"
+      "why": "Neden",
+      "wellKnown": "Bir site, tüm site için geçerli bir beyanı well-known yolunda da yayımlayabilir; tarayıcı oraya söylenmeden bakmayı bilir:",
+      "challengeH": "Bir beyandan kuşku duyuyorsanız",
+      "challengeA": "Bir beyan kamuya açık biçimde yanlışlanabilir. Bağlantıyı ve üstveriyi kontrol edin; beyan edilen düzeyi eserle, ayrıştıkları yerde de yüzeylere göre dökümle karşılaştırın; sonra yazara sorun — bir yorumda, bir eleştiride, bir issue'da. Uyumsuzlukların çoğu bir sınırın dürüst okumalarıdır ve yukarıdaki sınır durumları çoğunu çözer.",
+      "challengeB": "Bir beyan bile bile yanlışsa, standardın yanıtı ölçeklenen yanıttır: iddia kamuya açıktı, bağlanabilirdi — ve şimdi kamuya açık biçimde yanlışlandı. Burada bilerek ne bir dedektör ne de bir kayıt var. Yaptırım itibardır, tıpkı bir imzada olduğu gibi."
     },
     "signPage": {
       "eyebrow": "İmzacılar",
@@ -374,7 +387,8 @@
       "howB": "Pull request sizin dünyanız değilse, bir issue açın; biri sizi ekler.",
       "addName": "Adınızı ekleyin",
       "count": "imzacı",
-      "note": "Bir ismin yanındaki sayı — varsa — o kişinin en sık hangi düzeyde yayın yaptığını gösterir. Bir puan değildir. Buradaki birkaç kişi genellikle 4'tür ve bunu söyler; mesele de tam olarak budur."
+      "note": "Bir ismin yanındaki sayı — varsa — o kişinin en sık hangi düzeyde yayın yaptığını gösterir. Bir puan değildir. Buradaki birkaç kişi genellikle 4'tür ve bunu söyler; mesele de tam olarak budur.",
+      "noGithub": "Hiç GitHub'ınız yok mu? Adınızı iletişim sayfasından gönderin, sizin için eklensin."
     },
     "lang": {
       "label": "Dil",

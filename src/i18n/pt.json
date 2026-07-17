@@ -3,7 +3,9 @@
   "name": "Portuguese",
   "endonym": "Português",
   "dir": "ltr",
-  "translation": { "by": "machine" },
+  "translation": {
+    "by": "machine"
+  },
   "principle": "Nenhum nível está acima de outro. Uma escala que hierarquiza os próprios níveis é uma escada da vergonha, e todo mundo vai mentir para descer por ela. O único nível desonesto é o que não foi declarado.",
   "axis": {
     "measures": "O papel que a inteligência artificial teve na criação da obra: de quem é a substância dela e quem responde por ela.",
@@ -45,7 +47,7 @@
       "id": 1,
       "name": "Assistido",
       "oneLine": "A IA só trabalhou sobre material que você já tinha feito. Ela não inventou nada.",
-      "definition": "A obra foi feita por você. A IA apenas processou o seu material ou ajudou nos bastidores: corrigindo, transcrevendo ou traduzindo com fidelidade, limpando, etiquetando, formatando, buscando ou dando feedback. À exceção de uma transcrição ou tradução fiel do seu material, nenhum conteúdo produzido por um modelo aparece na obra publicada.",
+      "definition": "Foi você que fez a obra. A IA apenas processou o seu material ou ajudou nos bastidores: corrigindo, transcrevendo ou traduzindo fielmente, limpando, etiquetando, formatando, pesquisando ou dando comentários. Salvo uma transcrição ou tradução fiel do seu material, nada do próprio modelo — nem redação nem substância — aparece na obra publicada.",
       "includes": [
         "Correção de gramática, ortografia e estilo de frases que você escreveu",
         "Transcrever um áudio que você gravou",
@@ -55,7 +57,7 @@
       ],
       "excludes": [
         "A IA redigir uma frase, um parágrafo, uma imagem ou uma melodia que sobreviva na obra: isso é Nível 2 ou acima",
-        "A IA reestruturar o seu argumento, e não apenas a sua prosa"
+        "A IA conceber ou reestruturar o próprio argumento, e não apenas a sua prosa: isso é Nível 2 ou acima, mesmo que tenha escrito cada palavra você mesmo"
       ],
       "examples": [
         "Um artigo que você escreveu, passado por um modelo para corrigir a gramática.",
@@ -73,12 +75,13 @@
       "id": 2,
       "name": "Cocriado",
       "oneLine": "A maior parte da forma final foi feita por você. A IA fez partes que ficaram.",
-      "definition": "A obra é sua na estrutura e na maior parte da execução, mas material produzido por um modelo sobrevive no resultado publicado: trechos, elementos, variações entre as quais você escolheu. Você escreveu, desenhou ou tocou a maior parte do que o público recebe.",
+      "definition": "A execução da obra é maioritariamente sua, mas material produzido por um modelo sobrevive no resultado publicado: passagens, elementos, variações entre as quais escolheu — ou o argumento ou a estrutura que ele propôs e que você manteve, mesmo com as suas próprias palavras. Foi você que escreveu, desenhou ou tocou a maior parte do que o público recebe.",
       "includes": [
         "A IA redigir uma seção que você depois reescreve, e as suas palavras dominarem o conjunto",
         "A IA gerar variações entre as quais você escolhe e que depois edita",
         "A IA escrever uma função dentro de um código que você projetou e escreveu em sua maior parte",
-        "A IA estender ou preencher parte de uma imagem que você compôs"
+        "A IA estender ou preencher parte de uma imagem que você compôs",
+        "A IA propor a tese, o esboço ou a estrutura que depois você redige com as suas próprias palavras"
       ],
       "excludes": [
         "A IA produzir a maior parte das palavras ou dos pixels finais: isso é Nível 3 ou acima",
@@ -186,7 +189,7 @@
     },
     {
       "question": "A IA produziu material novo que aparece na obra publicada, além de processar mecanicamente o que você já tinha feito?",
-      "help": "Corrigir a sua gramática, transcrever ou traduzir fielmente as suas palavras, remover o ruído da sua foto ou etiquetar os seus arquivos é processamento mecânico. O mesmo vale para pesquisa, ideação ou feedback que não deixe conteúdo produzido por modelo na obra. Escrever um parágrafo novo, desenhar uma imagem nova ou compor uma melodia nova é material novo."
+      "help": "Corrigir a sua gramática, transcrever ou traduzir fielmente as suas palavras, reduzir o ruído da sua foto ou etiquetar os seus ficheiros é processamento mecânico. Também o são os comentários, a crítica, a pesquisa e a verificação de factos que não deixam nada do próprio modelo na obra — o conselho de um editor não faz do editor um autor. O material novo inclui a substância além da redação: um parágrafo, uma imagem, uma melodia — ou uma tese, um argumento ou uma estrutura que o modelo concebeu, mesmo que os tenha reescrito inteiramente com as suas próprias palavras."
     },
     {
       "question": "Você mesmo fez a maior parte da forma final: a maior parte das palavras, dos pixels ou do som?",
@@ -211,6 +214,11 @@
       "case": "Transcrição",
       "rule": "Transcrever uma fala que você gravou é processamento mecânico. Não sobe o nível.",
       "why": "As palavras são suas. O modelo só as colocou no papel."
+    },
+    {
+      "case": "A substância da IA, as palavras suas",
+      "rule": "Se um modelo concebeu a substância que determina materialmente o que a obra diz — a tese, o argumento, a estrutura —, produziu material novo que sobrevive na obra, mesmo que você tenha escrito cada palavra. Isso é Nível 2 ou acima, nunca Nível 1. Comentários, crítica e verificação de factos que você confere continuam a ser Nível 1: o conselho de um editor não faz do editor um autor.",
+      "why": "As ideias são material. Reescrevê-las com as suas próprias palavras não as des-inventa — e a promessa do Nível 1, de que o modelo nada concebeu, tem de significar exatamente isso."
     },
     {
       "case": "Elementos decorativos",
@@ -288,7 +296,8 @@
       "headOf": "Para o <head> da sua página",
       "surfacesH": "Se as partes divergem",
       "copy": "Copiar",
-      "copied": "Copiado"
+      "copied": "Copiado",
+      "inlineName": "SVG inline com o nome do nível — onde um leitor que vê a escala pela primeira vez precisa da palavra, não apenas do número"
     },
     "scalePage": {
       "eyebrow": "A escala",
@@ -362,7 +371,11 @@
       "machineLede": "As definições canônicas em inglês ficam em um único arquivo e alimentam os selos e a saída legível por máquina. O texto explicativo localizado é mantido separadamente e verificado para garantir a mesma estrutura.",
       "priorArt": "Antecedentes",
       "priorLede": "Nada aqui é inédito, e fingir o contrário seria uma pequena desonestidade em si.",
-      "why": "Por quê"
+      "why": "Por quê",
+      "wellKnown": "Um site também pode publicar uma declaração para todo o site num caminho well-known, onde um rastreador sabe procurar sem que lho digam:",
+      "challengeH": "Se duvida de uma declaração",
+      "challengeA": "Uma declaração é falsificável em público. Verifique o link e os metadados; compare o nível declarado com a obra e, onde divergirem, com a repartição por superfícies; depois pergunte ao autor — num comentário, numa recensão, numa issue. A maioria das divergências são leituras honestas de uma fronteira, e os casos-limite acima resolvem quase todas.",
+      "challengeB": "Se uma declaração é conscientemente falsa, a resposta do padrão é a que escala: a alegação era pública e ligável, e agora está falsificada em público. Não há aqui detector nem registo, de propósito — a reputação é a sanção, exatamente como numa assinatura."
     },
     "signPage": {
       "eyebrow": "Signatários",
@@ -374,7 +387,8 @@
       "howB": "Se pull request não é o seu mundo, abra uma issue e alguém adiciona você.",
       "addName": "Adicione o seu nome",
       "count": "signatários",
-      "note": "O número ao lado de um nome, quando existe, é o nível em que aquela pessoa publica com mais frequência. Não é uma nota. Várias das pessoas daqui costumam ser 4, e dizem isso, que é exatamente o ponto."
+      "note": "O número ao lado de um nome, quando existe, é o nível em que aquela pessoa publica com mais frequência. Não é uma nota. Várias das pessoas daqui costumam ser 4, e dizem isso, que é exatamente o ponto.",
+      "noGithub": "Não tem GitHub? Envie o seu nome pela página de contacto e ele será adicionado por si."
     },
     "lang": {
       "label": "Idioma",

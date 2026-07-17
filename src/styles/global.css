@@ -17,8 +17,10 @@
   --band:       #E4E9DF;   /* greenbar — the stripe machine output was printed on for humans to read */
   --raised:     #F7F8F5;
   --ink:        #16191B;
-  --ink-mid:    #5C6560;
-  --ink-soft:   #8B938D;
+  /* Both greys clear WCAG AA for small text on --paper (mid ≈ 6.5:1, soft ≈ 4.6:1). The soft
+     tone sits right at the floor — darkening it further would collapse the three-step hierarchy. */
+  --ink-mid:    #4F5852;
+  --ink-soft:   #666F69;
   --rule:       #CBD2C7;
   --rule-soft:  #DDE2D9;
   --accent:     #0D4F45;   /* ledger ink. Not a warning colour — there is nothing here to warn about. */
@@ -70,7 +72,7 @@
     --raised:    #1E2224;
     --ink:       #E9ECE7;
     --ink-mid:   #99A29C;
-    --ink-soft:  #6C756F;
+    --ink-soft:  #7E8781;  /* ≈ 4.8:1 on the dark paper — AA for the small mono labels */
     --rule:      #333A36;
     --rule-soft: #262C29;
     --accent:    #6FC0AC;
@@ -83,7 +85,7 @@
   --raised:    #1E2224;
   --ink:       #E9ECE7;
   --ink-mid:   #99A29C;
-  --ink-soft:  #6C756F;
+  --ink-soft:  #7E8781;
   --rule:      #333A36;
   --rule-soft: #262C29;
   --accent:    #6FC0AC;
@@ -183,16 +185,8 @@ hr, .rule {
 :root[data-theme='dark'] .theme-toggle .sun { display: block; }
 :root[data-theme='dark'] .theme-toggle .moon { display: none; }
 
-/* Marks inlined for display swap with the theme — a fixed-ink light mark is invisible on dark.
-   display:contents so the wrapper never disturbs the badge's own layout. */
-.mark-light { display: contents; }
-.mark-dark { display: none; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) .mark-light { display: none; }
-  :root:not([data-theme='light']) .mark-dark { display: contents; }
-}
-:root[data-theme='dark'] .mark-light { display: none; }
-:root[data-theme='dark'] .mark-dark { display: contents; }
+/* Marks displayed on our own pages are the `auto` builds (currentColor ink), so they follow
+   the resolved theme with no swapping. */
 .masthead a { text-decoration: none; }
 .wordmark {
   font-family: var(--mono);

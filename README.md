@@ -4,6 +4,11 @@
 
 **An open standard for declaring how a work was made — whose knowledge it carries, and who stands behind it.**
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="public/badge/3-name-dark.svg">
+  <img src="public/badge/3-name.svg" alt="AI Usage Scale: Level 3 — Directed. The substance is yours. AI produced the form." height="24">
+</picture>
+
 Six levels. Free. CC0. No account, no fee, no committee.
 
 [usagescale.org](https://usagescale.org) · [The manifesto](https://usagescale.org) · [Find your level](https://usagescale.org/find-your-level) · [Specification](https://usagescale.org/spec) · [`levels.json`](https://usagescale.org/levels.json)
@@ -116,7 +121,7 @@ That is exactly the case this standard defends. Hiding it would have been absurd
 
 ```sh
 npm install
-npm run badges   # regenerate the 24 SVGs from spec/levels.json
+npm run badges   # regenerate the 54 SVGs from spec/levels.json
 npm run dev
 npm run build    # static HTML → dist/, deploy anywhere
 ```

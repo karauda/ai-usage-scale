@@ -21,7 +21,7 @@ const check = (name, fn) => {
 const ok = (v, msg) => { if (!v) throw new Error(msg); };
 
 const read = (f) => readFileSync(join(DIST, f), 'utf8');
-const PAGES = ['index', '0', '1', '2', '3', '4', '5', 'scale', 'find-your-level', 'badges', 'spec', 'sign', 'ecosystem', 'integrations'];
+const PAGES = ['index', '0', '1', '2', '3', '4', '5', 'scale', 'find-your-level', 'badges', 'spec', 'sign', 'ecosystem', 'integrations', 'cases', 'eu-ai-act'];
 
 console.log('\nWhat ships');
 

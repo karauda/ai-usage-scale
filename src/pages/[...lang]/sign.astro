@@ -36,6 +36,9 @@ const { signatories: people } = signatories as {
       <h2>{t.ui.signPage.howH}</h2>
       <p>{t.ui.signPage.howA}</p>
       <p>{t.ui.signPage.howB}</p>
+      {/* The manifesto is addressed to creators, most of whom do not live on GitHub. A PR-only
+          door would filter for developers; this one costs nothing and harvests nothing. */}
+      <p><a href="https://karauda.com/contact">{t.ui.signPage.noGithub}</a></p>
       <p>
         <a href="https://github.com/karauda/ai-usage-scale/blob/main/signatories.json" class="cta">
           {t.ui.signPage.addName}

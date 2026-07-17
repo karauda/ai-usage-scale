@@ -46,6 +46,7 @@ const L = (p: string) => localePath(lang, p);
     <a href="#procedure">{t.ui.specPage.procedure}</a>
     <a href="#surfaces">{t.ui.specPage.surfaces}</a>
     <a href="#edge-cases">{t.ui.specPage.edgeCases}</a>
+    <a href="#challenge">{t.ui.specPage.challengeH}</a>
     <a href="#interop">{t.ui.specPage.interop}</a>
     <a href="#machine">{t.ui.specPage.machine}</a>
     <a href="#prior-art">{t.ui.specPage.priorArt}</a>
@@ -106,6 +107,12 @@ const L = (p: string) => localePath(lang, p);
     </dl>
   </section>
 
+  <section id="challenge">
+    <h2>{t.ui.specPage.challengeH}</h2>
+    <p class="prose">{t.ui.specPage.challengeA}</p>
+    <p class="prose">{t.ui.specPage.challengeB}</p>
+  </section>
+
   <section id="interop">
     <h2>{t.ui.specPage.interop}</h2>
     <p class="prose">{t.ui.specPage.interopLede}</p>
@@ -155,6 +162,16 @@ const L = (p: string) => localePath(lang, p);
 <!-- Experimental W3C Community Group alignment; not a W3C standard -->
 <meta name="ai-disclosure" content="ai-generated">
 <link rel="ai-disclosure" href="https://usagescale.org/3">`}</code></pre>
+
+    <p class="prose">{t.ui.specPage.wellKnown}</p>
+    <pre><code>{`GET /.well-known/ai-disclosure.json
+
+{
+  "aiUsageScale": "1.0",
+  "level": 3,
+  "surfaces": { "text": 3, "image": 0 },
+  "definition": "https://usagescale.org/3"
+}`}</code></pre>
   </section>
 
   <section id="prior-art">
