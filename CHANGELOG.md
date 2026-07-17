@@ -42,6 +42,9 @@ changed its meaning; under the policy in GOVERNANCE.md this is a **minor** versi
   (`#level-N`) now opens on the result instead of question one.
 - Signing no longer requires GitHub: the sign page links the contact page as an equal
   path in every language. The author signed `signatories.json`.
+- **The draft has an end date.** The level boundaries stay open for challenge through
+  **31 December 2026**; the first stable release, without the `-draft` suffix, follows
+  once the roadmap's Toward-1.0 gates close. Details in the roadmap.
 
 ## [1.0.0-draft] — 2026-07-13
 
