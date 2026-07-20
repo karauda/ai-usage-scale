@@ -136,7 +136,7 @@ Diagnosen, argumentet, beslutet att bygga det här och varje designval i skalan 
 
 Det är precis det fall som det här manifestet försvarar. Det vore absurt att göra det och sedan dölja det.
 
-Översättningarna är maskinproducerade från den här engelska texten och är märkta som sådana, enligt regeln i [§ Översättning](/spec#translation).
+Översättningarna är maskinproducerade från den här engelska texten och är märkta som sådana, enligt regeln i [§ Översättning](/sv/spec#translation).
 
 ---
 

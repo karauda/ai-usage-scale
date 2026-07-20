@@ -136,7 +136,7 @@ Le diagnostic, l'argumentation, la décision de construire ceci et chacun des ch
 
 C'est exactement le cas que ce manifeste défend. Il serait absurde de le plaider et de le cacher.
 
-Les traductions sont produites automatiquement à partir de ce texte anglais et signalées comme telles, selon la règle énoncée au [§ Traduction](/spec#translation).
+Les traductions sont produites automatiquement à partir de ce texte anglais et signalées comme telles, selon la règle énoncée au [§ Traduction](/fr/spec#translation).
 
 ---
 

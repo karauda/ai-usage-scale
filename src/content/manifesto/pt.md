@@ -136,7 +136,7 @@ O diagnóstico, o argumento, a decisão de construir isto e cada escolha de proj
 
 É exatamente esse o caso que este manifesto defende. Seria absurdo defendê-lo e escondê-lo.
 
-As traduções são produzidas por máquina a partir deste texto em inglês e estão marcadas como tais, conforme a regra de [§ Tradução](/spec#translation).
+As traduções são produzidas por máquina a partir deste texto em inglês e estão marcadas como tais, conforme a regra de [§ Tradução](/pt/spec#translation).
 
 ---
 

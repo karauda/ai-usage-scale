@@ -136,7 +136,7 @@ Die Diagnose, die Argumentation, die Entscheidung, das hier zu bauen, und jede G
 
 Genau das ist der Fall, den dieses Manifest verteidigt. Es wäre absurd, ihn zu vertreten und ihn zu verstecken.
 
-Die Übersetzungen sind maschinell aus diesem englischen Text erzeugt und als solche gekennzeichnet — nach der Regel in [§ Übersetzung](/spec#translation).
+Die Übersetzungen sind maschinell aus diesem englischen Text erzeugt und als solche gekennzeichnet — nach der Regel in [§ Übersetzung](/de/spec#translation).
 
 ---
 

@@ -136,7 +136,7 @@ Diagnoza, argument, decyzja, żeby to zbudować, i każdy wybór projektowy w te
 
 To dokładnie ten przypadek, którego ten manifest broni. Absurdem byłoby go zrobić i ukryć.
 
-Tłumaczenia powstały maszynowo z tego angielskiego tekstu i są tak oznaczone, zgodnie z zasadą z [§ Tłumaczenie](/spec#translation).
+Tłumaczenia powstały maszynowo z tego angielskiego tekstu i są tak oznaczone, zgodnie z zasadą z [§ Tłumaczenie](/pl/spec#translation).
 
 ---
 

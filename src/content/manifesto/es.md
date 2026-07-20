@@ -136,7 +136,7 @@ El diagnóstico, el argumento, la decisión de construir esto y cada elección d
 
 Ese es exactamente el caso que defiende este manifiesto. Sería absurdo defenderlo y esconderlo.
 
-Las traducciones se han producido a máquina a partir de este texto en inglés y están marcadas como tales, según la regla de [§ Traducción](/spec#translation).
+Las traducciones se han producido a máquina a partir de este texto en inglés y están marcadas como tales, según la regla de [§ Traducción](/es/spec#translation).
 
 ---
 

@@ -136,7 +136,7 @@ Chẩn đoán, lập luận, quyết định dựng nên thứ này, và từng 
 
 Đó đúng là trường hợp mà bản tuyên ngôn này bênh vực. Làm ra nó rồi giấu nó đi thì thật vô lý.
 
-Các bản dịch được máy tạo ra từ văn bản tiếng Anh này và được đánh dấu đúng như vậy, theo quy tắc tại [§ Dịch thuật](/spec#translation).
+Các bản dịch được máy tạo ra từ văn bản tiếng Anh này và được đánh dấu đúng như vậy, theo quy tắc tại [§ Dịch thuật](/vi/spec#translation).
 
 ---
 

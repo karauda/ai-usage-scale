@@ -18,7 +18,7 @@ would be trusted by only one camp.
 **Harassment, personal attacks, and bad-faith brigading** get you removed, once,
 without a debate about it.
 
-Report problems by opening an issue, or privately to the maintainers listed in
-[GOVERNANCE.md](GOVERNANCE.md).
+Report problems by opening an issue, or privately to the maintainer at
+[karauda.com/contact](https://karauda.com/contact).
 
 Adapted in spirit from the Contributor Covenant.

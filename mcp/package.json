@@ -16,6 +16,6 @@
   "scripts": {
     "test": "node test.mjs",
     "sync": "cp ../spec/levels.json ./levels.json",
-    "prepublishOnly": "npm test && cp ../spec/levels.json ./levels.json"
+    "prepublishOnly": "npm run sync && npm test"
   }
 }

@@ -136,7 +136,7 @@ La diagnosi, il ragionamento, la decisione di costruire tutto questo e ogni scel
 
 È esattamente il caso che questo manifesto difende. Sarebbe assurdo difenderlo e nasconderlo.
 
-Le traduzioni sono prodotte a macchina a partire da questo testo inglese e sono contrassegnate come tali, secondo la regola in [§ Traduzione](/spec#translation).
+Le traduzioni sono prodotte a macchina a partire da questo testo inglese e sono contrassegnate come tali, secondo la regola in [§ Traduzione](/it/spec#translation).
 
 ---
 
