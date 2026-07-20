@@ -1,10 +1,10 @@
 {
   "$schema": "https://usagescale.org/schema/levels-1.0.json",
   "standard": "AI Usage Scale",
-  "version": "1.1.0-draft",
+  "version": "1.1.0",
   "url": "https://usagescale.org",
   "license": "CC0-1.0",
-  "updated": "2026-07-17",
+  "updated": "2026-07-20",
 
   "principle": "No level ranks above another. A scale that ranks its own levels is a shame ladder, and everyone lies their way down it. The only dishonest level is an undeclared one.",
 

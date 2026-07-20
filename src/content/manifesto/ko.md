@@ -2,7 +2,7 @@
 lang: ko
 title: AI 사용 선언문
 standfirst: 부끄러운 레벨은 없다. 선언하지 않은 레벨이 있을 뿐이다.
-version: 1.1.0-draft
+version: 1.1.0
 level: 3
 ---
 

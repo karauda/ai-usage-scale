@@ -2,7 +2,7 @@
 lang: id
 title: Manifesto Penggunaan AI
 standfirst: Tidak ada tingkat yang memalukan. Yang ada hanya tingkat yang tidak dinyatakan.
-version: 1.1.0-draft
+version: 1.1.0
 level: 3
 ---
 

@@ -2,7 +2,7 @@
 lang: th
 title: แถลงการณ์ว่าด้วยการใช้ AI
 standfirst: ไม่มีระดับใดที่น่าอาย มีเพียงระดับที่ไม่ได้ประกาศ
-version: 1.1.0-draft
+version: 1.1.0
 level: 3
 ---
 
