@@ -2,7 +2,7 @@
 lang: vi
 title: Tuyên ngôn về việc sử dụng AI
 standfirst: Không có cấp độ nào đáng xấu hổ. Chỉ có cấp độ không được công bố.
-version: 1.1.0-draft
+version: 1.1.0
 level: 3
 ---
 

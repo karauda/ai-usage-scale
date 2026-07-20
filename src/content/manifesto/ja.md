@@ -2,7 +2,7 @@
 lang: ja
 title: AI利用宣言
 standfirst: 恥ずべきレベルなど、ない。あるのは、宣言されていないレベルだけだ。
-version: 1.1.0-draft
+version: 1.1.0
 level: 3
 ---
 

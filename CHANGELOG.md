@@ -4,7 +4,7 @@ All notable changes to the AI Usage Scale. The scale follows [semantic versionin
 a **major** bump means a level's meaning changed, and would invalidate declarations already
 published. We will work very hard never to do that.
 
-## [1.1.0-draft] — 2026-07-17
+## [1.1.0] — 2026-07-20
 
 A boundary clarification, two new reference pages, and a larger badge family. No level
 changed its meaning; under the policy in GOVERNANCE.md this is a **minor** version.

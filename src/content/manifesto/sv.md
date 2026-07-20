@@ -2,7 +2,7 @@
 lang: sv
 title: Manifestet om AI-användning
 standfirst: Det finns ingen skamlig nivå. Det finns bara en odeklarerad.
-version: 1.1.0-draft
+version: 1.1.0
 level: 3
 ---
 

@@ -2,7 +2,7 @@
 lang: bn
 title: এআই ব্যবহারের ইশতেহার
 standfirst: লজ্জাজনক কোনো স্তর নেই। আছে শুধু অঘোষিত স্তর।
-version: 1.1.0-draft
+version: 1.1.0
 level: 3
 ---
 
