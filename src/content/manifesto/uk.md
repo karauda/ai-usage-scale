@@ -2,7 +2,7 @@
 lang: uk
 title: Маніфест використання ШІ
 standfirst: Немає ганебного рівня. Є лише незадекларований.
-version: 1.1.0-draft
+version: 1.1.0
 level: 3
 ---
 

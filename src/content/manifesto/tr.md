@@ -2,7 +2,7 @@
 lang: tr
 title: Yapay Zekâ Kullanım Manifestosu
 standfirst: Utanılacak bir düzey yoktur. Yalnızca beyan edilmemiş bir düzey vardır.
-version: 1.1.0-draft
+version: 1.1.0
 level: 3
 ---
 

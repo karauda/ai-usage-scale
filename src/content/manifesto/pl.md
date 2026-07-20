@@ -2,7 +2,7 @@
 lang: pl
 title: Manifest użycia AI
 standfirst: Nie ma wstydliwego poziomu. Jest tylko niezadeklarowany.
-version: 1.1.0-draft
+version: 1.1.0
 level: 3
 ---
 

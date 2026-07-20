@@ -2,7 +2,7 @@
 lang: fr
 title: Le Manifeste de l'usage de l'IA
 standfirst: Il n'existe pas de niveau honteux. Il n'existe qu'un niveau non déclaré.
-version: 1.1.0-draft
+version: 1.1.0
 level: 3
 ---
 
