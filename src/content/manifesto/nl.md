@@ -136,7 +136,7 @@ De diagnose, de redenering, het besluit om dit te bouwen en elke ontwerpkeuze in
 
 Dat is precies het pleidooi dat dit manifest voert. Het zou absurd zijn om het te voeren en het te verbergen.
 
-De vertalingen zijn machinaal geproduceerd uit deze Engelse tekst en zijn als zodanig gemarkeerd, volgens de regel in [§ Vertaling](/spec#translation).
+De vertalingen zijn machinaal geproduceerd uit deze Engelse tekst en zijn als zodanig gemarkeerd, volgens de regel in [§ Vertaling](/nl/spec#translation).
 
 ---
 

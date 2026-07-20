@@ -23,14 +23,25 @@ import { dirname, join } from 'node:path';
 import { classify } from './classify.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
-// Bundled copy when published to npm; the canonical spec when run from the repo.
-const specPath = existsSync(join(here, 'levels.json'))
-  ? join(here, 'levels.json')
-  : join(here, '..', 'spec', 'levels.json');
-const spec = JSON.parse(readFileSync(specPath, 'utf8'));
+// The canonical spec when run from the repo; the bundled copy when published to npm.
+// Prefer the repo's spec/levels.json so a stale synced copy left in this directory can
+// never shadow it during local development — the published package has no ../spec to find.
+const specPath = existsSync(join(here, '..', 'spec', 'levels.json'))
+  ? join(here, '..', 'spec', 'levels.json')
+  : join(here, 'levels.json');
+let spec;
+try {
+  spec = JSON.parse(readFileSync(specPath, 'utf8'));
+} catch (err) {
+  console.error(
+    `usagescale-mcp: cannot read the scale at ${specPath} (${err.message}).\n` +
+      'From the repo, run `npm run sync` or make sure spec/levels.json exists.'
+  );
+  process.exit(1);
+}
 
 const SITE = 'https://usagescale.org';
-const level = (id) => spec.levels.find((l) => l.id === id);
+const level = (id) => spec.levels.find((l) => l.id === Number(id));
 
 const text = (t) => ({ content: [{ type: 'text', text: typeof t === 'string' ? t : JSON.stringify(t, null, 2) }] });
 

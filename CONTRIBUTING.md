@@ -45,7 +45,7 @@ Machine output may improve access but does not qualify as human review. Do not c
 
 ```sh
 npm install
-npm run badges   # regenerate the 24 SVGs
+npm run badges   # regenerate the 54 SVGs
 npm run dev
 npm run build
 ```

@@ -56,6 +56,17 @@ const url = `${SITE}${localePath(lang, path)}`;
 const image = `${SITE}/og/${card}.png`;
 const alts = alternates(path);
 
+// Open Graph wants language_TERRITORY, not a bare language code: a bare `pl` or `zh` is
+// invalid, and consumers (Facebook, LinkedIn, Slack) silently fall back to en_US. Map each
+// locale to a conventional territory; the ambiguous ones take their largest-population form.
+const OG_LOCALE: Record<string, string> = {
+  ar: 'ar_AR', bn: 'bn_IN', de: 'de_DE', en: 'en_US', es: 'es_ES', fa: 'fa_IR',
+  fr: 'fr_FR', hi: 'hi_IN', id: 'id_ID', it: 'it_IT', ja: 'ja_JP', ko: 'ko_KR',
+  nl: 'nl_NL', pl: 'pl_PL', pt: 'pt_BR', ru: 'ru_RU', sv: 'sv_SE', th: 'th_TH',
+  tr: 'tr_TR', uk: 'uk_UA', vi: 'vi_VN', zh: 'zh_CN',
+};
+const ogLocale = (l: string) => OG_LOCALE[l] ?? 'en_US';
+
 /*
   The levels are a controlled vocabulary, so they are published as one — a DefinedTermSet
   of six DefinedTerms. That is the schema.org type built for exactly this, it is what makes
@@ -173,8 +184,8 @@ const graph = {
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="AI Usage Scale" />
-<meta property="og:locale" content={lang} />
-{alts.filter((a) => a.lang !== lang).map((a) => <meta property="og:locale:alternate" content={a.lang} />)}
+<meta property="og:locale" content={ogLocale(lang)} />
+{alts.filter((a) => a.lang !== lang).map((a) => <meta property="og:locale:alternate" content={ogLocale(a.lang)} />)}
 <meta property="og:url" content={url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
@@ -187,6 +198,7 @@ const graph = {
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={image} />
+<meta name="twitter:image:alt" content={description} />
 
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 <meta name="author" content="AI Usage Scale contributors" />
