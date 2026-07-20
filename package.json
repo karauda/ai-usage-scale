@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "description": "The AI Usage Scale \u2014 an open standard for declaring how a work was made.",
+  "engines": { "node": ">=22" },
   "scripts": {
     "dev": "astro dev",
     "badges": "node scripts/build-badges.mjs",

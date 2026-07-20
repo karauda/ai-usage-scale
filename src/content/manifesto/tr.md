@@ -136,7 +136,7 @@ Teşhis, sav, bunu kurma kararı ve ölçekteki her tasarım seçimi yazara aitt
 
 Bu manifestonun savunduğu durum tam olarak budur. Böyle bir belgeyi yapıp bunu saklamak saçma olurdu.
 
-Çeviriler bu İngilizce metinden makineyle üretilmiştir ve [§ Çeviri](/spec#translation) kuralı uyarınca böyle işaretlenmiştir.
+Çeviriler bu İngilizce metinden makineyle üretilmiştir ve [§ Çeviri](/tr/spec#translation) kuralı uyarınca böyle işaretlenmiştir.
 
 ---
 

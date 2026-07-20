@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://usagescale.org/sitemap.xml
+Sitemap: https://usagescale.org/sitemap-index.xml

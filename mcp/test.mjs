@@ -8,7 +8,7 @@ import { dirname, join } from 'node:path';
 import { classify } from './classify.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const specPath = existsSync(join(here, 'levels.json')) ? join(here, 'levels.json') : join(here, '..', 'spec', 'levels.json');
+const specPath = existsSync(join(here, '..', 'spec', 'levels.json')) ? join(here, '..', 'spec', 'levels.json') : join(here, 'levels.json');
 const spec = JSON.parse(readFileSync(specPath, 'utf8'));
 const tree = spec.decisionTree;
 

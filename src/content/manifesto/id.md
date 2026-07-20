@@ -136,7 +136,7 @@ Diagnosisnya, argumennya, keputusan untuk membangun ini, dan setiap pilihan ranc
 
 Itulah persis perkara yang dibela manifesto ini. Akan absurd membuatnya lalu menyembunyikannya.
 
-Terjemahan-terjemahannya dihasilkan mesin dari teks bahasa Inggris ini dan ditandai sebagai demikian, menurut aturan dalam [§ Terjemahan](/spec#translation).
+Terjemahan-terjemahannya dihasilkan mesin dari teks bahasa Inggris ini dan ditandai sebagai demikian, menurut aturan dalam [§ Terjemahan](/id/spec#translation).
 
 ---
 
