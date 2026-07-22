@@ -11,8 +11,8 @@ authors:
   - given-names: Konrad
     family-names: Karauda
   - name: "The AI Usage Scale contributors"
-version: 1.1.0
-date-released: 2026-07-20
+version: 1.1.1
+date-released: 2026-07-22
 license: CC-BY-4.0
 url: "https://usagescale.org"
 repository-code: "https://github.com/karauda/ai-usage-scale"
