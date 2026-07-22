@@ -17,6 +17,32 @@ export default defineConfig({
   // off. An SPA would serve every one of those an empty div.
   output: 'static',
 
+  // Prove the "nothing phones home" promise at the browser level. The site is fully
+  // self-contained, so a strict CSP is cheap: Astro hashes every processed script/style at
+  // build time; we add the lockdown directives and the one is:inline theme script's hash.
+  // Prove the "nothing phones home" promise at the browser level. The site is fully
+  // self-contained, so a strict CSP is cheap. Astro hashes every processed script/style at
+  // build time; we add the lockdown directives and the one is:inline theme script's hash
+  // (Astro can't see inside is:inline). scripts/test.mjs guards that this hash stays in sync.
+  experimental: {
+    csp: {
+      directives: [
+        "default-src 'self'",
+        "img-src 'self' data:",
+        "font-src 'self'",
+        "connect-src 'none'",
+        "base-uri 'none'",
+        "form-action 'none'",
+      ],
+      scriptDirective: {
+        // sha256 of the is:inline theme script in Base.astro. If that script changes, the
+        // check in scripts/test.mjs fails until this is updated — a wrong hash silently breaks
+        // theme-on-first-paint, so it must never drift.
+        hashes: ['sha256-jfZ+wGdJDDwupnt/1WnWzJov/Ry8phZ4tFMotOgGBsQ='],
+      },
+    },
+  },
+
   // /3, not /3/ — the badge URL has to be short, and it has to stay short.
   build: { format: 'file' },
 
