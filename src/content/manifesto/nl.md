@@ -2,7 +2,7 @@
 lang: nl
 title: Het manifest over AI-gebruik
 standfirst: Er bestaat geen beschamend niveau. Er bestaat alleen een niet-vermeld niveau.
-version: 1.1.0
+version: 1.1.1
 level: 3
 ---
 

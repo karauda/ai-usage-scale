@@ -149,8 +149,8 @@ To sign the manifesto, add yourself to [`signatories.json`](signatories.json).
 See the [translation policy](docs/TRANSLATION-POLICY.md) before submitting a language,
 [governance](GOVERNANCE.md) for how decisions are made and what a breaking change means, and
 the [roadmap](docs/ROADMAP.md) for where this is going. See also the
-[security policy](SECURITY.md), the [code of conduct](CODE_OF_CONDUCT.md), and
-[ways to support the project](SUPPORT.md).
+[FAQ](docs/FAQ.md), the [security policy](SECURITY.md) and its [threat model](docs/THREAT-MODEL.md),
+the [code of conduct](CODE_OF_CONDUCT.md), and [ways to support the project](SUPPORT.md).
 
 ## Contact
 

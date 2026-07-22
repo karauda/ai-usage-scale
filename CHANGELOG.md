@@ -4,6 +4,24 @@ All notable changes to the AI Usage Scale. The scale follows [semantic versionin
 a **major** bump means a level's meaning changed, and would invalidate declarations already
 published. We will work very hard never to do that.
 
+## [1.1.1] — 2026-07-22
+
+Site hardening, accessibility, and documentation. **The scale is unchanged** — same six
+levels, same definitions, same decision tree — so no declaration already published is
+affected. A patch, by the policy in GOVERNANCE.md.
+
+- **The English-only reference pages now declare English.** `ecosystem`, `integrations`,
+  `cases` and `eu-ai-act` are served under every locale but keep English bodies. They were
+  emitting `<html lang="pl">` and hreflang for translations that do not exist; they now
+  declare `lang="en"`, canonicalise to their English URL, and drop the false alternates —
+  fixing a WCAG language mismatch and 84 duplicate URLs.
+- **A strict Content-Security-Policy.** The site ships `default-src 'self'`,
+  `connect-src 'none'`, hashed scripts and styles, plus `X-Frame-Options` and a
+  `Permissions-Policy` — the "nothing phones home" promise, now proven at the browser level.
+  A build gate fails if the inline theme script's hash ever drifts out of sync.
+- **New docs:** a [threat model](docs/THREAT-MODEL.md) — how a self-declaration can be
+  misused, and what the design does and does not defend — and a [FAQ](docs/FAQ.md).
+
 ## [1.1.0] — 2026-07-20
 
 A boundary clarification, two new reference pages, and a larger badge family. No level
