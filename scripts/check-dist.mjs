@@ -9,6 +9,7 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = join(ROOT, 'dist');
@@ -148,6 +149,24 @@ check('nothing on the site phones home', () => {
     // use the word "plausible" or "fathom" in prose, and that must not fail a deploy.
     ok(!/googletagmanager|google-analytics|plausible\.io|usefathom\.com|hotjar\.com|segment\.com/.test(h), `${p} contains an analytics tag`);
     ok(!/fonts\.googleapis|fonts\.gstatic/.test(h), `${p} fetches fonts from a third party`);
+  }
+});
+
+check('the Content-Security-Policy is locked down and covers the inline theme script', () => {
+  // The CSP proves the phones-home promise at the browser level. Astro hashes every script it
+  // processes, but not the is:inline theme script in Base.astro — that hash lives in
+  // astro.config.mjs. If the script changes and the config hash is not updated, the browser
+  // silently blocks it and the theme flashes on first paint. Recompute and catch that drift here.
+  const sha = (s) => 'sha256-' + createHash('sha256').update(s, 'utf8').digest('base64');
+  for (const p of PAGES) {
+    const h = read(`${p}.html`);
+    const csp = h.match(/http-equiv="content-security-policy"\s+content="([^"]*)"/i)?.[1];
+    ok(csp, `${p} ships no Content-Security-Policy`);
+    ok(csp.includes("default-src 'self'") && csp.includes("connect-src 'none'"), `${p}: CSP is not locked down`);
+    const theme = [...h.matchAll(/<script(?![^>]*\btype=)[^>]*>([\s\S]*?)<\/script>/g)]
+      .map((m) => m[1]).find((s) => s.includes('dataset.js'));
+    ok(theme, `${p} has no inline theme script to hash`);
+    ok(csp.includes(sha(theme)), `${p}: the inline theme script's hash is missing from the CSP — update scriptDirective.hashes in astro.config.mjs`);
   }
 });
 

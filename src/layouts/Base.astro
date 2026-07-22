@@ -47,7 +47,7 @@ const nav = [
 ---
 
 <!doctype html>
-<html lang={lang} dir={t.dir}>
+<html lang={translated === false ? DEFAULT_LANG : lang} dir={translated === false ? 'ltr' : t.dir}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
