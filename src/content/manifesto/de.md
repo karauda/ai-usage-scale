@@ -2,7 +2,7 @@
 lang: de
 title: Das Manifest zur KI-Nutzung
 standfirst: Es gibt kein beschämendes Level. Es gibt nur ein nicht deklariertes.
-version: 1.1.1
+version: 1.2.0
 level: 3
 ---
 

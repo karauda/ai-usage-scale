@@ -2,7 +2,7 @@
 lang: es
 title: El manifiesto del uso de la IA
 standfirst: No hay ningún nivel vergonzoso. Solo el que no se declara.
-version: 1.1.1
+version: 1.2.0
 level: 3
 ---
 

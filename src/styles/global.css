@@ -13,18 +13,18 @@
 
 :root {
   /* Paper, not cream: this is a spec run off on office stock, not a letterpress broadside. */
-  --paper:      #F0F2ED;
-  --band:       #E4E9DF;   /* greenbar — the stripe machine output was printed on for humans to read */
-  --raised:     #F7F8F5;
+  --paper:      #F3F4EF;
+  --band:       #E7EBE2;   /* greenbar — the stripe machine output was printed on for humans to read */
+  --raised:     #FBFBF8;
   --ink:        #16191B;
   /* Both greys clear WCAG AA for small text on --paper (mid ≈ 6.5:1, soft ≈ 4.6:1). The soft
      tone sits right at the floor — darkening it further would collapse the three-step hierarchy. */
   --ink-mid:    #4F5852;
   --ink-soft:   #666F69;
-  --rule:       #CBD2C7;
-  --rule-soft:  #DDE2D9;
-  --accent:     #0D4F45;   /* ledger ink. Not a warning colour — there is nothing here to warn about. */
-  --accent-bg:  #0D4F450F;
+  --rule:       #C2CABD;
+  --rule-soft:  #D8DED2;
+  --accent:     #0B564A;   /* ledger ink. Not a warning colour — there is nothing here to warn about. */
+  --accent-bg:  #0B564A0F;
 
   /*
     Spectral and IBM Plex Mono cover Latin, Latin-ext, Cyrillic, Greek and Vietnamese —
@@ -40,22 +40,23 @@
     'Noto Sans Mono', monospace;
 
   /*
-    One width. Not two.
+    Two widths, and the second one is earned.
 
-    A document has a single column: prose, rules, tables and marks all share the same
-    left and right edge. A wide container with a narrow text column inside it leaves a
-    dead strip down the right of every page, and the eye reads that as ragged rather
-    than composed. RFCs, 12factor and the Agile Manifesto are all one column, and they
-    are the documents this one is trying to stand next to.
+    Prose keeps a measure you can read; everything structured — the level tables, the
+    marks, the snippets, the mapping rows — spans the full document. The earlier single
+    column was right to fear a wide container with a narrow text column, because that
+    leaves a dead strip down one side. Here the strip is occupied: the machine layer
+    fills exactly the space the human layer does not, which is the argument this site
+    makes in type, made in layout.
 
-    46rem at 19px Spectral is ~82 characters — a shade past the classic 75, which buys the
-    navigation room to breathe across 22 languages without wrapping, at a readability cost
-    the wider gutters and generous line-height absorb.
+    50rem at 19px Spectral is ~88 characters. Past the classic 75, and deliberately: the
+    generous line-height and gutters absorb it, and the navigation gets room to breathe
+    across 22 languages without wrapping.
   */
-  --doc: 46rem;
+  --doc: 50rem;
   --measure: var(--doc);
-  --wide: var(--doc);
-  --gutter: clamp(1.25rem, 5vw, 3rem);
+  --wide: 64rem;
+  --gutter: clamp(1.25rem, 4.5vw, 3.5rem);
 }
 
 /*
@@ -86,8 +87,8 @@
   --ink:       #E9ECE7;
   --ink-mid:   #99A29C;
   --ink-soft:  #7E8781;
-  --rule:      #333A36;
-  --rule-soft: #262C29;
+  --rule:      #3A423D;
+  --rule-soft: #2B322E;
   --accent:    #6FC0AC;
   --accent-bg: #6FC0AC14;
 }
@@ -137,6 +138,11 @@ a:hover { color: var(--accent); }
 
 .shell { max-width: var(--wide); margin: 0 auto; padding: 0 var(--gutter); }
 .prose { max-width: var(--measure); }
+
+/* Structured content is allowed the whole document width; prose is not. Tables, marks and
+   snippets carry their own scan lines, so the extra width buys legibility instead of
+   spending it. A table that has to wrap its own rows is harder to read than a wide one. */
+.levels, .snippet, pre, .wide-out { max-width: none; }
 
 hr, .rule {
   border: 0;
@@ -218,9 +224,18 @@ hr, .rule {
 
 /* ── Headings ──────────────────────────────────────────────────── */
 
-h1, h2, h3 { font-weight: 600; line-height: 1.2; text-wrap: balance; }
-h1 { font-size: clamp(2rem, 5vw, 2.75rem); letter-spacing: -0.015em; margin: 0 0 0.5rem; }
-h2 { font-size: 1.5rem; margin: 3rem 0 0.75rem; }
+h1, h2, h3 { font-weight: 600; line-height: 1.18; text-wrap: balance; }
+h1 { font-size: clamp(2.125rem, 5.5vw, 3.25rem); letter-spacing: -0.022em; margin: 0 0 0.5rem; }
+/* A section opens on a rule the width of the document. In a reference text the reader is
+   scanning for the next section, not reading into it, so the break has to be visible from
+   the edge of the page rather than inferred from a size change. */
+h2 {
+  font-size: clamp(1.5rem, 2.2vw, 1.75rem);
+  letter-spacing: -0.012em;
+  margin: 3.5rem 0 0.9rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule-soft);
+}
 h3 { font-size: 1.1875rem; margin: 2rem 0 0.5rem; }
 
 .standfirst {
@@ -242,7 +257,19 @@ h3 { font-size: 1.1875rem; margin: 2rem 0 0.5rem; }
 /* ── Level table (greenbar) ────────────────────────────────────── */
 
 .levels { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.9375rem; }
-.levels td, .levels th { padding: 0.9rem 1rem; text-align: start; vertical-align: baseline; }
+.levels td, .levels th { padding: 1.05rem 1.1rem; text-align: start; vertical-align: baseline; }
+.levels thead th {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.6rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+/* The band still marks alternate rows, but a hairline under every row is what lets the eye
+   track one row across three columns. Zebra alone stops working the moment a cell wraps. */
+.levels tbody tr { border-bottom: 1px solid var(--rule-soft); }
 .levels tbody tr:nth-child(odd) { background: var(--band); }
 .levels tbody tr:hover { background: var(--accent-bg); }
 .levels .n { font-family: var(--mono); font-weight: 600; font-size: 1.375rem; width: 1.5em; }
@@ -253,6 +280,13 @@ h3 { font-size: 1.1875rem; margin: 2rem 0 0.5rem; }
 /* On a phone, a long translated name in a nowrap cell would push the table — and with it the
    whole page — into horizontal scroll. Let the name wrap below the comfortable width. */
 @media (max-width: 32rem) { .levels .lv-name { white-space: normal; } }
+
+/* A multi-column mapping table has a floor below which columns stop being columns. Rather
+   than let it push the page into horizontal scroll, the table scrolls inside its own box and
+   says so to a keyboard user. */
+.levels-scroll { overflow-x: auto; margin: 2rem 0; }
+.levels-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.levels-scroll .levels { margin: 0; min-width: 34rem; }
 
 /* ── Code ──────────────────────────────────────────────────────── */
 

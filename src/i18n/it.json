@@ -13,7 +13,7 @@
   },
   "surfaces": {
     "note": "Facoltativo. Un solo numero descrive l'opera nel suo insieme. Quando alcune sue parti se ne discostano nettamente, dichiarale. Il badge mostra sempre un numero; il dettaglio sta dietro il link.",
-    "headlineRule": "Il livello principale descrive la parte dell'opera che ne porta il significato. Il materiale decorativo che un pubblico ragionevole non riterrebbe essenziale all'opera non determina il livello principale: dichiaralo qui."
+    "headlineRule": "Il livello principale descrive la parte dell'opera che ne porta il significato. Il materiale decorativo che un pubblico ragionevole non riterrebbe rilevante per l'opera non determina il livello principale: dichiaralo qui."
   },
   "levels": [
     {
@@ -47,7 +47,7 @@
       "id": 1,
       "name": "Assistito",
       "oneLine": "L'IA ha lavorato solo su materiale che avevi già fatto tu. Non ha inventato nulla.",
-      "definition": "L'opera l'hai fatta tu. L'IA ha solo elaborato il tuo materiale o aiutato dietro le quinte: correggendo, trascrivendo o traducendo fedelmente, ripulendo, etichettando, formattando, cercando o dando riscontri. Salvo una trascrizione o traduzione fedele del tuo materiale, nell'opera pubblicata non compare nulla del modello — né formulazione né sostanza.",
+      "definition": "L'opera l'hai fatta tu. L'IA ha solo elaborato il tuo materiale o ti ha aiutato dietro le quinte: correggendo, trascrivendo o traducendo fedelmente, ripulendo, etichettando, formattando, cercando o dando riscontri. Salvo una trascrizione o traduzione fedele del tuo materiale, nell'opera pubblicata non compare nulla del modello — né formulazione né sostanza.",
       "includes": [
         "Correzione di grammatica, ortografia e stile di frasi che hai scritto tu",
         "Trascrivere un audio che hai registrato tu",
@@ -56,7 +56,7 @@
         "Usare l'IA per trovare fonti che poi leggi e verifichi tu"
       ],
       "excludes": [
-        "L'IA che scrive una frase, un paragrafo, un'immagine o una melodia che sopravvive nell'opera: quello è Livello 2 o superiore",
+        "Materiale prodotto dall'IA — una frase, un paragrafo, un'immagine o una melodia — che rimane nell'opera: quello è Livello 2 o superiore",
         "L'IA che idea o ristruttura il ragionamento stesso, e non solo la tua prosa: quello è Livello 2 o superiore, anche se ogni parola l'hai scritta tu"
       ],
       "examples": [
@@ -103,11 +103,11 @@
       "id": 3,
       "name": "Diretto",
       "oneLine": "La sostanza è tua. L'IA ha prodotto la forma.",
-      "definition": "La conoscenza, le prove, il ragionamento, la composizione o i vincoli specifici dell'opera sono tuoi e determinano in modo sostanziale il risultato. Un modello ha prodotto la maggior parte delle parole, dei pixel o dei suoni finali a partire da questi contributi originali. Tu hai diretto, scelto, corretto, revisionato in modo sostanziale e rispondi del risultato. Scrivere o perfezionare un prompt non basta di per sé.",
+      "definition": "La conoscenza, le prove, il ragionamento, la composizione o i vincoli specifici dell'opera sono tuoi e determinano in modo sostanziale il risultato. Un modello ha prodotto la maggior parte delle parole, dei pixel o dei suoni finali a partire da questi contributi originali. Hai diretto il processo, compiuto le scelte, apportato correzioni, revisionato con attenzione il risultato e ne rispondi. Scrivere o perfezionare un prompt non basta di per sé.",
       "note": "Questo è il livello che l'etichetta binaria di oggi non riesce a vedere, ed è la ragione per cui questa scala esiste. Un esperto che detta ciò che sa e lascia che un modello gli dia forma non ha commesso alcuna frode. Ha usato uno strumento, e ora può dirlo.",
       "includes": [
         "Uno specialista che fornisce conoscenza, appunti, dati o un brief dettagliato che un modello trasforma in prosa",
-        "Un art director che itera un'immagine per molti giri di indicazioni precise",
+        "Un art director che affina un'immagine attraverso numerosi cicli di indicazioni precise",
         "Una ricerca che hai condotto tu, trasformata da un modello in una sceneggiatura o in un video narrato",
         "Un codice che hai specificato e revisionato nel dettaglio, scritto in gran parte da un agente di IA"
       ],
@@ -118,7 +118,7 @@
       "examples": [
         "Un chirurgo detta trent'anni di pratica; un modello scrive l'articolo; il chirurgo lo corregge e lo firma.",
         "Gli appunti grezzi e i prezzi di un fondatore diventano una landing page scritta da un modello.",
-        "Un illustratore dirige quaranta iterazioni di un'immagine generata fino a ottenere una composizione precisa.",
+        "Un illustratore guida quaranta iterazioni di un'immagine generata sulla base di una composizione specifica.",
         "Il set di dati e i risultati di un ricercatore diventano un video esplicativo narrato da una voce sintetica."
       ],
       "sentences": {
@@ -131,7 +131,7 @@
       "id": 4,
       "name": "Richiesto",
       "oneLine": "L'IA ha prodotto la sostanza e la forma. Tu hai chiesto, hai controllato, tu ne rispondi.",
-      "definition": "Un modello ha prodotto sia ciò che l'opera dice sia il modo in cui lo dice, a partire da un prompt, da un modello preconfezionato o da un brief che conteneva poca sostanza originale e specifica dell'opera da parte tua. Una persona ha revisionato in modo sostanziale l'opera finita, verificato le affermazioni importanti quando necessario e si assume la responsabilità di pubblicarla.",
+      "definition": "Un modello ha prodotto sia ciò che l'opera dice sia il modo in cui lo dice, a partire da un prompt, da un modello preconfezionato o da un brief che conteneva poca sostanza originale e specifica dell'opera da parte tua. Una persona ha revisionato con attenzione l'opera finita, verificato le affermazioni importanti quando necessario e si assume la responsabilità di pubblicarla.",
       "includes": [
         "Chiedere a un modello dei contenuti su un tema e pubblicarli dopo averli revisionati",
         "Testi di marketing, descrizioni di prodotto o post social generati e revisionati prima di uscire",
@@ -201,7 +201,7 @@
     },
     {
       "question": "Una persona ha revisionato tutto questo prima della pubblicazione e si assume la responsabilità di ciò che l'opera dice?",
-      "help": "La revisione deve essere sostanziale e adeguata alla posta in gioco: controllare l'opera finita, verificare le affermazioni importanti quando necessario e correggere i problemi prima della pubblicazione. Assumersi la responsabilità significa che la difenderai o la correggerai se è sbagliata."
+      "help": "La revisione deve essere effettiva e adeguata alla posta in gioco: controllare l'opera finita, verificare le affermazioni importanti quando necessario e correggere i problemi prima della pubblicazione. Assumersi la responsabilità significa che la difenderai o la correggerai se è sbagliata."
     }
   ],
   "edgeCases": [
@@ -292,7 +292,7 @@
       "hosted": "Immagine ospitata — se preferisci collegarla",
       "plain": "Testo semplice — dove le immagini non possono arrivare",
       "machineH": "Fallo leggere anche alle macchine",
-      "machineLede": "La stessa dichiarazione, nei vocabolari che lo strato di conformità già parla. Non siamo in concorrenza con loro: ne siamo il volto leggibile dalle persone.",
+      "machineLede": "La stessa dichiarazione, nei vocabolari già usati dallo strato di conformità. Non siamo in concorrenza con loro: ne siamo il volto leggibile dalle persone.",
       "headOf": "Per il <head> della tua pagina",
       "surfacesH": "Se le parti divergono",
       "copy": "Copia",
@@ -307,7 +307,7 @@
       "forInstance": "Per esempio",
       "more": "Definizione, esempi, badge e codice →",
       "closingH": "Perché i numeri non hanno colori",
-      "closingA": "Ogni marchio di questo sito è stampato con lo stesso inchiostro. Non c'è un capo verde né un capo rosso, perché una scala che colora i propri estremi ti ha già detto di quale vergognarti — ed è la vergogna che fa mentire le persone.",
+      "closingA": "Ogni marchio di questo sito è stampato con lo stesso inchiostro. Non c'è né un estremo verde né uno rosso, perché una scala che colora i propri estremi ti ha già detto di quale vergognarti — ed è la vergogna che fa mentire le persone.",
       "closingB": "Un riepilogo di mercato automatizzato è onesto al Livello 5 e disonesto a qualunque altro. Un memoir è onesto al Livello 0. Nessuno dei due è il numero migliore. L'unica risposta sbagliata è quella che nessuno dà."
     },
     "wizard": {
@@ -333,7 +333,7 @@
     "badgesPage": {
       "eyebrow": "Marchi",
       "h1": "Sei marchi. Un solo inchiostro.",
-      "standfirst": "Non c'è un capo verde né un capo rosso. Una scala che colora i propri estremi ti ha già detto di quale vergognarti.",
+      "standfirst": "Non c'è né un estremo verde né uno rosso. Una scala che colora i propri estremi ti ha già detto di quale vergognarti.",
       "intro": "Qui è tutto CC0: nessuna attribuzione obbligatoria, nessuna licenza da accettare, nessun account da creare. Prendili.",
       "hotlinkH": "Perché preferiremmo che non li caricassi dal nostro server",
       "hotlinkA": "Ogni badge qui funziona come SVG inline: incolli il markup e viene disegnato senza font esterni, senza file esterni e senza nessuna richiesta a noi. È la versione che consigliamo, e le pagine dei livelli ti danno lo snippet esatto.",
@@ -353,7 +353,7 @@
       "h1": "Come è definita e come parla con tutto il resto.",
       "standfirst": "Questo è uno standard di dichiarazione, non di prova. Non può essere verificato con la crittografia e non ci prova nemmeno. Nemmeno la firma di un autore può esserlo.",
       "procedure": "Procedura di decisione",
-      "procedureLede": "Cinque domande, poste in ordine. La prima che si chiude dà il livello.",
+      "procedureLede": "Cinque domande, poste in ordine. La prima che conclude il percorso determina il livello.",
       "question": "Domanda",
       "yesCol": "Sì",
       "noCol": "No",

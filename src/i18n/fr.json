@@ -13,7 +13,7 @@
   },
   "surfaces": {
     "note": "Facultatif. Un seul chiffre décrit l'œuvre dans son ensemble. Quand certaines parties s'en écartent nettement, déclarez-les. Le badge n'affiche jamais qu'un chiffre ; le détail vit derrière le lien.",
-    "headlineRule": "Le niveau principal décrit la partie de l'œuvre qui en porte le sens. Un matériau décoratif qu'un public raisonnable ne jugerait pas essentiel à l'œuvre ne détermine pas le niveau principal — déclarez-le ici à la place."
+    "headlineRule": "Le niveau principal décrit la partie de l'œuvre qui en porte le sens. Un matériau décoratif qu'un public raisonnable ne jugerait pas important pour l'œuvre ne détermine pas le niveau principal — déclarez-le plutôt ici."
   },
   "levels": [
     {
@@ -56,7 +56,7 @@
         "Utiliser l'IA pour trouver des sources, que vous lisez et vérifiez ensuite vous-même"
       ],
       "excludes": [
-        "L'IA rédige une phrase, un paragraphe, une image ou une mélodie qui survit dans l'œuvre — c'est le Level 2 ou au-dessus",
+        "L'IA ébauche une phrase, un paragraphe, une image ou une mélodie qui subsiste dans l'œuvre — cela relève du Level 2 ou d'un niveau supérieur",
         "L'IA conçoit ou restructure l'argumentation elle-même, et pas seulement votre prose — c'est le Level 2 ou au-dessus, même si vous avez écrit chaque mot vous-même"
       ],
       "examples": [
@@ -103,11 +103,11 @@
       "id": 3,
       "name": "Dirigé",
       "oneLine": "La substance est la vôtre. L'IA a produit la forme.",
-      "definition": "Le savoir, les éléments probants, l'argumentation, la composition ou les contraintes propres à l'œuvre viennent de vous et déterminent substantiellement le résultat. Un modèle a produit la majorité des mots, des pixels ou des sons finaux à partir de ces apports originaux. Vous avez dirigé, choisi, corrigé, effectué une véritable relecture et vous répondez du résultat. Écrire ou affiner un prompt ne suffit pas à lui seul.",
+      "definition": "Le savoir, les éléments probants, l'argumentation, la composition ou les contraintes propres à l'œuvre viennent de vous et déterminent substantiellement le résultat. Un modèle a produit la majorité des mots, des pixels ou des sons finaux à partir de ces apports originaux. Vous avez dirigé le processus, fait des choix, corrigé le résultat, l'avez examiné avec attention et vous en répondez. Écrire ou affiner un prompt ne suffit pas à lui seul.",
       "note": "C'est le niveau que l'étiquette binaire actuelle est incapable de voir, et la raison d'être de cette échelle. Un expert qui dicte ce qu'il sait et laisse un modèle lui donner forme n'a commis aucune fraude. Il a utilisé un outil — et il peut enfin le dire.",
       "includes": [
         "Un spécialiste fournit un savoir, des notes, des données ou un brief détaillé qu'un modèle transforme en prose",
-        "Un directeur artistique fait passer une image par de nombreux tours de direction précise",
+        "Un directeur artistique affine une image au fil de nombreuses itérations guidées par des instructions précises",
         "Une recherche que vous avez menée, transformée par un modèle en script ou en vidéo commentée",
         "Une base de code que vous avez spécifiée et relue en détail, écrite en grande partie par un agent IA"
       ],
@@ -131,7 +131,7 @@
       "id": 4,
       "name": "Sollicité",
       "oneLine": "L'IA a produit la substance et la forme. Vous avez demandé, vous avez vérifié, vous en répondez.",
-      "definition": "Un modèle a produit à la fois ce que dit l'œuvre et la manière dont elle le dit, à partir d'un prompt, d'un gabarit ou d'un brief qui apportait peu de substance originale propre à l'œuvre de votre part. Un humain a véritablement relu l'œuvre achevée, vérifié les affirmations importantes lorsque c'était nécessaire et assume la responsabilité de sa publication.",
+      "definition": "Un modèle a produit à la fois ce que dit l'œuvre et la manière dont elle le dit, à partir d'un prompt, d'un gabarit ou d'un brief qui apportait peu de substance originale propre à l'œuvre de votre part. Un humain a examiné attentivement l'œuvre achevée, vérifié les affirmations importantes lorsque c'était nécessaire et assume la responsabilité de sa publication.",
       "includes": [
         "Demander à un modèle du contenu sur un sujet et le publier après relecture",
         "Des textes marketing, des descriptions de produits ou des posts générés, relus avant diffusion",
@@ -146,7 +146,7 @@
         "« Écris dix articles sur le diabète » — lus, corrigés, publiés.",
         "Des descriptions de produits générées pour un catalogue et relues par une personne.",
         "Une image d'en-tête générée, vérifiée avant mise en ligne.",
-        "Le résumé d'un document produit par un modèle et vérifié contre la source."
+        "Un résumé d'un document produit par un modèle et vérifié par comparaison avec la source."
       ],
       "sentences": {
         "short": "AI Usage Scale : Level 4 — Sollicité.",
@@ -158,7 +158,7 @@
       "id": 5,
       "name": "Automatisé",
       "oneLine": "L'IA a produit la substance et la forme. Aucun humain ne l'a lue avant sa publication.",
-      "definition": "Un modèle a produit l'œuvre et elle a été publiée sans relecture humaine. C'est le niveau honnête pour les chaînes automatisées, la génération en masse et les agents qui publient seuls. C'est la bonne réponse pour une immense quantité de travail parfaitement légitime — et c'est le fait de le dire qui rend ce travail légitime.",
+      "definition": "Un modèle a produit l'œuvre et elle a été publiée sans qu'un humain l'examine. C'est le niveau honnête pour les chaînes automatisées, la génération en masse et les agents qui publient seuls. C'est la bonne réponse pour une immense quantité de travail parfaitement légitime — et c'est le fait de le dire qui rend ce travail légitime.",
       "note": "Le Level 5 n'est pas une accusation. Un rapport de marché automatisé, un résumé de match généré, une page d'aide traduite à la machine à grande échelle : tout cela est honnête au Level 5 et malhonnête à tout autre. Déclarer 5, c'est ce qui sépare un système automatisé d'une tromperie.",
       "includes": [
         "Une publication programmée ou agentique, sans humain dans la boucle",
@@ -172,7 +172,7 @@
       "examples": [
         "Un résumé de marché horaire généré et publié par un script.",
         "Dix mille fiches produits générées dans la nuit.",
-        "Les réponses d'un chatbot, montrées à l'utilisateur à mesure qu'elles se génèrent.",
+        "Les réponses d'un chatbot, montrées à l'utilisateur à mesure qu'elles sont générées.",
         "Un agent qui rédige et publie sur un blog selon un calendrier."
       ],
       "sentences": {
@@ -189,7 +189,7 @@
     },
     {
       "question": "L'IA a-t-elle produit du matériau nouveau qui apparaît dans l'œuvre publiée — au-delà du traitement mécanique de ce que vous aviez déjà fait ?",
-      "help": "Corriger votre grammaire, transcrire ou traduire fidèlement vos mots, débruiter votre photo ou étiqueter vos fichiers relève du traitement mécanique. De même pour les retours, la critique, la recherche et la vérification de faits qui ne laissent rien du modèle lui-même dans l'œuvre — le conseil d'un éditeur ne fait pas de l'éditeur un auteur. Le matériau nouveau inclut la substance autant que la formulation : un paragraphe, une image, une mélodie — ou une thèse, une argumentation, une structure que le modèle a conçues, même si vous les avez entièrement reformulées dans vos propres mots."
+      "help": "Corriger votre grammaire, transcrire ou traduire fidèlement vos mots, débruiter votre photo ou étiqueter vos fichiers relève du traitement mécanique. De même pour les retours, la critique, la recherche et la collecte d'informations qui ne laissent rien du modèle lui-même dans l'œuvre — le conseil d'un éditeur ne fait pas de l'éditeur un auteur. Le matériau nouveau inclut la substance autant que la formulation : un paragraphe, une image, une mélodie — ou une thèse, une argumentation, une structure que le modèle a conçues, même si vous les avez entièrement reformulées dans vos propres mots."
     },
     {
       "question": "Avez-vous fait vous-même l'essentiel de la forme finale — la plupart des mots, des pixels ou des sons ?",
@@ -200,8 +200,8 @@
       "help": "La substance, ce sont le savoir, les éléments probants, l'argumentation, la composition ou les contraintes propres à l'œuvre qui déterminent ce qu'elle dit. Elle est la vôtre lorsque vos apports originaux déterminent substantiellement le résultat — et non simplement parce que vous avez écrit ou affiné le prompt."
     },
     {
-      "question": "Un humain a-t-il relu ceci avant publication et assumé la responsabilité de ce qui y est dit ?",
-      "help": "La relecture doit être véritable et adaptée aux enjeux : contrôler l'œuvre achevée, vérifier les affirmations importantes si nécessaire et corriger les problèmes avant publication. Assumer la responsabilité signifie que vous la défendrez ou la corrigerez si elle est erronée."
+      "question": "Un humain a-t-il examiné ceci avant publication et assume-t-il la responsabilité de ce qui y est dit ?",
+      "help": "L'examen doit être véritable et adapté aux enjeux : contrôler l'œuvre achevée, vérifier les affirmations importantes si nécessaire et corriger les problèmes avant publication. Assumer la responsabilité signifie que vous défendrez le résultat ou le corrigerez s'il est erroné."
     }
   ],
   "edgeCases": [
@@ -231,7 +231,7 @@
     },
     {
       "case": "Génération en direct",
-      "rule": "Un contenu généré à la demande et montré à un utilisateur sans relecture est de Level 5, même si le prompt système a été écrit avec soin par une personne."
+      "rule": "Un contenu généré à la demande et montré à un utilisateur sans examen humain relève du Level 5, même si le prompt système a été écrit avec soin par une personne."
     },
     {
       "case": "Apprentissage automatique non génératif",
@@ -292,7 +292,7 @@
       "hosted": "Image hébergée — si vous préférez y faire un lien",
       "plain": "Texte brut — là où les images ne passent pas",
       "machineH": "Faites-le lire aussi par les machines",
-      "machineLede": "La même déclaration, dans les vocabulaires que la couche de conformité parle déjà. Nous ne leur faisons pas concurrence — nous en sommes le visage lisible par un humain.",
+      "machineLede": "La même déclaration, dans les vocabulaires qu'utilise déjà la couche de conformité. Nous ne leur faisons pas concurrence — nous en sommes le visage lisible par un humain.",
       "headOf": "Pour le <head> de votre page",
       "surfacesH": "Si les parties diffèrent",
       "copy": "Copier",
@@ -353,7 +353,7 @@
       "h1": "Comment elle est définie, et comment elle parle à tout le reste.",
       "standfirst": "Ceci est un standard de déclaration, pas un standard de preuve. Il ne peut pas être vérifié par la cryptographie et il ne cherche pas à l'être. Une signature d'auteur non plus.",
       "procedure": "Procédure de décision",
-      "procedureLede": "Cinq questions, posées dans l'ordre. La première qui s'arrête donne le niveau.",
+      "procedureLede": "Cinq questions, posées dans l'ordre. La première qui met fin au parcours donne le niveau.",
       "question": "Question",
       "yesCol": "Oui",
       "noCol": "Non",
@@ -366,7 +366,7 @@
       "interop": "Interopérabilité",
       "interopLede": "Cette échelle complète les standards de provenance. Elle établit une correspondance avec le vocabulaire reconnu de l'IPTC et expérimente la syntaxe candidate discutée par le W3C AI Content Disclosure Community Group ; cette syntaxe n'est pas un standard du W3C.",
       "mapping": "Correspondance des niveaux",
-      "lossy": "La correspondance perd de l'information dans un seul sens, et cette perte est justement le sujet : IPTC ne sait pas distinguer les Level 3, 4 et 5. Il n'a aucun terme pour dire de qui est la substance, ni aucun pour dire si un humain l'a lue. Ce sont les deux questions qui intéressent réellement les lecteurs, et ce sont les deux auxquelles cette échelle existe pour répondre.",
+      "lossy": "La correspondance perd de l'information dans un seul sens, et cette perte est justement le sujet : IPTC ne sait pas distinguer les Level 3, 4 et 5. Il n'a aucun terme pour dire de qui est la substance, ni aucun pour dire si un humain a examiné l'œuvre. Ce sont les deux questions qui intéressent réellement les lecteurs, et ce sont les deux auxquelles cette échelle existe pour répondre.",
       "machine": "Forme lisible par une machine",
       "machineLede": "Les définitions canoniques en anglais résident dans un seul fichier et alimentent les badges ainsi que la sortie lisible par machine. Les textes explicatifs localisés sont gérés séparément et leur parité structurelle est contrôlée.",
       "priorArt": "Antériorités",
@@ -374,8 +374,8 @@
       "why": "Pourquoi",
       "wellKnown": "Un site peut aussi publier une déclaration pour tout le site à un chemin well-known, où un robot sait regarder sans qu'on le lui dise :",
       "challengeH": "Si vous doutez d'une déclaration",
-      "challengeA": "Une déclaration est falsifiable en public. Vérifiez le lien et les métadonnées ; comparez le niveau déclaré à l'œuvre et, là où ils divergent, au détail par surfaces ; puis demandez à l'auteur — en commentaire, dans une critique, dans une issue. La plupart des écarts sont des lectures honnêtes d'une frontière, et les cas limites ci-dessus en règlent la plupart.",
-      "challengeB": "Si une déclaration est sciemment fausse, la réponse du standard est celle qui passe à l'échelle : l'affirmation était publique et liable, et la voilà falsifiée en public. Pas de détecteur ni de registre ici, à dessein — la réputation est la sanction, exactement comme pour une signature."
+      "challengeA": "Une déclaration est falsifiable en public. Vérifiez le lien et les métadonnées ; comparez le niveau déclaré à l'œuvre et, là où ils divergent, au détail par surfaces ; puis demandez à l'auteur — en commentaire, dans une critique, dans un ticket. La plupart des écarts sont des lectures honnêtes d'une frontière, et les cas limites ci-dessus en règlent la plupart.",
+      "challengeB": "Si une déclaration est sciemment fausse, la réponse du standard est celle qui fonctionne à grande échelle : l'affirmation était publique et accessible par un lien, et la voilà réfutée publiquement. Pas de détecteur ni de registre ici, à dessein — la réputation est la sanction, exactement comme pour une signature."
     },
     "signPage": {
       "eyebrow": "Signataires",
@@ -383,7 +383,7 @@
       "standfirst": "Déclarez le niveau sur ce que vous publiez. C'est tout l'engagement.",
       "intro": "Pas à utiliser moins d'IA. Pas à en utiliser plus. Pas à souscrire à chaque mot du manifeste — plusieurs des personnes ci-dessous ne le font pas. Seulement à cesser de laisser le lecteur deviner.",
       "howH": "Comment signer",
-      "howA": "Ouvrez une pull request qui vous ajoute à signatories.json. Cette petite friction est délibérée : elle signifie que chaque nom ici a été ajouté par une personne qui le pensait vraiment, et qu'il n'y a aucun formulaire à moissonner pour nous, ni aucune liste de diffusion sur laquelle vous retrouver.",
+      "howA": "Ouvrez une pull request qui vous ajoute à signatories.json. Cette petite friction est délibérée : elle signifie que chaque nom ici a été ajouté par une personne qui le pensait vraiment, et qu'il n'y a aucun formulaire à moissonner pour nous, ni aucune liste de diffusion sur laquelle vous pourriez vous retrouver.",
       "howB": "Si la pull request n'est pas votre monde, ouvrez un ticket et quelqu'un vous ajoutera.",
       "addName": "Ajoutez votre nom",
       "count": "signataires",

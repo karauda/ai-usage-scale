@@ -8,8 +8,8 @@
   },
   "principle": "Hiçbir düzey bir diğerinden üstün değildir. Kendi düzeylerini sıraya dizen bir ölçek, bir utanç merdivenidir; herkes yalan söyleyerek o merdivenden aşağı iner. Dürüst olmayan tek düzey, beyan edilmemiş olandır.",
   "axis": {
-    "measures": "Yapay zekânın eserin yapımında oynadığı rol: eserin özü kime ait ve sorumluluğunu kim taşıyor.",
-    "doesNotMeasure": "Bir modelin ürettiği karakterlerin, piksellerin ya da ses örneklerinin oranı. Bu sayı, otuz yıllık mesleğini dikte eden uzmanı mahkûm eder ve kimseyi aklamaz."
+    "measures": "Yapay zekânın eserin yapımında oynadığı rol: eserin özünün kime ait olduğu ve eserin sorumluluğunu kimin taşıdığı.",
+    "doesNotMeasure": "Bir modelin ürettiği karakterlerin, piksellerin ya da ses örneklerinin oranı. Bu sayı, otuz yıllık deneyimini dikte eden uzmanı mahkûm eder ve kimseyi aklamaz."
   },
   "surfaces": {
     "note": "İsteğe bağlı. Tek bir sayı eseri bütün olarak tanımlar. Parçaları birbirinden belirgin biçimde ayrılıyorsa onları da beyan edin. Rozet her zaman tek bir sayı gösterir; ayrıntılı döküm bağlantının arkasında durur.",
@@ -56,8 +56,8 @@
         "Sonra kendiniz okuyup doğruladığınız kaynakları bulmak için yapay zekâ kullanmak"
       ],
       "excludes": [
-        "Yapay zekânın esere sağ çıkan bir cümle, paragraf, görsel ya da ezgi taslağı üretmesi — bu Düzey 2 ya da üzeridir",
-        "Yapay zekânın üslubunuzu değil, savın kendisini ortaya atması ya da yeniden kurması — her kelimeyi kendiniz yazmış olsanız bile bu Düzey 2 ya da üzeridir"
+        "Yapay zekânın bir cümle, paragraf, görsel ya da ezgi taslağı üretmesi ve bunun eserde kalması — bu Düzey 2 ya da üzeridir",
+        "Yapay zekânın metniniz üzerinde çalışmak yerine savın kendisini ortaya atması ya da yeniden yapılandırması — her sözcüğü kendiniz yazmış olsanız bile bu Düzey 2 ya da üzeridir"
       ],
       "examples": [
         "Sizin yazdığınız, dilbilgisi için bir modelden geçirilmiş bir makale.",
@@ -103,7 +103,7 @@
       "id": 3,
       "name": "Yönlendirilmiş",
       "oneLine": "Öz sizindir. Biçimi yapay zekâ üretti.",
-      "definition": "Esere özgü bilgi, kanıt, sav, kompozisyon ya da kısıtlar sizindir ve sonucu önemli ölçüde belirler. Bir model, bu özgün girdilerden yola çıkarak son sözcüklerin, piksellerin ya da sesin çoğunu üretti. Siz yönlendirdiniz, seçtiniz, düzelttiniz, esaslı bir inceleme yaptınız ve sonuçtan sorumlusunuz. Yalnızca bir istem yazmak ya da geliştirmek yeterli değildir.",
+      "definition": "Esere özgü bilgi, kanıt, sav, kompozisyon ya da kısıtlar sizindir ve sonucu önemli ölçüde belirler. Bir model, bu özgün girdilerden yola çıkarak son sözcüklerin, piksellerin ya da sesin çoğunu üretti. Siz yönlendirdiniz, seçtiniz, düzelttiniz, esaslı biçimde gözden geçirdiniz ve sonuçtan sorumlusunuz. Yalnızca bir istem yazmak ya da geliştirmek yeterli değildir.",
       "note": "Bugünkü ikili etiketin göremediği düzey budur; bu ölçek tam da bunun için var. Bildiklerini dikte edip bir modelin onlara biçim vermesine izin veren bir uzman sahtekârlık yapmış olmaz. Bir alet kullanmıştır — ve artık bunu söyleyebilir.",
       "includes": [
         "Bir uzmanın, bir modelin metne dönüştürdüğü bilgiyi, notları, veriyi ya da ayrıntılı bir brifi sağlaması",
@@ -112,11 +112,11 @@
         "Ayrıntılı olarak tanımlayıp gözden geçirdiğiniz, büyük ölçüde bir yapay zekâ ajanının yazdığı bir kod tabanı"
       ],
       "excludes": [
-        "Esere özgü, özgün bir katkı sunmayan bir istem ya da yinelenen istemler — bu Düzey 4'tür",
+        "Size ait özgün, esere özgü özün bulunmadığı bir istem ya da yinelemeli istem verme süreci — bu Düzey 4'tür",
         "Son sözcüklerin çoğunu kendiniz yazdığınız bir eser — bu Düzey 2'dir"
       ],
       "examples": [
-        "Bir cerrah otuz yıllık mesleğini dikte eder; makaleyi bir model yazar; cerrah düzeltir ve imzalar.",
+        "Bir cerrah otuz yıllık deneyimini dikte eder; makaleyi bir model yazar; cerrah düzeltir ve imzalar.",
         "Bir kurucunun ham notları ve fiyatlandırması, bir modelin yazdığı bir açılış sayfasına dönüşür.",
         "Bir illüstratör, üretilmiş bir görselin kırk yinelemesini belirli bir kompozisyona göre yönlendirir.",
         "Bir araştırmacının veri kümesi ve bulguları, sentetik bir sesin seslendirdiği açıklayıcı bir videoya dönüşür."
@@ -131,7 +131,7 @@
       "id": 4,
       "name": "İstemli",
       "oneLine": "Özü de biçimi de yapay zekâ üretti. Siz istediniz, siz denetlediniz, sorumluluk sizde.",
-      "definition": "Bir model, size ait esere özgü ve özgün katkının az olduğu bir istem, şablon ya da briften yola çıkarak eserin hem ne söylediğini hem de nasıl söylediğini üretti. Bir insan bitmiş eseri esaslı biçimde inceledi, gerektiğinde önemli iddiaları doğruladı ve yayımlama sorumluluğunu üstleniyor.",
+      "definition": "Bir model, size ait özgün, esere özgü özün çok az bulunduğu bir istem, şablon ya da briften yola çıkarak eserin hem ne söylediğini hem de nasıl söylediğini üretti. Bir insan bitmiş eseri esaslı biçimde gözden geçirdi, gerektiğinde önemli iddiaları doğruladı ve yayımlama sorumluluğunu üstleniyor.",
       "includes": [
         "Bir modelden bir konuda içerik isteyip gözden geçirdikten sonra yayımlamak",
         "Yayına çıkmadan önce gözden geçirilen, üretilmiş pazarlama metinleri, ürün açıklamaları ya da sosyal medya gönderileri",
@@ -158,13 +158,13 @@
       "id": 5,
       "name": "Otomatik",
       "oneLine": "Özü de biçimi de yapay zekâ üretti. Yayımlanmadan önce hiçbir insan okumadı.",
-      "definition": "Eseri bir model üretti ve insan denetimi olmadan yayımlandı. Otomatik hatlar, toplu üretim ve kendi başına yayın yapan ajanlar için dürüst düzey budur. Pek çok meşru iş için doğru yanıt budur — ve o işi meşru kılan şey, bunu söylemektir.",
-      "note": "Düzey 5 bir suçlama değildir. Otomatik bir piyasa raporu, üretilmiş bir maç özeti, ölçekli olarak makineyle çevrilmiş bir yardım sayfası: bunların hepsi Düzey 5'te dürüst, başka her düzeyde sahtekârdır. Otomatik bir sistemi bir aldatmacadan ayıran şey, 5'i beyan etmektir.",
+      "definition": "Eseri bir model üretti ve bir insan tarafından gözden geçirilmeden yayımlandı. Otomatik hatlar, toplu üretim ve kendi başına yayın yapan ajanlar için dürüst düzey budur. Pek çok meşru iş için doğru yanıt budur — ve o işi meşru kılan şey, bunu söylemektir.",
+      "note": "Düzey 5 bir suçlama değildir. Otomatik bir piyasa raporu, üretilmiş bir maç özeti, büyük ölçekte makineyle çevrilmiş bir yardım sayfası: bunların hepsi Düzey 5'te dürüst, başka her düzeyde sahtekârdır. Otomatik bir sistemi bir aldatmacadan ayıran şey, 5'i beyan etmektir.",
       "includes": [
         "Döngüde hiçbir insan olmadan zamanlanmış ya da ajan eliyle yapılan yayın",
         "Sayfaların, ilanların ya da özetlerin toplu üretimi",
         "Üretildiği anda kullanıcıya gösterilen canlı, talep üzerine üretim",
-        "Gözden geçirilmeden ölçekli olarak yayımlanan makine çevirisi"
+        "Gözden geçirilmeden büyük ölçekte yayımlanan makine çevirisi"
       ],
       "excludes": [
         "Yayına çıkmadan önce bir insanın gerçekten okuduğu her şey — bu Düzey 4'tür"
@@ -177,7 +177,7 @@
       ],
       "sentences": {
         "short": "AI Usage Scale: Düzey 5 — Otomatik.",
-        "medium": "Yapay zekâ ile üretildi ve insan denetimi olmadan yayımlandı. AI Usage Scale ölçeğinde Düzey 5.",
+        "medium": "Yapay zekâ ile üretildi ve bir insan tarafından gözden geçirilmeden yayımlandı. AI Usage Scale ölçeğinde Düzey 5.",
         "long": "Bu eseri bir model üretti ve önce bir insan okumadan yayımlandı. Bu, AI Usage Scale ölçeğinde Düzey 5'tir: otomatik sistemler için dürüst beyan."
       }
     }
@@ -201,14 +201,14 @@
     },
     {
       "question": "Yayımlanmadan önce bir insan bunu gözden geçirdi ve söylediklerinin sorumluluğunu üstlendi mi?",
-      "help": "İnceleme esaslı ve söz konusu risklere uygun olmalıdır: bitmiş eseri denetlemek, gerektiğinde önemli iddiaları doğrulamak ve sorunları yayımdan önce düzeltmek gerekir. Sorumluluğu üstlenmek, yanlışsa eseri savunacağınız ya da düzelteceğiniz anlamına gelir."
+      "help": "Gözden geçirme esaslı ve söz konusu risklere uygun olmalıdır: bitmiş eseri denetlemek, gerektiğinde önemli iddiaları doğrulamak ve sorunları yayımdan önce düzeltmek gerekir. Sorumluluğu üstlenmek, yanlışsa eseri savunacağınız ya da düzelteceğiniz anlamına gelir."
     }
   ],
   "edgeCases": [
     {
       "case": "Çeviri",
       "rule": "Sadık bir çeviri, kaynak eserin düzeyini devralır ve bir çeviri notu ekler. Düzey 1 bir makaleyi bir modelle çevirmek, onu yapay zekâ ile çevrilmiş Düzey 1 olarak yayımlar.",
-      "why": "Öz ve yapı değişmemiştir. Çeviriyi cezalandırmak dünyanın yazısını daha az erişilebilir kılardı; bu da amacın tam tersidir."
+      "why": "Öz ve yapı değişmemiştir. Çeviriyi cezalandırmak, dünya üzerindeki yazılı eserleri daha az erişilebilir kılardı; bu da amacın tam tersidir."
     },
     {
       "case": "Deşifre",
@@ -217,7 +217,7 @@
     },
     {
       "case": "Öz yapay zekâdan, sözcükler sizden",
-      "rule": "Bir model, eserin ne söylediğini esaslı biçimde belirleyen özü — tezi, savı, yapıyı — ortaya attıysa, esere sağ çıkan yeni malzeme üretmiş demektir; her kelimeyi kendiniz yazmış olsanız bile. Bu Düzey 2 ya da üzeridir, asla Düzey 1 değildir. Sizin doğruladığınız geri bildirim, eleştiri ve doğrulama Düzey 1'de kalır: bir editörün tavsiyesi editörü yazar yapmaz.",
+      "rule": "Bir model, eserin ne söylediğini esaslı biçimde belirleyen özü — tezi, savı, yapıyı — ortaya attıysa, her sözcüğü kendiniz yazmış olsanız bile eserde kalan yeni malzeme üretmiş demektir. Bu Düzey 2 ya da üzeridir, asla Düzey 1 değildir. Geri bildirim, eleştiri ve sizin doğruladığınız olgu araştırması Düzey 1'de kalır: bir editörün tavsiyesi editörü yazar yapmaz.",
       "why": "Fikirler malzemedir. Onları kendi sözcüklerinizle yeniden yazmak icat edilmişliklerini geri almaz — ve Düzey 1'in, modelin hiçbir şey icat etmediği vaadi tam olarak bunu kastetmelidir."
     },
     {
@@ -374,8 +374,8 @@
       "why": "Neden",
       "wellKnown": "Bir site, tüm site için geçerli bir beyanı well-known yolunda da yayımlayabilir; tarayıcı oraya söylenmeden bakmayı bilir:",
       "challengeH": "Bir beyandan kuşku duyuyorsanız",
-      "challengeA": "Bir beyan kamuya açık biçimde yanlışlanabilir. Bağlantıyı ve üstveriyi kontrol edin; beyan edilen düzeyi eserle, ayrıştıkları yerde de yüzeylere göre dökümle karşılaştırın; sonra yazara sorun — bir yorumda, bir eleştiride, bir issue'da. Uyumsuzlukların çoğu bir sınırın dürüst okumalarıdır ve yukarıdaki sınır durumları çoğunu çözer.",
-      "challengeB": "Bir beyan bile bile yanlışsa, standardın yanıtı ölçeklenen yanıttır: iddia kamuya açıktı, bağlanabilirdi — ve şimdi kamuya açık biçimde yanlışlandı. Burada bilerek ne bir dedektör ne de bir kayıt var. Yaptırım itibardır, tıpkı bir imzada olduğu gibi."
+      "challengeA": "Bir beyan kamuya açık biçimde yanlışlanabilir. Bağlantıyı ve üstveriyi kontrol edin; beyan edilen düzeyi eserle, ayrıştıkları yerde de Bileşenler dökümüyle karşılaştırın; sonra yazara sorun — bir yorumda, bir eleştiride, bir issue'da. Uyumsuzlukların çoğu bir sınırın dürüst okumalarıdır ve yukarıdaki sınır durumları çoğunu çözer.",
+      "challengeB": "Bir beyan bile bile yanlışsa, standardın yanıtı ölçeklenebilir olanıdır: iddia kamuya açıktı ve bağlantı verilebilirdi; şimdi de kamuya açık biçimde yanlışlandı. Burada kasıtlı olarak ne bir dedektör ne de bir kayıt vardır — yaptırım, tıpkı bir yazar künyesinde olduğu gibi, itibardır."
     },
     "signPage": {
       "eyebrow": "İmzacılar",

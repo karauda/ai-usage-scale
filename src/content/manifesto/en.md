@@ -2,7 +2,7 @@
 lang: en
 title: The AI Usage Manifesto
 standfirst: There is no shameful level. There is only an undeclared one.
-version: 1.1.1
+version: 1.2.0
 level: 3
 ---
 

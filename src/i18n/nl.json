@@ -9,7 +9,7 @@
   "principle": "Geen enkel niveau staat boven een ander. Een schaal die haar eigen niveaus rangschikt, is een schaamteladder, en iedereen liegt zich er naar beneden. Het enige oneerlijke niveau is het niveau dat niet vermeld wordt.",
   "axis": {
     "measures": "De rol die kunstmatige intelligentie speelde bij het maken van het werk: van wie de substantie is, en wie ervoor instaat.",
-    "doesNotMeasure": "Het aandeel tekens, pixels of samples dat een model heeft uitgespuwd. Dat getal veroordeelt de expert die dertig jaar praktijk dicteert, en spreekt niemand vrij."
+    "doesNotMeasure": "Het aandeel tekens, pixels of samples dat een model heeft geproduceerd. Dat getal veroordeelt de expert die dertig jaar praktijk dicteert, en spreekt niemand vrij."
   },
   "surfaces": {
     "note": "Optioneel. Eén getal beschrijft het werk als geheel. Wijken onderdelen daar sterk van af, vermeld ze dan. De badge toont altijd één getal; de uitsplitsing zit achter de link.",
@@ -51,7 +51,7 @@
       "includes": [
         "Grammatica-, spelling- en stijlcorrectie van zinnen die jij hebt geschreven",
         "Het transcriberen van audio die jij hebt opgenomen",
-        "Het ontruisen, uitknippen of opschalen van een beeld dat jij hebt gemaakt",
+        "Het ontruisen, maskeren of opschalen van een beeld dat jij hebt gemaakt",
         "Labelen, opmaken, samenvatten voor eigen gebruik of het doorzoeken van je eigen archief",
         "AI gebruiken om bronnen te vinden, die je daarna zelf leest en controleert"
       ],
@@ -75,9 +75,9 @@
       "id": 2,
       "name": "Samen gemaakt",
       "oneLine": "Het grootste deel van de uiteindelijke vorm heb jij gemaakt. AI maakte delen die zijn blijven staan.",
-      "definition": "Het werk is in uitvoering grotendeels van jou, maar materiaal dat een model produceerde overleeft in het gepubliceerde resultaat: passages, elementen, varianten waaruit je koos — of de redenering of structuur die het voorstelde en die je hebt gehouden, ook in je eigen woorden. Het merendeel van wat het publiek ontvangt heb jij geschreven, getekend of gespeeld.",
+      "definition": "Het werk is qua uitvoering grotendeels van jou, maar materiaal dat een model produceerde, is in het gepubliceerde resultaat behouden gebleven: passages, elementen, varianten waaruit je koos — of de redenering of structuur die het voorstelde en die je hebt behouden, ook in je eigen woorden. Het merendeel van wat het publiek ontvangt, heb jij geschreven, getekend of gespeeld.",
       "includes": [
-        "AI schrijft een sectie die jij daarna herschrijft, terwijl jouw woorden het geheel bepalen",
+        "AI schrijft een sectie die jij daarna herschrijft, waarbij jouw woorden in het geheel de meerderheid vormen",
         "AI genereert varianten waaruit jij kiest en die je bewerkt",
         "AI schrijft een functie in een codebase die jij hebt ontworpen en grotendeels zelf hebt geschreven",
         "AI breidt een deel van een beeld uit dat jij hebt gecomponeerd, of vult het aan",
@@ -158,11 +158,11 @@
       "id": 5,
       "name": "Geautomatiseerd",
       "oneLine": "AI produceerde de substantie en de vorm. Geen mens heeft het gelezen voordat het werd gepubliceerd.",
-      "definition": "Een model heeft het werk geproduceerd en het is gepubliceerd zonder menselijke controle. Dit is het eerlijke niveau voor geautomatiseerde pijplijnen, massaproductie en agents die op eigen houtje publiceren. Voor heel veel volstrekt legitiem werk is dit het juiste antwoord — en het uitspreken ervan is precies wat dat werk legitiem maakt.",
+      "definition": "Een model heeft het werk geproduceerd en het is gepubliceerd zonder menselijke controle. Dit is het eerlijke niveau voor geautomatiseerde pijplijnen, massaproductie en agents die op eigen houtje publiceren. Voor heel veel legitiem werk is dit het juiste antwoord — en het uitspreken ervan is precies wat dat werk legitiem maakt.",
       "note": "Level 5 is geen aanklacht. Een geautomatiseerd marktrapport, een gegenereerde wedstrijdsamenvatting, een machinaal vertaalde helppagina op schaal: dat alles is eerlijk op Level 5 en oneerlijk op elk ander. Een 5 vermelden is wat een geautomatiseerd systeem onderscheidt van bedrog.",
       "includes": [
         "Geplande of agentische publicatie zonder mens in de lus",
-        "Massaproductie van pagina's, advertenties of samenvattingen",
+        "Massaproductie van pagina's, vermeldingen of samenvattingen",
         "Live generatie op aanvraag, aan een gebruiker getoond terwijl ze ontstaat",
         "Machinevertaling die op grote schaal en ongecontroleerd wordt gepubliceerd"
       ],
@@ -189,7 +189,7 @@
     },
     {
       "question": "Heeft AI nieuw materiaal geproduceerd dat in het gepubliceerde werk voorkomt — meer dan het mechanisch verwerken van wat jij al had gemaakt?",
-      "help": "Je grammatica corrigeren, je woorden getrouw transcriberen of vertalen, je foto ontruisen of je bestanden taggen is mechanische verwerking. Dat geldt ook voor feedback, kritiek, onderzoek en factchecken waarvan niets eigens van het model in het werk achterblijft — het advies van een redacteur maakt de redacteur geen auteur. Nieuw materiaal omvat de substantie én de formulering: een alinea, een beeld, een melodie — of een these, een redenering of een structuur die het model heeft bedacht, ook als je die volledig in je eigen woorden hebt weergegeven."
+      "help": "Je grammatica corrigeren, je woorden getrouw transcriberen of vertalen, je foto ontruisen of je bestanden taggen is mechanische verwerking. Dat geldt ook voor feedback, kritiek, onderzoek en feitenvergaring waarbij niets eigens van het model in het werk achterblijft — het advies van een redacteur maakt de redacteur geen auteur. Nieuw materiaal omvat de substantie én de formulering: een alinea, een beeld, een melodie — of een these, een redenering of een structuur die het model heeft bedacht, ook als je die volledig in je eigen woorden hebt weergegeven."
     },
     {
       "question": "Heb je het grootste deel van de uiteindelijke vorm zelf gemaakt — de meeste woorden, pixels of klanken?",
@@ -217,7 +217,7 @@
     },
     {
       "case": "Substantie van de AI, woorden van jou",
-      "rule": "Als een model de substantie heeft bedacht die wezenlijk bepaalt wat het werk zegt — de these, de redenering, de structuur — dan heeft het nieuw materiaal geproduceerd dat in het werk overleeft, ook als je elk woord zelf hebt geschreven. Dat is Level 2 of hoger, nooit Level 1. Feedback, kritiek en factchecken dat je zelf controleert blijven Level 1: het advies van een redacteur maakt de redacteur geen auteur.",
+      "rule": "Als een model de substantie heeft bedacht die wezenlijk bepaalt wat het werk zegt — de these, de redenering, de structuur — dan heeft het nieuw materiaal geproduceerd dat in het werk behouden blijft, ook als je elk woord zelf hebt geschreven. Dat is Level 2 of hoger, nooit Level 1. Feedback, kritiek en feitenvergaring waarvan je de uitkomsten hebt gecontroleerd, blijven Level 1: het advies van een redacteur maakt de redacteur geen auteur.",
       "why": "Ideeën zijn materiaal. Ze in je eigen woorden weergeven maakt ze niet on-bedacht — en de belofte van Level 1, dat het model niets heeft bedacht, moet precies dat betekenen."
     },
     {
@@ -297,7 +297,7 @@
       "surfacesH": "Als de onderdelen verschillen",
       "copy": "Kopiëren",
       "copied": "Gekopieerd",
-      "inlineName": "Inline-SVG met de naam van het level — waar iemand de schaal voor het eerst ziet en het woord nodig heeft, niet alleen het getal"
+      "inlineName": "Inline-SVG met de naam van het niveau — waar iemand de schaal voor het eerst ziet en het woord nodig heeft, niet alleen het getal"
     },
     "scalePage": {
       "eyebrow": "De schaal",
@@ -372,10 +372,10 @@
       "priorArt": "Eerder werk",
       "priorLede": "Niets hier is zonder precedent, en het tegendeel beweren zou een eigen kleine oneerlijkheid zijn.",
       "why": "Waarom",
-      "wellKnown": "Een site kan ook een verklaring voor de hele site publiceren op een well-known-pad, waar een crawler weet te kijken zonder aanwijzing:",
-      "challengeH": "Als je een verklaring niet vertrouwt",
-      "challengeA": "Een verklaring is publiek falsifieerbaar. Controleer de link en de metadata; leg het verklaarde level naast het werk en, waar ze verschillen, naast de uitsplitsing per oppervlak; vraag het daarna de auteur — in een reactie, een recensie, een issue. De meeste afwijkingen zijn eerlijke lezingen van een grens, en de randgevallen hierboven beslechten de meeste.",
-      "challengeB": "Is een verklaring willens en wetens vals, dan is het antwoord van de standaard het antwoord dat schaalt: de claim was publiek en linkbaar — en is nu publiek weerlegd. Er is hier geen detector en geen register, met opzet. Reputatie is de handhaving, precies zoals bij een byline."
+      "wellKnown": "Een site kan ook een vermelding voor de hele site publiceren op een well-known-pad, waar een crawler weet te kijken zonder aanwijzing:",
+      "challengeH": "Als je een vermelding niet vertrouwt",
+      "challengeA": "Een vermelding is publiek falsifieerbaar. Controleer de link en de metadata; leg het vermelde niveau naast het werk en, waar ze verschillen, naast de uitsplitsing onder Onderdelen; vraag het daarna de auteur — in een reactie, een recensie, een issue. De meeste afwijkingen zijn eerlijke lezingen van een grens, en de randgevallen hierboven beslechten de meeste.",
+      "challengeB": "Is een vermelding willens en wetens vals, dan is het antwoord van de standaard het antwoord dat schaalt: de claim was publiek en linkbaar — en is nu publiek weerlegd. Er is hier geen detector en geen register, met opzet. Reputatie is de handhaving, precies zoals bij een auteursvermelding."
     },
     "signPage": {
       "eyebrow": "Ondertekenaars",

@@ -1,5 +1,5 @@
 ---
-/* The EU AI Act explainer. English on every route, deliberately: this page states what
+/* The AI disclosure law explainer. English on every route, deliberately: this page states what
    someone else's law says, and a machine paraphrase in twenty languages is twenty chances
    to misstate a legal obligation. The Act itself is published in every EU language; we link
    the authoritative text rather than re-translating it. */
@@ -19,7 +19,7 @@ const l5 = byId(5);
   path="/eu-ai-act"
   translated={false}
   title="EU AI Act, Article 50 — AI Usage Scale"
-  description="From 2 August 2026 the EU AI Act requires disclosure of AI-generated text published to inform the public — unless a human reviewed it and someone holds editorial responsibility. That is the Level 4 / Level 5 distinction, named."
+  description="Since 2 August 2026 the EU AI Act has required disclosure of AI-generated text published to inform the public — unless a human reviewed it and someone holds editorial responsibility. That is the Level 4 / Level 5 distinction, named. With the EU icons, the Code of Practice, and the rules outside Europe."
   breadcrumb={[['EU AI Act', '/eu-ai-act']]}
   schema={[
     {
@@ -32,7 +32,7 @@ const l5 = byId(5);
   ]}
 >
   <header class="top prose">
-    <p class="label">For publishers · applies from 2 August 2026</p>
+    <p class="label">For publishers · in force since 2 August 2026</p>
     <h1>The law can see the difference. It just cannot say it.</h1>
     <p class="standfirst">
       Article 50 of the EU AI Act switches the disclosure duty for AI-generated text off the
@@ -52,7 +52,7 @@ const l5 = byId(5);
     <h2>What Article 50 requires</h2>
     <p class="prose">
       The transparency obligations in
-      <a href="https://artificialintelligenceact.eu/article/50/">Article 50</a> apply from
+      <a href="https://artificialintelligenceact.eu/article/50/">Article 50</a> have applied since
       <strong>2 August 2026</strong>. The parts that concern people who publish:
     </p>
     <dl class="rules">
@@ -72,6 +72,9 @@ const l5 = byId(5);
           Deployers of image, audio or video deepfakes must disclose the artificial generation or
           manipulation; for evidently artistic, creative, satirical or fictional work the duty is
           limited to a disclosure that does not hamper the enjoyment of the work.
+          <strong>The human-review exemption does not extend here.</strong> It is written for text
+          only, so a reviewed, signed-off deepfake still carries the duty — the one place where a
+          higher level on this scale does not relieve you of anything.
         </dd>
       </div>
       <div class="rule-row">
@@ -80,17 +83,94 @@ const l5 = byId(5);
           <strong>Providers</strong> of generative AI systems — the people who build the model or
           system, not the people who publish with it — must ensure outputs are marked in a
           machine-readable format and detectable as artificially generated, so far as technically
-          feasible.
+          feasible. The duty falls away where the system performs <em>"an assistive function for
+          standard editing"</em> or does not substantially alter the input or its semantics.
+          Systems already on the market on 2 August 2026 have until <strong>2 December 2026</strong>
+          to meet it.
         </dd>
       </div>
       <div class="rule-row">
         <dt>Art. 50(5) — how</dt>
         <dd>
           The information must be provided in a clear and distinguishable manner, at the latest at
-          the first interaction or exposure.
+          the first interaction or exposure, and must meet the applicable accessibility
+          requirements.
         </dd>
       </div>
     </dl>
+  </section>
+
+  <section>
+    <h2>What the Guidelines put outside the scope</h2>
+    <p class="prose">
+      The Commission adopted its final
+      <a href="https://digital-strategy.ec.europa.eu/en/library/draft-guidelines-implementation-transparency-obligations-certain-ai-systems-under-article-50-ai-act">Guidelines
+      on Article 50</a> on 20 July 2026. They read the marking duty narrowly, and several
+      exclusions matter to anyone using this scale:
+    </p>
+    <ul class="excl">
+      <li>
+        <strong>Source code, broadly defined</strong> — including natural-language comments that
+        form part of it, SDKs, SQL, infrastructure-as-code, YAML and JSON configuration, schemas,
+        scripts, machine-readable specifications, APIs and software libraries.
+      </li>
+      <li><strong>Short outputs</strong> — single words, captions, alt-text, interface labels.</li>
+      <li><strong>Machine-to-machine output</strong> processed automatically with no human exposure.</li>
+      <li><strong>Intermediate outputs</strong> inside a closed workflow; the final output still counts.</li>
+      <li><strong>AI-generated translation</strong>, now grouped with standard editing alongside grammar correction and spellchecking. Summaries and substantive rewrites still require marking.</li>
+    </ul>
+    <p class="prose caveat">
+      Read that list against this scale and one thing follows: <strong>the code surface of a
+      declaration is not a legal artifact.</strong> Article 50 does not ask you to mark AI-written
+      code, and this scale never claimed the law did. Declaring it is a choice you make for your
+      readers, your collaborators and your own record — which is the only reason any of the six
+      levels was ever worth stating.
+    </p>
+  </section>
+
+  <section>
+    <h2>The Code of Practice, and the EU icons</h2>
+    <p class="prose">
+      The Commission published the
+      <a href="https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content">Code
+      of Practice on Transparency of AI-generated Content</a> on 10 June 2026, and confirmed it as
+      an adequate voluntary tool for demonstrating compliance in July 2026. Signing is voluntary;
+      Article 50 is not. Section 1 binds providers to marking and detection, Section 2 binds
+      deployers to labelling deepfakes and public-interest text.
+    </p>
+    <p class="prose">
+      With it came a free set of
+      <a href="https://digital-strategy.ec.europa.eu/en/policies/eu-icons-labelling-ai-generated-content">EU
+      icons</a> — SVG and PNG, four contrast variations, no attribution required:
+    </p>
+    <dl class="rules">
+      <div class="rule-row">
+        <dt>Basic icon</dt>
+        <dd>AI was involved. Designed to be supplemented with an interactive second layer that
+        says how.</dd>
+      </div>
+      <div class="rule-row">
+        <dt>Fully AI-Generated</dt>
+        <dd>The entire content is generated by AI, with no human-created elements.</dd>
+      </div>
+      <div class="rule-row">
+        <dt>Partially AI-Modified</dt>
+        <dd>Pre-existing, human-made content was partially modified with AI.</dd>
+      </div>
+    </dl>
+    <p class="prose">
+      The icons must be perceivable at first exposure, embedded so they survive resharing and
+      downloading, and — the Commission's own user testing found this measurably helps — carried
+      alongside a plain-language word such as <em>modified</em>. Using them is optional. The
+      labelling duty is not.
+    </p>
+    <p class="prose pull">
+      The basic icon is specified as a first layer that expects a second one behind it. That is
+      exactly the shape of a declaration on this scale: <strong>a mark anyone can read, and a link
+      to a public definition that pins it down.</strong> Put the EU icon where the law wants a
+      mark, and point its second layer at your level page. The icon says AI was involved; the
+      level says what it did.
+    </p>
   </section>
 
   <section>
@@ -98,38 +178,103 @@ const l5 = byId(5);
     <p class="prose">
       The law's test for text is binary — reviewed with editorial responsibility, or not. Those
       are the two states this scale names as <a href={L('/4')}>Level 4</a> and
-      <a href={L('/5')}>Level 5</a>:
+      <a href={L('/5')}>Level 5</a>. The icon column is the nearest EU mark for the same work:
     </p>
+    <div class="levels-scroll" tabindex="0" role="region" aria-label="Levels mapped to EU icons and Article 50(4)">
     <table class="levels map">
       <thead>
-        <tr><th>You publish at</th><th>Under Art. 50(4)</th></tr>
+        <tr><th>You publish at</th><th>Nearest EU icon</th><th>Under Art. 50(4), for public-interest text</th></tr>
       </thead>
       <tbody>
         <tr>
           <td class="lv-name"><a href={L('/5')}>Level 5 · Automated</a></td>
-          <td>No human review — the disclosure duty applies to text informing the public on
-          matters of public interest. A visible Level 5 declaration is a disclosure, made in a
-          vocabulary a reader can look up.</td>
+          <td>Fully AI-Generated</td>
+          <td><strong>The duty applies.</strong> No human review, so no exemption. A visible Level 5
+          declaration is a disclosure, made in a vocabulary a reader can look up.</td>
         </tr>
         <tr>
           <td class="lv-name"><a href={L('/4')}>Level 4 · Prompted</a></td>
+          <td>Fully AI-Generated</td>
           <td>Human review and editorial responsibility — the very precondition of the law's
           exemption. Disclosure stops being an obligation and becomes what it should have been
           all along: a credit line you give the reader anyway.</td>
         </tr>
         <tr>
-          <td class="lv-name"><a href={L('/3')}>Levels 0–3</a></td>
-          <td>Reviewed by definition wherever a model produced text (Levels 2–3), or no
-          generative output at all (Levels 0–1). The same logic as Level 4: exempt where the
-          duty could apply — and worth declaring regardless.</td>
+          <td class="lv-name"><a href={L('/3')}>Level 3 · Directed</a></td>
+          <td>Basic icon <span class="q">·</span> contested</td>
+          <td>Exempt on the same ground as Level 4. The icon set has no term for it: the substance
+          is human, the form is not, and neither "fully generated" nor "partially modified" is
+          true. The basic icon plus a second layer is the honest mark.</td>
+        </tr>
+        <tr>
+          <td class="lv-name"><a href={L('/2')}>Level 2 · Co-created</a></td>
+          <td>Partially AI-Modified</td>
+          <td>Exempt, and an exact match: pre-existing human-made work, partially modified with AI.</td>
+        </tr>
+        <tr>
+          <td class="lv-name"><a href={L('/1')}>Level 1 · Assisted</a></td>
+          <td>No icon</td>
+          <td>Correction, transcription, faithful translation — the assistive standard-editing
+          carve-out in Art. 50(2), and nothing of the model's own reaches the work.</td>
+        </tr>
+        <tr>
+          <td class="lv-name"><a href={L('/0')}>Level 0 · Human</a></td>
+          <td>No icon</td>
+          <td>No generative AI, so nothing to disclose. Worth declaring anyway — it is the only
+          level that says so out loud.</td>
         </tr>
       </tbody>
     </table>
+    </div>
     <p class="prose caveat">
       Whether a given page "informs the public on matters of public interest", and who counts as
       the deployer, are questions for a lawyer, not a badge. The scale does not decide them; it
-      gives you the words for whichever side of the line you are on.
+      gives you the words for whichever side of the line you are on. The Level 3 row is the one
+      genuinely unsettled mapping, and it is marked as such rather than guessed at.
     </p>
+  </section>
+
+  <section>
+    <h2>Outside the EU</h2>
+    <p class="prose">
+      Three jurisdictions now ask the same three questions — was AI involved, how much of the work
+      is its own, and did a human take responsibility before publication. They disagree about
+      wording and about who must answer. A declaration on this scale answers all three at once, in
+      terms that survive the translation between them.
+    </p>
+    <dl class="rules">
+      <div class="rule-row">
+        <dt>China — in force since 1 September 2025</dt>
+        <dd>
+          The <em>Measures for Labeling AI-Generated Synthetic Content</em> and the mandatory
+          national standard <a href="https://www.cac.gov.cn/">GB 45438-2025</a> require both an
+          <strong>explicit label</strong> a reader can see and an <strong>implicit label</strong>
+          in the metadata, carrying the nature of the content — confirmed, possible or suspected
+          AI-generated — plus the service provider and a content ID. The two-layer shape is the
+          same one the EU icons assume, and the same one a badge plus <code>ai-usage</code>
+          metadata already produces.
+        </dd>
+      </div>
+      <div class="rule-row">
+        <dt>California — operative since 2 August 2026</dt>
+        <dd>
+          The California AI Transparency Act (SB 942, as amended by AB 853) puts a
+          <strong>manifest disclosure</strong> on the surface and a <strong>latent disclosure</strong>
+          in the asset: provider name, system name and version, a timestamp, and an identifier
+          linking the content back to the system that made it. AB 853 moved the operative date to
+          2 August 2026 to line up with Article 50; hosting-platform duties follow on 1 January 2027.
+          The duties fall on large providers and platforms, not on individual publishers.
+        </dd>
+      </div>
+      <div class="rule-row">
+        <dt>Everywhere else</dt>
+        <dd>
+          No duty, and the declaration still works. That is the point of a level that means the
+          same thing in Warsaw, Shenzhen and Sacramento: you are not writing to a regulator, you
+          are telling a reader how the thing in front of them was made.
+        </dd>
+      </div>
+    </dl>
   </section>
 
   <section>
@@ -162,6 +307,26 @@ const l5 = byId(5);
         <a href="https://artificialintelligenceact.eu/article/50/">Article 50, AI Act Explorer (Future of Life Institute)</a>
         — the article with commentary; application date per Article 113.
       </li>
+      <li>
+        <a href="https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content">Code of Practice on Transparency of AI-generated Content</a>
+        — published 10 June 2026; confirmed adequate July 2026.
+      </li>
+      <li>
+        <a href="https://digital-strategy.ec.europa.eu/en/policies/eu-icons-labelling-ai-generated-content">EU icons for labelling AI-generated content</a>
+        — the three icons, SVG and PNG, free to use without attribution.
+      </li>
+      <li>
+        <a href="https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act">Transparency obligations under Article 50 — Commission FAQ</a>
+        — scope, exclusions, and the December 2026 deadline.
+      </li>
+      <li>
+        <a href="https://www.cac.gov.cn/">Measures for Labeling AI-Generated Synthetic Content, and GB 45438-2025</a>
+        — Cyberspace Administration of China; in force 1 September 2025.
+      </li>
+      <li>
+        <a href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260AB853">California AI Transparency Act (SB 942, amended by AB 853)</a>
+        — operative 2 August 2026.
+      </li>
     </ul>
   </section>
 </Base>
@@ -188,10 +353,16 @@ const l5 = byId(5);
   }
   dd { margin: 0; max-width: var(--measure); }
 
-  .map td:first-child { width: 12rem; }
+  .excl { padding-inline-start: 1.25rem; max-width: var(--measure); }
+  .excl li { margin-bottom: 0.5rem; }
+
+  .pull { border-inline-start: 2px solid var(--accent); padding-inline-start: 1.25rem; }
+
+  .map td:first-child { width: 11rem; }
   .map .lv-name a { text-decoration: none; }
   .map .lv-name a:hover { color: var(--accent); }
   .map td { font-size: 1rem; }
+  .map .q { color: var(--ink-mid); }
   .caveat { color: var(--ink-mid); font-size: 1.0625rem; }
 
   .srcs { padding-inline-start: 1.25rem; }

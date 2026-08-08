@@ -12,7 +12,7 @@
     "doesNotMeasure": "Proporsi karakter, piksel, atau sampel yang dikeluarkan oleh sebuah model. Angka itu menghukum pakar yang mendiktekan tiga puluh tahun praktiknya, dan tidak membebaskan siapa pun."
   },
   "surfaces": {
-    "note": "Opsional. Satu angka menggambarkan karya secara keseluruhan. Bila bagian-bagiannya berbeda tajam, nyatakan bagian itu. Lencana selalu menampilkan satu angka; rinciannya ada di balik tautan.",
+    "note": "Opsional. Satu angka menggambarkan karya secara keseluruhan. Bila bagian-bagiannya berbeda tajam, nyatakan bagian-bagian tersebut. Lencana selalu menampilkan satu angka; rinciannya ada di balik tautan.",
     "headlineRule": "Tingkat utama menggambarkan bagian karya yang membawa maknanya. Materi dekoratif yang tidak akan dianggap penting oleh audiens yang wajar tidak menentukan tingkat utama — nyatakan saja di sini."
   },
   "levels": [
@@ -372,10 +372,10 @@
       "priorArt": "Karya terdahulu",
       "priorLede": "Tak ada yang belum pernah ada sebelumnya di sini, dan berpura-pura sebaliknya adalah ketidakjujuran kecil tersendiri.",
       "why": "Alasan",
-      "wellKnown": "Sebuah situs juga dapat menerbitkan deklarasi untuk seluruh situs di jalur well-known, tempat perayap tahu harus melihat tanpa diberi tahu:",
-      "challengeH": "Jika Anda meragukan sebuah deklarasi",
-      "challengeA": "Deklarasi dapat difalsifikasi di depan publik. Periksa tautan dan metadatanya; bandingkan tingkat yang dideklarasikan dengan karyanya dan, bila berbeda, dengan rincian per permukaan; lalu tanyakan kepada pengarangnya — lewat komentar, ulasan, atau issue. Sebagian besar ketidakcocokan adalah pembacaan batas yang jujur, dan kasus-kasus tepi di atas menyelesaikan sebagian besarnya.",
-      "challengeB": "Jika sebuah deklarasi sengaja dipalsukan, jawaban standar ini adalah jawaban yang bisa diskalakan: klaim itu publik dan dapat ditautkan — dan kini difalsifikasi di depan publik. Sengaja tidak ada detektor maupun registri di sini. Reputasilah penegakannya, persis seperti pada byline."
+      "wellKnown": "Sebuah situs juga dapat menerbitkan pernyataan untuk seluruh situs di jalur well-known, tempat perayap tahu harus melihat tanpa diberi tahu:",
+      "challengeH": "Jika Anda meragukan sebuah pernyataan",
+      "challengeA": "Pernyataan dapat difalsifikasi di depan publik. Periksa tautan dan metadatanya; bandingkan tingkat yang dinyatakan dengan karyanya dan, bila berbeda, dengan rincian per permukaan; lalu tanyakan kepada pengarangnya — lewat komentar, ulasan, atau issue. Sebagian besar ketidakcocokan adalah pembacaan batas yang jujur, dan kasus-kasus batas di atas menyelesaikan sebagian besarnya.",
+      "challengeB": "Jika sebuah pernyataan sengaja dipalsukan, jawaban standar ini adalah jawaban yang bisa diskalakan: klaim itu publik dan dapat ditautkan — dan kini difalsifikasi di depan publik. Sengaja tidak ada detektor maupun registri di sini. Reputasilah penegakannya, persis seperti pada baris nama penulis."
     },
     "signPage": {
       "eyebrow": "Penanda tangan",
