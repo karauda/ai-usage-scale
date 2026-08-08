@@ -51,12 +51,12 @@
       "includes": [
         "Grammatik-, Rechtschreib- und Stilkorrektur an Sätzen, die du geschrieben hast",
         "Transkription von Audio, das du aufgenommen hast",
-        "Entrauschen, Freistellen oder Hochskalieren eines Bildes, das du aufgenommen hast",
+        "Entrauschen, Maskieren oder Hochskalieren eines Bildes, das du aufgenommen hast",
         "Verschlagworten, Formatieren, Zusammenfassen für den eigenen Gebrauch oder das Durchsuchen des eigenen Archivs",
         "KI nutzen, um Quellen zu finden, die du anschließend selbst liest und prüfst"
       ],
       "excludes": [
-        "KI entwirft einen Satz, einen Absatz, ein Bild oder eine Melodie, die es ins Werk schafft — das ist Level 2 oder höher",
+        "KI entwirft einen Satz, einen Absatz, ein Bild oder eine Melodie, und etwas davon gelangt ins Werk — das ist Level 2 oder höher",
         "KI erdenkt oder restrukturiert die Argumentation selbst, nicht nur deine Prosa — das ist Level 2 oder höher, selbst wenn du jedes Wort selbst geschrieben hast"
       ],
       "examples": [
@@ -77,7 +77,7 @@
       "oneLine": "Den größten Teil der endgültigen Form hast du geschaffen. KI hat Teile beigesteuert, die geblieben sind.",
       "definition": "Das Werk ist in der Ausführung überwiegend deines, aber Material, das ein Modell erzeugt hat, überlebt im veröffentlichten Ergebnis: Passagen, Elemente, Varianten, zwischen denen du gewählt hast — oder die Argumentation oder Struktur, die es vorgeschlagen hat und die du behalten hast, auch in eigenen Worten. Die Mehrheit dessen, was das Publikum erhält, hast du geschrieben, gezeichnet oder gespielt.",
       "includes": [
-        "KI entwirft einen Abschnitt, den du anschließend umschreibst, während deine Worte das Ganze prägen",
+        "KI entwirft einen Abschnitt, den du anschließend umschreibst, wobei deine Worte im Gesamtwerk überwiegen",
         "KI erzeugt Varianten, aus denen du auswählst und die du bearbeitest",
         "KI schreibt eine Funktion in einer Codebasis, die du entworfen und größtenteils selbst geschrieben hast",
         "KI erweitert oder füllt einen Teil eines Bildes, das du komponiert hast",
@@ -103,7 +103,7 @@
       "id": 3,
       "name": "Gesteuert",
       "oneLine": "Die Substanz ist deine. Die Form hat die KI erzeugt.",
-      "definition": "Das werkbezogene Wissen, die Belege, die Argumentation, die Komposition oder die Vorgaben stammen von dir und bestimmen das Ergebnis maßgeblich. Ein Modell hat aus diesen originären Beiträgen den größten Teil der endgültigen Worte, Pixel oder Töne erzeugt. Du hast gesteuert, ausgewählt, korrigiert, substanziell geprüft und übernimmst die Verantwortung für das Ergebnis. Einen Prompt zu schreiben oder zu verfeinern reicht allein nicht aus.",
+      "definition": "Das werkbezogene Wissen, die Belege, die Argumentation, die Komposition oder die Vorgaben stammen von dir und bestimmen das Ergebnis maßgeblich. Ein Modell hat aus diesen originären Beiträgen den größten Teil der endgültigen Worte, Pixel oder Töne erzeugt. Du hast gesteuert, ausgewählt, korrigiert, substanziell geprüft und stehst für das Ergebnis gerade. Einen Prompt zu schreiben oder zu verfeinern reicht allein nicht aus.",
       "note": "Das ist das Level, das das heutige binäre Etikett nicht sehen kann, und der Grund, warum es diese Skala gibt. Ein Experte, der diktiert, was er weiß, und ein Modell die Form geben lässt, hat keinen Betrug begangen. Er hat ein Werkzeug benutzt — und kann das jetzt endlich auch sagen.",
       "includes": [
         "Ein Experte liefert Wissen, Notizen, Daten oder ein detailliertes Briefing, das ein Modell in Prosa verwandelt",
@@ -131,7 +131,7 @@
       "id": 4,
       "name": "Beauftragt",
       "oneLine": "Substanz und Form stammen von der KI. Du hast gefragt, du hast geprüft, du stehst dafür gerade.",
-      "definition": "Ein Modell hat sowohl erzeugt, was das Werk sagt, als auch, wie es das sagt — aus einem Prompt, einer Vorlage oder einem Briefing, das wenig eigene, originäre und werkbezogene Substanz enthielt. Ein Mensch hat das fertige Werk substanziell geprüft, wesentliche Behauptungen bei Bedarf verifiziert und übernimmt die Verantwortung für die Veröffentlichung.",
+      "definition": "Ein Modell hat sowohl erzeugt, was das Werk sagt, als auch, wie es das sagt — aus einem Prompt, einer Vorlage oder einem Briefing mit wenig von dir stammender, originärer und werkbezogener Substanz. Ein Mensch hat das fertige Werk substanziell geprüft, wesentliche Behauptungen bei Bedarf verifiziert und übernimmt die Verantwortung für die Veröffentlichung.",
       "includes": [
         "Ein Modell um Inhalte zu einem Thema bitten und sie nach einer Prüfung veröffentlichen",
         "Generierte Werbetexte, Produktbeschreibungen oder Social-Media-Posts, vor dem Ausspielen geprüft",
@@ -189,7 +189,7 @@
     },
     {
       "question": "Hat die KI neues Material erzeugt, das im veröffentlichten Werk auftaucht — über das mechanische Verarbeiten dessen hinaus, was du bereits geschaffen hattest?",
-      "help": "Deine Grammatik korrigieren, deine Worte getreu transkribieren oder übersetzen, dein Foto entrauschen oder deine Dateien verschlagworten ist mechanische Verarbeitung. Ebenso Feedback, Kritik, Recherche und Faktensuche, von denen nichts Eigenes des Modells im Werk zurückbleibt — der Rat eines Lektors macht den Lektor nicht zum Autor. Neues Material umfasst Substanz ebenso wie Formulierung: einen Absatz, ein Bild, eine Melodie — oder eine These, eine Argumentation, eine Struktur, die das Modell erdacht hat, selbst wenn du sie vollständig in eigenen Worten wiedergegeben hast."
+      "help": "Das Korrigieren deiner Grammatik, das getreue Transkribieren oder Übersetzen deiner Worte, das Entrauschen deines Fotos oder das Verschlagworten deiner Dateien zählt zur mechanischen Verarbeitung. Dasselbe gilt für Feedback, Kritik, Recherche und Faktensuche, wenn nichts Eigenes des Modells im Werk zurückbleibt — der Rat eines Lektors macht den Lektor nicht zum Autor. Neues Material umfasst Substanz ebenso wie Formulierung: einen Absatz, ein Bild, eine Melodie — oder eine These, eine Argumentation oder eine Struktur, die das Modell erdacht hat, selbst wenn du sie vollständig in eigenen Worten wiedergegeben hast."
     },
     {
       "question": "Hast du den größten Teil der endgültigen Form selbst geschaffen — die meisten Worte, Pixel oder Töne?",
@@ -353,7 +353,7 @@
       "h1": "Wie sie definiert ist und wie sie mit allem anderen spricht.",
       "standfirst": "Das ist ein Deklarationsstandard, kein Beweisstandard. Er lässt sich nicht kryptografisch verifizieren, und er versucht es gar nicht erst. Eine Autorenzeile lässt sich auch nicht verifizieren.",
       "procedure": "Entscheidungsverfahren",
-      "procedureLede": "Fünf Fragen, in dieser Reihenfolge gestellt. Die erste, die endet, gibt das Level.",
+      "procedureLede": "Fünf Fragen, in dieser Reihenfolge gestellt. Die erste, die das Verfahren beendet, ergibt das Level.",
       "question": "Frage",
       "yesCol": "Ja",
       "noCol": "Nein",
@@ -372,10 +372,10 @@
       "priorArt": "Stand der Technik",
       "priorLede": "Nichts hier ist beispiellos, und etwas anderes zu behaupten wäre eine eigene kleine Unehrlichkeit.",
       "why": "Warum",
-      "wellKnown": "Eine Website kann außerdem eine Erklärung für die ganze Site unter einem Well-known-Pfad veröffentlichen, wo ein Crawler ohne Hinweis nachsieht:",
-      "challengeH": "Wenn du einer Erklärung nicht traust",
-      "challengeA": "Eine Erklärung ist öffentlich falsifizierbar. Prüfe den Link und die Metadaten; vergleiche das erklärte Level mit dem Werk und, wo sie auseinandergehen, mit der Aufschlüsselung nach Oberflächen; dann frag die Autorin oder den Autor — im Kommentar, in einer Rezension, in einem Issue. Die meisten Abweichungen sind ehrliche Lesarten einer Grenze, und die Grenzfälle oben klären die meisten davon.",
-      "challengeB": "Ist eine Erklärung wissentlich falsch, ist die Antwort des Standards die, die skaliert: Die Behauptung war öffentlich und verlinkbar — und ist nun öffentlich widerlegt. Es gibt hier keinen Detektor und kein Register, mit Absicht. Reputation ist die Durchsetzung, genau wie bei einer Byline."
+      "wellKnown": "Eine Website kann außerdem eine Deklaration für die ganze Site unter einem Well-known-Pfad veröffentlichen, wo ein Crawler ohne Hinweis nachsieht:",
+      "challengeH": "Wenn du einer Deklaration nicht traust",
+      "challengeA": "Eine Deklaration ist öffentlich falsifizierbar. Prüfe den Link und die Metadaten; vergleiche das deklarierte Level mit dem Werk und, wo sie auseinandergehen, mit der Aufschlüsselung nach Bereichen; dann frag die Autorin oder den Autor — im Kommentar, in einer Rezension, in einem Issue. Die meisten Abweichungen sind ehrliche Lesarten einer Grenze, und die Grenzfälle oben klären die meisten davon.",
+      "challengeB": "Ist eine Deklaration wissentlich falsch, ist die Antwort des Standards die, die skaliert: Die Behauptung war öffentlich und verlinkbar — und ist nun öffentlich widerlegt. Es gibt hier keinen Detektor und kein Register, mit Absicht. Reputation ist die Durchsetzung, genau wie bei einer Byline."
     },
     "signPage": {
       "eyebrow": "Unterzeichnende",

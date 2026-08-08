@@ -2,7 +2,7 @@
 lang: zh
 title: AI 使用宣言
 standfirst: 没有可耻的级别。只有未声明的级别。
-version: 1.1.1
+version: 1.2.0
 level: 3
 ---
 

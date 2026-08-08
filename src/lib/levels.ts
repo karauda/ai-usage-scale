@@ -18,6 +18,9 @@ export interface Level {
     iptcDigitalSourceType: string;
     iptcNote?: string;
     schemaOrgAiUsageLevel: number;
+    /** Nearest EU icon from the Code of Practice; null where no AI disclosure duty arises. */
+    euAiActIcon: 'basic' | 'fully-ai-generated' | 'partially-ai-modified' | null;
+    euAiActNote?: string;
   };
 }
 

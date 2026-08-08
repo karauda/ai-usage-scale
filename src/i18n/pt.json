@@ -13,7 +13,7 @@
   },
   "surfaces": {
     "note": "Opcional. Um único número descreve a obra como um todo. Quando alguma parte dela destoa bastante do resto, declare essa parte. O selo mostra sempre um número; o detalhamento fica atrás do link.",
-    "headlineRule": "O nível principal descreve a parte da obra que carrega o sentido dela. Material decorativo que um público razoável não consideraria essencial à obra não determina o nível principal: declare esse material aqui."
+    "headlineRule": "O nível principal descreve a parte da obra que carrega o sentido dela. Material decorativo que um público razoável não consideraria relevante para a obra não determina o nível principal: declare esse material aqui."
   },
   "levels": [
     {
@@ -56,7 +56,7 @@
         "Usar IA para encontrar fontes que depois você mesmo lê e verifica"
       ],
       "excludes": [
-        "A IA redigir uma frase, um parágrafo, uma imagem ou uma melodia que sobreviva na obra: isso é Nível 2 ou acima",
+        "A IA criar uma frase, um parágrafo, uma imagem ou uma melodia que permaneça na obra: isso é Nível 2 ou acima",
         "A IA conceber ou reestruturar o próprio argumento, e não apenas a sua prosa: isso é Nível 2 ou acima, mesmo que tenha escrito cada palavra você mesmo"
       ],
       "examples": [
@@ -112,7 +112,7 @@
         "Um código que você especificou e revisou em detalhe, escrito em sua maior parte por um agente de IA"
       ],
       "excludes": [
-        "Um prompt, mesmo refinado em várias rodadas, que não acrescente conteúdo original e específico da obra: isso é Nível 4",
+        "Um prompt, mesmo refinado em várias rodadas, que não acrescente substância original e específica da obra: isso é Nível 4",
         "Uma obra em que você mesmo escreveu a maior parte das palavras finais: isso é Nível 2"
       ],
       "examples": [
@@ -131,7 +131,7 @@
       "id": 4,
       "name": "Solicitado",
       "oneLine": "A IA produziu a substância e a forma. Você pediu, você conferiu, você responde.",
-      "definition": "Um modelo produziu tanto o que a obra diz quanto a forma como diz, a partir de um prompt, modelo pronto ou briefing com pouca contribuição original sua e específica da obra. Uma pessoa revisou de fato a obra concluída, verificou as afirmações relevantes quando necessário e assume a responsabilidade pela publicação.",
+      "definition": "Um modelo produziu tanto o que a obra diz quanto a forma como ela o diz, a partir de um prompt, modelo pronto ou briefing com pouca substância original sua e específica da obra. Uma pessoa revisou de fato a obra concluída, verificou as afirmações relevantes quando necessário e assume a responsabilidade pela publicação.",
       "includes": [
         "Pedir conteúdo sobre um tema a um modelo e publicar depois de revisar",
         "Textos de marketing, descrições de produto ou posts de rede social gerados e revisados antes de sair",
@@ -189,7 +189,7 @@
     },
     {
       "question": "A IA produziu material novo que aparece na obra publicada, além de processar mecanicamente o que você já tinha feito?",
-      "help": "Corrigir a sua gramática, transcrever ou traduzir fielmente as suas palavras, reduzir o ruído da sua foto ou etiquetar os seus ficheiros é processamento mecânico. Também o são os comentários, a crítica, a pesquisa e a verificação de factos que não deixam nada do próprio modelo na obra — o conselho de um editor não faz do editor um autor. O material novo inclui a substância além da redação: um parágrafo, uma imagem, uma melodia — ou uma tese, um argumento ou uma estrutura que o modelo concebeu, mesmo que os tenha reescrito inteiramente com as suas próprias palavras."
+      "help": "Corrigir a sua gramática, transcrever ou traduzir fielmente as suas palavras, reduzir o ruído da sua foto ou etiquetar os seus ficheiros é processamento mecânico. Também o são os comentários, a crítica, a pesquisa e o levantamento de factos que não deixam nada do próprio modelo na obra — o conselho de um editor não faz do editor um autor. O material novo inclui a substância além da redação: um parágrafo, uma imagem, uma melodia — ou uma tese, um argumento ou uma estrutura que o modelo concebeu, mesmo que os tenha reescrito inteiramente com as suas próprias palavras."
     },
     {
       "question": "Você mesmo fez a maior parte da forma final: a maior parte das palavras, dos pixels ou do som?",
@@ -197,7 +197,7 @@
     },
     {
       "question": "A substância é sua: o conhecimento, os dados, o argumento, a direção?",
-      "help": "Substância é o conhecimento, as evidências, o argumento, a composição ou as restrições específicos que determinam o que a obra diz. Ela é sua quando os seus insumos originais determinam de maneira substancial o resultado — não apenas porque você escreveu ou refinou o prompt."
+      "help": "Substância é o conhecimento, as evidências, o argumento, a composição ou as restrições específicos desta obra que determinam o que ela diz. Ela é sua quando os seus insumos originais determinam de maneira substancial o resultado — não apenas porque você escreveu ou refinou o prompt."
     },
     {
       "question": "Uma pessoa revisou isto antes da publicação e assume a responsabilidade pelo que a obra diz?",
@@ -208,7 +208,7 @@
     {
       "case": "Tradução",
       "rule": "Uma tradução fiel herda o nível da obra original e acrescenta uma nota de tradução. Traduzir com um modelo um artigo de Nível 1 o publica como Nível 1, traduzido por IA.",
-      "why": "A substância e a estrutura não mudam. Penalizar a tradução deixaria o que se escreve no mundo menos disponível, que é o oposto do objetivo."
+      "why": "A substância e a estrutura não mudam. Penalizar a tradução deixaria o que se escreve no mundo menos disponível, o que é o oposto do objetivo."
     },
     {
       "case": "Transcrição",
@@ -217,7 +217,7 @@
     },
     {
       "case": "A substância da IA, as palavras suas",
-      "rule": "Se um modelo concebeu a substância que determina materialmente o que a obra diz — a tese, o argumento, a estrutura —, produziu material novo que sobrevive na obra, mesmo que você tenha escrito cada palavra. Isso é Nível 2 ou acima, nunca Nível 1. Comentários, crítica e verificação de factos que você confere continuam a ser Nível 1: o conselho de um editor não faz do editor um autor.",
+      "rule": "Se um modelo concebeu a substância que determina materialmente o que a obra diz — a tese, o argumento, a estrutura —, produziu material novo que sobrevive na obra, mesmo que você tenha escrito cada palavra. Isso é Nível 2 ou acima, nunca Nível 1. Comentários, crítica e levantamento de factos que você verificou continuam a ser Nível 1: o conselho de um editor não faz do editor um autor.",
       "why": "As ideias são material. Reescrevê-las com as suas próprias palavras não as des-inventa — e a promessa do Nível 1, de que o modelo nada concebeu, tem de significar exatamente isso."
     },
     {

@@ -62,7 +62,7 @@
       "examples": [
         "En artikel du skrivit, körd genom en modell för grammatikkontroll.",
         "En podd du spelat in, transkriberad av en modell till avsnittsbeskrivningen.",
-        "En uppsats du skrivit, kontrollerad av en modell mot skrivfel före inlämning.",
+        "En uppsats du skrivit, som en modell kontrollerat för skrivfel före inlämning.",
         "Kod du skrivit, där en AI-assistent bara döpt om variabler och formaterat."
       ],
       "sentences": {
@@ -96,7 +96,7 @@
       "sentences": {
         "short": "AI Usage Scale: Nivå 2 — Samskapat.",
         "medium": "Till största delen gjort av upphovspersonen; en del material genererades av AI och behölls. Nivå 2 på AI Usage Scale.",
-        "long": "Upphovspersonen gjorde det mesta av det här verket — de flesta orden, pixlarna eller ljudet. En del material som genererats av AI lever kvar i det, utvalt och redigerat av upphovspersonen. Detta är Nivå 2 på AI Usage Scale."
+        "long": "Upphovspersonen gjorde det mesta av det här verket — merparten av orden, pixlarna eller ljudet. En del material som genererats av AI lever kvar i det, utvalt och redigerat av upphovspersonen. Detta är Nivå 2 på AI Usage Scale."
       }
     },
     {
@@ -133,7 +133,7 @@
       "oneLine": "AI producerade både substansen och formen. Du bad om det, du kontrollerade det, du ansvarar för det.",
       "definition": "En modell producerade både vad verket säger och hur det säger det, utifrån en prompt, mall eller brief som innehöll lite egen, verkspecifik substans från dig. En människa granskade det färdiga verket på ett meningsfullt sätt, kontrollerade väsentliga påståenden där det behövdes och tar ansvar för publiceringen.",
       "includes": [
-        "Att be en modell om innehåll i ett ämne och publicera det efter granskning",
+        "Att be en modell skapa innehåll om ett ämne och publicera det efter granskning",
         "Genererad marknadstext, produktbeskrivningar eller inlägg i sociala medier, granskade innan de går ut",
         "Bildbanksbilder genererade från en kort prompt och kontrollerade före användning",
         "AI-skriven kod som du läst och testat innan du slog ihop den"
@@ -143,9 +143,9 @@
         "Att publicera utan att en människa läst det — det är Nivå 5"
       ],
       "examples": [
-        "\"Skriv tio inlägg om diabetes\" — läst, rättat, publicerat.",
+        "\"Skriv tio inlägg om diabetes\" — lästa, rättade och publicerade.",
         "Produktbeskrivningar genererade till en katalog och granskade av en människa.",
-        "En genererad toppbild, kontrollerad mot fel innan den går ut.",
+        "En genererad toppbild, granskad för att upptäcka fel innan den går ut.",
         "En sammanfattning av ett dokument, producerad av en modell och kontrollerad mot källan."
       ],
       "sentences": {
@@ -173,7 +173,7 @@
         "En marknadssammanfattning varje timme, genererad och publicerad av ett skript.",
         "Tiotusen produktsidor genererade över en natt.",
         "En chattbots svar, visade för användaren medan de genereras.",
-        "En agent som skriver och publicerar till en blogg enligt ett schema."
+        "En agent som skriver och publicerar på en blogg enligt ett schema."
       ],
       "sentences": {
         "short": "AI Usage Scale: Nivå 5 — Automatiserat.",
@@ -192,7 +192,7 @@
       "help": "Att rätta din grammatik, troget transkribera eller översätta dina ord, brusreducera ditt foto eller tagga dina filer är mekanisk bearbetning. Detsamma gäller feedback, kritik, efterforskning och faktakoll som inte lämnar något av modellens eget i verket — en redaktörs råd gör inte redaktören till författare. Nytt material omfattar substans såväl som formulering: ett stycke, en bild, en melodi — eller en tes, ett resonemang eller en struktur som modellen tänkt ut, även om du återgett dem helt med egna ord."
     },
     {
-      "question": "Gjorde du merparten av den slutliga formen själv — de flesta orden, pixlarna eller ljudet?",
+      "question": "Gjorde du själv merparten av den slutliga formen — merparten av orden, pixlarna eller ljudet?",
       "help": "Bedöm det publicerade verket, inte ansträngningen. Om det mesta av det en läsare ser eller hör är skrivet, tecknat eller spelat av dig, svara ja."
     },
     {
@@ -292,7 +292,7 @@
       "hosted": "Hostad bild — om du hellre länkar till den",
       "plain": "Ren text — där bilder inte kan ta sig in",
       "machineH": "Låt maskinerna läsa det också",
-      "machineLede": "Samma deklaration, i de vokabulär som efterlevnadsskiktet redan talar. Vi konkurrerar inte med dem — vi är deras människoläsbara ansikte.",
+      "machineLede": "Samma deklaration, uttryckt i de vokabulärer som efterlevnadsskiktet redan använder. Vi konkurrerar inte med dem — vi är deras människoläsbara ansikte.",
       "headOf": "För <head> på din sida",
       "surfacesH": "Om delarna skiljer sig åt",
       "copy": "Kopiera",
@@ -353,7 +353,7 @@
       "h1": "Hur den definieras, och hur den talar med allt annat.",
       "standfirst": "Det här är en deklarationsstandard, inte en bevisstandard. Den kan inte verifieras med kryptografi och försöker inte heller vara sådan. Det kan inte en byline heller.",
       "procedure": "Beslutsprocedur",
-      "procedureLede": "Fem frågor, ställda i ordning. Den första som tar slut ger nivån.",
+      "procedureLede": "Fem frågor, ställda i ordning. Den första fråga som avslutar proceduren anger nivån.",
       "question": "Fråga",
       "yesCol": "Ja",
       "noCol": "Nej",

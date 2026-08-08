@@ -4,6 +4,44 @@ All notable changes to the AI Usage Scale. The scale follows [semantic versionin
 a **major** bump means a level's meaning changed, and would invalidate declarations already
 published. We will work very hard never to do that.
 
+## [1.2.0] — 2026-08-09
+
+The law caught up, so the mapping did too. **The scale is unchanged** — same six levels, same
+definitions, same decision tree — so no declaration already published is affected. A minor
+version, by the policy above.
+
+- **Every level now carries its EU mapping.** `levels.json` gains `euAiActIcon` and a note per
+  level, mapping the scale onto the three EU icons published with the Code of Practice: Level 2
+  is an exact match for *Partially AI-Modified*, Levels 4 and 5 for *Fully AI-Generated*, and
+  Levels 0 and 1 need no icon at all. **Level 3 is marked as contested rather than guessed** —
+  its substance is human and its form is not, so neither EU term is true of it, and the basic
+  icon plus its interactive second layer is the honest mark.
+- **`interop` gains three legal regimes** beside W3C, IPTC and C2PA: the EU AI Act with its icons
+  and Code of Practice, China's labelling Measures with GB 45438-2025, and the California AI
+  Transparency Act (SB 942 as amended by AB 853). All three ask the same three questions — was AI
+  involved, how much of the work is its own, and did a human take responsibility.
+- **A correction on the EU AI Act page.** It read as though human review switched the disclosure
+  duty off generally. It does not: the Article 50(4) exemption is written for **text only**, so a
+  reviewed, signed-off deepfake still carries the duty. That is now stated where the mistake was.
+- **Source code is outside Article 50.** The Commission's final Guidelines (20 July 2026) exclude
+  it broadly — code comments, SDKs, SQL, infrastructure-as-code, YAML and JSON configuration,
+  schemas, scripts, APIs and libraries — along with short outputs and machine-to-machine output.
+  The page says so plainly: the code surface of a declaration is not a legal artifact, and this
+  standard never claimed the law asked for one.
+- **The page is current.** Article 50 has applied since 2 August 2026, the Code of Practice was
+  confirmed adequate in July 2026, and the remaining deadlines — 2 December 2026 for marking on
+  systems already on the market, February 2027 for watermark interoperability — are named.
+- **242 corrections across all 21 translated locales.** Each locale was audited against English
+  for wording that would send a reader to a *different level*: a dropped negation, "most" softened
+  to "some", "review" collapsed into "edit". Polish had narrowed "the expert" to "the surgeon" and
+  rendered Level 5's "legitimate" as "legal"; Ukrainian, Russian and Turkish carried comparable
+  slips. Key parity and interpolation placeholders are unchanged, and both are gate-tested.
+- **A wider document.** Prose keeps a readable measure while tables, marks and snippets now span
+  the full page, so a three-column mapping table is no longer squeezed into a prose column.
+  Section headings open on a rule, level tables gained hairline rows and a header, and a wide
+  table scrolls inside its own box instead of pushing the page sideways. No horizontal overflow
+  at 320px.
+
 ## [1.1.1] — 2026-07-22
 
 Site hardening, accessibility, and documentation. **The scale is unchanged** — same six

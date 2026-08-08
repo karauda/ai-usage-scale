@@ -1,10 +1,10 @@
 {
   "$schema": "https://usagescale.org/schema/levels-1.0.json",
   "standard": "AI Usage Scale",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "url": "https://usagescale.org",
   "license": "CC0-1.0",
-  "updated": "2026-07-22",
+  "updated": "2026-08-07",
 
   "principle": "No level ranks above another. A scale that ranks its own levels is a shame ladder, and everyone lies their way down it. The only dishonest level is an undeclared one.",
 
@@ -79,7 +79,9 @@
         "w3cAiDisclosure": "none",
         "iptcDigitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/digitalCreation",
         "iptcNote": "Use digitalCapture instead for photography and recorded audio or video.",
-        "schemaOrgAiUsageLevel": 0
+        "schemaOrgAiUsageLevel": 0,
+        "euAiActIcon": null,
+        "euAiActNote": "No generative AI was involved, so no Article 50 disclosure duty arises and no EU icon applies."
       }
     },
     {
@@ -114,7 +116,9 @@
         "w3cAiDisclosure": "ai-assisted",
         "iptcDigitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/algorithmicallyEnhanced",
         "iptcNote": "algorithmicallyEnhanced covers modification by algorithm without changing the main content.",
-        "schemaOrgAiUsageLevel": 1
+        "schemaOrgAiUsageLevel": 1,
+        "euAiActIcon": null,
+        "euAiActNote": "Sits in the Article 50(2) carve-out for an assistive function for standard editing that does not substantially alter the input data or its semantics. The Commission's Guidelines group AI translation, grammar correction and spellchecking here."
       }
     },
     {
@@ -149,7 +153,9 @@
         "w3cAiDisclosure": "ai-assisted",
         "iptcDigitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/compositeWithTrainedAlgorithmicMedia",
         "iptcNote": "Corresponds to IPTC's 'Edited using Generative AI'.",
-        "schemaOrgAiUsageLevel": 2
+        "schemaOrgAiUsageLevel": 2,
+        "euAiActIcon": "partially-ai-modified",
+        "euAiActNote": "An exact match for the EU icon of that name: pre-existing, human-made content partially modified with AI."
       }
     },
     {
@@ -184,7 +190,9 @@
         "w3cAiDisclosure": "ai-generated",
         "iptcDigitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
         "iptcNote": "IPTC cannot distinguish Level 3 from Levels 4 and 5. That gap is why this scale exists.",
-        "schemaOrgAiUsageLevel": 3
+        "schemaOrgAiUsageLevel": 3,
+        "euAiActIcon": "basic",
+        "euAiActNote": "The one contested mapping. The substance is human and the form is not, so neither 'Fully AI-Generated' nor 'Partially AI-Modified' is true of it. The basic icon, which the Code of Practice designs to carry an interactive second layer, is the honest mark: it says AI was involved and points at a definition that says how."
       }
     },
     {
@@ -218,7 +226,9 @@
         "w3cAiDisclosure": "ai-generated",
         "iptcDigitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
         "iptcNote": "IPTC cannot distinguish Level 4 from Levels 3 and 5.",
-        "schemaOrgAiUsageLevel": 4
+        "schemaOrgAiUsageLevel": 4,
+        "euAiActIcon": "fully-ai-generated",
+        "euAiActNote": "For text published to inform the public on matters of public interest, the human review and editorial responsibility this level requires is the precondition of the Article 50(4) exemption. That exemption is written for text only: a reviewed deepfake still carries the duty."
       }
     },
     {
@@ -252,7 +262,9 @@
         "w3cAiDisclosure": "autonomous",
         "iptcDigitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
         "iptcNote": "IPTC cannot distinguish Level 5 from Levels 3 and 4.",
-        "schemaOrgAiUsageLevel": 5
+        "schemaOrgAiUsageLevel": 5,
+        "euAiActIcon": "fully-ai-generated",
+        "euAiActNote": "No human review, so nothing engages the Article 50(4) exemption: the disclosure duty applies to text published to inform the public on matters of public interest."
       }
     }
   ],
@@ -314,6 +326,29 @@
       "name": "C2PA / Content Credentials",
       "url": "https://c2pa.org/",
       "relationship": "Complementary, not competing. C2PA provides tamper-evident, signed provenance about an asset and its processing history. Its core specification does not attribute content to individuals or organisations, and provenance alone cannot determine whose thinking shaped a work. This scale is a declaration about contribution and review, designed to work for web text as well as media files."
+    },
+    "euAiAct": {
+      "name": "EU AI Act (Regulation (EU) 2024/1689), Article 50",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "appliesFrom": "2026-08-02",
+      "icons": "https://digital-strategy.ec.europa.eu/en/policies/eu-icons-labelling-ai-generated-content",
+      "codeOfPractice": "https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content",
+      "iconValues": ["basic", "fully-ai-generated", "partially-ai-modified"],
+      "relationship": "Article 50(4) switches the disclosure duty for public-interest text off the moment a human reviews it and holds editorial responsibility — the same question this scale asks to separate Level 4 from Level 5. The Code of Practice publishes three EU icons, and specifies the basic one as a first layer expecting an interactive second layer behind it. A declaration on this scale is that second layer: a mark anyone can read, linked to a public definition. The icons are free to use and require no attribution; using them is optional, while the Article 50 duties are not.",
+      "scopeNote": "The Commission's Article 50 Guidelines, adopted 20 July 2026, place source code outside the marking obligation — broadly defined to include natural-language comments forming part of the code, SDKs, SQL, infrastructure-as-code, YAML and JSON configuration, schemas, scripts, machine-readable specifications, APIs and software libraries. Short outputs, machine-to-machine output and intermediate workflow outputs are likewise excluded. The code surface of a declaration is therefore never a legal artifact under Article 50: it is a statement to readers and collaborators, which is the only reason any level here was worth stating.",
+      "caveat": "This mapping is orientation, not legal advice. Whether a publication informs the public on matters of public interest, and who counts as the deployer, are questions this scale does not decide."
+    },
+    "chinaLabelling": {
+      "name": "Measures for Labeling AI-Generated Synthetic Content, and GB 45438-2025",
+      "url": "https://www.cac.gov.cn/",
+      "appliesFrom": "2025-09-01",
+      "relationship": "China requires two layers at once: an explicit label a reader can see, and an implicit label in the metadata carrying the nature of the content — confirmed, possible or suspected AI-generated — plus the service provider and a content ID. That two-layer shape is what a badge plus ai-usage metadata already produces. The duties fall on internet information service providers and content distribution platforms, not on individual authors."
+    },
+    "californiaTransparency": {
+      "name": "California AI Transparency Act (SB 942, as amended by AB 853)",
+      "url": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260AB853",
+      "appliesFrom": "2026-08-02",
+      "relationship": "California pairs a manifest disclosure on the surface with a latent disclosure inside the asset: provider name, system name and version, a timestamp, and an identifier linking the content back to the system that made it. AB 853 moved the operative date to 2 August 2026 to line up with Article 50; hosting-platform duties follow on 1 January 2027. The duties fall on large generative-AI providers and platforms, not on individual publishers."
     }
   },
 

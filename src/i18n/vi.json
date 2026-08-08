@@ -25,7 +25,7 @@
         "Tự mình viết, vẽ, quay, thu âm, chơi nhạc hay lập trình",
         "Phần mềm truyền thống: trình soạn thảo văn bản, Lightroom, Pro Tools, một trình biên dịch, một chiếc máy ảnh",
         "Dùng công cụ tìm kiếm để tìm nguồn, rồi bạn tự đọc chúng",
-        "Học máy không tạo sinh: lấy nét tự động, khử nhiễu, phóng lớn ảnh mà không bịa ra thứ gì"
+        "Học máy không tạo sinh: lấy nét tự động, khử nhiễu, phóng lớn ảnh mà không tạo ra nội dung mới"
       ],
       "excludes": [
         "Bất kỳ việc dùng mô hình ngôn ngữ, mô hình hình ảnh hay mô hình âm thanh nào mà kết quả của nó lọt vào tác phẩm",
@@ -46,7 +46,7 @@
     {
       "id": 1,
       "name": "Hỗ trợ",
-      "oneLine": "AI chỉ xử lý những gì bạn đã làm ra. Nó không bịa thêm điều gì.",
+      "oneLine": "AI chỉ xử lý những gì bạn đã làm ra. Nó không tạo ra nội dung mới.",
       "definition": "Bạn làm ra tác phẩm. AI chỉ xử lý chất liệu của bạn hoặc giúp phía sau hậu trường: sửa lỗi, gỡ băng hay dịch trung thực, làm sạch, gắn thẻ, định dạng, tìm kiếm, góp ý. Ngoài bản gỡ băng hay bản dịch trung thực chất liệu của bạn, không có gì của riêng mô hình — câu chữ hay nội dung cốt lõi — xuất hiện trong tác phẩm được công bố.",
       "includes": [
         "Sửa ngữ pháp, chính tả và văn phong cho những câu do bạn viết",
@@ -68,14 +68,14 @@
       "sentences": {
         "short": "AI Usage Scale: Cấp độ 1 — Hỗ trợ.",
         "medium": "Do tác giả viết; AI chỉ được dùng cho những việc máy móc như sửa lỗi và gỡ băng. Cấp độ 1 trên AI Usage Scale.",
-        "long": "Tác giả làm ra tác phẩm này. AI chỉ được dùng để xử lý những gì tác giả đã làm ra — sửa lỗi, gỡ băng hay làm sạch. Không một câu chữ, hình ảnh hay âm thanh nào trong tác phẩm đã công bố do một mô hình bịa ra. Đây là Cấp độ 1 trên AI Usage Scale."
+        "long": "Tác giả làm ra tác phẩm này. AI chỉ được dùng để xử lý những gì tác giả đã làm ra — sửa lỗi, gỡ băng hay làm sạch. Không có câu, hình ảnh hay âm thanh nào trong tác phẩm đã công bố do một mô hình tạo ra. Đây là Cấp độ 1 trên AI Usage Scale."
       }
     },
     {
       "id": 2,
       "name": "Đồng sáng tạo",
       "oneLine": "Phần lớn hình thức cuối cùng là do bạn làm. AI làm ra vài phần còn ở lại trong đó.",
-      "definition": "Phần thực hiện tác phẩm chủ yếu là của bạn, nhưng chất liệu do mô hình tạo ra còn trụ lại trong kết quả công bố: các đoạn, các thành phần, các phương án bạn chọn giữa chúng — hay lập luận hoặc cấu trúc nó đề xuất mà bạn giữ lại, dù bằng lời của mình. Phần lớn những gì khán giả nhận được là do bạn viết, vẽ hoặc chơi.",
+      "definition": "Phần thực hiện tác phẩm chủ yếu là của bạn, nhưng chất liệu do mô hình tạo ra còn trụ lại trong kết quả công bố: các đoạn, các thành phần, các phương án để bạn lựa chọn — hay lập luận hoặc cấu trúc nó đề xuất mà bạn giữ lại, dù bằng lời của mình. Phần lớn những gì khán giả nhận được là do bạn viết, vẽ hoặc chơi.",
       "includes": [
         "AI phác một mục, rồi bạn viết lại, và chữ của bạn áp đảo toàn bài",
         "AI sinh ra nhiều phương án, bạn chọn lấy rồi biên tập",
@@ -85,7 +85,7 @@
       ],
       "excludes": [
         "AI tạo ra phần lớn câu chữ hay điểm ảnh cuối cùng — đó là Cấp độ 3 trở lên",
-        "Chỉ sửa lỗi thuần máy móc, không bịa ra gì — đó là Cấp độ 1"
+        "Chỉ sửa lỗi thuần máy móc, không tạo ra nội dung mới — đó là Cấp độ 1"
       ],
       "examples": [
         "Một bài luận bạn dựng dàn ý và viết gần hết, với hai đoạn do AI phác mà bạn viết lại.",
@@ -151,7 +151,7 @@
       "sentences": {
         "short": "AI Usage Scale: Cấp độ 4 — Theo yêu cầu.",
         "medium": "Do AI tạo ra từ một câu lệnh; một người đã rà soát và chịu trách nhiệm về nó. Cấp độ 4 trên AI Usage Scale.",
-        "long": "Một mô hình tạo ra cả nội dung lẫn hình thức của tác phẩm này. Một người đã yêu cầu nó, đọc nó, kiểm tra nó, và nhận trách nhiệm về việc công bố nó. Đây là Cấp độ 4 trên AI Usage Scale."
+        "long": "Một mô hình tạo ra cả nội dung lẫn hình thức của tác phẩm này. Một người đã yêu cầu, đọc và kiểm tra nó, đồng thời chịu trách nhiệm về việc công bố nó. Đây là Cấp độ 4 trên AI Usage Scale."
       }
     },
     {
@@ -200,7 +200,7 @@
       "help": "Nội dung cốt lõi là kiến thức, bằng chứng, lập luận, bố cục hoặc các ràng buộc riêng của tác phẩm, quyết định tác phẩm nói gì. Nó là của bạn khi những đầu vào nguyên gốc của bạn thực sự quyết định kết quả — không phải chỉ vì bạn đã viết hoặc tinh chỉnh câu lệnh."
     },
     {
-      "question": "Có con người nào rà soát nó trước khi công bố và nhận trách nhiệm về những gì nó nói không?",
+      "question": "Có người nào rà soát nó trước khi công bố và chịu trách nhiệm về những gì nó nói không?",
       "help": "Việc rà soát phải nghiêm túc và tương xứng với mức độ hệ trọng: kiểm tra thành phẩm, xác minh các tuyên bố quan trọng khi cần và sửa vấn đề trước khi công bố. Chịu trách nhiệm nghĩa là bạn sẽ bảo vệ hoặc sửa tác phẩm nếu nó sai."
     }
   ],
@@ -235,7 +235,7 @@
     },
     {
       "case": "Học máy không tạo sinh",
-      "rule": "Lấy nét tự động, khử nhiễu, phóng lớn ảnh, so màu và phân loại — những thứ không bịa ra gì — đều không phải AI tạo sinh. Chúng không đưa bạn ra khỏi Cấp độ 0."
+      "rule": "Lấy nét tự động, khử nhiễu, phóng lớn ảnh, so màu và phân loại mà không tạo ra nội dung mới đều không phải AI tạo sinh. Chúng không đưa bạn ra khỏi Cấp độ 0."
     }
   ],
   "ui": {
@@ -372,10 +372,10 @@
       "priorArt": "Những gì có trước",
       "priorLede": "Không có gì ở đây là chưa từng có tiền lệ, và giả vờ ngược lại thì tự nó đã là một sự thiếu trung thực nho nhỏ.",
       "why": "Vì sao",
-      "wellKnown": "Một trang web cũng có thể công bố bản khai cho toàn trang tại đường dẫn well-known, nơi trình thu thập biết tìm mà không cần chỉ dẫn:",
-      "challengeH": "Nếu bạn nghi ngờ một bản khai",
-      "challengeA": "Bản khai có thể bị bác bỏ công khai. Hãy kiểm tra liên kết và siêu dữ liệu; đối chiếu cấp độ đã khai với tác phẩm, và ở chỗ khác nhau — với phần chia theo bề mặt; rồi hỏi tác giả — trong bình luận, bài đánh giá, hay issue. Phần lớn chênh lệch là cách đọc trung thực về một ranh giới, và các trường hợp biên ở trên giải quyết được phần lớn.",
-      "challengeB": "Nếu một bản khai cố tình sai, câu trả lời của chuẩn này là câu trả lời có thể mở rộng: tuyên bố đã công khai, có thể liên kết — và giờ bị bác bỏ công khai. Ở đây cố ý không có máy dò, không có sổ đăng ký. Uy tín chính là cơ chế thực thi, hệt như với một dòng đề tên tác giả."
+      "wellKnown": "Một trang web cũng có thể đăng lời công bố cho toàn bộ trang tại một đường dẫn well-known, nơi trình thu thập biết tìm mà không cần được chỉ dẫn:",
+      "challengeH": "Nếu bạn nghi ngờ một lời công bố",
+      "challengeA": "Lời công bố có thể bị bác bỏ công khai. Hãy kiểm tra liên kết và siêu dữ liệu; đối chiếu cấp độ đã công bố với tác phẩm và, ở những phần khác biệt, với phần phân tích theo Thành phần; rồi hỏi tác giả — trong bình luận, bài đánh giá hay issue. Phần lớn chênh lệch là những cách diễn giải trung thực về một ranh giới, và các trường hợp biên ở trên giải quyết được phần lớn những chênh lệch đó.",
+      "challengeB": "Nếu một lời công bố cố tình sai, câu trả lời của chuẩn này là câu trả lời có thể mở rộng: lời công bố ấy đã được đưa ra công khai, có thể liên kết — và giờ bị bác bỏ công khai. Ở đây cố ý không có máy dò, không có sổ đăng ký. Uy tín chính là cơ chế thực thi, hệt như với một dòng đề tên tác giả."
     },
     "signPage": {
       "eyebrow": "Người ký tên",
@@ -383,7 +383,7 @@
       "standfirst": "Hãy công bố cấp độ trên những gì bạn phát hành. Toàn bộ cam kết chỉ có vậy.",
       "intro": "Không phải dùng ít AI đi. Không phải dùng nhiều hơn. Không phải đồng ý với từng chữ trong bản tuyên ngôn — nhiều người dưới đây không đồng ý. Chỉ là thôi để người đọc phải tự đoán.",
       "howH": "Ký tên thế nào",
-      "howA": "Mở một pull request thêm tên bạn vào signatories.json. Đó là một chút ma sát cố ý: nó có nghĩa mọi cái tên ở đây đều do một con người thực sự muốn thế thêm vào, và nó có nghĩa chúng tôi không có biểu mẫu nào để thu hoạch dữ liệu, còn bạn không bị đưa vào danh sách gửi thư nào.",
+      "howA": "Mở một pull request thêm tên bạn vào signatories.json. Đó là một chút ma sát cố ý: nó có nghĩa mọi cái tên ở đây đều do một con người thực sự muốn tự thêm tên mình vào, và nó có nghĩa chúng tôi không có biểu mẫu nào để thu hoạch dữ liệu, còn bạn không bị đưa vào danh sách gửi thư nào.",
       "howB": "Nếu pull request không phải thế giới của bạn, hãy mở một issue và sẽ có người thêm tên bạn vào.",
       "addName": "Thêm tên của bạn",
       "count": "người ký tên",
