@@ -1,36 +1,26 @@
 # Translation policy
 
-English is the normative source while the standard is a draft. A translation
-must link to it and identify its review state.
+English is the normative source. Core pages are available in 22 languages. Developer and policy references that have not been translated remain labelled as English.
 
-## States
+## Review states
 
-- **Machine · unreviewed (`MT`)** — produced or materially revised by a machine;
-  no fluent human has approved the full text.
-- **Human-reviewed (`HR`)** — compared line by line with the current English
-  source by a named fluent reviewer.
-- **Community-verified (`CV`)** — reviewed publicly by at least two independent
-  fluent reviewers, with disagreements and corrections recorded.
+- **Machine · unreviewed (MT):** produced or materially revised by a model; no fluent human has approved the current full text.
+- **Human-reviewed (HR):** compared with the current English source by a named fluent reviewer.
+- **Community-verified (CV):** publicly reviewed by at least two independent fluent reviewers, with disagreements resolved and recorded.
 
-`AI·3 · MT` means that the translated page inherits Level 3 from its source and
-that the translation itself is machine-produced and unreviewed. It is a compact
-credit line, not a replacement for the full notice.
+MT, HR and CV describe translation review, not the source work’s AI Usage level. Do not assume a source level or human approval. Model review and back-translation are diagnostics, not human review.
 
-## Review checklist
+The October 2026 upgrade retains MT status for all 21 translations. Changes to machine output must not silently retain an approval from an earlier revision.
 
-1. Compare source and translation side by side; do not review fluency alone.
-2. Preserve normative force: must, should, may, exceptions and negation.
-3. Check level names, decision questions, examples and boundary cases against a
-   shared terminology glossary.
-4. Verify links, footnotes, numbers, dates and quotations independently.
-5. Run a back-translation as a diagnostic only, never as approval.
-6. Read the rendered page, including alt text, directionality and line breaks.
-7. Record reviewer, review date and source version or commit.
-8. Any normative English change makes affected translations stale until reviewed.
+## Review process
 
-## Publication rule
+1. Compare the entire current source and translation, including UI, metadata, definitions and examples.
+2. Preserve negation, exceptions, must/should/may, “most”, original substance and meaningful review.
+3. Check level IDs, decision branches, names, links and interpolation placeholders.
+4. Read the rendered desktop and mobile page; check script coverage and Arabic/Persian directionality.
+5. Record the reviewer, date, source commit and reviewed content scope.
+6. Update the locale review state only after those checks are complete.
 
-Machine translations may be published for access when prominently labelled.
-They must not be described as accurate, official, approved or high quality.
-Only `HR` and `CV` translations may be promoted as reviewed.
+A normative source change makes affected translations pending again. Automated checks enforce structure and matching decision branches; they cannot certify semantic equivalence.
 
+Machine translations may remain available for access when prominently labelled. Describe them according to their recorded review state.

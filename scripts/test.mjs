@@ -267,23 +267,24 @@ check('no translation dropped an interpolation placeholder', () => {
   }
 });
 
-check('every language has a manifesto', () => {
-  const dir = join(ROOT, 'src', 'content', 'manifesto');
-  const files = readdirSync(dir).filter((f) => f.endsWith('.md')).map((f) => f.replace('.md', ''));
-  for (const lang of langs) ok(files.includes(lang), `${lang} has no manifesto`);
+check('the normative English definitions agree with the canonical vocabulary', () => {
+  const fields = ['id', 'name', 'oneLine', 'definition', 'includes', 'excludes', 'examples', 'sentences'];
+  for (const level of spec.levels) {
+    for (const field of fields) eq(en.levels[level.id][field], level[field], `Level ${level.id}: ${field}`);
+  }
+  spec.decisionTree.forEach((step, i) => {
+    eq(en.tree[i].question, step.question);
+    eq(en.tree[i].help, step.help);
+  });
 });
 
-check('every manifesto keeps its 15 theses and 12 sources', () => {
-  const dir = join(ROOT, 'src', 'content', 'manifesto');
+check('all translations keep level IDs and explain the review boundary', () => {
   for (const lang of langs) {
-    const md = readFileSync(join(dir, `${lang}.md`), 'utf8');
-    const theses = (md.match(/^### /gm) ?? []).length;
-    ok(theses === 15, `${lang}: ${theses} theses, expected 15`);
-    for (let i = 1; i <= 12; i++) {
-      ok(md.includes(`[^${i}]:`), `${lang}: footnote ${i} is missing its source`);
-    }
-    ok(!md.includes('missionmedia.asia'), `${lang}: stale secondary WFA source remains`);
-    ok(!/^### \d+\./m.test(md), `${lang}: a thesis heading was re-numbered — a CSS counter does that`);
+    const loc = JSON.parse(readFileSync(join(i18nDir, `${lang}.json`), 'utf8'));
+    eq(loc.levels.map(level => level.id), [0, 1, 2, 3, 4, 5], `${lang} IDs`);
+    ok(loc.ui.wizard.reviewCaveat.length > 30, `${lang}: review caveat is missing`);
+    ok(loc.ui.home.contentNote.length > 20, `${lang}: editorial status is missing`);
+    ok(!loc.ui.foot.ownDeclaration && !loc.ui.foot.thisPage, `${lang}: assumed self-declaration remains`);
   }
 });
 

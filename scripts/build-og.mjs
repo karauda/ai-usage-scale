@@ -11,13 +11,13 @@
 import { Resvg } from '@resvg/resvg-js';
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { ROOT, INK, PAPER, ACCENT, glyphPool, measure, wrap, num, assertClean } from './lib/type.mjs';
+import { ROOT, glyphPool, measure, wrap, num, assertClean } from './lib/type.mjs';
 
 const OUT = join(ROOT, 'public', 'og');
 const { levels } = JSON.parse(readFileSync(join(ROOT, 'spec', 'levels.json'), 'utf8'));
 
 const W = 1200, H = 630, PAD = 72;
-const ink = INK.light, paper = PAPER.light, accent = ACCENT.light;
+const ink = '#202321', paper = '#f8f7f4', accent = '#2549a8';
 
 /**
  * The scale strip along the foot of every card. Six cells; the card's own level is the
@@ -102,9 +102,9 @@ let total = 0;
 total += render(
   'default',
   card({
-    eyebrow: 'AI Usage Scale · An open standard',
-    headline: 'There is no shameful level. There is only an undeclared one.',
-    sub: 'A free, six-level scale for declaring how a work was made — whose knowledge it carries, and who stands behind it.',
+    eyebrow: 'AI Usage Scale · Independent proposal',
+    headline: 'Make AI use understandable.',
+    sub: 'Six levels for describing human contribution, generative AI and review before publication.',
     active: -1,
   })
 );
@@ -125,8 +125,8 @@ total += render(
   'scale',
   card({
     eyebrow: 'AI Usage Scale · The six levels',
-    headline: 'Six levels, and none of them is a verdict.',
-    sub: 'Level 5 is honest for an automated market report. Level 0 is honest for a memoir. Neither outranks the other.',
+    headline: 'Describe the process.',
+    sub: 'Human. Assisted. Co-created. Directed. Prompted. Automated. A process declaration, rather than a quality score.',
     active: -1,
   })
 );
@@ -135,8 +135,8 @@ total += render(
   'find-your-level',
   card({
     eyebrow: 'AI Usage Scale · Five questions',
-    headline: 'What did you actually do?',
-    sub: 'Five yes/no questions. Thirty seconds. You get a number, a mark, and a sentence you can paste anywhere.',
+    headline: 'Find your level.',
+    sub: 'Describe your workflow, check the full definition, and choose a declaration for your work.',
     active: -1,
   })
 );
@@ -145,8 +145,8 @@ total += render(
   'spec',
   card({
     eyebrow: 'AI Usage Scale · Specification',
-    headline: 'Provenance can be proven. Contribution can only be declared.',
-    sub: 'Maps to IPTC and complements C2PA. Experimental ai-disclosure metadata is clearly marked as non-standard.',
+    headline: 'Public definitions. Clear boundaries.',
+    sub: 'An open vocabulary for contribution and review, with machine-readable data and explicit limitations.',
     active: -1,
   })
 );

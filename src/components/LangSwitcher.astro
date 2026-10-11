@@ -72,7 +72,8 @@ const t = getLocale(lang);
     letter-spacing: 0.08em;
     line-height: 1;
     color: var(--ink-mid);
-    padding: 0.4rem 0.55rem;
+    min-height: 2.75rem;
+    padding: 0.7rem;
     border: 1px solid var(--rule);
     border-radius: 1px;
   }
@@ -117,6 +118,6 @@ const t = getLocale(lang);
   ul a[aria-current]::before { content: '·'; margin-inline-end: 0.3rem; color: var(--accent); }
 
   /* The endonym is set in its own script, so it needs the reading face, not the mono one. */
-  .endonym { font-family: var(--serif); font-size: 0.9375rem; }
+  .endonym { font-family: var(--sans); font-size: 0.9375rem; }
   .tag { font-size: 0.625rem; letter-spacing: 0.1em; color: var(--ink-soft); text-transform: uppercase; }
 </style>

@@ -1,22 +1,14 @@
 # Support the project
 
-The most valuable support is adoption and evidence, not money.
+Useful support is concrete evidence:
 
-- Declare a level on something you publish and link to the definition.
-- Tell us where the decision tree was unclear or produced the wrong answer.
-- Add an integration for a CMS, publishing tool, repository or media workflow.
-- Review a translation against the English source.
-- Introduce the project to an editor, standards practitioner or platform team.
-- Cite the version you used and preserve the declaration when content is syndicated.
-- Join a public issue discussion or sign the manifesto.
+- Publish a declaration and link to its definition.
+- Describe a workflow that exposes an ambiguous boundary.
+- Build a CMS, editor or repository integration.
+- Review a translation against its English source.
+- Help recruit an independent pilot publisher.
+- Discuss the proposal with disclosure and standards practitioners.
 
-If financial sponsorship is enabled later, its use and sponsors should be disclosed
-publicly. Funding must never buy a level definition, certification, preferred status
-or control over the standard.
+Use public [GitHub issues](https://github.com/karauda/ai-usage-scale/issues) for proposals and findings. Follow the [roadmap](docs/ROADMAP.md) for pilot and standards work.
 
-## Get in touch
-
-Open to conversation and collaboration — adoption, integration, standards work, or a
-question. Reach the maintainer at [karauda.com/contact](https://karauda.com/contact).
-Bugs and proposals are best as public issues; anything else, the contact form is fine.
-
+The project has no paid tier or certification programme. Any future funding arrangement should disclose its purpose and contributors publicly.

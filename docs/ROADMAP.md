@@ -1,30 +1,32 @@
 # Roadmap
 
-## Public beta
+The published vocabulary is v1.2.0. The current upgrade preserves its six definitions while improving the website, metadata and evidence record.
 
-- publish the normative English draft and clearly labelled translations;
-- collect real classification cases across text, images, audio, video and code;
-- publish JSON Schema and a small conformance validator;
-- recruit design partners and named language reviewers;
-- submit use cases to the W3C AI Content Disclosure Community Group;
-- request review from IPTC and content-provenance practitioners.
+## Before making stronger interoperability claims
 
-## Toward 1.0
+- Resolve the Level 3 human-review gap in the decision tree through an explicit semantic decision.
+- Test agreement on real workflows, especially the human-substance/model-form boundary and mixed surfaces.
+- Obtain fluent human reviews of the 21 translations, recording reviewers and source commits.
+- Obtain specialist review of policy explanations and suggested IPTC mappings.
+- Publish reproducible conformance examples and versioned definitions.
+- Keep the local MCP instructions accurate; publish a package only after its bundle and protocol checks pass.
 
-- resolve ambiguous boundaries using the public case corpus;
-- complete privacy, security, accessibility and internationalisation reviews;
-- obtain legal review of the EU AI Act explanation;
-- demonstrate at least three independent implementations;
-- freeze level semantics and document long-term version resolution;
-- promote translations only after the review state is recorded publicly.
+## Independent implementations
 
-## The end of the draft
+Recruit three independent pilot publishers or tools. For each, record a public declaration, its version, implementation details and ambiguous cases. Count actual deployments separately from references, interest and signatures.
 
-The `-draft` suffix has an end date: the level boundaries remain open for challenge
-through **31 December 2026**, and the first stable release — no suffix — follows once
-the gates above close. A window that never closes is not a draft, it is an excuse.
+Success means a reader can understand the process and two informed declarers reach consistent results. A larger badge count alone is insufficient.
 
-The roadmap is evidence-driven. Dates do not outrank correctness or compatibility: if a
-gate above is still open at year's end, the date moves and the reason is recorded here —
-but the suffix never outlives the reason for it.
+## Standards discussion
 
+Use the [prepared submission](STANDARDS-SUBMISSION.md) to contribute concrete use cases to Schema.org issue #3391 and the W3C AI Content Disclosure Community Group.
+
+Ask whether contribution and review should be separate properties, and whether a numeric vocabulary is sufficiently stable. Update the proposal in response to public feedback. Do not promise Schema.org acceptance or Google support.
+
+After terminology and implementation evidence improve, submit feedback through the relevant Google documentation or product channel. Schema.org vocabulary acceptance and Google Search feature support are separate decisions.
+
+## Release
+
+Complete the build, schema, MCP and browser gates before publishing this upgrade. Record human editorial review separately from automated verification. Choose the release version based on the final specification scope.
+
+There is no artificial end-of-draft deadline. Existing v1.x releases are already published; this roadmap does not describe a future first 1.0.

@@ -34,6 +34,10 @@ eq('unattended, nobody read it → 5', classify(tree, [true, true, false, false,
 // The bug this file exists for: partial input must NOT resolve to a confident wrong level.
 eq('no answers → null (not Level 0)', classify(tree, []), null);
 eq('too few answers → null (not Level 5)', classify(tree, [true, true]), null);
+eq('a string is not a boolean', classify(tree, ['false']), null);
+eq('a number is not a boolean', classify(tree, [1]), null);
+eq('null is not a boolean', classify(tree, [null]), null);
+eq('invalid later input does not produce Level 1', classify(tree, [true, 'no']), null);
 
 console.log(failed ? `\n${failed} failed\n` : '\nall passed\n');
 process.exit(failed ? 1 : 0);

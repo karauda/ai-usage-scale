@@ -1,5 +1,4 @@
-# The project is open to contributions, but nothing reaches the protected branch
-# without the maintainer responsible for the published standard.
+# Routing for review requests. Enforcement is configured separately in GitHub rulesets.
 * @karauda
 /.github/ @karauda
 /spec/ @karauda

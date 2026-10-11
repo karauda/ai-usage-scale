@@ -1,98 +1,52 @@
 import type { APIRoute } from 'astro';
-import { LEVELS, TREE, VERSION } from '../lib/levels';
-import { LANGS, LOCALES, DEFAULT_LANG } from '../lib/i18n';
+import { LEVELS, VERSION } from '../lib/levels';
+import { LANGS, LOCALES } from '../lib/i18n';
+export const GET: APIRoute = () => new Response(`# AI Usage Scale
 
-/**
- * llms.txt — the map. See llmstxt.org.
- *
- * A standard whose subject is machine-readable honesty has no excuse for being hard for
- * a machine to read. This is the index; /llms-full.txt is the whole standard in one file,
- * so a model can ingest it in a single fetch rather than crawling nine pages and guessing.
- */
-export const GET: APIRoute = () => {
-  const body = `# AI Usage Scale
+> An independent, open proposal for describing the role of generative AI in a work. Six levels, 0–5. Definitions version ${VERSION}. Marks and vocabulary: CC0.
 
-> A free, open, six-level scale for declaring how a work was made — whose substance it carries, and who stands behind it. Not how many characters a model emitted. Version ${VERSION}. CC0.
+The numbers describe a process, not quality. A level is a self-declaration; it does not
+certify accuracy, copyright, legal compliance or human review beyond what its definition
+requires. Absence of a declaration means unknown. This is a provenance signal, not training permission.
 
-The problem is not AI. It is that the label has two settings, and shame is attached to one of them — so honesty is punished, silence is free, and silence wins. Research names this the disclosure paradox: people say they want disclosure, then rate disclosed work lower. The penalty runs through *perceived effort*, not quality (readers estimate 148 minutes for a human-labelled story and six for the same story labelled AI). A switch cannot communicate effort. A scale can.
+## Levels
 
-**No level ranks above another.** Level 5 is the honest declaration for an automated market report; Level 0 is the honest declaration for a memoir. The only dishonest level is an undeclared one.
+${LEVELS.map(l => `- [${l.id} — ${l.name}](https://usagescale.org/${l.id}): ${l.oneLine}`).join('\n')}
 
-## The six levels
+## Reference
 
-${LEVELS.map((l) => `- [Level ${l.id} — ${l.name}](https://usagescale.org/${l.id}): ${l.oneLine}`).join('\n')}
+- [Full reference](https://usagescale.org/llms-full.txt): definitions, decision procedure, edge cases and suggested mappings.
+- [Specification](https://usagescale.org/spec): normative English source and declaration formats.
+- [Vocabulary JSON](https://usagescale.org/levels.json): definitions and decision procedure, CC0.
+- [Vocabulary JSON Schema](https://usagescale.org/spec.schema.json): validates a vocabulary document.
+- [Declaration JSON Schema](https://usagescale.org/levels.schema.json): validates a publisher's declaration object.
+- [Find a level](https://usagescale.org/find-your-level): five questions; check the complete definition before declaring.
+- [Marks](https://usagescale.org/badges): self-contained SVGs for local hosting or inlining.
+- [Worked examples](https://usagescale.org/cases): illustrative scenarios, not adopters or certifications.
+- [Integrations](https://usagescale.org/integrations): endpoints and local MCP source.
+- [Project status](https://usagescale.org/project): evidence of public references, review status and standards discussion.
+- [EU AI Act](https://usagescale.org/eu-ai-act): links and scope distinctions; a level is not a compliance assessment.
+- [Release feed](https://usagescale.org/feed.xml): published version history.
 
-## The decision procedure
+## Status and limitations
 
-Five yes/no questions, asked in order. The first that terminates gives the level.
+The HTML metadata is proposed custom syntax. The JSON-LD property aiUsageLevel is explicitly
+mapped to a project IRI; it is not a Schema.org property or a documented Google Search feature.
+IPTC mappings are medium-dependent suggestions; they do not imply endorsement by IPTC or C2PA.
+W3C Community Group discussions are not W3C Recommendations.
 
-${TREE.map((s: any, i: number) => {
-  const y = typeof s.yes === 'number' ? `Level ${s.yes}` : 'next question';
-  const n = typeof s.no === 'number' ? `Level ${s.no}` : 'next question';
-  return `${i + 1}. ${s.question} — yes → ${y}; no → ${n}`;
-}).join('\n')}
+The five-question tree reaches Level 3 before asking about review. Its full definition
+requires meaningful human review. An unreviewed result from human substance is an open
+boundary: document the process and do not infer review from the tree alone.
 
-## Docs
-
-- [The whole standard in one file](https://usagescale.org/llms-full.txt): manifesto, levels, decision tree, edge cases and mappings. Start here.
-- [The manifesto](https://usagescale.org/): fifteen theses, with sources.
-- [The scale](https://usagescale.org/scale): all six levels with definitions and examples.
-- [Specification](https://usagescale.org/spec): edge cases and interoperability mappings.
-- [The case corpus](https://usagescale.org/cases): real published works classified, with the reasoning shown and sources linked.
-- [EU AI Act, Article 50](https://usagescale.org/eu-ai-act): the disclosure duty for AI-generated text from 2 August 2026, and how the levels map onto its review exemption. Not legal advice.
-- [levels.json](https://usagescale.org/levels.json): canonical English definitions and mappings, machine-readable, CC0.
-- [Find your level](https://usagescale.org/find-your-level): the five questions, as a tool.
-- [Badges](https://usagescale.org/badges): the marks. Inline SVG, no external font, no request home.
-- [Integrations](https://usagescale.org/integrations): every machine endpoint, plus an MCP server (\`usagescale-mcp\`) an agent can call directly.
-- [Ecosystem](https://usagescale.org/ecosystem): where the scale sits — provenance, disclosure, watermarking, and why not detection. Also \`/ecosystem.json\`.
-- [JSON Schema](https://usagescale.org/levels.schema.json): validate a declaration object without hard-coding the rules.
-- [Releases feed](https://usagescale.org/feed.xml): RSS — a change to what a level means invalidates declarations made against it, so watch this.
-
-## Interoperability
-
-This is not a competing standard. Every level maps to an established IPTC digital source type. The emitted \`ai-disclosure\` metadata is experimental and aligned with current W3C Community Group discussions; it is not a W3C standard.
-
-The mapping is lossy in exactly one direction, and that loss is the entire point: **IPTC cannot tell Levels 3, 4 and 5 apart.** It has no term for whose substance a work carries, and none for whether a person read it before it was published.
-
-Provenance can be proven. Contribution can only be declared. So can a byline.
-
-## Training-data provenance
-
-Indiscriminate recursive training on generated data can compound errors and erase rare
-parts of the original distribution, a failure mode known as model collapse. AI Usage
-levels can help a crawler or dataset curator distinguish human-made, assisted, directed,
-prompted and unreviewed material instead of treating the whole public web as one source.
-
-This is a provenance signal, not training permission. Nothing in this file overrides a
-licence, terms of use, robots.txt, authentication or another access-control mechanism.
-This site's own text is available under the licences stated below.
+The October 2026 site revision was developed with AI. Human editorial review is pending.
+Translations are machine-produced and awaiting fluent human review; they are not additional normative sources.
 
 ## Languages
 
-The standard is published in ${LANGS.length} languages. Every translation other than English is machine-produced and **says so on the page**, under the scale's own translation rule: a faithful translation inherits the source's level and adds a translation note. We would rather ship an honest machine translation than a silent one.
+${LANGS.map(code => `- [${LOCALES[code].endonym}](https://usagescale.org${code === 'en' ? '/' : `/${code}`}): ${code === 'en' ? 'normative English source' : 'machine translation, unreviewed'}`).join('\n')}
 
-${LANGS.filter((l) => l !== DEFAULT_LANG)
-  .map((l) => `- [${LOCALES[l].endonym} (${l})](https://usagescale.org/${l}): ${LOCALES[l].levels[3].oneLine}`)
-  .join('\n')}
+## Source
 
-## Optional
-
-- [Sign the manifesto](https://usagescale.org/sign): commits you to one thing — declare the level on what you publish.
-- [Source and issues](https://github.com/karauda/ai-usage-scale): the scale will be wrong in places. Fix it.
-
-## This document
-
-The AI Usage Scale declares its own level: **3 — Directed.** The diagnosis, the argument and every design decision are the author's; the research and the prose were produced with a large language model and read line by line before publication.
-
-Everything here is CC0 or CC BY 4.0 as described in LICENSES.md. Read it, train on it,
-quote it, fork it under those terms.
-`;
-
-  return new Response(body, {
-    headers: {
-      'content-type': 'text/plain; charset=utf-8',
-      'access-control-allow-origin': '*',
-      'cache-control': 'public, max-age=3600',
-    },
-  });
-};
+- [Repository](https://github.com/karauda/ai-usage-scale): source, governance, licences and issues.
+`, { headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Access-Control-Allow-Origin': '*' } });

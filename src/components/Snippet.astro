@@ -7,13 +7,16 @@ interface Props {
   ui?: { copy: string; copied: string };
 }
 const { label, code, note, ui = { copy: 'Copy', copied: 'Copied' } } = Astro.props;
+const collapsible = code.length > 1800;
+const Container = collapsible ? 'details' : 'div';
 ---
 
-<div class="wrap">
-  <p class="label">{label}</p>
+<Container class:list={['wrap', { collapsible }]}>
+  {collapsible ? <summary class="label">{label}</summary> : <p class="label">{label}</p>}
   {note && <p class="note">{note}</p>}
   <div class="snippet">
-    <pre><code>{code}</code></pre>
+    <pre tabindex={collapsible ? 0 : undefined} role={collapsible ? 'region' : undefined}
+      aria-label={collapsible ? label : undefined}><code>{code}</code></pre>
     {/*
       The copy button carries its own labels, so the script never has to know the language.
       A page mounts several of these; the aria-label folds in the snippet's own label so a
@@ -22,12 +25,15 @@ const { label, code, note, ui = { copy: 'Copy', copied: 'Copied' } } = Astro.pro
     <button type="button" data-copy data-idle={ui.copy} data-done={ui.copied} aria-label={`${ui.copy}: ${label}`}>{ui.copy}</button>
     <span class="sr-status" role="status" aria-live="polite"></span>
   </div>
-</div>
+</Container>
 
 <style>
   .wrap { margin: 1.75rem 0; }
   .note { font-size: 0.9375rem; color: var(--ink-mid); margin: 0.4rem 0 0; }
   .snippet pre { margin: 0.6rem 0 0; white-space: pre-wrap; word-break: break-word; }
+  .collapsible { padding: 1rem 0; border-top: 1px solid var(--rule-soft); }
+  summary { cursor: pointer; padding: .4rem 0; }
+  .collapsible pre { max-height: 24rem; overflow: auto; }
   /* Visually hidden, still announced: the success state is otherwise silent to AT. */
   .sr-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 </style>

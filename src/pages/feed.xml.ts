@@ -1,6 +1,5 @@
 import type { APIRoute } from 'astro';
-import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import changelog from '../../CHANGELOG.md?raw';
 
 /**
  * RSS of the standard's version history.
@@ -12,7 +11,6 @@ import { fileURLToPath } from 'node:url';
  */
 
 const SITE = 'https://usagescale.org';
-const changelog = readFileSync(fileURLToPath(new URL('../../CHANGELOG.md', import.meta.url)), 'utf8');
 
 function releases() {
   const re = /^## \[([^\]]+)\][^\n]*?(\d{4}-\d{2}-\d{2})/gm;

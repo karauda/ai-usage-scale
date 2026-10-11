@@ -10,10 +10,8 @@ import spec from '../../spec/levels.json';
  *     for the same reason: a mark that changes shape per language stops being one mark.
  *     Everything *around* it translates, including the alt text a screen reader speaks.
  *
- *  2. **Every translation declares its own level.** Under this scale's own translation rule
- *     a faithful translation inherits the source's level and adds a translation note. So a
- *     machine translation of this site says, on the page, that it is a machine translation.
- *     A standard that would not apply its own rule to itself is not a standard.
+ *  2. Every translation states its production and review status. A numeric declaration
+ *     requires evidence about its source; translated content does not establish human approval.
  */
 
 export interface Locale {
@@ -21,7 +19,7 @@ export interface Locale {
   name: string;
   endonym: string;
   dir: 'ltr' | 'rtl';
-  translation: null | { by: 'machine' | 'human'; reviewer?: string };
+  translation: null | { by: 'machine' | 'human'; reviewer?: string; review?: string; source?: string };
   principle: string;
   axis: { measures: string; doesNotMeasure: string };
   surfaces: { note: string; headlineRule: string };

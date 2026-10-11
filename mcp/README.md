@@ -1,43 +1,49 @@
-# usagescale-mcp
+# Local AI Usage Scale MCP server
 
-The [AI Usage Scale](https://usagescale.org) as an [MCP](https://modelcontextprotocol.io) server. It lets an AI agent query the standard directly — walk the five questions to a level, look one up, or read the spec — instead of scraping the site. Runs locally over stdio; the whole standard travels inside the package, so it needs no network.
+A stdio server for the vocabulary and classification procedure. Install dependencies once; it makes no runtime network requests.
 
-## Use
+The package `usagescale-mcp` was **not published in the public npm registry** when checked on 10 October 2026. Use the repository source:
 
-Add it to any MCP client (an agent's `mcp.json`, a desktop MCP client, etc.):
+```sh
+git clone https://github.com/karauda/ai-usage-scale.git
+cd ai-usage-scale/mcp
+npm ci
+node server.js
+```
+
+In an MCP client:
 
 ```json
 {
   "mcpServers": {
     "usagescale": {
-      "command": "npx",
-      "args": ["-y", "usagescale-mcp"]
+      "command": "node",
+      "args": ["/absolute/path/to/ai-usage-scale/mcp/server.js"]
     }
   }
 }
 ```
 
-Or run it directly: `npx -y usagescale-mcp`.
+| Tool | Purpose |
+|---|---|
+| `classify` | Walk the five questions with boolean answers; partial or invalid answers return an error. |
+| `get_level` | Retrieve a complete definition for integer 0–5. |
+| `list_levels` | List IDs, names and one-line descriptions. |
+| `get_spec` | Retrieve the full vocabulary. |
 
-## Tools
+The resource `usagescale://levels.json` exposes the same vocabulary.
 
-| Tool | Does |
-|------|------|
-| `classify` | Walk the five yes/no questions to a level 0–5. |
-| `get_level` | Full definition of one level — name, definition, examples, sentences, mappings. |
-| `list_levels` | All six levels: id, name, one-liner. |
-| `get_spec` | The whole machine-readable spec (equivalent to `/levels.json`). |
+A Level 3 suggestion includes a caveat: its definition requires meaningful human review, while the current tree path does not check that condition. A number describes a process, not quality or verified truth.
 
-## Resources
+The server reads `../spec/levels.json` from a repository checkout. A distributable package uses a bundled copy.
 
-- `usagescale://levels.json` — the complete standard, CC0.
+```sh
+npm test
+npm run test:server
+npm run sync
+npm pack --dry-run
+```
 
-## Notes
+Package preparation includes `classify.js`; omitting it would prevent startup outside the repository. No publication is performed by these commands.
 
-- The scale is CC0; the marks and `levels.json` are free to fork and mirror.
-- No level ranks above another. `classify` returns a position, never a score.
-- A declaration describes how a work was made. It does not grant or deny any training right.
-
-The standard's canonical source is `spec/levels.json`; this package bundles a copy at publish time (`npm run sync`) and, when run from the repository, reads the canonical file directly.
-
-MIT.
+Code is MIT. Vocabulary data is CC0. Declaration metadata does not grant training permission.

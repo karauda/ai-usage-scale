@@ -1,247 +1,54 @@
 ---
-import { getLocale, levelsIn, localePath } from '../lib/i18n';
-
+import { getLocale, localePath } from '../lib/i18n';
+import { VERSION } from '../lib/levels';
 interface Props { lang: string }
 const { lang } = Astro.props;
 const t = getLocale(lang);
-const LEVELS = levelsIn(lang);
+const h = t.ui.home;
 ---
 
-{/*
-  The signature.
-
-  One frame. Inside it, two cells become six. The outline never moves, because the
-  point is not that we are replacing the label — it is that the label was always too
-  coarse to hold what was actually happening.
-
-  Baseline (no JS, or reduced motion): the six-cell scale is simply there, and the
-  binary layer never renders. The morph is an enhancement, gated on :root[data-js],
-  which an inline head script sets before first paint. The keys are ordinary links to
-  the level pages, so hover is a bonus and click always works. Level data rides on the
-  elements themselves — the client script imports nothing.
-*/}
-
 <section class="hero" aria-labelledby="hero-h">
-  <p class="label hero-eyebrow" data-eyebrow data-after={t.ui.hero.eyebrowAfter}>
-    {t.ui.hero.eyebrowBefore}
-  </p>
-
-  <div class="frame">
-    <div class="binary" aria-hidden="true">
-      <span>{t.ui.hero.binaryYes}</span>
-      <span>{t.ui.hero.binaryNo}</span>
+  <div class="hero-meta label"><span>{h.status}</span><span>v{VERSION} / CC0</span></div>
+  <div class="hero-grid">
+    <div>
+      <h1 id="hero-h">{h.h1}</h1>
+      <p class="hero-sub">{h.intro}</p>
+      <div class="hero-actions">
+        <a href={localePath(lang, '/find-your-level')} class="button">{t.ui.hero.cta}<span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="text-link" href={localePath(lang, '/spec')}>{t.ui.foot.spec}</a>
+      </div>
     </div>
-
-    <ol class="strip">
-      {
-        LEVELS.map((l) => (
-          <li>
-            <a href={localePath(lang, `/${l.id}`)} data-key data-name={l.name} data-line={l.oneLine}>
-              <span class="k-num">{l.id}</span>
-              <span class="k-name">{l.name}</span>
-            </a>
-          </li>
-        ))
-      }
-    </ol>
+    <aside class="range" aria-label={t.ui.scalePage.eyebrow}>
+      <div class="range-numbers" dir="ltr" aria-hidden="true">0<span>—</span>5</div>
+      <div class="range-index" dir="ltr" aria-hidden="true">{[0, 1, 2, 3, 4, 5].map((n) => <span>{n}</span>)}</div>
+      <p>{h.rangeNote}</p>
+      <a class="text-link" href="#six-levels">{t.ui.level.allLevels}<span class="arrow" aria-hidden="true"> ↓</span></a>
+    </aside>
   </div>
-
-  <p
-    class="hero-read"
-    data-readout
-    data-before-head={t.ui.hero.beforeHead}
-    data-before-body={t.ui.hero.beforeBody}
-    data-after-head={t.ui.hero.afterHead}
-    data-after-body={t.ui.hero.afterBody}
-    data-level-head={t.ui.hero.levelHead}
-  >
-    <span class="label" data-slot="head">{t.ui.hero.afterHead}</span>
-    <span data-slot="body">{t.ui.hero.afterBody}</span>
-  </p>
-
-  <h1 id="hero-h" class="hero-h">
-    {t.ui.hero.h1a}<br />{t.ui.hero.h1b}
-  </h1>
-
-  <p class="hero-sub">{t.ui.hero.sub}</p>
-
-  <p class="hero-cta">
-    <a href={localePath(lang, '/find-your-level')} class="cta">{t.ui.hero.cta}</a>
-    <a href={localePath(lang, '/scale')}>{t.ui.hero.ctaAlt}</a>
-  </p>
 </section>
 
 <style>
-  .hero { padding: clamp(2.5rem, 7vw, 5rem) 0 1rem; }
-  .hero-eyebrow { margin: 0 0 0.9rem; }
-
-  .frame {
-    position: relative;
-    border: 1px solid var(--rule);
-    background: var(--raised);
-    height: 5.25rem;
+  .hero { padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(3rem, 6vw, 5.5rem); }
+  .hero-meta { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 3.5rem; }
+  .hero-meta span:first-child { color: var(--accent); }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr); gap: 5rem; align-items: end; }
+  h1 { font-size: clamp(2.5rem, 6vw, 6rem); line-height: 1.04; max-width: 14ch; margin-bottom: 1.75rem; overflow-wrap: anywhere; }
+  .hero-sub { font-size: 1.0625rem; color: var(--ink-mid); max-width: 47ch; margin: 0 0 2rem; }
+  .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 1.75rem; }
+  .range { border-inline-start: 1px solid var(--rule); padding-inline-start: 2.5rem; padding-bottom: 0.25rem; }
+  .range-numbers { font-family: var(--serif); font-size: clamp(4rem, 7.8vw, 8rem); line-height: 1.1; letter-spacing: -0.09em; white-space: nowrap; }
+  .range-numbers span { font-size: 0.65em; margin: 0 0.08em; color: var(--accent); }
+  .range-index { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.5rem; padding-top: 1.2rem; margin-top: 0.6rem; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 0.75rem; color: var(--ink-soft); }
+  .range p { margin: 1.5rem 0 0.75rem; color: var(--ink-mid); font-size: 0.875rem; max-width: 29ch; }
+  :global(html:is([lang='zh'], [lang='ja'], [lang='ko'])) h1 { max-width: 9em; font-size: clamp(2.75rem, 5vw, 4.75rem); line-height: 1.2; }
+  @media (max-width: 50rem) {
+    .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+    .hero-meta { margin-bottom: 2.5rem; }
+    h1 { max-width: 17ch; }
+    .range { border-inline-start: 0; border-top: 1px solid var(--rule); padding: 1.5rem 0 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.5rem 2rem; align-items: center; }
+    .range-numbers { grid-row: 1 / 4; font-size: 4rem; }
+    .range-index { margin: 0; padding: 0; border: 0; }
+    .range p { margin: 0; max-width: none; }
   }
-
-  /* Baseline: the scale is the truth of this page, so the scale is what renders. */
-  .binary { opacity: 0; }
-  .strip { opacity: 1; }
-
-  .binary {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    font-family: var(--mono);
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-  }
-  .binary span { display: grid; place-items: center; color: var(--ink-mid); }
-  .binary span + span { border-inline-start: 1px solid var(--rule); }
-
-  .strip {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  .strip li { display: grid; }
-  .strip li + li { border-inline-start: 1px solid var(--rule); }
-
-  .strip a {
-    display: grid;
-    place-content: center;
-    gap: 0.3rem;
-    text-align: center;
-    text-decoration: none;
-    padding: 0.5rem 0.25rem;
-    transition: background 0.15s;
-  }
-  .strip a:hover, .strip a:focus-visible { background: var(--accent-bg); }
-  .strip a:hover .k-num, .strip a:focus-visible .k-num { color: var(--accent); }
-
-  .k-num { font-family: var(--mono); font-weight: 600; font-size: 1.5rem; line-height: 1; }
-  .k-name {
-    font-family: var(--mono);
-    font-size: 0.5625rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    line-height: 1.2;
-  }
-
-  .hero-read {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem 0.75rem;
-    align-items: baseline;
-    margin: 0.9rem 0 0;
-    min-height: 2.75rem;
-    font-size: 0.9375rem;
-    color: var(--ink-mid);
-  }
-  .hero-read .label { color: var(--ink); }
-
-  .hero-h {
-    margin: clamp(2.5rem, 6vw, 4rem) 0 0.75rem;
-    font-size: clamp(2rem, 5.2vw, 3.25rem);
-    letter-spacing: -0.02em;
-    line-height: 1.12;
-  }
-  .hero-sub {
-    max-width: var(--measure);
-    color: var(--ink-mid);
-    font-size: 1.1875rem;
-    margin: 0 0 1.75rem;
-  }
-  .hero-cta { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: center; margin: 0; }
-  .cta {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 0.75rem 1.25rem;
-    background: var(--ink);
-    color: var(--paper);
-    border: 1px solid var(--ink);
-  }
-  .cta:hover { background: var(--accent); border-color: var(--accent); color: var(--paper); }
-  .hero-cta a:not(.cta) { font-size: 0.9375rem; color: var(--ink-mid); }
-
-  /* ── Enhanced: JS is present, so we can show the binary and then retire it. ── */
-
-  :global(:root[data-js]) .binary {
-    opacity: 1;
-    animation: binary-out 0.5s cubic-bezier(0.4, 0, 0.2, 1) 1.15s both;
-  }
-  :global(:root[data-js]) .strip {
-    opacity: 0;
-    animation: strip-in 0.55s cubic-bezier(0.4, 0, 0.2, 1) 1.4s both;
-  }
-  :global(:root[data-js]) .strip li + li {
-    border-inline-start-color: transparent;
-    animation: divider 0.3s ease-out both;
-  }
-  :global(:root[data-js]) .strip li:nth-child(2) { animation-delay: 1.6s; }
-  :global(:root[data-js]) .strip li:nth-child(3) { animation-delay: 1.67s; }
-  :global(:root[data-js]) .strip li:nth-child(4) { animation-delay: 1.74s; }
-  :global(:root[data-js]) .strip li:nth-child(5) { animation-delay: 1.81s; }
-  :global(:root[data-js]) .strip li:nth-child(6) { animation-delay: 1.88s; }
-
-  @keyframes binary-out { to { opacity: 0; transform: translateY(-6px); } }
-  @keyframes strip-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-  @keyframes divider { to { border-inline-start-color: var(--rule); } }
-
-  @media (prefers-reduced-motion: reduce) {
-    :global(:root[data-js]) .binary { animation: none; opacity: 0; }
-    :global(:root[data-js]) .strip { animation: none; opacity: 1; }
-    :global(:root[data-js]) .strip li + li { animation: none; border-inline-start-color: var(--rule); }
-  }
-
-  @media (max-width: 40rem) {
-    .frame { height: 4.5rem; }
-    .k-name { display: none; }
-    .k-num { font-size: 1.25rem; }
-  }
+  @media (max-width: 25rem) { .range { gap: 0.5rem 1.25rem; } .range-numbers { font-size: 3.3rem; } }
 </style>
-
-<script>
-  // Every string this script writes came from the server in the reader's language, on the
-  // elements themselves. A client bundle cannot import a locale it does not know about at
-  // build time, and hard-coding English here would quietly un-translate the page.
-  const readout = document.querySelector<HTMLElement>('[data-readout]');
-  const eyebrow = document.querySelector<HTMLElement>('[data-eyebrow]');
-  if (readout && eyebrow) {
-    const head = readout.querySelector<HTMLElement>('[data-slot="head"]')!;
-    const body = readout.querySelector<HTMLElement>('[data-slot="body"]')!;
-    const d = readout.dataset;
-
-    // During the morph the readout describes the binary, because that is what is on
-    // screen. It only starts describing the scale once the scale is the thing you see.
-    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      head.textContent = d.beforeHead ?? '';
-      body.textContent = d.beforeBody ?? '';
-      setTimeout(() => {
-        eyebrow.textContent = eyebrow.dataset.after ?? eyebrow.textContent;
-        head.textContent = d.afterHead ?? '';
-        body.textContent = d.afterBody ?? '';
-      }, 1400);
-    }
-
-    for (const key of document.querySelectorAll<HTMLAnchorElement>('[data-key]')) {
-      const show = () => {
-        const n = key.querySelector('.k-num')!.textContent ?? '';
-        head.textContent = `${(d.levelHead ?? 'Level {n}').replace('{n}', n)} — ${key.dataset.name}`;
-        body.textContent = key.dataset.line ?? '';
-      };
-      key.addEventListener('mouseenter', show);
-      key.addEventListener('focus', show);
-    }
-  }
-</script>

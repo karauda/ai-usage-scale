@@ -4,6 +4,25 @@ All notable changes to the AI Usage Scale. The scale follows [semantic versionin
 a **major** bump means a level's meaning changed, and would invalidate declarations already
 published. We will work very hard never to do that.
 
+## [1.3.0] — 2026-10-11
+
+This website and tooling revision preserves the v1.2.0 classification criteria and decision branches.
+
+- Replace the manifesto homepage with a typographic reference: six definitions, a practical declaration flow and explicit project status, in all 22 locales.
+- Retire the maintainer-only signature list and redirect its URLs to project information. Retain the original English manifesto in the historical archive.
+- Remove assumed Level 3 website metadata and unsupported human-approval statements. Record pending editorial and translation review.
+- Correct JSON-LD to use an explicit project extension. Add vocabulary validation and declaration consistency checks.
+- Replace unreliable classifications of third-party works with illustrative workflows. Distinguish public references from verified adoption.
+- Correct policy explanations, privacy statements, licensing scope, citation metadata and MCP installation instructions.
+- Remove the editorial Level 5 claim that disclosure makes a work legitimate, in every language; retain its classification criteria.
+- Flag the unresolved Level 3 review shortcut in the wizard, MCP responses and specification documentation.
+- Upgrade dependencies, pin Actions to commits, expand deployment/release gates, configure dependency updates and add browser/accessibility checks.
+- Record the GitHub audit and prepare concrete use cases for standards discussion. Public submissions are tracked separately from adoption or institutional acceptance.
+
+The MCP package is version 1.3.0 and is attached as an installable archive; this release does not publish it to npm. The vocabulary archive includes both JSON Schemas and all 54 SVG marks. Human editorial and fluent translation review remain pending.
+
+Historical release notes below describe earlier revisions. Their legal, adoption and interoperability claims are superseded by the current documentation where corrected.
+
 ## [1.2.0] — 2026-08-09
 
 The law caught up, so the mapping did too. **The scale is unchanged** — same six levels, same

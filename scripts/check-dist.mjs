@@ -1,181 +1,176 @@
-/**
- * Post-build gate. Runs against dist/ — the thing that actually ships.
- *
- * The unit tests guard the scale. This guards the promises the site makes to the outside
- * world: that a badge URL resolves without JavaScript, that it carries the declaration in
- * static HTML, that what we tell crawlers matches what we tell people, and that nothing on
- * the page phones home.
- */
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
+import Ajv from 'ajv/dist/2020.js';
+import addFormats from 'ajv-formats';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = join(ROOT, 'dist');
-
+const spec = JSON.parse(readFileSync(join(ROOT, 'spec/levels.json'), 'utf8'));
+const langs = readdirSync(join(ROOT, 'src/i18n')).filter(f => f.endsWith('.json')).map(f => f.replace('.json', ''));
+const pages = ['0', '1', '2', '3', '4', '5', 'scale', 'find-your-level', 'badges', 'spec', 'project', 'ecosystem', 'integrations', 'cases', 'eu-ai-act'];
+const references = new Set(['project', 'ecosystem', 'integrations', 'cases', 'eu-ai-act']);
+const files = langs.flatMap(lang => [lang === 'en' ? 'index.html' : lang + '.html', ...pages.map(p => (lang === 'en' ? '' : lang + '/') + p + '.html')]);
+const read = file => readFileSync(join(DIST, file), 'utf8');
+const ok = (value, message) => { if (!value) throw new Error(message); };
 let failed = 0;
 const check = (name, fn) => {
-  try { fn(); console.log(`  ✓ ${name}`); }
-  catch (e) { console.error(`  ✗ ${name}\n      ${e.message}`); failed++; }
+  try { fn(); console.log('  ✓ ' + name); }
+  catch (error) { failed++; console.error('  ✗ ' + name + '\n      ' + error.message); }
 };
-const ok = (v, msg) => { if (!v) throw new Error(msg); };
-
-const read = (f) => readFileSync(join(DIST, f), 'utf8');
-const PAGES = ['index', '0', '1', '2', '3', '4', '5', 'scale', 'find-your-level', 'badges', 'spec', 'sign', 'ecosystem', 'integrations', 'cases', 'eu-ai-act'];
+const graph = html => JSON.parse(html.match(/<script type="application\/ld\+json"[^>]*>(.*?)<\/script>/s)[1])['@graph'];
+const head = html => html.split('</head>')[0];
 
 console.log('\nWhat ships');
 
-check('every page was built', () => {
-  for (const p of PAGES) ok(existsSync(join(DIST, `${p}.html`)), `${p}.html is missing`);
-});
-
-check('the badge target pages carry the declaration in static HTML', () => {
-  // No JavaScript. This is the promise a badge makes when someone pastes it into an
-  // article: that in ten years the link still resolves to something a reader can read.
-  for (const i of [0, 1, 2, 3, 4, 5]) {
-    const h = read(`${i}.html`);
-    // The page's OWN head declares the page's own authorship level — every page on the site
-    // is a Level-3 work, so /5 must NOT announce ai-usage=5 ("published unreviewed"). The
-    // level-i declaration people copy lives in the embed example in the body, not here.
-    ok(/name="ai-usage" content="3"/.test(h), `/${i} should declare its own authorship level (3), not its subject level`);
-    ok(/name="ai-usage-standard" content="https:\/\/usagescale\.org"/.test(h), `/${i} does not identify the proposed vocabulary`);
-    ok(/name="ai-disclosure"/.test(h), `/${i} has no machine-readable declaration`);
-    ok(/rel="ai-disclosure"/.test(h), `/${i} does not link its definition`);
-    // The copy-paste embed still demonstrates level i — that is where the subject level belongs.
-    ok(new RegExp(`ai-usage&quot; content=&quot;${i}`).test(h), `/${i} does not show a level-${i} embed example in the body`);
-    ok(/<svg/.test(h), `/${i} has no inline mark`);
-    ok(/Level \d/.test(h), `/${i} does not name its level in the body`);
+check('all 352 pages exist and have one H1', () => {
+  for (const file of files) {
+    ok(existsSync(join(DIST, file)), file + ' missing');
+    ok((read(file).match(/<h1\b/g) ?? []).length === 1, file + ': expected one H1');
   }
 });
-
-check('canonical, og:url and the sitemap all agree, and none of them says .html', () => {
-  // build.format: 'file' makes Astro report /3.html. The badge points at /3. If those
-  // ever disagree, every share and every crawl lands on the wrong address.
-  for (const p of PAGES) {
-    const h = read(`${p}.html`);
-    const canon = h.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
-    const og = h.match(/<meta property="og:url" content="([^"]+)"/)?.[1];
-    ok(canon, `${p} has no canonical`);
-    ok(canon === og, `${p}: canonical ${canon} != og:url ${og}`);
-    ok(!canon.includes('.html'), `${p}: canonical still has an extension — ${canon}`);
-  }
-  const sm = read('sitemap-0.xml');
-  ok(!sm.includes('.html'), 'the sitemap advertises .html URLs');
-  for (const i of [0, 1, 2, 3, 4, 5]) {
-    ok(sm.includes(`<loc>https://usagescale.org/${i}</loc>`), `sitemap is missing /${i}`);
+check('all homepages expose six definition links without JavaScript', () => {
+  for (const lang of langs) {
+    const html = read(lang === 'en' ? 'index.html' : lang + '.html');
+    const prefix = lang === 'en' ? '' : '/' + lang;
+    for (let i = 0; i < 6; i++) ok(html.includes('href="' + prefix + '/' + i + '" class="level-row"'), lang + ': missing level ' + i);
+    ok(html.includes('dir="' + (['ar', 'fa'].includes(lang) ? 'rtl' : 'ltr') + '"'), lang + ': wrong direction');
   }
 });
-
-check('every page has a social card, and the card exists', () => {
-  for (const p of PAGES) {
-    const img = read(`${p}.html`).match(/<meta property="og:image" content="[^"]*\/og\/([^"]+)\.png"/)?.[1];
-    ok(img, `${p} has no og:image`);
-    ok(existsSync(join(DIST, 'og', `${img}.png`)), `${p} points at og/${img}.png, which was not generated`);
+check('subject levels are examples, not unverified site declarations', () => {
+  for (const file of files) {
+    const html = read(file);
+    ok(!/name="ai-usage" content="[0-5]"/.test(head(html)), file + ': assumed source level');
+    ok(/name="ai-review-status" content="pending"/.test(head(html)), file + ': editorial status missing');
+  }
+  for (const level of spec.levels) {
+    const html = read(level.id + '.html');
+    ok(new RegExp('ai-usage&quot; content=&quot;' + level.id).test(html), '/' + level.id + ': missing embed');
+    ok(html.includes('<svg'), '/' + level.id + ': missing SVG');
+    ok(html.includes('https://usagescale.org/spec#aiUsageLevel'), '/' + level.id + ': extension IRI missing');
+    ok(!html.includes('&quot;additionalProperty&quot;'), '/' + level.id + ': invalid CreativeWork mapping');
   }
 });
-
-check('the levels are published as a controlled vocabulary', () => {
-  const ld = JSON.parse(read('3.html').match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
-  const set = ld['@graph'].find((n) => n['@type'] === 'DefinedTermSet');
-  ok(set, 'no DefinedTermSet in the graph');
-  ok(set.hasDefinedTerm.length === 6, `expected 6 DefinedTerms, got ${set.hasDefinedTerm.length}`);
-  ok(set.license.includes('publicdomain/zero'), 'the vocabulary is not published as CC0');
-});
-
-check('llms.txt and llms-full.txt carry the whole standard', () => {
-  const short = read('llms.txt');
-  const full = read('llms-full.txt');
-  ok(short.startsWith('# AI Usage Scale'), 'llms.txt has no H1');
-  ok(short.includes('> '), 'llms.txt has no summary blockquote (llmstxt.org format)');
-  for (const l of ['Human', 'Assisted', 'Co-created', 'Directed', 'Prompted', 'Automated']) {
-    ok(short.includes(l), `llms.txt omits level ${l}`);
-    ok(full.includes(l), `llms-full.txt omits level ${l}`);
-  }
-  ok(full.includes('There is no shameful level'), 'llms-full.txt does not contain the manifesto');
-  ok(short.includes('provenance signal, not training permission'), 'llms.txt confuses provenance with training permission');
-  ok(full.includes('not a registered standard'), 'llms-full.txt presents proposed metadata as established');
-  ok(full.length > 20000, `llms-full.txt is only ${full.length} bytes — the manifesto is probably missing`);
-});
-
-check('every language points at every other, and x-default at the source', () => {
-  // Without reciprocal hreflang, each translation competes with the original for the same
-  // query and all of them lose. Google drops non-reciprocal annotations entirely.
-  const langs = readdirSync(join(ROOT, 'src', 'i18n')).filter((f) => f.endsWith('.json')).map((f) => f.replace('.json', ''));
-  const h = read('3.html');
-  for (const l of langs) {
-    ok(new RegExp(`hreflang="${l}"`).test(h), `/3 does not link its ${l} translation`);
-  }
-  ok(/hreflang="x-default" href="https:\/\/usagescale\.org\/3"/.test(h), '/3 has no x-default pointing at the source');
-
-  for (const l of langs.filter((x) => x !== 'en')) {
-    const t = read(join(l, '3.html'));
-    // Full mesh, not just a back-link to English: every translation must annotate every other,
-    // plus x-default. A missing de↔fr pair would slip a one-directional "points back at en" check.
-    for (const other of langs) {
-      ok(new RegExp(`hreflang="${other}"`).test(t), `/${l}/3 does not link its ${other} translation`);
+check('canonical URLs, social cards and genuine translations agree', () => {
+  const sitemap = read('sitemap-0.xml');
+  ok(!sitemap.includes('.html'), 'sitemap contains file extensions');
+  for (const file of files) {
+    const html = read(file);
+    const canonical = html.match(/rel="canonical" href="([^"]+)"/)?.[1];
+    const og = html.match(/property="og:url" content="([^"]+)"/)?.[1];
+    ok(canonical && canonical === og && !canonical.includes('.html'), file + ': canonical mismatch');
+    const card = html.match(/property="og:image" content="[^"]*\/og\/([^"]+)\.png"/)?.[1];
+    ok(card && existsSync(join(DIST, 'og', card + '.png')), file + ': missing social card');
+    const last = file.split('/').pop().replace('.html', '');
+    if (references.has(last)) {
+      ok(html.includes('<html lang="en" dir="ltr"'), file + ': English body mislabeled');
+      ok(!/hreflang="pl"/.test(head(html)), file + ': fake translation');
+      if (file.includes('/')) {
+        ok(!sitemap.includes('<loc>https://usagescale.org/' + file.replace('.html', '') + '</loc>'), file + ': duplicate reference in sitemap');
+        ok(html.includes('content="noindex, follow"'), file + ': duplicate not excluded');
+      }
+    } else {
+      for (const lang of langs) ok(head(html).includes('hreflang="' + lang + '"'), file + ': missing ' + lang);
     }
-    ok(/hreflang="x-default" href="https:\/\/usagescale\.org\/3"/.test(t), `/${l}/3 has no x-default`);
-    ok(/<link rel="canonical" href="[^"]+"/.test(t), `/${l}/3 has no canonical`);
   }
 });
-
-check('every translation declares itself as one, on the page', () => {
-  // The scale's own translation rule, applied to the scale. Twenty silent machine
-  // translations of a transparency standard would discredit it on day one.
-  const langs = readdirSync(join(ROOT, 'src', 'i18n')).filter((f) => f.endsWith('.json')).map((f) => f.replace('.json', ''));
-  for (const l of langs.filter((x) => x !== 'en')) {
-    const h = read(join(l, '3.html'));
-    ok(/class="tn"/.test(h), `/${l}/3 does not carry a translation notice`);
+check('vocabulary markup reflects visible content and creates no fictitious organisation', () => {
+  for (const file of files) {
+    const nodes = graph(read(file));
+    ok(!nodes.some(n => n['@type'] === 'Organization'), file + ': fictional organisation');
+    for (const term of nodes.filter(n => n['@type'] === 'DefinedTerm')) ok(!('inLanguage' in term), file + ': unsupported DefinedTerm property');
   }
-  ok(!/class="tn"/.test(read('3.html')), 'the English source should not claim to be a translation');
+  for (const file of ['index.html', 'scale.html']) {
+    const terms = graph(read(file)).find(n => n['@type'] === 'DefinedTermSet');
+    ok(terms.hasDefinedTerm.length === 6, file + ': expected six visible terms');
+    ok(terms.license.includes('publicdomain/zero'), file + ': wrong vocabulary licence');
+  }
+  const subject = graph(read('3.html')).find(n => n['@type'] === 'DefinedTerm');
+  ok(subject.termCode === '3', '/3 subject missing');
 });
-
-check('nothing on the site phones home', () => {
-  // No analytics, no third-party fonts, no embeds. A standard about honesty does not
-  // quietly watch the people who adopt it. Links *in prose* are fine — what must not
-  // exist is a loaded subresource.
-  const SUBRESOURCE = /<(?:script|iframe|video|audio|source)[^>]+\bsrc="([^"]+)"|<img[^>]+\bsrc="([^"]+)"|<link[^>]+rel="(?:stylesheet|preload|modulepreload|preconnect|dns-prefetch)"[^>]*\bhref="([^"]+)"/g;
-  for (const p of PAGES) {
-    const h = read(`${p}.html`);
-    for (const m of h.matchAll(SUBRESOURCE)) {
-      const u = m[1] ?? m[2] ?? m[3];
-      ok(
-        u.startsWith('/') || u.startsWith('data:') || u.startsWith('https://usagescale.org'),
-        `${p} loads a third-party subresource: ${u}`
-      );
+check('translations show their production status without assuming a source level', () => {
+  for (const lang of langs.filter(lang => lang !== 'en')) {
+    const html = read(lang + '/3.html');
+    ok(/class="tn"/.test(html), lang + ': missing translation notice');
+    ok(head(html).includes('method=machine; review=unreviewed'), lang + ': wrong translation status');
+    ok(!head(html).includes('source-level=3'), lang + ': assumed source level');
+  }
+});
+check('both schemas accept valid data and reject inconsistent declarations', () => {
+  const ajv = new Ajv({ allErrors: true, strictTypes: false });
+  addFormats(ajv);
+  const vocabulary = ajv.compile(JSON.parse(read('spec.schema.json')));
+  const declaration = ajv.compile(JSON.parse(read('levels.schema.json')));
+  ok(vocabulary(spec), 'canonical vocabulary: ' + JSON.stringify(vocabulary.errors));
+  for (const lang of langs) ok(vocabulary(JSON.parse(read((lang === 'en' ? '' : lang + '/') + 'levels.json'))), lang + ': invalid vocabulary');
+  for (const l of spec.levels) ok(declaration({ level: l.id, name: l.name, definition: 'https://usagescale.org/' + l.id }), 'valid level ' + l.id);
+  ok(declaration({ level: 3, surfaces: { text: 3, image: 4 }, translation: { by: 'machine', review: 'unreviewed' } }), 'valid surfaces/translation');
+  for (const bad of [{}, { level: '3' }, { level: 6 }, { level: -1 }, { level: 2.5 }, { level: 3, name: 'Human' }, { level: 3, definition: 'https://usagescale.org/4' }, { level: 1, surfaces: { text: 6 } }, { level: 1, surfaces: { unknown: 0 } }, { level: 3, translation: { by: 'machine' } }])
+    ok(!declaration(bad), 'accepted bad declaration: ' + JSON.stringify(bad));
+  const broken = structuredClone(spec);
+  broken.levels[5].id = 4;
+  ok(!vocabulary(broken), 'accepted duplicate level IDs');
+});
+check('text endpoints contain definitions, not obsolete promises or an unpublished package command', () => {
+  const short = read('llms.txt'), full = read('llms-full.txt');
+  ok(short.startsWith('# AI Usage Scale') && short.includes('> '), 'short index format');
+  for (const l of spec.levels) {
+    ok(short.includes(l.name) && full.includes(l.definition), 'text endpoints omit ' + l.name);
+  }
+  ok(full.includes('human review') && full.includes('not a registered'), 'status caveats missing');
+  ok(!full.includes('There is no shameful level'), 'obsolete manifesto remains');
+  ok(!read('integrations.html').includes('npx -y usagescale-mcp'), 'unpublished package advertised');
+});
+check('internal links and anchors resolve across all languages', () => {
+  const cached = new Map();
+  const resolve = path => {
+    const relative = decodeURIComponent(path).replace(/^\//, '').replace(/\/$/, '');
+    for (const file of [relative, relative + '.html', join(relative, 'index.html')]) {
+      if (file && existsSync(join(DIST, file)) && !file.endsWith('/')) return file;
     }
-    // Match analytics *domains*, not bare words: a manifesto about honesty may legitimately
-    // use the word "plausible" or "fathom" in prose, and that must not fail a deploy.
-    ok(!/googletagmanager|google-analytics|plausible\.io|usefathom\.com|hotjar\.com|segment\.com/.test(h), `${p} contains an analytics tag`);
-    ok(!/fonts\.googleapis|fonts\.gstatic/.test(h), `${p} fetches fonts from a third party`);
+    return relative === '' ? 'index.html' : null;
+  };
+  for (const file of files) {
+    const html = read(file);
+    for (const match of html.matchAll(/<a\b[^>]*\bhref="([^"]+)"/g)) {
+      const href = match[1].replace(/&amp;/g, '&');
+      if (!href.startsWith('/') && !href.startsWith('#')) continue;
+      const url = new URL(href, 'https://usagescale.org/' + file.replace(/\.html$/, ''));
+      const target = resolve(url.pathname);
+      ok(target, file + ': missing link ' + href);
+      if (url.hash && target.endsWith('.html')) {
+        if (!cached.has(target)) cached.set(target, read(target));
+        const id = decodeURIComponent(url.hash.slice(1));
+        ok(cached.get(target).includes('id="' + id + '"'), file + ': missing anchor ' + href);
+      }
+    }
+  }
+});
+check('retired signing URLs have redirects and no live signature page', () => {
+  ok(!existsSync(join(DIST, 'sign.html')), 'sign page still built');
+  const redirects = read('_redirects');
+  for (const lang of langs) {
+    const prefix = lang === 'en' ? '' : '/' + lang;
+    ok(redirects.includes(prefix + '/sign ' + prefix + '/project 301'), lang + ': missing redirect');
+  }
+  ok(!existsSync(join(DIST, '.well-known/ai-disclosure.json')), 'unverified numeric self-declaration remains');
+});
+check('loaded resources stay local and the CSP covers the theme script', () => {
+  const resource = /<(?:script|iframe|video|audio|source)[^>]+\bsrc="([^"]+)"|<img[^>]+\bsrc="([^"]+)"|<link[^>]+rel="(?:stylesheet|preload|modulepreload|preconnect|dns-prefetch)"[^>]*\bhref="([^"]+)"/g;
+  for (const file of files) {
+    const html = read(file);
+    for (const match of html.matchAll(resource)) {
+      const url = match[1] ?? match[2] ?? match[3];
+      ok(url.startsWith('/') || url.startsWith('data:') || url.startsWith('https://usagescale.org'), file + ': external resource ' + url);
+    }
+    const csp = html.match(/http-equiv="content-security-policy"\s+content="([^"]*)"/i)?.[1];
+    ok(csp?.includes("default-src 'self'") && csp.includes("connect-src 'none'"), file + ': weak CSP');
+    const theme = [...html.matchAll(/<script(?![^>]*\btype=)[^>]*>([\s\S]*?)<\/script>/g)].map(m => m[1]).find(s => s.includes('dataset.js'));
+    const hash = 'sha256-' + createHash('sha256').update(theme ?? '', 'utf8').digest('base64');
+    ok(csp.includes(hash), file + ': theme script hash missing');
   }
 });
 
-check('the Content-Security-Policy is locked down and covers the inline theme script', () => {
-  // The CSP proves the phones-home promise at the browser level. Astro hashes every script it
-  // processes, but not the is:inline theme script in Base.astro — that hash lives in
-  // astro.config.mjs. If the script changes and the config hash is not updated, the browser
-  // silently blocks it and the theme flashes on first paint. Recompute and catch that drift here.
-  const sha = (s) => 'sha256-' + createHash('sha256').update(s, 'utf8').digest('base64');
-  for (const p of PAGES) {
-    const h = read(`${p}.html`);
-    const csp = h.match(/http-equiv="content-security-policy"\s+content="([^"]*)"/i)?.[1];
-    ok(csp, `${p} ships no Content-Security-Policy`);
-    ok(csp.includes("default-src 'self'") && csp.includes("connect-src 'none'"), `${p}: CSP is not locked down`);
-    const theme = [...h.matchAll(/<script(?![^>]*\btype=)[^>]*>([\s\S]*?)<\/script>/g)]
-      .map((m) => m[1]).find((s) => s.includes('dataset.js'));
-    ok(theme, `${p} has no inline theme script to hash`);
-    ok(csp.includes(sha(theme)), `${p}: the inline theme script's hash is missing from the CSP — update scriptDirective.hashes in astro.config.mjs`);
-  }
-});
-
-check('the marks that ship contain no external reference', () => {
-  for (const f of readdirSync(join(DIST, 'badge'))) {
-    const s = read(join('badge', f));
-    ok(!/<image|\bhref="https?:|url\(http|@import|font-family/.test(s), `${f} pulls in an external resource`);
-  }
-});
-
-console.log(failed ? `\n${failed} failed\n` : '\nall passed\n');
+console.log(failed ? '\n' + failed + ' failed\n' : '\nall passed\n');
 process.exit(failed ? 1 : 0);

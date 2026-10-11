@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import TranslationNotice from '../../components/TranslationNotice.astro';
+import Snippet from '../../components/Snippet.astro';
 import { levelAlt, adaptiveMark } from '../../lib/levels';
 import { localeParams, getLocale, levelsIn, treeIn, localePath, fmt } from '../../lib/i18n';
 
@@ -53,8 +54,8 @@ const outcome = (step: any, answer: 'yes' | 'no') =>
   <section class="stepper" data-stepper data-count-tpl={t.ui.wizard.count} hidden>
     <div class="q-frame">
       <p class="q-count" data-count></p>
-      <p class="q-text" data-question></p>
-      <p class="q-help" data-help></p>
+      <p class="q-text" data-question tabindex="-1" aria-describedby="question-help"></p>
+      <p class="q-help" id="question-help" data-help></p>
       <div class="q-actions">
         <button type="button" data-answer="yes" class="ans">{t.ui.wizard.yes}</button>
         <button type="button" data-answer="no" class="ans">{t.ui.wizard.no}</button>
@@ -75,19 +76,15 @@ const outcome = (step: any, answer: 'yes' | 'no') =>
           <div class="r-head">
             <span class="r-num">{l.id}</span>
             <div>
-              <h2 class="r-name">{l.name}</h2>
+              <h2 class="r-name" tabindex="-1">{l.name}</h2>
               <p class="r-line">{l.oneLine}</p>
             </div>
           </div>
 
           <div class="r-mark" set:html={adaptiveMark(l.id, 'chip', alt(l))} />
 
-          <div class="snippet r-sent">
-            <pre><code>{l.sentences.medium}</code></pre>
-            <button type="button" data-copy data-idle={t.ui.level.copy} data-done={t.ui.level.copied}>
-              {t.ui.level.copy}
-            </button>
-          </div>
+          {l.id === 3 && <p class="review-caveat">{t.ui.wizard.reviewCaveat}</p>}
+          <Snippet label={t.ui.level.sentenceH} code={l.sentences.medium} ui={t.ui.level} />
 
           <p class="r-cta">
             <a href={L(`/${l.id}`)} class="cta">{t.ui.wizard.getBadge}</a>
@@ -134,6 +131,7 @@ const outcome = (step: any, answer: 'yes' | 'no') =>
     <h2>{t.ui.wizard.fineH}</h2>
     <p>{t.ui.wizard.fineA}</p>
     <p>{t.ui.wizard.fineB}</p>
+    <p>{t.ui.wizard.reviewCaveat}</p>
   </aside>
 </Base>
 
@@ -144,7 +142,7 @@ const outcome = (step: any, answer: 'yes' | 'no') =>
   .q-frame { border: 1px solid var(--rule); background: var(--raised); padding: clamp(1.5rem, 4vw, 2.75rem); }
   .q-count {
     font-family: var(--mono);
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -224,7 +222,7 @@ const outcome = (step: any, answer: 'yes' | 'no') =>
   .s-out a { color: var(--ink); text-decoration-color: var(--accent); }
   .s-out .cont { color: var(--ink-soft); }
 
-  :global(:root[data-js]) .tree { display: none; }
+  .review-caveat { padding: 1rem; border-inline-start: 2px solid var(--accent); background: var(--paper); }
 
   .fineprint { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
   .fineprint h2 { font-size: 1.25rem; }
@@ -259,7 +257,7 @@ const outcome = (step: any, answer: 'yes' | 'no') =>
   let at = 0;
   const seen: number[] = [];
 
-  function render() {
+  function render(focus = true) {
     const step = steps[at];
     qCount.textContent = countTpl.replace('{n}', String(at + 1)).replace('{total}', String(steps.length));
     qText.textContent = step.question;
@@ -267,15 +265,17 @@ const outcome = (step: any, answer: 'yes' | 'no') =>
     backBtn.hidden = seen.length === 0;
     stepper.hidden = false;
     results.hidden = true;
+    if (focus) qText.focus();
   }
 
-  function finish(level: number) {
+  function finish(level: number, focus = true) {
     stepper.hidden = true;
     results.hidden = false;
     for (const panel of results.querySelectorAll<HTMLElement>('[data-result]')) {
       panel.hidden = Number(panel.dataset.result) !== level;
     }
     window.history.replaceState(null, '', `#level-${level}`);
+    if (focus) results.querySelector<HTMLElement>('[data-result]:not([hidden]) .r-name')?.focus();
   }
 
   function answer(a: 'yes' | 'no') {
@@ -304,7 +304,16 @@ const outcome = (step: any, answer: 'yes' | 'no') =>
 
   // finish() writes #level-N so the result is shareable; honour it on the way back in,
   // or every shared link would land on question one.
-  const shared = window.location.hash.match(/^#level-([0-5])$/);
-  if (shared) finish(Number(shared[1]));
-  else render();
+  function restoreResult(focus = false) {
+    const shared = window.location.hash.match(/^#level-([0-5])$/);
+    if (shared) finish(Number(shared[1]), focus);
+    else {
+      at = 0;
+      seen.length = 0;
+      render(focus);
+    }
+  }
+  window.addEventListener('hashchange', () => restoreResult(true));
+  restoreResult();
+  must('[data-tree-static]').hidden = true;
 </script>

@@ -2,161 +2,112 @@
 import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
 import TranslationNotice from '../../components/TranslationNotice.astro';
-import LevelMark from '../../components/LevelMark.astro';
+import Snippet from '../../components/Snippet.astro';
+import { adaptiveMark, levelAlt } from '../../lib/levels';
 import { localeParams, getLocale, levelsIn, localePath } from '../../lib/i18n';
-
 export const getStaticPaths = localeParams;
-
 const { lang } = Astro.props;
 const t = getLocale(lang);
-const LEVELS = levelsIn(lang);
-
-// A language whose manifesto has not landed yet still gets the scale, the marks and the
-// tool — in its own language — with the English argument. Half a standard beats none.
-const manifestos = import.meta.glob('../../content/manifesto/*.md', { eager: true });
-const entry = (manifestos[`../../content/manifesto/${lang}.md`] ??
-  manifestos['../../content/manifesto/en.md']) as any;
-const { Content, frontmatter } = entry;
+const h = t.ui.home;
+const levels = levelsIn(lang);
+const L = (p: string) => localePath(lang, p);
+const example = levels[3];
 ---
 
-<Base
-  lang={lang}
-  path="/"
-  title={`${frontmatter.title} — AI Usage Scale`}
-  description={t.ui.hero.sub}
-  card="default"
-  schema={[
-    {
-      '@type': 'Article',
-      '@id': `https://usagescale.org${localePath(lang, '/')}#manifesto`.replace(/\/#/, '/#'),
-      headline: frontmatter.title,
-      alternativeHeadline: frontmatter.standfirst,
-      inLanguage: lang,
-      datePublished: '2026-07-13',
-      author: { '@id': 'https://usagescale.org/#org' },
-      publisher: { '@id': 'https://usagescale.org/#org' },
-      license: 'https://creativecommons.org/licenses/by/4.0/',
-      about: { '@id': 'https://usagescale.org/#scale' },
-      // The manifesto wears its own badge. Refusing to would have made it a joke.
-      additionalProperty: {
-        '@type': 'PropertyValue',
-        propertyID: 'https://usagescale.org/spec#aiUsageLevel',
-        name: 'aiUsageLevel',
-        value: 3,
-      },
-    },
-  ]}
->
+<Base lang={lang} path="/" title={`AI Usage Scale — ${h.h1}`} description={h.intro}>
+  <Hero lang={lang} />
   <TranslationNotice lang={lang} path="/" />
 
-  <Hero lang={lang} />
-
-  <hr />
-
-  <article class="manifesto prose">
-    <Content />
-  </article>
-
-  <aside class="colophon">
-    <LevelMark id={3} name={LEVELS[3].name} oneLine={LEVELS[3].oneLine} lang={lang} />
-    <div>
-      <p class="label">{t.ui.hero.inOneLine}</p>
-      <table class="levels">
-        <tbody>
-          {
-            LEVELS.map((l) => (
-              <tr>
-                <td class="n">{l.id}</td>
-                <td>
-                  <a href={localePath(lang, `/${l.id}`)}>
-                    <span class="lv-name">{l.name}</span>
-                  </a>
-                </td>
-                <td class="desc">{l.oneLine}</td>
-              </tr>
-            ))
-          }
-        </tbody>
-      </table>
-      <p class="after">
-        <a href={localePath(lang, '/find-your-level')} class="cta">{t.ui.hero.cta}</a>
-      </p>
+  <section class="reference-section" id="six-levels" aria-labelledby="scale-h">
+    <div class="section-heading">
+      <p class="label section-index"><span aria-hidden="true">01 / </span>{t.ui.scalePage.eyebrow}</p>
+      <div><h2 id="scale-h">{h.scaleHeading}</h2><p>{h.scaleNote}</p></div>
     </div>
-  </aside>
+    <ol class="level-list" id="scale">
+      {levels.map((level) => (
+        <li>
+          <a href={L(`/${level.id}`)} class="level-row">
+            <span class="level-number" aria-hidden="true">{level.id}</span>
+            <h3><span class="sr-only">{t.ui.hero.levelHead.replace('{n}', String(level.id))} — </span>{level.name}</h3>
+            <p>{level.oneLine}</p>
+            <span class="arrow level-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+    <p class="section-link"><a href={L('/scale')}>{t.ui.scalePage.more}</a></p>
+  </section>
+
+  <section class="reference-section" aria-labelledby="use-h">
+    <div class="section-heading">
+      <p class="label section-index"><span aria-hidden="true">02 / </span>{t.ui.level.sentenceH}</p>
+      <div><h2 id="use-h">{h.useHeading}</h2><p>{h.useNote}</p></div>
+    </div>
+    <div class="use-grid">
+      <ol class="use-steps">
+        <li><span class="step-number" aria-hidden="true">01</span><div><h3><a href={L('/find-your-level')}>{h.choose}</a></h3><p>{h.chooseBody}</p></div></li>
+        <li><span class="step-number" aria-hidden="true">02</span><div><h3><a href={L('/badges')}>{h.declare}</a></h3><p>{h.declareBody}</p></div></li>
+        <li><span class="step-number" aria-hidden="true">03</span><div><h3><a href={L('/spec')}>{h.link}</a></h3><p>{h.linkBody}</p></div></li>
+      </ol>
+      <div class="example">
+        <p class="label">{h.example}</p>
+        <div class="example-mark" set:html={adaptiveMark(3, 'name', levelAlt(example, t.ui.hero.levelHead))} />
+        <p class="example-sentence">{example.sentences.medium}</p>
+        <Snippet label={t.ui.level.plain} code={`AI Usage Scale: ${t.ui.hero.levelHead.replace('{n}', '3')} (${example.name}) — https://usagescale.org/3`} ui={t.ui.level} />
+        <a class="text-link" href={L('/3')}>{t.ui.scalePage.more}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="reference-section project-section" aria-labelledby="status-h">
+    <div class="section-heading">
+      <p class="label section-index"><span aria-hidden="true">03 / </span>{h.project}</p>
+      <div><h2 id="status-h">{h.statusHeading}</h2><p>{h.statusText}</p></div>
+    </div>
+    <div class="status-grid">
+      <p>{h.limits}</p><p>{h.standards}</p>
+    </div>
+    <p class="section-link"><a href={L('/project')}>{h.project} <span class="arrow" aria-hidden="true">↗</span></a></p>
+  </section>
 </Base>
 
 <style>
-  .manifesto { counter-reset: thesis; }
-
-  .manifesto :global(h2) {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin: 4rem 0 1.25rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--rule);
+  .reference-section { padding: 2rem 0 3rem; border-top: 1px solid var(--rule); scroll-margin-top: 2rem; }
+  .section-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); gap: 2.5rem; margin-bottom: 2.5rem; }
+  .section-index { margin: 0.55rem 0 0; }
+  .section-index span { color: var(--accent); }
+  .section-heading h2 { border: 0; padding: 0; margin: 0 0 1rem; font-size: clamp(1.9rem, 3.6vw, 3rem); }
+  .section-heading p:not(.label) { color: var(--ink-mid); max-width: 55ch; margin: 0; font-size: 0.9375rem; }
+  .level-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+  .level-row { display: grid; grid-template-columns: 4rem minmax(0, 1fr) minmax(0, 2fr) 1.5rem; gap: 2rem; align-items: center; padding: 1.65rem 0; border-bottom: 1px solid var(--rule-soft); text-decoration: none; }
+  .level-row:hover { background: var(--accent-bg); }
+  .level-number { font-family: var(--mono); font-size: 1.65rem; line-height: 1; color: var(--ink-soft); }
+  .level-row h3 { margin: 0; font-size: clamp(1.25rem, 2.2vw, 1.65rem); }
+  .level-row p { margin: 0; color: var(--ink-mid); font-size: 0.9375rem; line-height: 1.6; }
+  .level-arrow { color: var(--accent); text-align: end; }
+  .section-link { margin: 1.5rem 0 0; font-size: 0.875rem; text-align: end; }
+  .use-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4rem; }
+  .use-steps { list-style: none; margin: 0; padding: 0; }
+  .use-steps li { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 1.5rem; padding: 1.4rem 0; border-top: 1px solid var(--rule-soft); }
+  .step-number { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); margin-top: 0.3rem; }
+  .use-steps h3 { margin: 0 0 0.6rem; font-size: 1.4rem; }
+  .use-steps h3 a { text-decoration: none; }
+  .use-steps p { margin: 0; color: var(--ink-mid); font-size: 0.9375rem; }
+  .example { padding: 2rem; border: 1px solid var(--rule); min-width: 0; }
+  .example > .label { margin: 0 0 1.75rem; }
+  .example-mark { margin-bottom: 1.5rem; }
+  .example-sentence { font-family: var(--serif); font-size: 1.4rem; line-height: 1.45; margin: 0; }
+  .status-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-inline-start: calc(25% + 0.625rem); }
+  .status-grid p { margin: 0; font-size: 0.875rem; color: var(--ink-mid); }
+  @media (max-width: 50rem) {
+    .section-heading { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+    .level-row { grid-template-columns: 2rem minmax(0, 1fr) 1rem; gap: 0.6rem 1rem; padding: 1.25rem 0; }
+    .level-number { grid-row: 1 / 3; align-self: start; margin-top: 0.2rem; }
+    .level-row p { grid-column: 2; }
+    .level-arrow { grid-column: 3; grid-row: 1 / 3; }
+    .use-grid, .status-grid { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+    .status-grid { margin-inline-start: 0; }
+    .example { padding: 1.5rem; }
+    .section-link { text-align: start; }
   }
-
-  /* Each thesis: a mono numeral (the machine's index) above a serif sentence (the human's
-     claim). The type system says which is which, on every line of the page. */
-  .manifesto :global(h3) {
-    counter-increment: thesis;
-    position: relative;
-    font-size: 1.4375rem;
-    line-height: 1.3;
-    margin: 3.25rem 0 0.75rem;
-  }
-  .manifesto :global(h3)::before {
-    content: counter(thesis, decimal-leading-zero);
-    display: block;
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    color: var(--accent);
-    margin-bottom: 0.6rem;
-  }
-
-  .manifesto :global(p) { margin: 0 0 1.15rem; }
-  .manifesto :global(strong) { font-weight: 600; }
-  .manifesto :global(hr) { margin: 3rem 0; border-top: 1px solid var(--rule-soft); }
-  .manifesto :global(.footnotes) { margin-top: 1rem; }
-  .manifesto :global(.footnotes a) { font-family: var(--mono); word-break: break-all; }
-
-  @media (min-width: 62rem) {
-    .manifesto :global(h3)::before {
-      position: absolute;
-      inset-inline-start: -4.5rem;
-      top: 0.45rem;
-      margin: 0;
-      text-align: end;
-      width: 3rem;
-    }
-  }
-
-  .colophon {
-    display: grid;
-    gap: 2.5rem;
-    margin: 5rem 0 0;
-    padding: 2.5rem 0 0;
-    border-top: 1px solid var(--rule);
-  }
-  .after { margin-top: 1.5rem; }
-  .cta {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 0.75rem 1.25rem;
-    background: var(--ink);
-    color: var(--paper);
-    border: 1px solid var(--ink);
-    display: inline-block;
-  }
-  .cta:hover { background: var(--accent); border-color: var(--accent); color: var(--paper); }
 </style>

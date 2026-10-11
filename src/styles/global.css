@@ -1,188 +1,111 @@
 @import './fonts.css';
 
-/*
-  Two typefaces, and they carry meaning rather than decoration.
-
-    Spectral (serif)  — the human voice. Every sentence a person is responsible for.
-    IBM Plex Mono     — the machine layer. Navigation, labels, levels, code, metadata.
-
-  On any page you can see, at a glance, where the human is and where the machine is.
-  That is the argument this site makes, set in type. It is also the one aesthetic risk
-  here, so everything else stays quiet.
-*/
-
 :root {
-  /* Paper, not cream: this is a spec run off on office stock, not a letterpress broadside. */
-  --paper:      #F3F4EF;
-  --band:       #E7EBE2;   /* greenbar — the stripe machine output was printed on for humans to read */
-  --raised:     #FBFBF8;
-  --ink:        #16191B;
-  /* Both greys clear WCAG AA for small text on --paper (mid ≈ 6.5:1, soft ≈ 4.6:1). The soft
-     tone sits right at the floor — darkening it further would collapse the three-step hierarchy. */
-  --ink-mid:    #4F5852;
-  --ink-soft:   #666F69;
-  --rule:       #C2CABD;
-  --rule-soft:  #D8DED2;
-  --accent:     #0B564A;   /* ledger ink. Not a warning colour — there is nothing here to warn about. */
-  --accent-bg:  #0B564A0F;
-
-  /*
-    Spectral and IBM Plex Mono cover Latin, Latin-ext, Cyrillic, Greek and Vietnamese —
-    and nothing else. Chinese, Japanese, Korean, Arabic, Persian, Hindi, Bengali and Thai
-    fall through to the reader's system fonts, on purpose. Shipping a webfont for every
-    script would put megabytes in front of exactly the readers who can least afford them,
-    and a standard that is expensive to read in Hindi is a standard nobody reads in Hindi.
-  */
-  --serif: 'Spectral', 'Songti SC', 'Hiragino Mincho ProN', 'Yu Mincho', 'Apple SD Gothic Neo',
-    'Noto Serif CJK SC', 'Noto Serif Devanagari', 'Noto Serif Bengali', 'Noto Serif Thai',
-    'Geeza Pro', 'Noto Naskh Arabic', Georgia, 'Times New Roman', serif;
-  --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, 'Noto Sans Mono CJK SC',
-    'Noto Sans Mono', monospace;
-
-  /*
-    Two widths, and the second one is earned.
-
-    Prose keeps a measure you can read; everything structured — the level tables, the
-    marks, the snippets, the mapping rows — spans the full document. The earlier single
-    column was right to fear a wide container with a narrow text column, because that
-    leaves a dead strip down one side. Here the strip is occupied: the machine layer
-    fills exactly the space the human layer does not, which is the argument this site
-    makes in type, made in layout.
-
-    50rem at 19px Spectral is ~88 characters. Past the classic 75, and deliberately: the
-    generous line-height and gutters absorb it, and the navigation gets room to breathe
-    across 22 languages without wrapping.
-  */
-  --doc: 50rem;
-  --measure: var(--doc);
-  --wide: 64rem;
-  --gutter: clamp(1.25rem, 4.5vw, 3.5rem);
+  color-scheme: light;
+  --paper: #f8f7f4;
+  --raised: #ffffff;
+  --band: #eeede8;
+  --ink: #202321;
+  --ink-mid: #505650;
+  --ink-soft: #626862;
+  --rule: #c7cac2;
+  --rule-soft: #dedfd8;
+  --accent: #2549a8;
+  --on-accent: #ffffff;
+  --accent-bg: #2549a80d;
+  --serif: 'Spectral', 'Songti SC', 'Hiragino Mincho ProN', 'Yu Mincho',
+    'Noto Serif CJK SC', 'Noto Serif Devanagari', 'Noto Serif Bengali',
+    'Noto Serif Thai', 'Geeza Pro', 'Noto Naskh Arabic', Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans',
+    'Noto Sans Arabic', 'Noto Sans Devanagari', 'Noto Sans Bengali', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --wide: 80rem;
+  --doc: 48rem;
+  --measure: 68ch;
+  --gutter: clamp(1.25rem, 4.5vw, 4.5rem);
 }
 
-/*
-  Theme resolution, in three layers:
-    :root                        → light, the default
-    system dark, unless forced   → dark (the :not() lets a manual "light" win over the OS)
-    [data-theme='dark']          → dark, forced (wins over an OS set to light)
-  The toggle stamps data-theme on <html> and persists it; with no choice stored, the OS decides.
-*/
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --paper:     #16191B;
-    --band:      #1C2022;
-    --raised:    #1E2224;
-    --ink:       #E9ECE7;
-    --ink-mid:   #99A29C;
-    --ink-soft:  #7E8781;  /* ≈ 4.8:1 on the dark paper — AA for the small mono labels */
-    --rule:      #333A36;
-    --rule-soft: #262C29;
-    --accent:    #6FC0AC;
-    --accent-bg: #6FC0AC14;
+    color-scheme: dark;
+    --paper: #191c1b;
+    --raised: #202422;
+    --band: #252a26;
+    --ink: #f0f1eb;
+    --ink-mid: #bec5bb;
+    --ink-soft: #a3ada0;
+    --rule: #525a50;
+    --rule-soft: #373e35;
+    --accent: #a4baff;
+    --on-accent: #191c1b;
+    --accent-bg: #a4baff0d;
   }
 }
 :root[data-theme='dark'] {
-  --paper:     #16191B;
-  --band:      #1C2022;
-  --raised:    #1E2224;
-  --ink:       #E9ECE7;
-  --ink-mid:   #99A29C;
-  --ink-soft:  #7E8781;
-  --rule:      #3A423D;
-  --rule-soft: #2B322E;
-  --accent:    #6FC0AC;
-  --accent-bg: #6FC0AC14;
+  color-scheme: dark;
+  --paper: #191c1b;
+  --raised: #202422;
+  --band: #252a26;
+  --ink: #f0f1eb;
+  --ink-mid: #bec5bb;
+  --ink-soft: #a3ada0;
+  --rule: #525a50;
+  --rule-soft: #373e35;
+  --accent: #a4baff;
+  --on-accent: #191c1b;
+  --accent-bg: #a4baff0d;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-
-html { -webkit-text-size-adjust: 100%; }
-
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 2rem; }
 body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--serif);
-  font-size: 1.1875rem;
-  line-height: 1.65;
-  font-feature-settings: 'onum' 1;
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
+[hidden] { display: none !important; }
+button { font: inherit; }
+svg, img { max-width: 100%; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+::selection { background: var(--accent); color: var(--on-accent); }
 
-/* ── The machine layer ─────────────────────────────────────────── */
-
-.mono, nav, code, pre, kbd, .label, .meta, th, .lv-name, .tick-row {
+.shell { max-width: var(--wide); margin: 0 auto; padding: 0 var(--gutter); }
+main { min-width: 0; }
+.prose { max-width: var(--measure); }
+p, li, dd { overflow-wrap: break-word; }
+.mono, code, pre, kbd, .label, .meta, th, .tick-row {
   font-family: var(--mono);
   font-feature-settings: normal;
 }
-
-.label {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-}
-
-/* ── Links ─────────────────────────────────────────────────────── */
-
-a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
-a:hover { color: var(--accent); }
-
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: 1px;
-}
-
-/* ── Structure ─────────────────────────────────────────────────── */
-
-.shell { max-width: var(--wide); margin: 0 auto; padding: 0 var(--gutter); }
-.prose { max-width: var(--measure); }
-
-/* Structured content is allowed the whole document width; prose is not. Tables, marks and
-   snippets carry their own scan lines, so the extra width buys legibility instead of
-   spending it. A table that has to wrap its own rows is harder to read than a wide one. */
-.levels, .snippet, pre, .wide-out { max-width: none; }
-
-hr, .rule {
-  border: 0;
-  border-top: 1px solid var(--rule);
-  margin: 3.5rem 0;
-}
-
-/* ── Site chrome ───────────────────────────────────────────────── */
+.label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.075em; text-transform: uppercase; color: var(--ink-soft); }
+hr, .rule { border: 0; border-top: 1px solid var(--rule); margin: 3.5rem 0; }
 
 .masthead {
   display: grid;
-  grid-template-columns: 1fr auto; /* wordmark | switcher */
-  align-items: baseline;
-  column-gap: 1.5rem;
-  row-gap: 1.15rem;
-  padding: 1.5rem 0;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.5rem 2rem;
+  padding: 1.6rem 0;
   border-bottom: 1px solid var(--rule);
 }
-.masthead .wordmark { grid-row: 1; grid-column: 1; }
-.masthead .chrome { grid-row: 1; grid-column: 2; justify-self: end; display: flex; align-items: center; gap: 0.5rem; } /* theme toggle + language, pinned to the far edge */
-.masthead nav { grid-row: 2; grid-column: 1 / -1; } /* full-width row of its own */
-
-/* Theme toggle — a bordered square that matches the language pill. The icon is swapped by CSS
-   off the resolved theme (moon in light = "go dark", sun in dark = "go light"), so it is right
-   on first paint even before the click script loads. */
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.85rem;
-  height: 1.85rem;
-  padding: 0;
-  border: 1px solid var(--rule);
-  border-radius: 1px;
-  background: none;
-  color: var(--ink-mid);
-  cursor: pointer;
-}
-.theme-toggle:hover { color: var(--accent); border-color: var(--ink-soft); }
-.theme-toggle svg { width: 15px; height: 15px; display: block; }
+.masthead a { text-decoration: none; }
+.wordmark { display: inline-flex; align-items: center; gap: 0.75rem; font-size: 0.875rem; font-weight: 600; line-height: 1.3; }
+.wordmark-symbol { font-family: var(--mono); font-size: 1.5rem; font-weight: 400; letter-spacing: -0.1em; color: var(--accent); padding-inline-end: 0.2rem; }
+.wordmark-text { max-width: 7rem; }
+.masthead nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem 1.4rem; font-size: 0.8125rem; line-height: 1.6; }
+.masthead nav a { padding: 0.35rem 0; color: var(--ink-mid); }
+.masthead nav a[aria-current='page'] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 0.6em; }
+.chrome { display: flex; align-items: center; gap: 0.5rem; justify-self: end; }
+.theme-toggle { display: none; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; padding: 0; border: 0; background: none; color: var(--ink-mid); cursor: pointer; }
+:root[data-js] .theme-toggle { display: inline-flex; }
+.theme-toggle:hover { color: var(--accent); }
+.theme-toggle svg { width: 18px; height: 18px; }
 .theme-toggle .sun { display: none; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) .theme-toggle .sun { display: block; }
@@ -190,154 +113,68 @@ hr, .rule {
 }
 :root[data-theme='dark'] .theme-toggle .sun { display: block; }
 :root[data-theme='dark'] .theme-toggle .moon { display: none; }
-
-/* Marks displayed on our own pages are the `auto` builds (currentColor ink), so they follow
-   the resolved theme with no swapping. */
-.masthead a { text-decoration: none; }
-.wordmark {
-  font-family: var(--mono);
-  font-weight: 600;
-  font-size: 0.8125rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-/* The name is "AI Usage Scale"; the home is usagescale.org. So "Usage Scale" reads as the
-   word, and "AI" as the qualifier that keeps it unambiguous — present, legible, but not the
-   thing you type. The mark itself still spells "AI USAGE" in full, so any embedded widget
-   stands on its own. */
-.wordmark .q { color: var(--ink-soft); font-weight: 500; }
-.masthead nav { display: flex; flex-wrap: wrap; gap: 1.25rem; font-size: 0.8125rem; }
-.masthead nav a { color: var(--ink-mid); }
-.masthead nav a[aria-current='page'] { color: var(--ink); text-decoration-color: var(--accent); }
-
-.foot {
-  margin-top: 6rem;
-  padding: 2.5rem 0 4rem;
-  border-top: 1px solid var(--rule);
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  line-height: 1.9;
-  color: var(--ink-mid);
-}
-.foot .cols { display: grid; gap: 1.75rem; grid-template-columns: 1fr; }
-@media (min-width: 34rem) { .foot .cols { grid-template-columns: 1fr 1fr; } }
-
-/* ── Headings ──────────────────────────────────────────────────── */
-
-h1, h2, h3 { font-weight: 600; line-height: 1.18; text-wrap: balance; }
-h1 { font-size: clamp(2.125rem, 5.5vw, 3.25rem); letter-spacing: -0.022em; margin: 0 0 0.5rem; }
-/* A section opens on a rule the width of the document. In a reference text the reader is
-   scanning for the next section, not reading into it, so the break has to be visible from
-   the edge of the page rather than inferred from a size change. */
-h2 {
-  font-size: clamp(1.5rem, 2.2vw, 1.75rem);
-  letter-spacing: -0.012em;
-  margin: 3.5rem 0 0.9rem;
-  padding-top: 1.1rem;
-  border-top: 1px solid var(--rule-soft);
-}
-h3 { font-size: 1.1875rem; margin: 2rem 0 0.5rem; }
-
-.standfirst {
-  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
-  font-style: italic;
-  color: var(--ink-mid);
-  margin: 0 0 2rem;
-  text-wrap: balance;
+@media (max-width: 65rem) {
+  .masthead { grid-template-columns: 1fr auto; gap: 1rem; }
+  .masthead nav { grid-row: 2; grid-column: 1 / -1; justify-content: flex-start; }
+  .masthead .chrome { grid-row: 1; grid-column: 2; }
 }
 
-/* ── Position indicator: six marks, one filled ─────────────────── */
-/* A position on a scale, never a quantity in a tank. A fuel gauge would read
-   "fuller is worse", and that reading is the thing we are trying to kill. */
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.16; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 5.5vw, 4.75rem); letter-spacing: -0.035em; margin: 0 0 1rem; }
+h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); letter-spacing: -0.025em; margin: 3.5rem 0 1rem; padding-top: 1.5rem; border-top: 1px solid var(--rule-soft); }
+h3 { font-size: 1.4rem; margin: 2rem 0 0.7rem; }
+strong { font-weight: 600; }
+.standfirst { font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--ink-mid); margin: 0 0 2rem; max-width: 60ch; }
+.button { display: inline-flex; justify-content: center; align-items: center; gap: 1.5rem; padding: 0.85rem 1.25rem; border: 1px solid var(--accent); background: var(--accent); color: var(--on-accent); font-size: 0.875rem; font-weight: 500; line-height: 1.5; text-decoration: none; }
+.button:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.text-link { color: var(--ink-mid); font-size: 0.875rem; }
+.arrow { display: inline-block; }
+[dir='rtl'] .arrow { transform: scaleX(-1); }
 
 .tick-row { display: inline-flex; gap: 3px; align-items: center; }
-.tick { width: 3px; height: 6px; background: currentColor; opacity: 0.28; }
+.tick { width: 3px; height: 6px; background: currentColor; opacity: 0.35; }
 .tick[data-on] { height: 14px; opacity: 1; }
-
-/* ── Level table (greenbar) ────────────────────────────────────── */
-
+[dir='rtl'] .tick-row { flex-direction: row-reverse; }
 .levels { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.9375rem; }
-.levels td, .levels th { padding: 1.05rem 1.1rem; text-align: start; vertical-align: baseline; }
-.levels thead th {
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 0.6rem;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-}
-/* The band still marks alternate rows, but a hairline under every row is what lets the eye
-   track one row across three columns. Zebra alone stops working the moment a cell wraps. */
+.levels td, .levels th { padding: 1rem; text-align: start; vertical-align: top; }
+.levels thead th { border-bottom: 1px solid var(--rule); font-size: 0.75rem; font-weight: 500; color: var(--ink-soft); }
 .levels tbody tr { border-bottom: 1px solid var(--rule-soft); }
-.levels tbody tr:nth-child(odd) { background: var(--band); }
 .levels tbody tr:hover { background: var(--accent-bg); }
-.levels .n { font-family: var(--mono); font-weight: 600; font-size: 1.375rem; width: 1.5em; }
-.levels .lv-name { font-weight: 600; font-size: 0.8125rem; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
-.levels .desc { font-family: var(--serif); color: var(--ink-mid); }
+.levels .n { font-family: var(--mono); font-size: 1.25rem; width: 3rem; }
+.levels .lv-name { font-size: 0.9375rem; font-weight: 600; }
+.levels .desc { color: var(--ink-mid); }
 .levels a { text-decoration: none; }
-.levels tr:hover .lv-name { color: var(--accent); }
-/* On a phone, a long translated name in a nowrap cell would push the table — and with it the
-   whole page — into horizontal scroll. Let the name wrap below the comfortable width. */
-@media (max-width: 32rem) { .levels .lv-name { white-space: normal; } }
-
-/* A multi-column mapping table has a floor below which columns stop being columns. Rather
-   than let it push the page into horizontal scroll, the table scrolls inside its own box and
-   says so to a keyboard user. */
 .levels-scroll { overflow-x: auto; margin: 2rem 0; }
-.levels-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.levels-scroll .levels { margin: 0; min-width: 34rem; }
+.levels-scroll .levels { margin: 0; min-width: 38rem; }
 
-/* ── Code ──────────────────────────────────────────────────────── */
-
-pre, .code {
-  background: var(--raised);
-  border: 1px solid var(--rule-soft);
-  padding: 1rem 1.125rem;
-  overflow-x: auto;
-  font-size: 0.8125rem;
-  line-height: 1.7;
-  margin: 1.25rem 0;
-}
-/* Keep the code clear of the copy button, which floats over the top-right corner. */
-.snippet pre { padding-inline-end: 5rem; }
-:not(pre) > code {
-  background: var(--accent-bg);
-  padding: 0.1em 0.35em;
-  font-size: 0.875em;
-}
-
-/* ── Copy button ───────────────────────────────────────────────── */
-
-.snippet { position: relative; }
-.snippet button {
-  position: absolute; top: 8px; inset-inline-end: 8px;
-  font-family: var(--mono); font-size: 0.625rem; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 0.35rem 0.6rem;
-  background: var(--paper); color: var(--ink-mid);
-  border: 1px solid var(--rule); cursor: pointer;
-}
+pre, .code { max-width: 100%; background: var(--raised); border: 1px solid var(--rule-soft); padding: 1.25rem; overflow-x: auto; font-size: 0.8125rem; line-height: 1.8; margin: 1.25rem 0; }
+:not(pre) > code { background: var(--accent-bg); padding: 0.1em 0.3em; font-size: 0.875em; overflow-wrap: anywhere; }
+.snippet { position: relative; min-width: 0; }
+.snippet pre { padding-top: 3.5rem; }
+.snippet button { display: none; position: absolute; top: 8px; inset-inline-end: 8px; min-height: 2.5rem; font-family: var(--sans); font-size: 0.8125rem; padding: 0.4rem 0.7rem; background: var(--paper); color: var(--ink-mid); border: 1px solid var(--rule); cursor: pointer; }
+:root[data-js] .snippet button { display: block; }
 .snippet button:hover { color: var(--accent); border-color: var(--accent); }
 
-/* ── Footnotes (the manifesto cites its sources; a manifesto that throws
-       numbers around without them is a blog post) ─────────────── */
-
-.footnotes { font-size: 0.8125rem; line-height: 1.8; color: var(--ink-mid); }
+.foot { margin-top: 6rem; padding: 2.5rem 0 3rem; border-top: 1px solid var(--rule); font-size: 0.8125rem; line-height: 1.8; color: var(--ink-mid); }
+.foot .cols { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 2rem; }
+.foot-brand { color: var(--ink); font-size: 1rem; }
+.foot p { margin: 0.5rem 0; }
+.foot .label { margin-bottom: 0.8rem; }
+.foot a { display: inline-block; padding: 0.15rem 0; }
+.foot-note { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--rule-soft); max-width: var(--measure); }
+.reference-notice { margin: 1.25rem 0; color: var(--ink-soft); font-size: 0.8125rem; }
+.footnotes { font-size: 0.875rem; line-height: 1.8; color: var(--ink-mid); }
 .footnotes ol { padding-inline-start: 1.25rem; }
-.footnotes li { margin-bottom: 0.5rem; }
-[data-footnote-ref] { font-family: var(--mono); font-size: 0.7em; text-decoration: none; padding: 0 0.15em; color: var(--accent); }
-
+.footnotes li { margin-bottom: 0.6rem; }
+[data-footnote-ref] { font-size: 0.75em; color: var(--accent); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 40rem) {
+  .foot .cols { grid-template-columns: 1fr 1fr; }
+  .foot .cols > :first-child { grid-column: 1 / -1; }
+  .levels td, .levels th { padding: 0.75rem 0.5rem; }
+}
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
-
-/* Several of the scripts we serve have no italic tradition, and a synthesised oblique on
-   Arabic, Thai or CJK looks like a rendering fault rather than emphasis. */
 :is([lang='ar'], [lang='fa'], [lang='zh'], [lang='ja'], [lang='ko'], [lang='th'], [lang='hi'], [lang='bn'])
-  :is(.standfirst, em, i, .pull, .lv-eg, .why, .fineprint p, blockquote) {
-  font-style: normal;
-}
-
-/* RTL: the accent rule and the position ticks read from the other side. */
-[dir='rtl'] .tick-row { flex-direction: row-reverse; }
+  :is(em, i, .pull, .lv-eg, .why, .fineprint p, blockquote) { font-style: normal; }
