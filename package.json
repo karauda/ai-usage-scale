@@ -19,7 +19,7 @@
     "verify": "npm run build && npm test && npm run check:dist"
   },
   "dependencies": {
-    "astro": "^5.6.1"
+    "astro": "^7.3.8"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
