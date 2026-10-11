@@ -1,16 +1,16 @@
 ---
-import Base from '../../layouts/Base.astro';
+import Document from '../../layouts/Document.astro';
 import { CASES } from '../../data/cases';
 import { localeParams, localePath } from '../../lib/i18n';
 export const getStaticPaths = localeParams;
 const { lang } = Astro.props;
 const L = (p: string) => localePath(lang, p);
 ---
-<Base lang={lang} path="/cases" translated={false}
+<Document sections={[...CASES.map(c => ({ href: '#' + c.slug, label: c.level + ' · ' + c.title })), { href: '#boundary', label: 'Open boundary' }]} navLabel="Worked examples" lang={lang} path="/cases" translated={false}
   title="Worked examples — AI Usage Scale"
   description="Six illustrative workflows, classified against the AI Usage Scale definitions."
   breadcrumb={[[ 'Worked examples', '/cases' ]]}>
-  <header class="prose">
+  <header slot="header" class="prose">
     <p class="label">Applying the definitions</p>
     <h1>Worked examples</h1>
     <p class="standfirst">A number becomes useful when the process behind it is clear.</p>
@@ -21,7 +21,7 @@ const L = (p: string) => localePath(lang, p);
     <a class="number" href={L('/' + c.level)} aria-label={`Level ${c.level}`}>{c.level}</a>
     <div><h2>{c.title}</h2><p>{c.process}</p><p class="reason">{c.reasoning}</p></div>
   </article>)}</div>
-  <aside class="prose">
+  <aside id="boundary" class="prose">
     <h2>An unresolved boundary</h2>
     <p>Supplying original human notes does not establish that a generated work was reviewed.
       The current decision tree can suggest Level 3 without checking review, while its definition
@@ -33,11 +33,9 @@ const L = (p: string) => localePath(lang, p);
       To submit a real classification case, include a description of the workflow and primary evidence
       in a <a href="https://github.com/karauda/ai-usage-scale/issues">GitHub issue</a>.</p>
   </aside>
-</Base>
+</Document>
 <style>
-  header { margin: 3rem 0; }
-  h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); }
-  .examples { margin: 3rem 0; }
+  .examples { margin: 0; }
   article { display: grid; grid-template-columns: 5rem minmax(0, 42rem); gap: 2rem; padding: 2rem 0; border-top: 1px solid var(--rule); }
   .number { font-family: var(--serif); font-size: 4.5rem; line-height: 1; text-decoration: none; color: var(--ink); }
   article h2 { font-size: 1.8rem; margin-top: 0; }

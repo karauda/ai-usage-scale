@@ -15,7 +15,7 @@ const Container = collapsible ? 'details' : 'div';
   {collapsible ? <summary class="label">{label}</summary> : <p class="label">{label}</p>}
   {note && <p class="note">{note}</p>}
   <div class="snippet">
-    <pre tabindex={collapsible ? 0 : undefined} role={collapsible ? 'region' : undefined}
+    <pre dir="auto" tabindex={collapsible ? 0 : undefined} role={collapsible ? 'region' : undefined}
       aria-label={collapsible ? label : undefined}><code>{code}</code></pre>
     {/*
       The copy button carries its own labels, so the script never has to know the language.

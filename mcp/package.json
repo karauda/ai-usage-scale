@@ -1,6 +1,6 @@
 {
   "name": "usagescale-mcp",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "The AI Usage Scale as an MCP server — classify a work, look up a level, read the spec. Runs locally over stdio, no network.",
   "type": "module",
   "bin": {

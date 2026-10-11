@@ -122,7 +122,7 @@ export function embedHtml(id: number): string {
 
 /** The metadata that lets machines read the same declaration. */
 export function embedMeta(id: number): string {
-  const l = byId(id);
+  byId(id);
   return `<!-- AI Usage Scale proposal; custom metadata, not a registered standard -->
 <meta name="ai-usage" content="${id}">
 <meta name="ai-usage-standard" content="https://usagescale.org">

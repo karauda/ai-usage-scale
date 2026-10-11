@@ -58,7 +58,7 @@ A declaration grants no training permission. Licensing, consent, terms and acces
 
 ## Status and evidence
 
-The published vocabulary is version **1.3.0**. English is the normative source. Core pages are available in **22 languages**; the 21 translations are labelled as machine translations pending fluent human review. Some developer and policy references remain in English.
+The published vocabulary is version **1.3.1**. English is the normative source. Core pages are available in **22 languages**; the 21 translations are labelled as machine translations pending fluent human review. Some developer and policy references remain in English.
 
 As of **10 October 2026**, two CHAOSS repositories reference the project in related-tools lists. A diarie backlog records deferred interest. This audit verified no independent, public production declaration; references and interest are not deployments or endorsements. See [the evidence](docs/ADOPTERS.md).
 
@@ -78,7 +78,7 @@ The current website revision was produced with AI assistance and awaits human ed
 
 `spec/levels.json` is the canonical source. Pin a [release](https://github.com/karauda/ai-usage-scale/releases) when reproducing a declaration. The schemas validate structure and consistency, not the truth of a publisher’s claim.
 
-The repository includes a [local MCP server](mcp/README.md). **The package is not currently published on npm**; install it from source or the archive attached to [release v1.3.0](https://github.com/karauda/ai-usage-scale/releases/tag/v1.3.0). It exposes classification, level lookup and the full vocabulary over stdio.
+The repository includes a [local MCP server](mcp/README.md). **The package is not currently published on npm**; install it from source or the archive attached to [release v1.3.1](https://github.com/karauda/ai-usage-scale/releases/tag/v1.3.1). It exposes classification, level lookup and the full vocabulary over stdio.
 
 ## Development
 
