@@ -31,7 +31,10 @@ try {
   page.on('pageerror', error => errors.push(error.message));
   page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
   const external = [];
-  page.on('request', request => { if (!request.url().startsWith(origin) && !request.url().startsWith('data:')) external.push(request.url()); });
+  page.on('request', request => {
+    const url = new URL(request.url());
+    if (url.origin !== origin && url.protocol !== 'data:') external.push(request.url());
+  });
   const locales = readdirSync('src/i18n').filter(file => file.endsWith('.json')).map(file => file.replace('.json', ''));
 
   await check('22 homepages fit desktop, tablet and 320px mobile viewports', async () => {

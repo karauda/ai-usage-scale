@@ -14,7 +14,8 @@ export interface Level {
   examples: string[];
   sentences: { short: string; medium: string; long: string };
   mappings: {
-    w3cAiDisclosure: string;
+    w3cAiDisclosure: string | null;
+    w3cAiDisclosureNote?: string;
     iptcDigitalSourceType: string;
     iptcNote?: string;
     schemaOrgAiUsageLevel: number;
@@ -125,9 +126,6 @@ export function embedMeta(id: number): string {
   return `<!-- AI Usage Scale proposal; custom metadata, not a registered standard -->
 <meta name="ai-usage" content="${id}">
 <meta name="ai-usage-standard" content="https://usagescale.org">
-
-<!-- Experimental syntax aligned with discussions in the W3C AI Content Disclosure Community Group; not a W3C standard -->
-<meta name="ai-disclosure" content="${l.mappings.w3cAiDisclosure}">
 
 <!-- AI Usage Scale -->
 <link rel="ai-disclosure" href="https://usagescale.org/${id}">

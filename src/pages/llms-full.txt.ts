@@ -35,7 +35,8 @@ Disclosure sentences:
 
 Suggested mappings:
 - Custom ai-usage: ${l.id} (not a registered standard)
-- Experimental ai-disclosure: ${l.mappings.w3cAiDisclosure} (not a W3C Recommendation)
+- Candidate text-only ai-disclosure: ${l.mappings.w3cAiDisclosure ?? 'scope/review dependent'} (not a W3C Recommendation)
+- CG scope and review note: ${l.mappings.w3cAiDisclosureNote ?? ''}
 - Suggested IPTC digital source type: ${l.mappings.iptcDigitalSourceType}
 - IPTC note: ${l.mappings.iptcNote ?? ''}
 - Illustrative EU icon: ${l.mappings.euAiActIcon ?? 'none suggested'}

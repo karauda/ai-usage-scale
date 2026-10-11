@@ -138,7 +138,7 @@ const L = (p: string) => localePath(lang, p);
           LEVELS.map((l) => (
             <tr>
               <td class="n">{l.id}</td>
-              <td><code>{l.mappings.w3cAiDisclosure}</code></td>
+              <td><code>{l.mappings.w3cAiDisclosure ?? 'scope/review dependent'}</code></td>
               <td><code>{l.mappings.iptcDigitalSourceType.split('/').pop()}</code></td>
             </tr>
           ))
@@ -146,6 +146,11 @@ const L = (p: string) => localePath(lang, p);
       </tbody>
     </table>
     <p class="caveat prose">{t.ui.specPage.lossy}</p>
+    <p class="prose" lang="en">The Community Group's 9 October 2026 report uses
+      <code>human-only</code>, <code>ai-assisted</code> and <code>ai-autonomous</code> for text.
+      Levels 1 and 2 do not determine a value without the text's scope and actual review state.
+      A Level 3 candidate requires the meaningful review in its full definition. Generic scale
+      snippets omit the separate CG declaration so that publishers can assess it independently.</p>
   </section>
 
   <section id="machine">
@@ -159,8 +164,6 @@ const L = (p: string) => localePath(lang, p);
 <meta name="ai-usage" content="3">
 <meta name="ai-usage-standard" content="https://usagescale.org">
 
-<!-- Experimental metadata; not a W3C standard -->
-<meta name="ai-disclosure" content="ai-generated">
 <link rel="ai-disclosure" href="https://usagescale.org/3">`}</code></pre>
 
     <p class="prose">{t.ui.specPage.wellKnown}</p>

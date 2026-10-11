@@ -30,6 +30,8 @@ The public submission should link to release v1.3.0 and reflect the surrounding 
 
 The W3C group's [contribution rules](https://github.com/w3c-cg/ai-content-disclosure/blob/main/CONTRIBUTING.md) require Community Group membership for substantive specification contributions. The initial submission is a related-work listing request through its public issue tracker. A normative contribution or participation agreement requires a separate maintainer decision.
 
+The current [CG report](https://w3c-cg.github.io/ai-content-disclosure/), approved for publication on 9 October 2026, uses three text values: `human-only`, `ai-assisted` and `ai-autonomous`. Older discussion comments use four values. The public submission must distinguish those dated proposals from the current report.
+
 ## Technical starting point
 
 The existing vocabulary representation uses [DefinedTermSet](https://schema.org/DefinedTermSet) and [DefinedTerm](https://schema.org/DefinedTerm). A custom work declaration must identify its own term IRI:

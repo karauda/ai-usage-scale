@@ -62,7 +62,7 @@ The published vocabulary is version **1.3.0**. English is the normative source. 
 
 As of **10 October 2026**, two CHAOSS repositories reference the project in related-tools lists. A diarie backlog records deferred interest. This audit verified no independent, public production declaration; references and interest are not deployments or endorsements. See [the evidence](docs/ADOPTERS.md).
 
-This is an independent proposal. Suggested IPTC mappings, experimental W3C Community Group metadata and C2PA comparisons do not imply acceptance by those organisations. [Schema.org issue #3391](https://github.com/schemaorg/schemaorg/issues/3391) is a relevant public discussion; a [submission draft](docs/STANDARDS-SUBMISSION.md) is prepared for review.
+This is an independent proposal. Suggested IPTC mappings, conditional W3C Community Group text mappings and C2PA comparisons do not imply acceptance by those organisations. The CG's 9 October 2026 report uses three text values; Levels 1 and 2 need additional scope/review information. [Schema.org issue #3391](https://github.com/schemaorg/schemaorg/issues/3391) is a relevant public discussion; [submissions and pilots](https://github.com/karauda/ai-usage-scale/issues/11) are tracked publicly.
 
 The current website revision was produced with AI assistance and awaits human editorial review. It does not automatically declare its own content to be Level 3.
 

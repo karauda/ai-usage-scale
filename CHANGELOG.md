@@ -12,6 +12,7 @@ This website and tooling revision preserves the v1.2.0 classification criteria a
 - Retire the maintainer-only signature list and redirect its URLs to project information. Retain the original English manifesto in the historical archive.
 - Remove assumed Level 3 website metadata and unsupported human-approval statements. Record pending editorial and translation review.
 - Correct JSON-LD to use an explicit project extension. Add vocabulary validation and declaration consistency checks.
+- Update CG mapping candidates to the 9 October 2026 text vocabulary. Levels 1 and 2 now return `null` for `w3cAiDisclosure` because scope/review must be assessed separately; generic snippets no longer infer a CG declaration from the numeric level.
 - Replace unreliable classifications of third-party works with illustrative workflows. Distinguish public references from verified adoption.
 - Correct policy explanations, privacy statements, licensing scope, citation metadata and MCP installation instructions.
 - Remove the editorial Level 5 claim that disclosure makes a work legitimate, in every language; retain its classification criteria.

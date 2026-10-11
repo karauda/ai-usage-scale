@@ -144,7 +144,7 @@ const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
         <tbody>
           <tr>
             <td class="lv-name">Experimental ai-disclosure</td>
-            <td><code>{l.mappings.w3cAiDisclosure}</code></td>
+            <td><code>{l.mappings.w3cAiDisclosure ?? 'scope/review dependent'}</code></td>
           </tr>
           <tr>
             <td class="lv-name">IPTC</td>
@@ -156,6 +156,9 @@ const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
           </tr>
         </tbody>
       </table>
+      <p class="prose" lang="en">{l.mappings.w3cAiDisclosureNote} The Community Group report covers text;
+        the number alone does not identify the text's scope or review state. Choose any
+        <code>ai-disclosure</code> declaration against that report's procedure.</p>
     </section>
 
     <section>

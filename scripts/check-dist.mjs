@@ -162,7 +162,8 @@ check('loaded resources stay local and the CSP covers the theme script', () => {
     const html = read(file);
     for (const match of html.matchAll(resource)) {
       const url = match[1] ?? match[2] ?? match[3];
-      ok(url.startsWith('/') || url.startsWith('data:') || url.startsWith('https://usagescale.org'), file + ': external resource ' + url);
+      const resourceUrl = new URL(url, 'https://usagescale.org');
+      ok(resourceUrl.protocol === 'data:' || (resourceUrl.origin === 'https://usagescale.org' && !resourceUrl.username && !resourceUrl.password), file + ': external resource ' + url);
     }
     const csp = html.match(/http-equiv="content-security-policy"\s+content="([^"]*)"/i)?.[1];
     ok(csp?.includes("default-src 'self'") && csp.includes("connect-src 'none'"), file + ': weak CSP');

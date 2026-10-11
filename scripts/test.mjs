@@ -80,21 +80,15 @@ check('exactly six levels, 0 through 5', () => {
   eq(spec.levels.map((l) => l.id), [0, 1, 2, 3, 4, 5]);
 });
 
-check('every level maps to one experimental ai-disclosure value', () => {
+check('CG mapping candidates use the current text vocabulary and expose uncertainty', () => {
   const valid = new Set(spec.interop.w3c.values);
+  eq([...valid], ['human-only', 'ai-assisted', 'ai-autonomous']);
   for (const l of spec.levels) {
-    ok(valid.has(l.mappings.w3cAiDisclosure), `Level ${l.id} → "${l.mappings.w3cAiDisclosure}" is not a W3C value`);
+    ok(l.mappings.w3cAiDisclosure === null || valid.has(l.mappings.w3cAiDisclosure), `Level ${l.id} has an obsolete CG mapping`);
+    ok(l.mappings.w3cAiDisclosureNote?.length, `Level ${l.id} needs scope/review guidance`);
   }
-});
-
-check('the experimental mapping is monotonic (a higher level never claims less AI)', () => {
-  const rank = { none: 0, 'ai-assisted': 1, 'ai-generated': 2, autonomous: 3 };
-  let prev = -1;
-  for (const l of spec.levels) {
-    const r = rank[l.mappings.w3cAiDisclosure];
-    ok(r >= prev, `Level ${l.id} (${l.mappings.w3cAiDisclosure}) ranks below Level ${l.id - 1}`);
-    prev = r;
-  }
+  eq(spec.levels[1].mappings.w3cAiDisclosure, null);
+  eq(spec.levels[2].mappings.w3cAiDisclosure, null);
 });
 
 check('every level maps to a real IPTC digital source type', () => {
