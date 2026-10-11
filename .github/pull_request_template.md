@@ -1,16 +1,17 @@
-## What this changes
+## Change
 
-<!-- One sentence. -->
+Describe the resulting behaviour and why it is needed.
 
-## Does it change what a level *means*?
+## Compatibility
 
-- [ ] **No** — wording, docs, code, a new edge case, a translation.
-- [ ] **Yes** — work that used to land on one number now lands on another.
+Does an existing workflow move to a different number? If so, identify the workflows and the proposed major version. Metadata repairs and editorial changes should be described separately.
 
-If yes: this invalidates declarations already published against the old definition, so it
-is a **breaking change**. Say which levels move, and which real cases change hands.
+## Verification
 
-## Checks
+- [ ] `npm run verify`
+- [ ] `npm run test:browser` for layout or interaction changes
+- [ ] `npm run test:server --prefix mcp` for MCP changes
+- [ ] Generated assets are current
+- [ ] Translation review status matches the actual review performed
 
-- [ ] `npm test` passes
-- [ ] If `spec/levels.json` changed: `npm run badges` was run and `public/badge/` is committed
+Include any failures, unverified claims or checks that were not run.

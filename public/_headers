@@ -5,9 +5,15 @@
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
-/levels.json
+/*.json
   Access-Control-Allow-Origin: *
   Cache-Control: public, max-age=3600
+
+/spec.schema.json
+  Content-Type: application/schema+json; charset=utf-8
+
+/levels.schema.json
+  Content-Type: application/schema+json; charset=utf-8
 
 /*
   X-Content-Type-Options: nosniff

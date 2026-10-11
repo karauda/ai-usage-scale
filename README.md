@@ -1,157 +1,117 @@
-<div align="center">
+# AI Usage Scale
 
-# The AI Usage Scale
+An independent, open vocabulary for declaring how generative AI contributed to a work and whether a person reviewed it before publication.
 
-**An open standard for declaring how a work was made — whose knowledge it carries, and who stands behind it.**
+[Website](https://usagescale.org) · [Definitions](https://usagescale.org/scale) · [Find your level](https://usagescale.org/find-your-level) · [Specification](https://usagescale.org/spec) · [Project status](https://usagescale.org/project)
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="public/badge/3-name-dark.svg">
-  <img src="public/badge/3-name.svg" alt="AI Usage Scale: Level 3 — Directed. The substance is yours. AI produced the form." height="24">
-</picture>
+The scale describes a process. A number is a publisher’s self-declaration, not a quality score, authorship certificate, detector result or legal compliance assessment. An absent declaration means the process is unknown.
 
-Six levels. Free. CC0. No account, no fee, no committee.
+## Six levels
 
-[usagescale.org](https://usagescale.org) · [The manifesto](https://usagescale.org) · [Find your level](https://usagescale.org/find-your-level) · [Specification](https://usagescale.org/spec) · [`levels.json`](https://usagescale.org/levels.json)
-
-</div>
-
----
-
-> **There is no shameful level. There is only an undeclared one.**
-
-"Made with AI" is one checkbox for everything from a spell-check to an unattended content farm. It tells readers nothing, and it punishes the people honest enough to tick it. The **AI Usage Scale** replaces that binary with **six levels, 0–5**, that a creator self-declares in thirty seconds and links to a public definition. It records *what the model did, whose substance the work carries, and whether a human reviewed it before publication* — not how many words a model emitted. No account, no detector, no registry, no fee. It is [CC0](LICENSES.md), it interoperates with IPTC, C2PA and the W3C disclosure work, and it ships in 22 languages.
-
-<sub>An open standard for **AI disclosure** and **AI content transparency** — a **generative-AI usage label** and **AI attribution / content-provenance** vocabulary for **disclosing AI use** in text, images, audio, video and code. A human-vs-AI **authorship scale**, CC0 and interoperable with **C2PA**, **IPTC Digital Source Type** and the **W3C AI Content Disclosure** work.</sub>
-
----
-
-## The problem this exists for
-
-Every fight about AI and authorship currently runs through a label with two settings.
-
-That label puts the surgeon who dictated thirty years of practice into a model and corrected every line, and the script that emitted ten thousand pages last night while its owner slept, into the same three words. It cannot tell them apart, so it tells you nothing — and the people it punishes hardest are the ones who were honest enough to tick the box.
-
-This is measurable, and it has a name. In a pre-registered study, people said disclosure of AI use was important — and then rated the disclosed work lower. The authors' own words: this *"risks creating perverse incentives for non-disclosure."* Meanwhile TikTok now lets viewers choose **how much** AI they see, and Pinterest lets them ask for less.
-
-**The audience already has a dial. The creator still has only a switch.**
-
-## The scale
-
-| | | |
+| Level | Name | Description |
 |---|---|---|
-| **0** | **Human** | No generative AI was used. |
-| **1** | **Assisted** | AI worked only on material you had already made. It invented nothing. |
-| **2** | **Co-created** | You made most of the final form. AI made parts of it that stayed. |
-| **3** | **Directed** | The substance is yours. AI produced the form. |
-| **4** | **Prompted** | AI produced the substance and the form. You asked, you checked, you are accountable. |
-| **5** | **Automated** | AI produced the substance and the form. No human read it before it was published. |
+| 0 | Human | No generative AI was used. |
+| 1 | Assisted | AI supported research or mechanically processed human material; no new model-originated material remains. |
+| 2 | Co-created | The human made most of the final form; AI-created parts remain. |
+| 3 | Directed | Original human substance materially determines the work; AI supplies most of the form, with meaningful human review. |
+| 4 | Prompted | AI supplies substance and form; a human meaningfully reviews the work before publication. |
+| 5 | Automated | AI supplies substance and form; no human reviews the output before publication. |
 
-Five yes/no questions decide it:
+Read the [complete definitions](spec/levels.json) and edge cases before declaring a level. Text, image, audio, video, code and data may have different levels; an optional surfaces object records those differences.
 
+**Known boundary:** the current decision tree can suggest Level 3 before checking human review, although the definition requires it. That suggestion needs verification against the definition. Resolving the unreviewed, human-substance case requires an explicit specification decision; this revision preserves the existing level meanings.
+
+## Use a declaration
+
+Choose a definition and link to it. For example, for a work that satisfies Level 3:
+
+```text
+AI Usage Scale: Level 3 (Directed) — https://usagescale.org/3
 ```
-Was any generative AI used?                                  no  → 0
-Did AI produce new material that survived into the work
-  (beyond mechanically processing what you already made)?    no  → 1
-Did you make most of the final form yourself?                yes → 2
-Is the substance yours — knowledge, data, argument?          yes → 3
-Did a human review it before publication?                    yes → 4   no → 5
-```
 
-**No level ranks above another.** Level 5 is the honest answer for an automated market report; Level 0 is the honest answer for a memoir. A scale that ranks its own levels is a shame ladder, and everyone lies their way down it. The only dishonest level is an undeclared one.
+Each [level page](https://usagescale.org/3) includes disclosure sentences and self-contained SVG marks. Downloaded or inline marks need no request to this website. Hosted badge URLs remain available; loading them sends a request to the hosting provider.
 
-## Use it
-
-Copy the inline SVG from any level page. It is self-contained: no external font, no external file, **no request back to us**. A hotlinked badge is a tracking pixel on your page, and a standard whose subject is honesty has no business shipping one.
+Optional project metadata:
 
 ```html
-<a href="https://usagescale.org/3" rel="ai-disclosure"
-   title="The knowledge, data and argument are the author's; AI produced the text from them.">
-  <svg …><!-- 5 KB, self-contained --></svg>
-</a>
-```
-
-Where an image cannot go — a search-result description, a bio, an email signature:
-
-```
-AI Usage Scale: Level 3 (Directed) — usagescale.org/3
-```
-
-And for machines:
-
-```html
-<!-- AI Usage Scale proposal; custom metadata, not a registered standard -->
 <meta name="ai-usage" content="3">
 <meta name="ai-usage-standard" content="https://usagescale.org">
-
-<!-- Experimental W3C Community Group alignment; not a W3C standard -->
-<meta name="ai-disclosure" content="ai-generated">
 <link rel="ai-disclosure" href="https://usagescale.org/3">
 ```
 
-These fields describe how the work was made. They do not grant or deny training rights;
-licences, terms and access controls remain authoritative.
+These names are project conventions. For JSON-LD, identify the extension explicitly:
 
-## We are not another standard to compete with
-
-The [W3C AI Content Disclosure Community Group](https://www.w3.org/groups/cg/ai-content-disclosure/) is discussing syntax for four broad disclosure states, but it has not published a W3C standard. The `ai-disclosure` metadata above is therefore experimental. Every level also maps to an established [IPTC Digital Source Type](https://cv.iptc.org/newscodes/digitalsourcetype/), which can travel in IPTC metadata and C2PA manifests.
-
-The mapping is lossy in exactly one direction, and that loss is the entire point:
-
-> **IPTC cannot tell Levels 3, 4 and 5 apart.** It has no term for *whose substance this is*, and none for *whether a person read it*. Those are the two questions readers actually care about.
-
-C2PA provides signed, tamper-evident provenance for an asset. Its core specification does not attribute content to individuals or organisations; anyone can implement it, while participation in its official trust model requires conformance and trusted signing credentials. **Provenance can be proven. Contribution can only be declared.** So can a byline. So can a nutrition label. Civilisation runs on claims that are cheap to make and expensive to break.
-
-## 22 languages, and every translation says what it is
-
-The standard is published in 22 languages: العربية (`ar`), বাংলা (`bn`), Deutsch (`de`), English (`en`), Español (`es`), فارسی (`fa`), Français (`fr`), हिन्दी (`hi`), Bahasa Indonesia (`id`), Italiano (`it`), 日本語 (`ja`), 한국어 (`ko`), Nederlands (`nl`), Polski (`pl`), Português (`pt`), Русский (`ru`), Svenska (`sv`), ไทย (`th`), Türkçe (`tr`), Українська (`uk`), Tiếng Việt (`vi`), 简体中文 (`zh`).
-
-Every translation other than English is machine-produced — and **each one says so on the page**, in the reader's language, above the fold. That is not a disclaimer. It is the scale's own [translation rule](https://usagescale.org/spec#translation) applied to the scale: *a faithful translation inherits the level of the source work and adds a translation note.*
-
-Twenty-one silent machine translations of a transparency standard would have discredited it on day one. An honest one costs nothing and proves the thing works.
-
-The **mark** does not translate. "AI USAGE 3" is the standard's name the way "CC BY" is Creative Commons' — the number is the universal code. What travels with it in every language is the definition, the sentence you paste, and the text a screen reader speaks.
-
-## This repository declares its own level
-
-**Level 3 — Directed.** The diagnosis, the argument, and every design decision in the scale are the author's. The research and the prose were produced with a large language model, then read, corrected, and signed line by line.
-
-That is exactly the case this standard defends. Hiding it would have been absurd.
-
-## Develop
-
-```sh
-npm install
-npm run badges   # regenerate the 54 SVGs from spec/levels.json
-npm run dev
-npm run build    # static HTML → dist/, deploy anywhere
+```json
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "aiUsageLevel": "https://usagescale.org/spec#aiUsageLevel"
+  },
+  "@type": "CreativeWork",
+  "aiUsageLevel": 3
+}
 ```
 
-`spec/levels.json` is the source of truth for the English definitions, mappings and decision tree. Badges and machine-readable output are generated from it. Localised explanatory copy is maintained separately and tested for structural parity; changing English still requires an explicit translation update.
+`aiUsageLevel` is not a registered Schema.org property. The vocabulary itself uses the existing `DefinedTermSet` and `DefinedTerm` types. Neither representation creates a dedicated Google Search feature.
 
-The badge generator outlines its type rather than setting it, so a badge renders identically on a site that has never heard of IBM Plex Mono. It also asserts that no coordinate is `NaN` — `opentype.js`'s own serialiser emits them, and a single one makes browsers abandon the path mid-glyph, silently truncating the text.
+A declaration grants no training permission. Licensing, consent, terms and access controls are separate questions.
 
-## Licences
+## Status and evidence
 
-| | |
+The published vocabulary is version **1.3.0**. English is the normative source. Core pages are available in **22 languages**; the 21 translations are labelled as machine translations pending fluent human review. Some developer and policy references remain in English.
+
+As of **10 October 2026**, two CHAOSS repositories reference the project in related-tools lists. A diarie backlog records deferred interest. This audit verified no independent, public production declaration; references and interest are not deployments or endorsements. See [the evidence](docs/ADOPTERS.md).
+
+This is an independent proposal. Suggested IPTC mappings, conditional W3C Community Group text mappings and C2PA comparisons do not imply acceptance by those organisations. The CG's 9 October 2026 report uses three text values; Levels 1 and 2 need additional scope/review information. [Schema.org issue #3391](https://github.com/schemaorg/schemaorg/issues/3391) is a relevant public discussion; [submissions and pilots](https://github.com/karauda/ai-usage-scale/issues/11) are tracked publicly.
+
+The current website revision was produced with AI assistance and awaits human editorial review. It does not automatically declare its own content to be Level 3.
+
+## Machine-readable files
+
+| Endpoint | Purpose |
 |---|---|
-| Marks, `levels.json`, the scale itself | **CC0-1.0** — no attribution, no permission, no friction |
-| Manifesto and specification text | **CC BY 4.0** |
-| Site code | **MIT** |
+| [levels.json](https://usagescale.org/levels.json) | Definitions, questions, edge cases and suggested mappings; localised copies at `/<lang>/levels.json`. |
+| [spec.schema.json](https://usagescale.org/spec.schema.json) | JSON Schema for the vocabulary document. |
+| [levels.schema.json](https://usagescale.org/levels.schema.json) | JSON Schema for a declaration. |
+| [llms.txt](https://usagescale.org/llms.txt) / [llms-full.txt](https://usagescale.org/llms-full.txt) | Optional plain-text references for tools. |
+| [feed.xml](https://usagescale.org/feed.xml) | Published release history. |
 
-Every paywall is an adoption ceiling. There isn't one.
+`spec/levels.json` is the canonical source. Pin a [release](https://github.com/karauda/ai-usage-scale/releases) when reproducing a declaration. The schemas validate structure and consistency, not the truth of a publisher’s claim.
 
-## Contributing
+The repository includes a [local MCP server](mcp/README.md). **The package is not currently published on npm**; install it from source or the archive attached to [release v1.3.0](https://github.com/karauda/ai-usage-scale/releases/tag/v1.3.0). It exposes classification, level lookup and the full vocabulary over stdio.
 
-The scale will be wrong in places. [Fix it](CONTRIBUTING.md) — especially the edge cases, and especially the translations. Disagreement about where a level's boundary sits is the most useful thing you can bring.
+## Development
 
-To sign the manifesto, add yourself to [`signatories.json`](signatories.json).
+Requires Node.js **22.12 or later**; Node.js 24 is also supported.
 
-See the [translation policy](docs/TRANSLATION-POLICY.md) before submitting a language,
-[governance](GOVERNANCE.md) for how decisions are made and what a breaking change means, and
-the [roadmap](docs/ROADMAP.md) for where this is going. See also the
-[FAQ](docs/FAQ.md), the [security policy](SECURITY.md) and its [threat model](docs/THREAT-MODEL.md),
-the [code of conduct](CODE_OF_CONDUCT.md), and [ways to support the project](SUPPORT.md).
+```sh
+npm ci
+npm run dev
+npm run verify
+```
 
-## Contact
+`verify` checks Astro types, builds the static site and generated assets, then validates the vocabulary, translations, classifier, schemas and shipped HTML.
 
-Open to conversation and collaboration — a question, a correction, an integration you're building, a publisher or platform wanting to adopt the scale, or a standards group looking to fold in the ideas. Reach me at **[karauda.com/contact](https://karauda.com/contact)**.
+For browser checks:
+
+```sh
+npx playwright install chromium
+npm run test:browser
+```
+
+The browser script serves `dist/` locally and checks layout, keyboard operation, the wizard, themes and accessibility. With an existing Chrome installation, use `BROWSER_CHANNEL=chrome npm run test:browser`.
+
+The site is static Astro, with local fonts, a light/dark theme and Arabic/Persian directionality. All six definitions and the decision procedure remain readable without JavaScript. CI verifies pull requests; production deployment uses Cloudflare Pages.
+
+## Contribute and licence
+
+Useful contributions include a documented workflow that exposes a boundary, an independent integration, or a translation reviewed against the English source. See [Contributing](CONTRIBUTING.md), [Governance](GOVERNANCE.md) and [Roadmap](docs/ROADMAP.md).
+
+Maintained by [Konrad Karauda](https://github.com/karauda). Decisions and changes are recorded in public issues and pull requests.
+
+- Scale definitions and SVG marks: **CC0-1.0**.
+- Website explanatory prose and documentation: **CC BY 4.0**.
+- Website and MCP code: **MIT**.
+- IBM Plex Mono and Spectral fonts: **SIL Open Font License 1.1**, with notices in `src/fonts/`.
+
+See [LICENSES.md](LICENSES.md) for scope and [CITATION.cff](CITATION.cff) for citation metadata. The original manifesto is retained as a [historical document](docs/history/manifesto-2026-07.md); it is no longer the homepage.

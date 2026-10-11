@@ -1,18 +1,11 @@
 # Privacy
 
-**The badge does not phone home.**
+The website is static HTML hosted on Cloudflare Pages. It has no application analytics, accounts, declaration registry, third-party font requests or embedded widgets.
 
-Every badge on this site is offered as inline SVG: the type is outlined, so it needs no
-font, and nothing in it points at us. You paste it, and it renders. We learn nothing.
+The browser stores a light/dark theme preference in localStorage when a visitor selects it. The site does not set application cookies. Copy buttons use the clipboard only after a click.
 
-This is not a nicety. A hotlinked badge is a tracking pixel: it would tell us the URL of
-every article carrying a declaration and how often each one is read. That is a
-tempting dataset, and it is exactly the dataset a standard about honesty must refuse to
-collect. Hosted SVG files exist for people who genuinely need a URL — not because we want
-the traffic.
+Page, font and hosted badge requests reach the hosting provider. Operational logs and provider-level processing may include network information. This repository does not establish the provider’s retention settings, so it does not promise that no data is processed.
 
-**The site collects nothing.** No analytics, no cookies, no fonts fetched from a third
-party (they are self-hosted), no embeds. It is static HTML on a CDN.
+Inline SVG badges contain outlined glyphs and no external resource references. Downloaded, self-hosted badges avoid requests to usagescale.org. Hotlinked badges cause normal hosting requests; the presence of an image URL alone does not establish that analytics is running.
 
-**Signing is a pull request.** There is no form, so there is no list of email addresses
-for anyone to leak, sell, or subpoena.
+External links take visitors to services with their own policies. Contributions through GitHub are public under GitHub’s policies. There is no signature form or mailing list in this website.

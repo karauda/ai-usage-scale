@@ -39,6 +39,7 @@ export const GET: APIRoute = () => {
         type: 'object',
         description: 'Present when this is a translation; inherits the source level and states its review state.',
         properties: { by: { enum: ['machine', 'human'] }, review: { enum: ['unreviewed', 'human-reviewed', 'community-verified'] } },
+        required: ['by', 'review'],
       },
       definition: {
         type: 'string',
@@ -47,6 +48,9 @@ export const GET: APIRoute = () => {
       },
     },
     required: ['level'],
+    allOf: [{ oneOf: LEVELS.map(l => ({ properties: {
+      level: { const: l.id }, name: { const: l.name }, definition: { const: `${SITE}/${l.id}` },
+    } })) }],
     additionalProperties: true,
     examples: [{ aiUsageScale: '1.0', level: 3, name: 'Directed', definition: `${SITE}/3` }],
   };

@@ -31,25 +31,18 @@ const canonicalUrl = `https://usagescale.org/${l.id}`;
 const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
 ---
 
-{/*
-  Note what is NOT passed to <Base>: level and aiDisclosure. This page *documents* level
-  ${l.id}, but the page itself — like every page on the site — is a Level-3 work (human
-  diagnosis, AI-drafted prose, reviewed). Declaring level={l.id} here made /5 announce
-  itself as "Level 5, published without human review", which is false and self-undermining.
-  Base defaults to level 3 / ai-generated, which is the honest self-declaration.
-*/}
 <Base
   lang={lang}
   path={`/${l.id}`}
-  title={`Level ${l.id} — ${l.name} · AI Usage Scale`}
+  title={`${fmt(t.ui.hero.levelHead, { n: l.id })} — ${l.name} · AI Usage Scale`}
   description={l.sentences.long}
   card={String(l.id)}
-  breadcrumb={[[t.ui.nav.scale, '/scale'], [`Level ${l.id} — ${l.name}`, `/${l.id}`]]}
+  breadcrumb={[[t.ui.nav.scale, '/scale'], [`${fmt(t.ui.hero.levelHead, { n: l.id })} — ${l.name}`, `/${l.id}`]]}
   schema={[
     {
       '@type': 'WebPage',
       '@id': `https://usagescale.org${L(`/${l.id}`)}#page`,
-      name: `Level ${l.id} — ${l.name}`,
+      name: `${fmt(t.ui.hero.levelHead, { n: l.id })} — ${l.name}`,
       description: l.sentences.long,
       inLanguage: lang,
       mainEntity: { '@id': `https://usagescale.org${L(`/${l.id}`)}#term` },
@@ -137,7 +130,7 @@ const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
       <Snippet label={t.ui.level.hosted} code={embedHtml(l.id)} ui={t.ui.level} />
       <Snippet
         label={t.ui.level.plain}
-        code={`AI Usage Scale: Level ${l.id} (${l.name}) — ${canonicalUrl}`}
+        code={`AI Usage Scale: ${fmt(t.ui.hero.levelHead, { n: l.id })} (${l.name}) — ${canonicalUrl}`}
         ui={t.ui.level}
       />
     </section>
@@ -151,18 +144,21 @@ const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
         <tbody>
           <tr>
             <td class="lv-name">Experimental ai-disclosure</td>
-            <td><code>{l.mappings.w3cAiDisclosure}</code></td>
+            <td><code>{l.mappings.w3cAiDisclosure ?? 'scope/review dependent'}</code></td>
           </tr>
           <tr>
             <td class="lv-name">IPTC</td>
             <td><code>{l.mappings.iptcDigitalSourceType.split('/').pop()}</code></td>
           </tr>
           <tr>
-            <td class="lv-name">schema.org</td>
-            <td><code>aiUsageLevel: {l.mappings.schemaOrgAiUsageLevel}</code></td>
+            <td class="lv-name" lang="en">Project-defined JSON-LD</td>
+            <td><a href={L('/spec#aiUsageLevel')}><code>aiUsageLevel: {l.id}</code></a></td>
           </tr>
         </tbody>
       </table>
+      <p class="prose" lang="en">{l.mappings.w3cAiDisclosureNote} The Community Group report covers text;
+        the number alone does not identify the text's scope or review state. Choose any
+        <code>ai-disclosure</code> declaration against that report's procedure.</p>
     </section>
 
     <section>
@@ -178,7 +174,7 @@ const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
 </Base>
 
 <style>
-  .head { display: grid; gap: 2.25rem; margin: 3rem 0 2.5rem; }
+  .head { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 3rem; margin: 4rem 0 2.5rem; align-items: start; }
   .head-text h1 { font-size: clamp(2.25rem, 6vw, 3.5rem); letter-spacing: -0.02em; margin: 0.4rem 0 0.75rem; }
 
   .pull {
@@ -210,7 +206,7 @@ const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
   .ln { font-family: var(--mono); font-weight: 600; font-size: 1.125rem; }
   .lname {
     font-family: var(--mono);
-    font-size: 0.5rem;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -218,7 +214,8 @@ const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
   }
   @media (max-width: 40rem) { .lname { display: none; } }
 
-  .two { display: grid; gap: 2.5rem; }
+  .two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; }
+  @media (max-width: 50rem) { .head, .two { grid-template-columns: minmax(0, 1fr); } }
 
   ul { padding: 0; margin: 0.75rem 0 0; list-style: none; }
   li { position: relative; padding-inline-start: 1.5rem; margin-bottom: 0.6rem; font-size: 1.0625rem; }
@@ -250,7 +247,7 @@ const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
   }
   .mark-cap {
     font-family: var(--mono);
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     color: var(--ink-soft);
     margin: 0.6rem 0 0;
     text-align: center;

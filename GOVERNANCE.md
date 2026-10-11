@@ -1,38 +1,29 @@
 # Governance
 
-## What this is
+The AI Usage Scale is an independent proposal maintained by [Konrad Karauda](https://github.com/karauda). It is not operated by a standards organisation, and the repository currently has one maintainer.
 
-A standard, not a product. There is nothing to buy, no account to make, no certification
-to earn, and no organisation that owns the scale. The marks and `levels.json` are CC0:
-if this project were abandoned tomorrow, everything in it would still be free to use and
-free to fork, permanently and without anyone's permission.
+## Decisions
 
-## Who decides
+Propose changes in public issues or pull requests. The maintainer decides what is merged and explains semantic decisions in the changelog. A related-tools reference, repository star or personal signature is not approval of a definition.
 
-Decisions are made in public, in issues and pull requests. The maintainers hold a tie-break,
-and use it as rarely as possible.
+The vocabulary and marks are CC0. Other people may use, mirror or fork them without joining this project. Text, code and font licences have separate scopes described in [LICENSES.md](LICENSES.md).
 
-## What we will not do
+## Compatibility
 
-- **Charge for anything.** Every paywall is an adoption ceiling. Not-By-AI charges for
-  commercial use; the Authors Guild charges per title. We will not.
-- **Verify or certify.** No registry, no audit, no badge that can be revoked. The
-  declaration is public and linkable, which makes it falsifiable in public — reputation is
-  the enforcement, and it is the only one that scales.
-- **Use detection.** AI detectors flagged 61% of genuine essays by non-native English
-  speakers as machine-written. A standard enforced by detection is a machine for accusing
-  the innocent.
-- **Rank the levels.** No level will ever be marked as better than another, in the design,
-  in the copy, or in the marks. The moment Level 4 reads as an insult, everyone becomes a
-  2, and the binary is back with extra steps.
+A change that assigns an existing workflow to a different number is a semantic change. Publish it as a major version, explain the affected workflows and preserve historical definitions.
 
-## Breaking changes
+Editorial corrections, metadata repairs and suggested mappings may be revised without changing the six level meanings. Record them separately from semantic changes. A legal mapping or icon suggestion must never be described as a compliance determination.
 
-Redefining what a level *means* invalidates declarations already published against it.
-That bar is deliberately near-impossible to clear. Adding an edge case, sharpening
-wording, or clarifying a boundary is not a breaking change; changing which work lands on
-which number is.
+The currently published vocabulary is v1.2.0. The pending website revision is not a newly released specification. Consumers should pin a release when they need immutable definitions.
 
-## If the maintainers disappear
+## Review
 
-Fork it. That is not a failure mode we are worried about — it is the point of CC0.
+English is normative. Structural tests and model review support translation work but do not qualify a translation for human-reviewed status. Named fluent reviewers must follow the [translation policy](docs/TRANSLATION-POLICY.md).
+
+The Level 3 review requirement and decision-tree shortcut remain an open specification issue. Until a decision is published, classification tools must call the result provisional and direct readers to the full definition.
+
+## Participation
+
+The project provides self-declaration tools, rather than verification or certification. There is no paid tier or declaration registry. No level is presented as a higher quality category.
+
+If additional maintainers join, document their authority and update repository review rules. A fork may continue the vocabulary if this repository becomes inactive; it should identify its version and governance clearly.

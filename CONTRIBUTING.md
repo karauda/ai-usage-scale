@@ -1,69 +1,48 @@
 # Contributing
 
-The most useful thing you can bring here is **a case the scale gets wrong.**
+Useful contributions include a documented classification boundary, a working integration or a translation reviewed against English.
 
-## Challenge a level boundary
+## Challenge a boundary
 
-If you can describe a real piece of work where the decision tree gives an answer that
-feels false, that is a bug in the standard and it matters more than any code. Open an
-issue with:
+Open an issue with the workflow, the decision-tree result, the relevant definition and why the result appears inconsistent. Include primary evidence if the example describes a real publication.
 
-1. What you actually did, in a sentence.
-2. The level the tree gives you.
-3. The level you believe is right, and why.
+The known Level 3 review gap needs an explicit specification decision. Do not quietly change a branch or definition to make a single example fit.
 
-Boundary disputes settle in `spec/levels.json` and in the **Edge cases** section of the
-spec. Every edge case currently listed there arrived exactly this way.
+## Change the vocabulary
 
-## Change a definition
+`spec/levels.json` is canonical. Localised definitions are maintained separately. A change assigning an existing workflow to a different level is a breaking semantic change; record it in the changelog and review translations.
 
-`spec/levels.json` is the source of truth for the English level semantics, mappings and
-decision tree. It drives badges and machine-readable output. Localised explanatory copy
-is maintained separately, so a semantic English change requires an explicit translation
-sync and review-status update. Run `npm run verify` before opening a pull request.
+Metadata and editorial corrections are distinct from level semantics. Proposed standards relationships must state their actual status.
 
-**A change to what a level *means* is a breaking change.** Declarations are already
-published against these definitions; if we redefine Level 3 under people's feet, every
-badge already on the web starts lying. Expect that bar to be high.
+## Develop
 
-## Translate it
-
-The scale is worth nothing if it only works in English, and the translations are where
-we most need people. Each one carries its own declaration under the
-[translation rule](https://usagescale.org/spec#translation) — machine translations are
-marked as machine translations, and a human reviewer who signs off replaces that mark
-with their own name.
-
-Open an issue saying which language you want, so two people do not do the same one. Follow
-[`docs/TRANSLATION-POLICY.md`](docs/TRANSLATION-POLICY.md), compare the complete rendered
-translation with the English source, and record your name, review date and source commit.
-
-Machine output may improve access but does not qualify as human review. Do not change
-`MT` to `HR` or `CV` unless the documented review requirements were met.
-
-## Code
+Requires Node.js 22.12 or later.
 
 ```sh
-npm install
-npm run badges   # regenerate the 54 SVGs
+npm ci
 npm run dev
-npm run build
+npm run verify
+npx playwright install chromium
+npm run test:browser
 ```
 
-Two rules the badge generator will not bend on:
+If changing MCP behaviour, also run:
 
-- **All six marks use one ink.** No colour gradient from "good" to "bad". A scale that
-  colours its own extremes has already told you which one to be ashamed of.
-- **No badge fetches anything.** Type is outlined, not set; nothing is hotlinked. If a
-  change makes a badge phone home, it will be rejected.
+```sh
+npm ci --prefix mcp
+npm run test:server --prefix mcp
+npm run sync --prefix mcp
+npm pack --dry-run --prefix mcp
+```
 
-## Sign
+Generated marks must stay self-contained and use the same ink across all six levels. Run `npm run badges` when their source changes. Avoid analytics, external runtime resources and false source-level declarations.
 
-Add yourself to `signatories.json` by pull request. Signing commits you to one thing:
-declare the level on what you publish. It does not commit you to agreeing with the
-manifesto — several signatories do not.
+## Translate
 
-## Other ways to help
+Follow [the translation policy](docs/TRANSLATION-POLICY.md). Record a named fluent reviewer, source commit and scope before marking content as reviewed. Model output does not satisfy that requirement.
 
-See [`SUPPORT.md`](SUPPORT.md) for adoption, integration, review and outreach work. For a
-larger change, open an issue before implementation so effort is not duplicated.
+## Document a public use
+
+Add verified declarations to [the evidence record](docs/ADOPTERS.md), with a public example and date checked. A reference, star or signature is not a deployment.
+
+Run the relevant checks before opening a pull request. Describe what changed, whether semantics changed, and what was actually tested.

@@ -91,16 +91,21 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => {
   const { name, arguments: args = {} } = req.params;
 
   if (name === 'classify') {
-    const answers = Array.isArray(args.answers) ? args.answers.map(Boolean) : [];
+    const answers = Array.isArray(args.answers) ? args.answers : [];
+    if (!answers.every((answer) => typeof answer === 'boolean'))
+      return { ...text('Answers must be booleans; strings and numbers are not accepted.'), isError: true };
     const id = classify(spec.decisionTree, answers);
     if (id === null)
       return { ...text('Not enough answers to reach a level. Provide up to five booleans in order.'), isError: true };
     const l = level(id);
-    return text({ level: id, name: l.name, oneLine: l.oneLine, definition: `${SITE}/${id}`, sentence: l.sentences.short });
+    return text({
+      level: id, name: l.name, oneLine: l.oneLine, definition: `${SITE}/${id}`, sentence: l.sentences.short,
+      ...(id === 3 ? { caveat: 'This tree result is provisional: the Level 3 definition also requires meaningful human review, which this path does not check.' } : {}),
+    });
   }
 
   if (name === 'get_level') {
-    const l = level(args.id);
+    const l = Number.isInteger(args.id) ? level(args.id) : undefined;
     if (!l) return { ...text(`No level with id ${args.id}. Levels are 0–5.`), isError: true };
     return text({ ...l, url: `${SITE}/${l.id}` });
   }

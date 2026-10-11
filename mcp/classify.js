@@ -9,6 +9,7 @@
 export function classify(tree, answers) {
   for (let i = 0; i < tree.length; i++) {
     if (i >= answers.length) return null; // ran out of answers before terminating
+    if (typeof answers[i] !== 'boolean') return null;
     const out = tree[i][answers[i] ? 'yes' : 'no'];
     if (typeof out === 'number') return out;
   }

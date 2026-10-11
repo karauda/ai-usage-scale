@@ -7,36 +7,62 @@ on:
 permissions:
   contents: write
 
+env:
+  ASTRO_TELEMETRY_DISABLED: '1'
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   release:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            mcp/package-lock.json
       - run: npm ci
-      - run: npm test
-      - run: npm run build
-
-      # The marks and the machine-readable spec, in one file. CC0 — take them offline,
-      # mirror them, fork them. A standard you can only get from one server is a standard
-      # with a single point of failure.
-      - name: Bundle the marks and the spec
+      - run: npm ci --prefix mcp
+      - name: Tag matches package and vocabulary versions
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const paths = ['package.json', 'mcp/package.json', 'spec/levels.json'];
+          for (const path of paths) {
+            const { version } = JSON.parse(readFileSync(path, 'utf8'));
+            if (process.env.GITHUB_REF_NAME !== `v${version}`) {
+              throw new Error(`${path}: version ${version} does not match ${process.env.GITHUB_REF_NAME}`);
+            }
+          }
+          NODE
+      - run: npm run verify
+      - run: npm run test:server --prefix mcp
+      - run: git diff --exit-code -- public/badge public/og
+      - name: Bundle vocabulary, schemas and marks
         run: |
           mkdir -p release
           cp -r public/badge release/badge
           cp spec/levels.json release/
+          cp dist/spec.schema.json dist/levels.schema.json release/
           cp LICENSES.md release/
-          cd release && zip -r ../ai-usage-scale-${{ github.ref_name }}.zip . && cd ..
-
-      - uses: softprops/action-gh-release@v2
+          cd release
+          zip -r "../ai-usage-scale-${{ github.ref_name }}.zip" .
+      - name: Pack the local MCP server
+        working-directory: mcp
+        run: npm pack --pack-destination ..
+      - uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
         with:
-          files: ai-usage-scale-${{ github.ref_name }}.zip
+          files: |
+            ai-usage-scale-${{ github.ref_name }}.zip
+            usagescale-mcp-*.tgz
           generate_release_notes: true
           body: |
-            The marks (CC0) and `levels.json` (CC0) for this version are attached.
-
-            **A major version bump means a level's meaning changed** — which invalidates
-            declarations already published against it. See CHANGELOG.md.
+            The vocabulary, validation schemas and SVG marks are attached (CC0).
+            The local MCP server is attached as a package archive (MIT); it is not published on npm.
+            Read CHANGELOG.md for semantic changes and compatibility notes.

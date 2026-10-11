@@ -1,16 +1,14 @@
 # Licences
 
-Three, because the parts do different jobs.
+| Part | Licence |
+|---|---|
+| Scale definitions, vocabulary JSON, schemas and generated marks in `public/badge/` | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| Explanatory website prose, translations and documentation, including the historical manifesto | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
+| Website, generator and MCP code | [MIT](LICENSE) |
+| Third-party font files in `src/fonts/` and `public/fonts/` | SIL Open Font License 1.1 |
 
-| Part | Licence | Why |
-|---|---|---|
-| The marks (`public/badge/`, `src/fonts` output), `spec/levels.json`, the scale itself | [**CC0-1.0**](https://creativecommons.org/publicdomain/zero/1.0/) | A badge nobody hesitates to use. No attribution, no permission, no lawyer. |
-| The manifesto and specification text (`src/content/`, the `/spec` page) | [**CC BY 4.0**](https://creativecommons.org/licenses/by/4.0/) | Reproduce it, translate it, quote it — just say where it came from. |
-| The site code | [**MIT**](LICENSE) | Ordinary. |
+The standard MIT text in LICENSE applies to the code scope above; it does not override the other scopes.
 
-Fonts are third-party and carry their own terms:
+Font notices are bundled in [IBM-Plex-Mono-OFL.txt](src/fonts/IBM-Plex-Mono-OFL.txt) and [Spectral-OFL.txt](src/fonts/Spectral-OFL.txt). The source fonts retain their own terms. Outlined glyphs in the generated badge artwork are not copies of the font software.
 
-- **IBM Plex Mono** — SIL Open Font License 1.1
-- **Spectral** — SIL Open Font License 1.1
-
-Every paywall is an adoption ceiling. There isn't one here, and there won't be.
+Definitions and marks may be used, mirrored and adapted without a fee. Attribute explanatory text to the AI Usage Scale project when reproducing it under CC BY 4.0. Dependencies keep their respective licences.

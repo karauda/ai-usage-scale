@@ -29,7 +29,6 @@ const L = (p: string) => localePath(lang, p);
       inLanguage: lang,
       version: VERSION,
       about: { '@id': 'https://usagescale.org/#scale' },
-      publisher: { '@id': 'https://usagescale.org/#org' },
       license: 'https://creativecommons.org/licenses/by/4.0/',
     },
   ]}
@@ -132,14 +131,14 @@ const L = (p: string) => localePath(lang, p);
     <h3 class="mt">{t.ui.specPage.mapping}</h3>
     <table class="levels">
       <thead>
-        <tr><th>#</th><th>Experimental <code>ai-disclosure</code></th><th>IPTC</th></tr>
+        <tr><th>#</th><th lang="en">Proposed <code>ai-disclosure</code></th><th>IPTC</th></tr>
       </thead>
       <tbody>
         {
           LEVELS.map((l) => (
             <tr>
               <td class="n">{l.id}</td>
-              <td><code>{l.mappings.w3cAiDisclosure}</code></td>
+              <td><code>{l.mappings.w3cAiDisclosure ?? 'scope/review dependent'}</code></td>
               <td><code>{l.mappings.iptcDigitalSourceType.split('/').pop()}</code></td>
             </tr>
           ))
@@ -147,11 +146,17 @@ const L = (p: string) => localePath(lang, p);
       </tbody>
     </table>
     <p class="caveat prose">{t.ui.specPage.lossy}</p>
+    <p class="prose" lang="en">The Community Group's 9 October 2026 report uses
+      <code>human-only</code>, <code>ai-assisted</code> and <code>ai-autonomous</code> for text.
+      Levels 1 and 2 do not determine a value without the text's scope and actual review state.
+      A Level 3 candidate requires the meaningful review in its full definition. Generic scale
+      snippets omit the separate CG declaration so that publishers can assess it independently.</p>
   </section>
 
   <section id="machine">
     <h2>{t.ui.specPage.machine}</h2>
     <p class="prose">{t.ui.specPage.machineLede}</p>
+    <p class="prose">{t.ui.home.standards}</p>
     <p class="prose">
       <a href={L('/levels.json')} class="mono">GET {L('/levels.json')}</a> · CC0
     </p>
@@ -159,8 +164,6 @@ const L = (p: string) => localePath(lang, p);
 <meta name="ai-usage" content="3">
 <meta name="ai-usage-standard" content="https://usagescale.org">
 
-<!-- Experimental W3C Community Group alignment; not a W3C standard -->
-<meta name="ai-disclosure" content="ai-generated">
 <link rel="ai-disclosure" href="https://usagescale.org/3">`}</code></pre>
 
     <p class="prose">{t.ui.specPage.wellKnown}</p>
@@ -172,6 +175,17 @@ const L = (p: string) => localePath(lang, p);
   "surfaces": { "text": 3, "image": 0 },
   "definition": "https://usagescale.org/3"
 }`}</code></pre>
+    <div id="aiUsageLevel" lang="en" dir="ltr" class="prose">
+      <h3>Project-defined JSON-LD property</h3>
+      <p><code>https://usagescale.org/spec#aiUsageLevel</code> identifies this project's
+        proposed integer property, with values 0–5. Map it explicitly in a JSON-LD context.
+        It is not a property in the Schema.org vocabulary, and Google Search has no
+        documented feature for displaying these levels. <code>additionalProperty</code>
+        does not have <code>CreativeWork</code> in its published domain and is not the pattern we recommend.</p>
+      <p>The optional <code>/.well-known/ai-disclosure.json</code> location is also a project convention;
+        it is not a registered well-known URI or a discovery guarantee. It describes a publisher's
+        declared scope, not a verified process.</p>
+    </div>
   </section>
 
   <section id="prior-art">
@@ -212,7 +226,7 @@ const L = (p: string) => localePath(lang, p);
   .mt { margin-top: 2.5rem; }
 
   .levels th {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;

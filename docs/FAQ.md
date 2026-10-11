@@ -1,50 +1,34 @@
 # FAQ
 
-**Is this a way to detect AI?**
-No — the opposite. It's a self-declaration. There is no detector, no account, and no registry.
-Detection accuses the innocent; a declaration credits the honest.
+**What does a number tell me?**
+The publisher’s description of generative AI’s role, human contribution and pre-publication review. It describes a process, not quality or truth.
 
-**Who owns it? Can I use it commercially?**
-Nobody owns it. The scale is CC0 (public domain); the site text is CC BY. Use it, quote it, build
-on it, fork it. There is no committee to ask and no fee.
+**Does a badge prove the declaration?**
+No. It links a claim to a public definition. The project does not certify publishers or detect AI use.
 
-**Does a badge prove a work's level?**
-No. A badge is a public self-declaration by whoever is accountable for the work — like a byline or
-a nutrition label. It is cheap to make and expensive to break, not a certificate of proof.
+**What does no declaration mean?**
+Unknown. It is not evidence of dishonesty, AI use or human authorship.
 
-**Does declaring Level 4 make me EU AI Act compliant?**
-No. The scale is not a compliance product and this is not legal advice. The law's reviewed/
-unreviewed line happens to match the Level 4 / Level 5 distinction, but whether a duty applies to
-you is a question for a lawyer. See [/eu-ai-act](https://usagescale.org/eu-ai-act).
+**Can I use it commercially?**
+Yes. The definitions and marks are CC0. Website prose is CC BY 4.0, code is MIT and the fonts have their own licences. See [LICENSES.md](../LICENSES.md).
 
-**How is this different from C2PA / Content Credentials?**
-Complementary. C2PA gives cryptographic, tamper-evident provenance about an asset — *what touched
-this*. The scale is a declaration about contribution and review — *whose thinking is inside this,
-and who stands behind it* — and it works for plain web text, not just media files. Every level also
-maps to an IPTC Digital Source Type, so a declaration can travel into C2PA/XMP metadata.
+**Is this recognised by Google, Schema.org or W3C?**
+No endorsement or dedicated Search support is claimed. Existing Schema.org types describe the vocabulary; the project’s aiUsageLevel is an explicit extension. W3C Community Group discussion is distinct from a W3C Recommendation.
 
-**Is it a W3C / IPTC / C2PA standard?**
-No. It interoperates with their work and requests their review; it never claims their endorsement.
-It's an independent, open standard offered as input to that conversation.
+**Does an AI Usage level determine legal compliance?**
+No. Legal duties depend on the actor, content, use, context and jurisdiction. A level does not establish that an exemption applies. The [EU reference](https://usagescale.org/eu-ai-act) links primary sources.
 
-**Why does it start at zero?**
-So human-made work has a number too. A system that labels only AI makes everything unlabelled read
-as human by default — including all the AI it missed. Level 0 is load-bearing, not a courtesy.
+**How does this relate to C2PA and IPTC?**
+C2PA provides verifiable provenance assertions. IPTC describes digital source types. This project describes human/AI contribution and review, with suggested mappings that need asset-specific interpretation.
 
-**Why can't a "higher" level be better?**
-Because the moment one level becomes an insult, everyone lies their way down to a "safer" number
-and you've rebuilt the broken binary with extra steps. No level ranks above another. Level 5 is the
-honest answer for an automated market report; Level 0 is the honest answer for a memoir.
+**Why should I check Level 3 manually?**
+Its definition requires meaningful review, but the current decision-tree path does not ask about review. Tools flag this limitation. An unreviewed work with original human input needs an explicit account of the workflow and a future specification decision.
 
-**What data do you collect?**
-None. No analytics, no cookies, no fonts or badges fetched from us (badges are inline SVG, so they
-can't phone home). Signing is a pull request — there's no email list to leak. See
-[docs/PRIVACY.md](PRIVACY.md).
+**What happens to a translation?**
+The translation rule refers to the source level and adds information about production and review. A source level cannot be assumed when its workflow is unknown. Machine translation does not establish human approval.
 
-**What happens when a work won't classify cleanly?**
-That is a finding about the scale, and we want it. Content and classification questions are public
-GitHub issues; the case corpus exists precisely to collect the hard ones.
+**What data does the website collect?**
+There are no application analytics or cookies. A theme preference is stored in localStorage. Requests reach the CDN, which may keep operational logs. Hosted badges generate requests; downloaded or inline SVG does not. See [Privacy](PRIVACY.md).
 
-**Can it be misused?**
-Yes, like any declaration — and [docs/THREAT-MODEL.md](THREAT-MODEL.md) is honest about how, what
-the design mitigates, and what it deliberately does not try to solve.
+**How can I challenge a classification?**
+Open a public issue describing the workflow, the result and the relevant definition. A real example with primary evidence is more useful than a preference for a lower number.

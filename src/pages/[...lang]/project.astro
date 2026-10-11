@@ -1,0 +1,93 @@
+---
+import Base from '../../layouts/Base.astro';
+import { localeParams } from '../../lib/i18n';
+import { VERSION } from '../../lib/levels';
+export const getStaticPaths = localeParams;
+const { lang } = Astro.props;
+---
+
+<Base lang={lang} path="/project" translated={false}
+  title="Project status — AI Usage Scale"
+  description="An independent disclosure proposal: its scope, review status, public references, and route toward standards discussion."
+  breadcrumb={[["Project status", "/project"]]}>
+  <header class="top prose">
+    <p class="label">Independent proposal / Definitions v{VERSION}</p>
+    <h1>A public vocabulary.<br />An open proposal.</h1>
+    <p class="standfirst">AI Usage Scale describes reported use of generative AI in a work.
+      It is available for use and implementation while its boundaries and interoperability are open to review.</p>
+  </header>
+  <div class="project-body prose">
+    <section>
+      <h2>What the project can claim</h2>
+      <p>Six public definitions, a decision procedure, downloadable marks, and machine-readable
+        data. The definitions and marks are CC0. The English specification is the normative source;
+        the 21 translations are labelled as machine translations awaiting fluent human review.</p>
+      <p>A declaration records a publisher's account of the process. It does not establish
+        accuracy, quality, copyright, training permission, or compliance with a law. An absent
+        declaration leaves the process unknown.</p>
+      <p>This is an independent proposal maintained in
+        <a href="https://github.com/karauda/ai-usage-scale">the public repository</a> by Konrad Karauda.
+        It has not been adopted as a W3C Recommendation or a Schema.org AI disclosure property.
+        Suggested mappings to IPTC and C2PA do not imply endorsement.</p>
+    </section>
+    <section>
+      <h2>Public references and use</h2>
+      <p>Evidence checked on 10 October 2026:</p>
+      <ul>
+        <li><a href="https://github.com/chaoss/disclosure#other-ai-disclosureattribution-tools">CHAOSS disclosure</a>
+          lists the scale as a related tool. This is a reference, rather than an implementation.</li>
+        <li><a href="https://github.com/chaoss/wg-ai-alignment/blob/main/moderation/README.md#tools">CHAOSS AI Alignment</a>
+          includes the scale in its resource list. This is another reference from the same community.</li>
+        <li><a href="https://github.com/voxpelli/diarie/blob/main/.diarie/tasks/tasks-backlog.yml">diarie's public backlog</a>
+          contains a deferred adoption task. It records interest and a Level 3 / Level 4 boundary question;
+          the entry says that adoption has not yet been implemented.</li>
+      </ul>
+      <p>The audit did not verify an independent live deployment that declares one of these levels.
+        Public search cannot rule out private or unindexed uses. References, stars, and example
+        classifications are not counted as adopters.</p>
+      <p>To document a use, submit a link to an actual declaration through
+        <a href="https://github.com/karauda/ai-usage-scale/blob/main/docs/ADOPTERS.md">the adoption evidence file</a>.
+        No signature, registration, or account on this site is required to use the scale.</p>
+    </section>
+    <section>
+      <h2>Schema.org and Google</h2>
+      <p>The vocabulary can be described using Schema.org's
+        <a href="https://schema.org/DefinedTermSet">DefinedTermSet</a> and
+        <a href="https://schema.org/DefinedTerm">DefinedTerm</a> types. This describes the vocabulary itself;
+        it does not give Google an AI disclosure feature for works carrying a level.</p>
+      <p>The next discussion venue is
+        <a href="https://github.com/schemaorg/schemaorg/issues/3391">Schema.org issue #3391</a>,
+        alongside the <a href="https://www.w3.org/groups/cg/ai-content-disclosure/">W3C AI Content Disclosure Community Group</a>.
+        A submission should explain the distinction between original substance and generated form,
+        record review separately, and offer real implementation evidence.</p>
+      <p>Follow the <a href="https://github.com/karauda/ai-usage-scale/issues/11">public submission and pilot record</a>
+        for the current requests, responses and implementation evidence.</p>
+      <p>Google lists the structured data features it supports in
+        <a href="https://developers.google.com/search/docs/appearance/structured-data/search-gallery">its Search gallery</a>.
+        A Schema.org proposal, a valid JSON-LD document, and support in Google Search are separate steps.
+        There is no documented dedicated Google Search feature for AI Usage Scale levels.</p>
+    </section>
+    <section>
+      <h2>Review and next steps</h2>
+      <p>The October 2026 redesign and content revision were developed with AI. Human editorial
+        review is pending. This revision does not automatically declare Level 3 or claim a human
+        reviewed every sentence. Translation review is recorded independently.</p>
+      <p>The current five-question tree reaches Level 3 before it asks the final human-review
+        question. Its Level 3 definition nevertheless requires meaningful review. A publisher
+        must check the complete definition; an unreviewed output from original human inputs is
+        a boundary that needs a documented decision before changing the classifier.</p>
+      <p>Priorities are independent pilot implementations, fluent language reviewers, review of
+        ambiguous cases, and a public standards discussion. See the
+        <a href="https://github.com/karauda/ai-usage-scale/blob/main/docs/ROADMAP.md">roadmap</a> and
+        <a href="https://github.com/karauda/ai-usage-scale/blob/main/GOVERNANCE.md">governance</a>.</p>
+      <p>The <a href="https://github.com/karauda/ai-usage-scale/blob/main/docs/history/manifesto-2026-07.md">original July rationale</a>
+        is retained as a historical document. The specification defines the current levels.</p>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .top { margin: 4rem 0 3rem; }
+  .project-body { margin-inline-start: auto; max-width: 48rem; }
+  .project-body li { margin-bottom: 0.8rem; }
+</style>

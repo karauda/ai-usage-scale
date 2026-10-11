@@ -1,6 +1,4 @@
 ---
-/* The machine-facing index: every endpoint and integration in one place. English on every
-   route, like the ecosystem map — a developer reference, not translated prose, so no notice. */
 import Base from '../../layouts/Base.astro';
 import Snippet from '../../components/Snippet.astro';
 import { localeParams, localePath } from '../../lib/i18n';
@@ -8,106 +6,76 @@ import { localeParams, localePath } from '../../lib/i18n';
 export const getStaticPaths = localeParams;
 const { lang } = Astro.props;
 const L = (p: string) => localePath(lang, p);
-// These endpoints have a per-locale variant; the rest (feed, schema, ecosystem.json…) are root-only.
-const PER_LOCALE = new Set(['/levels.json']);
-
 const endpoints = [
-  ['/levels.json', 'The scale itself — levels, definitions, decision tree, mappings. The single source of truth, CC0. Also per-language at /<lang>/levels.json.'],
-  ['/levels.schema.json', 'JSON Schema for a declaration object, so a tool can validate one without hard-coding the rules.'],
-  ['/ecosystem.json', 'The AI-provenance ecosystem, mapped: what the scale interoperates with, complements, and does not rely on.'],
-  ['/llms.txt', 'The map for language models (llmstxt.org) — levels, decision procedure, docs.'],
-  ['/llms-full.txt', 'The whole standard in one file: manifesto, levels, edge cases, mappings. One fetch, no crawl.'],
-  ['/feed.xml', 'RSS of releases. A change to what a level means invalidates declarations made against it — subscribe to know when the standard moves.'],
-  ['/.well-known/ai-disclosure.json', "This site's own declaration, at a well-known path."],
-  ['/sitemap-index.xml', 'Every page and its translations, with reciprocal hreflang.'],
+  ['/levels.json', 'The canonical vocabulary: definitions, decision procedure, edge cases and suggested mappings. Localised copies are available at /<lang>/levels.json.'],
+  ['/spec.schema.json', 'JSON Schema for the vocabulary file itself.'],
+  ['/levels.schema.json', 'JSON Schema for a declaration: level 0–5, optional surfaces, translation and review information.'],
+  ['/ecosystem.json', 'A directory of related standards and projects; listing does not imply endorsement.'],
+  ['/llms.txt', 'A short text index for tools that choose to read this convention. Google does not require it.'],
+  ['/llms-full.txt', 'The full English vocabulary as plain text, including its limitations.'],
+  ['/feed.xml', 'A release feed. Pin a release when reproducibility matters.'],
+  ['/sitemap-index.xml', 'Canonical pages and the translations that are actually available.'],
 ];
-
+const install = `git clone https://github.com/karauda/ai-usage-scale.git
+cd ai-usage-scale/mcp
+npm ci
+node server.js`;
 const mcpConfig = `{
   "mcpServers": {
     "usagescale": {
-      "command": "npx",
-      "args": ["-y", "usagescale-mcp"]
+      "command": "node",
+      "args": ["/absolute/path/to/ai-usage-scale/mcp/server.js"]
     }
   }
 }`;
 ---
-
-<Base
-  lang={lang}
-  path="/integrations"
-  translated={false}
-  title="Integrations & machine endpoints — AI Usage Scale"
-  description="Every machine-readable entry point for the AI Usage Scale: levels.json, JSON Schema, the ecosystem map, llms.txt, an RSS release feed, and an MCP server agents can call directly."
-  breadcrumb={[['Integrations', '/integrations']]}
-  schema={[
-    {
-      '@type': 'WebPage',
-      '@id': 'https://usagescale.org/integrations#page',
-      name: 'Integrations & machine endpoints',
-      inLanguage: 'en',
-      isPartOf: { '@id': 'https://usagescale.org/#site' },
-    },
-  ]}
->
-  <header class="top prose">
-    <p class="label">For machines</p>
-    <h1>Integrations & endpoints</h1>
-    <p class="standfirst">
-      A standard whose subject is machine-readable honesty should be trivial for a machine to
-      read. Everything here is static, CC0, and served without a request back to us.
-    </p>
+<Base lang={lang} path="/integrations" translated={false}
+  title="Integrations — AI Usage Scale"
+  description="Machine-readable vocabulary, validation schemas, declaration examples and a local MCP server."
+  breadcrumb={[[ 'Integrations', '/integrations' ]]}>
+  <header class="prose">
+    <p class="label">Developer reference</p>
+    <h1>Integrations</h1>
+    <p class="standfirst">Use the public definitions directly, or keep a versioned copy in your publishing tools.</p>
+    <p>The vocabulary and marks are CC0. Website prose is CC BY 4.0; code is MIT.
+      Requests to hosted endpoints reach the hosting provider. Inline SVG and downloaded copies work independently.</p>
   </header>
-
   <section class="prose">
-    <h2>Endpoints</h2>
-    <dl>
-      {
-        endpoints.map(([path, desc]) => (
-          <div class="row">
-            <dt><a href={PER_LOCALE.has(path) ? L(path) : path}><code>{path}</code></a></dt>
-            <dd>{desc}</dd>
-          </div>
-        ))
-      }
-    </dl>
+    <h2>Static endpoints</h2>
+    <dl>{endpoints.map(([path, description]) => <div class="row">
+      <dt><a href={path === '/levels.json' ? L(path) : path}><code>{path}</code></a></dt>
+      <dd>{description}</dd>
+    </div>)}</dl>
   </section>
-
   <section class="prose">
-    <h2>MCP server</h2>
-    <p>
-      An <a href="https://modelcontextprotocol.io">MCP</a> server so an AI agent can query the
-      scale directly — classify a work through the five questions, look up a level, or read the
-      spec — instead of scraping the site. It runs locally over stdio and needs no network: the
-      whole standard travels inside the package.
-    </p>
-    <Snippet
-      label="Add it to an MCP client (e.g. an mcp.json config)"
-      code={mcpConfig}
-      note="Tools: classify, get_level, list_levels, get_spec. Resources: levels.json, llms-full.txt."
-    />
-    <p class="meta">
-      Or run it straight from the terminal: <code>npx -y usagescale-mcp</code>. Source in
-      <a href="https://github.com/karauda/ai-usage-scale/tree/main/mcp"><code>/mcp</code></a>.
-    </p>
+    <h2>Local MCP server</h2>
+    <p>The repository includes a stdio server with four tools: <code>classify</code>, <code>get_level</code>,
+      <code>list_levels</code> and <code>get_spec</code>, plus a <code>usagescale://levels.json</code> resource.
+      Install its dependencies once; the server reads local data and makes no runtime network requests.</p>
+    <p>As checked on 10 October 2026, <code>usagescale-mcp</code> is not published in the public npm registry.
+      Install from the <a href="https://github.com/karauda/ai-usage-scale/tree/main/mcp">repository</a>:</p>
+    <Snippet label="Install and run from source" code={install} />
+    <Snippet label="MCP client configuration" code={mcpConfig} note="Replace the absolute path with your checkout location." />
+    <p>The classifier returns a decision-tree suggestion. Verify the full definition, especially
+      Level 3, which requires meaningful human review even though the current tree stops before asking about it.</p>
   </section>
-
   <section class="prose">
-    <h2>Put the declaration in your <code>&lt;head&gt;</code></h2>
-    <p>
-      Each level page carries a copy-paste block. In short: <code>&lt;meta name="ai-usage"
-      content="3"&gt;</code> plus the experimental <code>ai-disclosure</code> value and a
-      schema.org term. See any level, e.g. <a href={L('/3')}>/3</a>.
-    </p>
+    <h2>Declare the work</h2>
+    <p>Each <a href={L('/scale')}>level</a> provides a sentence, an SVG mark and metadata.
+      The HTML metadata is a project convention. JSON-LD uses an explicitly namespaced extension;
+      <code>aiUsageLevel</code> is not a registered Schema.org property.</p>
+    <p>There is no dedicated Google Search feature for this scale. Do not use a declaration
+      as a quality score, compliance certificate or evidence of permission to train a model.</p>
+    <p>A publisher may choose <code>/.well-known/ai-disclosure.json</code> as a discovery location.
+      That path is a project proposal, not a registered well-known URI. This website currently
+      publishes no numeric self-declaration: the revised content awaits human editorial review.</p>
   </section>
 </Base>
-
 <style>
-  .top { margin: 2rem 0 1rem; }
-  .meta { font-family: var(--mono); font-size: 0.8125rem; color: var(--ink-mid); }
-  dl { margin: 1.25rem 0 0; }
+  header { margin: 3rem 0; }
+  h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); }
+  section { margin: 3rem 0; }
   .row { padding: 1rem 0; border-top: 1px solid var(--rule-soft); }
   dt { font-weight: 600; }
-  dt code { font-size: 0.9em; }
-  dd { margin: 0.35rem 0 0; color: var(--ink-mid); }
-  section { margin: 2.5rem 0; }
+  dd { margin: .4rem 0 0; color: var(--ink-mid); }
 </style>

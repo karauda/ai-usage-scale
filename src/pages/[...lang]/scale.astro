@@ -24,7 +24,7 @@ const L = (p: string) => localePath(lang, p);
       '@id': `https://usagescale.org${L('/scale')}#page`,
       name: t.ui.scalePage.h1,
       inLanguage: lang,
-      mainEntity: { '@id': 'https://usagescale.org/#scale' },
+      mainEntity: { '@id': lang === 'en' ? 'https://usagescale.org/#scale' : `https://usagescale.org${L('/scale')}#vocabulary` },
       isPartOf: { '@id': 'https://usagescale.org/#site' },
     },
   ]}
@@ -48,7 +48,7 @@ const L = (p: string) => localePath(lang, p);
     </div>
   </section>
 
-  <div class="sheet">
+  <div class="sheet" id="vocabulary">
     {
       LEVELS.map((l) => (
         <article class="lv" id={`level-${l.id}`}>
@@ -87,6 +87,7 @@ const L = (p: string) => localePath(lang, p);
 
   .axis {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem;
     padding: 2rem 0;
     border-top: 1px solid var(--rule);
@@ -97,22 +98,21 @@ const L = (p: string) => localePath(lang, p);
 
   .lv {
     display: grid;
-    gap: 1.25rem;
+    grid-template-columns: 5rem minmax(0, 48rem);
+    gap: 3rem;
     padding: 2.25rem 0;
     border-bottom: 1px solid var(--rule-soft);
   }
-  /* Greenbar: the stripe that machine output was printed on, for humans to read. */
-  .lv:nth-child(odd) { background: var(--band); margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); }
-  .lv-mark { display: flex; align-items: center; gap: 1rem; }
+  .lv-mark { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
   .lv-big { font-family: var(--mono); font-weight: 600; font-size: 2.75rem; line-height: 1; }
 
   .lv-body h2 {
     margin: 0 0 0.6rem;
-    font-family: var(--mono);
-    font-size: 0.9375rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 400;
+    border: 0;
+    padding: 0;
   }
   .lv-body h2 a { text-decoration: none; }
   .lv-body h2 a:hover { color: var(--accent); }
@@ -140,5 +140,10 @@ const L = (p: string) => localePath(lang, p);
     color: var(--paper);
     border: 1px solid var(--ink);
   }
-  .cta:hover { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+  .cta:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  @media (max-width: 40rem) {
+    .axis { grid-template-columns: minmax(0, 1fr); }
+    .lv { grid-template-columns: 2.5rem minmax(0, 1fr); gap: 1.25rem; }
+    .lv-big { font-size: 2rem; }
+  }
 </style>

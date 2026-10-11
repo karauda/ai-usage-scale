@@ -1,6 +1,6 @@
 import spec from '../../spec/levels.json';
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 export interface Level {
   id: number;
@@ -14,11 +14,12 @@ export interface Level {
   examples: string[];
   sentences: { short: string; medium: string; long: string };
   mappings: {
-    w3cAiDisclosure: string;
+    w3cAiDisclosure: string | null;
+    w3cAiDisclosureNote?: string;
     iptcDigitalSourceType: string;
     iptcNote?: string;
     schemaOrgAiUsageLevel: number;
-    /** Nearest EU icon from the Code of Practice; null where no AI disclosure duty arises. */
+    /** Illustrative icon mapping; a level alone cannot determine legal obligations. */
     euAiActIcon: 'basic' | 'fully-ai-generated' | 'partially-ai-modified' | null;
     euAiActNote?: string;
   };
@@ -43,10 +44,8 @@ export const byId = (id: number) => {
 /**
  * Inline the badge SVG rather than linking it.
  *
- * A hotlinked badge is a tracking pixel on somebody else's page: it tells us every
- * time their reader loads their article. A standard whose subject is honesty cannot
- * ship one. The CDN copy stays available for people who want the convenience, but
- * copy-paste inline is the default we recommend.
+ * Inline marks need no network request. Hosted copies remain available and reach
+ * the hosting provider when loaded.
  */
 export function badgeSvg(
   id: number,
@@ -57,7 +56,8 @@ export function badgeSvg(
   alt?: string
 ): string {
   const name = `${id}${variant === 'chip' ? '' : `-${variant}`}${theme === 'light' ? '' : `-${theme}`}.svg`;
-  const path = fileURLToPath(new URL(`../../public/badge/${name}`, import.meta.url));
+  // This helper runs only during the static build; bundled module URLs do not locate public/.
+  const path = join(process.cwd(), 'public', 'badge', name);
   const svg = readFileSync(path, 'utf8');
   if (!alt) return svg;
 
@@ -127,23 +127,18 @@ export function embedMeta(id: number): string {
 <meta name="ai-usage" content="${id}">
 <meta name="ai-usage-standard" content="https://usagescale.org">
 
-<!-- Experimental syntax aligned with discussions in the W3C AI Content Disclosure Community Group; not a W3C standard -->
-<meta name="ai-disclosure" content="${l.mappings.w3cAiDisclosure}">
-
 <!-- AI Usage Scale -->
 <link rel="ai-disclosure" href="https://usagescale.org/${id}">
 
-<!-- schema.org -->
+<!-- JSON-LD with a project-defined property; no dedicated Google Search support -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "aiUsageLevel": "https://usagescale.org/spec#aiUsageLevel"
+  },
   "@type": "CreativeWork",
-  "additionalProperty": {
-    "@type": "PropertyValue",
-    "propertyID": "https://usagescale.org/spec#aiUsageLevel",
-    "name": "aiUsageLevel",
-    "value": ${id}
-  }
+  "aiUsageLevel": ${id}
 }
 </script>`;
 }
