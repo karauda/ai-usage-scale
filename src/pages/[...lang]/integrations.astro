@@ -1,5 +1,5 @@
 ---
-import Base from '../../layouts/Base.astro';
+import Document from '../../layouts/Document.astro';
 import Snippet from '../../components/Snippet.astro';
 import { localeParams, localePath } from '../../lib/i18n';
 
@@ -29,25 +29,29 @@ const mcpConfig = `{
   }
 }`;
 ---
-<Base lang={lang} path="/integrations" translated={false}
+<Document sections={[
+    { href: '#endpoints', label: 'Static endpoints' },
+    { href: '#mcp', label: 'Local MCP server' },
+    { href: '#declarations', label: 'Declare the work' }
+  ]} navLabel="Integrations" lang={lang} path="/integrations" translated={false}
   title="Integrations — AI Usage Scale"
   description="Machine-readable vocabulary, validation schemas, declaration examples and a local MCP server."
   breadcrumb={[[ 'Integrations', '/integrations' ]]}>
-  <header class="prose">
+  <header slot="header" class="prose">
     <p class="label">Developer reference</p>
     <h1>Integrations</h1>
     <p class="standfirst">Use the public definitions directly, or keep a versioned copy in your publishing tools.</p>
     <p>The vocabulary and marks are CC0. Website prose is CC BY 4.0; code is MIT.
       Requests to hosted endpoints reach the hosting provider. Inline SVG and downloaded copies work independently.</p>
   </header>
-  <section class="prose">
+  <section id="endpoints" class="prose">
     <h2>Static endpoints</h2>
     <dl>{endpoints.map(([path, description]) => <div class="row">
       <dt><a href={path === '/levels.json' ? L(path) : path}><code>{path}</code></a></dt>
       <dd>{description}</dd>
     </div>)}</dl>
   </section>
-  <section class="prose">
+  <section id="mcp" class="prose">
     <h2>Local MCP server</h2>
     <p>The repository includes a stdio server with four tools: <code>classify</code>, <code>get_level</code>,
       <code>list_levels</code> and <code>get_spec</code>, plus a <code>usagescale://levels.json</code> resource.
@@ -59,7 +63,7 @@ const mcpConfig = `{
     <p>The classifier returns a decision-tree suggestion. Verify the full definition, especially
       Level 3, which requires meaningful human review even though the current tree stops before asking about it.</p>
   </section>
-  <section class="prose">
+  <section id="declarations" class="prose">
     <h2>Declare the work</h2>
     <p>Each <a href={L('/scale')}>level</a> provides a sentence, an SVG mark and metadata.
       The HTML metadata is a project convention. JSON-LD uses an explicitly namespaced extension;
@@ -70,11 +74,8 @@ const mcpConfig = `{
       That path is a project proposal, not a registered well-known URI. This website currently
       publishes no numeric self-declaration: the revised content awaits human editorial review.</p>
   </section>
-</Base>
+</Document>
 <style>
-  header { margin: 3rem 0; }
-  h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); }
-  section { margin: 3rem 0; }
   .row { padding: 1rem 0; border-top: 1px solid var(--rule-soft); }
   dt { font-weight: 600; }
   dd { margin: .4rem 0 0; color: var(--ink-mid); }

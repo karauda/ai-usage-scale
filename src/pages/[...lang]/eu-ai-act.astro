@@ -1,22 +1,27 @@
 ---
-import Base from '../../layouts/Base.astro';
+import Document from '../../layouts/Document.astro';
 import { localeParams } from '../../lib/i18n';
 export const getStaticPaths = localeParams;
 const { lang } = Astro.props;
 ---
 
-<Base lang={lang} path="/eu-ai-act" translated={false}
+<Document sections={[
+    { href: '#duties', label: 'Provider and publisher duties' },
+    { href: '#review', label: 'Review of public-interest text' },
+    { href: '#deepfakes', label: 'Deepfakes and editing' },
+    { href: '#tools', label: 'Voluntary tools' }
+  ]} navLabel="Article 50" lang={lang} path="/eu-ai-act" translated={false}
   title="EU AI Act: disclosure scope — AI Usage Scale"
   description="Article 50 distinguishes provider marking and deployer disclosure duties. A self-declared AI Usage Scale level is not a compliance assessment."
   breadcrumb={[["EU AI Act", "/eu-ai-act"]]}>
-  <header class="top prose">
+  <header slot="header" class="top prose">
     <p class="label">Legal context / Sources checked 10 October 2026</p>
-    <h1>Disclosure has a scope.<br />A level does not decide it.</h1>
+    <h1>AI disclosure under Article 50</h1>
     <p class="standfirst">The scale can describe a process. Article 50 asks separate questions
       about the system, the actor, the content and its publication.</p>
   </header>
   <article class="prose">
-    <h2>Provider marking and publisher disclosure</h2>
+    <h2 id="duties">Provider marking and publisher disclosure</h2>
     <p><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj">Regulation (EU) 2024/1689</a>
       distinguishes providers' machine-readable marking duties under Article 50(2) from
       deployers' disclosure duties under Article 50(4). A voluntary badge or HTML meta tag
@@ -25,7 +30,7 @@ const { lang } = Astro.props;
       states that Article 50 applies from 2 August 2026. The limited grace period to
       2 December 2026 concerns provider marking and detection for systems already on the market
       before 2 August, rather than a general postponement of all disclosure obligations.</p>
-    <h2>Review of public-interest text</h2>
+    <h2 id="review">Review of public-interest text</h2>
     <p>For AI-generated or manipulated text published to inform the public on matters of
       public interest, human review or editorial control together with editorial responsibility
       can affect the disclosure obligation. The Commission distinguishes substantive review
@@ -33,13 +38,13 @@ const { lang } = Astro.props;
     <p>Levels 3 and 4 require meaningful review in their definitions. That is relevant context;
       it does not establish a legal exemption. Level 2 does not automatically prove review,
       and Level 5 does not itself determine whether the publication falls within the legal scope.</p>
-    <h2>Deepfakes and editing</h2>
+    <h2 id="deepfakes">Deepfakes and editing</h2>
     <p>The text-specific review exception does not provide a blanket exemption for deepfakes.
       Assess the content and the relevant rules separately. Likewise, the standard-editing
       exception in Article 50(2) is about the actual function and output, rather than a level number.</p>
     <p>The Commission's source-code scope guidance concerns provider marking under Article 50(2).
       It should not be restated as a universal exemption for any publication containing code.</p>
-    <h2>Voluntary tools</h2>
+    <h2 id="tools">Voluntary tools</h2>
     <p>The Commission publishes a
       <a href="https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content">Code of Practice on transparency</a>
       and <a href="https://digital-strategy.ec.europa.eu/en/policies/eu-icons-labelling-ai-generated-content">EU labelling icons</a>.
@@ -48,5 +53,5 @@ const { lang } = Astro.props;
     <p>This page is a brief orientation to the cited primary sources. For an actual publication,
       assess the applicable law, role and context using current guidance and qualified advice.</p>
   </article>
-</Base>
-<style>.top { margin: 4rem 0 3rem; } article { margin-inline-start: auto; max-width: 48rem; }</style>
+</Document>
+<style> article { max-width: none; }</style>

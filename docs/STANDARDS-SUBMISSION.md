@@ -1,4 +1,4 @@
-# Standards submissions — v1.3.0
+# Standards submissions — v1.3.1
 
 Prepared 10 October 2026; publication and public submissions requested by the maintainer on 11 October. The [live submission and pilot record](https://github.com/karauda/ai-usage-scale/issues/11) tracks publication results and links to the actual submissions. This document describes an independent proposal, with limited implementation evidence and an unresolved review boundary.
 
@@ -26,7 +26,7 @@ Schema.org acceptance and Google Search feature support are separate processes. 
 >
 > Would contributions describing original human substance and meaningful human review help the vocabulary work already underway? I can provide the definitions, mixed-surface examples, JSON Schemas and conformance cases for discussion.
 
-The public submission should link to release v1.3.0 and reflect the surrounding discussion at the time of posting. The website revision itself awaits human editorial review; publication does not change that status.
+The public submission should link to release v1.3.1 and reflect the surrounding discussion at the time of posting. The website revision itself awaits human editorial review; publication does not change that status.
 
 The W3C group's [contribution rules](https://github.com/w3c-cg/ai-content-disclosure/blob/main/CONTRIBUTING.md) require Community Group membership for substantive specification contributions. The initial submission is a related-work listing request through its public issue tracker. A normative contribution or participation agreement requires a separate maintainer decision.
 

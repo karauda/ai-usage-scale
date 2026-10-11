@@ -138,7 +138,7 @@ try {
     assert.match(await page.evaluate(() => navigator.clipboard.readText()), /Level 3 on the AI Usage Scale/);
   });
   await check('WCAG A/AA automated checks pass for core pages, RTL and both themes', async () => {
-    for (const route of ['/', '/pl', '/ar', '/zh', '/find-your-level', '/pl/find-your-level', '/0', '/1', '/2', '/3', '/4', '/5', '/scale', '/spec', '/badges', '/project', '/cases', '/integrations', '/eu-ai-act', '/ecosystem']) {
+    for (const route of ['/', '/pl', '/ar', '/zh', '/find-your-level', '/pl/find-your-level', '/0', '/1', '/2', '/3', '/4', '/5', '/scale', '/spec', '/ar/spec', '/badges', '/project', '/cases', '/integrations', '/eu-ai-act', '/ecosystem']) {
       await page.goto(origin + route);
       const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
       assert.equal(result.violations.length, 0, route + ': ' + JSON.stringify(result.violations.map(v => ({ id: v.id, nodes: v.nodes.map(n => n.target) }))));
@@ -167,6 +167,32 @@ try {
     assert.ok(await svgCode.locator('pre').isVisible());
     await noJS.close();
   });
+  await check('document headings, reading columns and mobile contents work together', async () => {
+    for (const route of ['/spec', '/project', '/integrations', '/eu-ai-act', '/cases', '/ecosystem', '/badges', '/pl/spec', '/ar/spec']) {
+      await page.setViewportSize({ width: 1440, height: 1000 });
+      await page.goto(origin + route);
+      const alignment = await page.evaluate(() => {
+        const header = document.querySelector('.document-head').getBoundingClientRect();
+        const body = document.querySelector('.document-body').getBoundingClientRect();
+        return { left: Math.abs(header.left - body.left), right: Math.abs(header.right - body.right), width: body.width };
+      });
+      assert.ok(alignment.left < 1 && alignment.right < 1, route + ': header and body are misaligned');
+      assert.ok(alignment.width <= 673, route + ': reading column is too wide');
+      await page.setViewportSize({ width: 390, height: 1000 });
+      await page.goto(origin + route);
+      const contents = page.locator('.document-mobile-toc');
+      assert.equal(await contents.getAttribute('open'), null, route + ': mobile contents should start compact');
+      await contents.locator('summary').focus();
+      await page.keyboard.press('Space');
+      assert.ok(await contents.locator('nav a').first().isVisible());
+      await contents.locator('nav a').first().click();
+      assert.ok(new URL(page.url()).hash, route + ': contents link did not navigate');
+      if (route === '/ar/spec') {
+        const directions = await page.locator('.snippet pre, .mapping-table, .interop').evaluateAll(elements => elements.map(el => getComputedStyle(el).direction));
+        assert.ok(directions.every(direction => direction === 'ltr'), 'English references and code must remain readable inside RTL pages');
+      }
+    }
+  });
   await check('screenshots and browser report are saved', async () => {
     await page.evaluate(() => localStorage.removeItem('theme'));
     for (const [name, route, width] of [['en-desktop', '/', 1440], ['pl-desktop', '/pl', 1440], ['pl-mobile', '/pl', 375], ['ar-mobile', '/ar', 375], ['zh-mobile', '/zh', 375], ['level-3', '/3', 1440]]) {
@@ -179,6 +205,19 @@ try {
     await page.goto(origin);
     await page.locator('[data-theme-toggle]').click();
     await page.screenshot({ path: join(output, 'en-dark.png'), fullPage: true });
+    await page.evaluate(() => localStorage.setItem('theme', 'light'));
+    for (const [name, route, width] of [
+      ['project-desktop', '/project', 1440], ['project-mobile', '/project', 390],
+      ['spec-desktop', '/spec', 1440], ['spec-mobile', '/spec', 390],
+      ['spec-mapping-desktop', '/spec#interop', 1440], ['spec-mapping-mobile', '/spec#interop', 390],
+      ['integrations-desktop', '/integrations', 1440], ['badges-desktop', '/badges', 1440],
+      ['ar-spec-mobile', '/ar/spec', 390]
+    ]) {
+      await page.setViewportSize({ width, height: 1000 });
+      await page.goto(origin + route);
+      await page.evaluate(() => document.fonts.ready);
+      await page.screenshot({ path: join(output, name + '.png'), fullPage: !route.includes('#') });
+    }
   });
   assert.deepEqual(errors, [], 'Browser/CSP errors: ' + errors.join('\n'));
   assert.deepEqual(external, [], 'External resource requests: ' + external.join('\n'));

@@ -1,5 +1,5 @@
 ---
-import Base from '../../layouts/Base.astro';
+import Document from '../../layouts/Document.astro';
 import TranslationNotice from '../../components/TranslationNotice.astro';
 import { levelAlt, adaptiveMark } from '../../lib/levels';
 import { localeParams, getLocale, levelsIn, localePath } from '../../lib/i18n';
@@ -13,7 +13,12 @@ const L = (p: string) => localePath(lang, p);
 const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
 ---
 
-<Base
+<Document sections={[
+    { href: '#marks', label: t.ui.level.allLevels },
+    { href: '#use', label: t.ui.badgesPage.hotlinkH },
+    { href: '#rules', label: t.ui.badgesPage.rulesH },
+    { href: '#placement', label: t.ui.badgesPage.whereH }
+  ]} navLabel={t.ui.badgesPage.eyebrow}
   lang={lang}
   path="/badges"
   title={`${t.ui.badgesPage.h1} — AI Usage Scale`}
@@ -21,16 +26,17 @@ const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
   card="default"
   breadcrumb={[[t.ui.nav.badges, '/badges']]}
 >
-  <TranslationNotice lang={lang} path="/badges" />
+  <TranslationNotice slot="notice" lang={lang} path="/badges" />
 
-  <header class="top prose">
+  <header slot="header" class="top prose">
     <p class="label">{t.ui.badgesPage.eyebrow}</p>
     <h1>{t.ui.badgesPage.h1}</h1>
     <p class="standfirst">{t.ui.badgesPage.standfirst}</p>
     <p>{t.ui.badgesPage.intro}</p>
   </header>
 
-  <section class="grid" aria-label={t.ui.level.allLevels}>
+  <section id="marks" aria-label={t.ui.level.allLevels}>
+    <div class="grid">
     {
       LEVELS.map((l) => (
         <div class="cell">
@@ -47,24 +53,23 @@ const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
         </div>
       ))
     }
+    </div>
   </section>
 
   <section class="prose why">
-    <h2>{t.ui.badgesPage.hotlinkH}</h2>
+    <h2 id="use">{t.ui.badgesPage.hotlinkH}</h2>
     <p>{t.ui.badgesPage.hotlinkA}</p>
     <p>{t.ui.badgesPage.hotlinkB}</p>
 
-    <h2>{t.ui.badgesPage.rulesH}</h2>
+    <h2 id="rules">{t.ui.badgesPage.rulesH}</h2>
     <ul>{t.ui.badgesPage.rules.map((r: string) => <li>{r}</li>)}</ul>
 
-    <h2>{t.ui.badgesPage.whereH}</h2>
+    <h2 id="placement">{t.ui.badgesPage.whereH}</h2>
     <p>{t.ui.badgesPage.whereA}</p>
   </section>
-</Base>
+</Document>
 
 <style>
-  .top { margin: 3rem 0 2.5rem; }
-  .top h1 { font-size: clamp(2.25rem, 6vw, 3.25rem); letter-spacing: -0.02em; margin: 0.4rem 0 0.75rem; }
   .top p:not(.standfirst):not(.label) { color: var(--ink-mid); }
 
   .grid {
@@ -73,7 +78,7 @@ const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
     background: var(--rule);
     border: 1px solid var(--rule);
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
-    margin: 2.5rem 0 4rem;
+    margin: 0;
   }
   .cell {
     background: var(--paper);
@@ -97,7 +102,6 @@ const alt = (x: any) => levelAlt(x, t.ui.hero.levelHead);
   .cell-links a { color: var(--ink-soft); text-decoration: none; }
   .cell-links a:hover { color: var(--accent); text-decoration: underline; }
 
-  .why h2 { font-size: 1.375rem; }
   .why p, .why li { color: var(--ink-mid); }
   .why ul { padding: 0; list-style: none; }
   .why li { position: relative; padding-inline-start: 1.1rem; margin-bottom: 0.5rem; }

@@ -4,7 +4,7 @@
   standards and tools, like the mark itself), so this page carries NO translation notice — it
   is not a translation of anything, and claiming otherwise would break the site's own rule.
 */
-import Base from '../../layouts/Base.astro';
+import Document from '../../layouts/Document.astro';
 import { localeParams } from '../../lib/i18n';
 import { ECOSYSTEM } from '../../data/ecosystem';
 
@@ -19,7 +19,7 @@ const relLabel: Record<string, string> = {
 };
 ---
 
-<Base
+<Document sections={ECOSYSTEM.map(cat => ({ href: '#' + cat.key, label: cat.title }))} navLabel="Resources"
   lang={lang}
   path="/ecosystem"
   translated={false}
@@ -36,7 +36,7 @@ const relLabel: Record<string, string> = {
     },
   ]}
 >
-  <header class="top prose">
+  <header slot="header" class="top prose">
     <p class="label">Reference</p>
     <h1>The AI-provenance ecosystem</h1>
     <p class="standfirst">
@@ -48,7 +48,7 @@ const relLabel: Record<string, string> = {
 
   {
     ECOSYSTEM.map((cat) => (
-      <section class="cat prose">
+      <section id={cat.key} class="cat prose">
         <h2>{cat.title}</h2>
         <p class="blurb">{cat.blurb}</p>
         <dl>
@@ -73,12 +73,10 @@ const relLabel: Record<string, string> = {
       </section>
     ))
   }
-</Base>
+</Document>
 
 <style>
-  .top { margin: 2rem 0 1rem; }
   .meta { font-family: var(--mono); font-size: 0.8125rem; color: var(--ink-mid); }
-  .cat { margin: 3rem 0; }
   .blurb { color: var(--ink-mid); max-width: var(--measure); }
   dl { margin: 1.5rem 0 0; }
   .entry { padding: 1.1rem 0; border-top: 1px solid var(--rule-soft); }

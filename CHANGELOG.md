@@ -4,6 +4,13 @@ All notable changes to the AI Usage Scale. The scale follows [semantic versionin
 a **major** bump means a level's meaning changed, and would invalidate declarations already
 published. We will work very hard never to do that.
 
+## [1.3.1] — 2026-10-11
+
+- Rebuild seven reference views around one document layout: aligned headings and reading columns, a sticky desktop contents list and native collapsible mobile navigation.
+- Replace the wide decision table with readable question steps; stack mapping fields on mobile and keep short inline code terms together. Add labelled, copyable specification examples.
+- Keep English reference blocks and code readable inside RTL pages; align gallery and example spacing with the shared layout.
+- Condense project status into scope, evidence, standards discussion and review records. Review status and classification criteria are unchanged.
+
 ## [1.3.0] — 2026-10-11
 
 This website and tooling revision preserves the v1.2.0 classification criteria and decision branches.

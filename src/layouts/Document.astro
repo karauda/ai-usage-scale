@@ -1,0 +1,42 @@
+---
+import type { ComponentProps } from 'astro/types';
+import Base from './Base.astro';
+
+type Props = ComponentProps<typeof Base> & {
+  sections: Array<{ href: string; label: string }>;
+  navLabel: string;
+};
+const { sections, navLabel, ...page } = Astro.props;
+---
+
+<Base {...page}>
+  <div class="document">
+    <div class="document-notice"><slot name="notice" /></div>
+    <div class="document-head"><slot name="header" /></div>
+    <details class="document-mobile-toc">
+      <summary>{navLabel}<span aria-hidden="true">⌄</span></summary>
+      <nav aria-label={navLabel}><ul>{sections.map(({ href, label }) => <li><a href={href}>{label}</a></li>)}</ul></nav>
+    </details>
+    <div class="document-layout">
+      <nav class="document-nav" aria-label={navLabel}>
+        <p class="label">{navLabel}</p>
+        <ul>{sections.map(({ href, label }) => <li><a href={href}>{label}</a></li>)}</ul>
+      </nav>
+      <div class="document-body"><slot /></div>
+    </div>
+  </div>
+</Base>
+
+<script>
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('.document-nav a, .document-mobile-toc a')];
+  const targets = links.map(link => document.getElementById(link.hash.slice(1))).filter(Boolean);
+  const observer = new IntersectionObserver(entries => {
+    const visible = entries.find(entry => entry.isIntersecting);
+    if (!visible) return;
+    for (const link of links) {
+      if (link.hash === '#' + visible.target.id) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    }
+  }, { rootMargin: '-8% 0px -65% 0px' });
+  for (const target of targets) if (target) observer.observe(target);
+</script>
